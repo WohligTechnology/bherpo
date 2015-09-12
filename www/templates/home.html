@@ -1,0 +1,28 @@
+<ion-view view-title="Home">
+  <ion-content>
+  
+   <ion-slide-box on-slide-changed="slideHasChanged($index)">
+            <ion-slide ng-repeat="slide in slides">
+                <img ng-src="{{slide.image}}" class="full-image" >
+            </ion-slide>
+        </ion-slide-box>
+<div class="list">
+
+    <a class="item item-avatar" href="#" style="margin-bottom: 10px;">
+      <img src="img/1.jpg">
+      <h2>Basketball</h2>
+      <p>Back off, man. I'm a scientist.</p>
+    </a>
+    <a class="item item-avatar" href="#" style="margin-bottom: 10px;">
+      <img src="img/2.jpg">
+      <h2>Football</h2>
+      <p>Back off, man. I'm a scientist.</p>
+    </a>
+        <a class="item item-avatar" href="#" style="margin-bottom: 10px;">
+      <img src="img/3.jpg">
+      <h2>Tennis</h2>
+      <p>Back off, man. I'm a scientist.</p>
+    </a>
+</div>
+  </ion-content>
+</ion-view>
