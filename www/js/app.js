@@ -32,23 +32,70 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     controller: 'AppCtrl'
   })
 
-  .state('app.search', {
-    url: '/search',
+  .state('app.team', {
+    url: '/team',
     views: {
       'menuContent': {
-        templateUrl: 'templates/search.html'
+        templateUrl: 'templates/team.html',
+           controller: 'TeamCtrl'
+      }
+    }
+  })  
+      .state('app.event', {
+    url: '/event',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/event.html',
+           controller: 'EventCtrl'
+      }
+    }
+  }) 
+      .state('app.score', {
+    url: '/score',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/score.html',
+           controller: 'ScoreCtrl'
+      }
+    }
+  })   
+      .state('app.merchandise', {
+    url: '/merchandise',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/merchandise.html',
+           controller: 'MerchandiseCtrl'
+      }
+    }
+  }) 
+      .state('app.contact', {
+    url: '/contact',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/contact.html',
+           controller: 'ConatctCtrl'
+      }
+    }
+  })
+  .state('app.sponsor', {
+    url: '/sponsor',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/sponsor.html',
+           controller: 'SponsorCtrl'
+      }
+    }
+  })
+ .state('app.notification', {
+    url: '/notification',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/notification.html',
+           controller: 'NotificationCtrl'
       }
     }
   })
 
-  .state('app.browse', {
-      url: '/browse',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/browse.html'
-        }
-      }
-    })
     .state('app.home', {
       url: '/home',
       views: {
@@ -58,16 +105,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
       }
     })
-
-  .state('app.single', {
-    url: '/playlists/:playlistId',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/playlist.html',
-        controller: 'PlaylistCtrl'
+    .state('app.gallery', {
+      url: '/gallery',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/gallery.html',
+          controller: 'GalleryCtrl'
+        }
       }
-    }
-  });
+    });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/home');
 });

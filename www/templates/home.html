@@ -1,28 +1,49 @@
 <ion-view view-title="Home">
-  <ion-content>
-  
-   <ion-slide-box on-slide-changed="slideHasChanged($index)">
+    <ion-content>
+
+        <ion-slide-box on-slide-changed="slideHasChanged($index)">
             <ion-slide ng-repeat="slide in slides">
-                <img ng-src="{{slide.image}}" class="full-image" >
+                <img ng-src="{{slide.image}}" class="full-image">
             </ion-slide>
         </ion-slide-box>
-<div class="list">
+        <div class="register text-center padding">
+            <button class="button button-block button-positive">
+                Register Now
+            </button>
+        </div>
+        <div class="gallery-img ">
+            <h4 class="paddleft marzero">Gallery</h4>
+            <div class="row">
+                <div class="col col-25" ng-repeat="item in gallery">
+                    <div class="img-hold">
+                        <img ng-src="{{item.image}}" class="full-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="view-more text-center" ui-sref="app.gallery">
+            <h4> View More</h4>
+            <hr>
+        </div>
+        <div class="list notitfy">
+            <div class="item item-divider text-center">
+                Notification
 
-    <a class="item item-avatar" href="#" style="margin-bottom: 10px;">
-      <img src="img/1.jpg">
-      <h2>Basketball</h2>
-      <p>Back off, man. I'm a scientist.</p>
-    </a>
-    <a class="item item-avatar" href="#" style="margin-bottom: 10px;">
-      <img src="img/2.jpg">
-      <h2>Football</h2>
-      <p>Back off, man. I'm a scientist.</p>
-    </a>
-        <a class="item item-avatar" href="#" style="margin-bottom: 10px;">
-      <img src="img/3.jpg">
-      <h2>Tennis</h2>
-      <p>Back off, man. I'm a scientist.</p>
-    </a>
-</div>
-  </ion-content>
+            </div>
+            <div class="padding">
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+            </div>
+
+        </div>
+        <div class="gallery-img ">
+            <h4 class="paddleft marzero">Sponsor</h4>
+            <ion-slide-box on-slide-changed="slideHasChanged($index)">
+                <ion-slide ng-repeat="slides in repeatslides">
+                    <div class="row">
+                        <div class="col" ng-repeat="img in slides"><img src="{{img.image}}" class="full-image"></div>
+                    </div>
+                </ion-slide>
+            </ion-slide-box>
+        </div>
+    </ion-content>
 </ion-view>
