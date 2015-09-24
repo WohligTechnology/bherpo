@@ -1,58 +1,72 @@
 <ion-side-menus enable-menu-with-back-views="false">
-    <ion-side-menu-content>
-        <ion-nav-bar class="bar-calm">
-            <ion-nav-back-button>
-            </ion-nav-back-button>
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-calm">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
 
-            <ion-nav-buttons side="left">
-                <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
-                </button>
-            </ion-nav-buttons>
-        </ion-nav-bar>
-        <ion-nav-view name="menuContent"></ion-nav-view>
-    </ion-side-menu-content>
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
 
-    <ion-side-menu side="left">
-        <ion-header-bar class="bar-side">
+  <ion-side-menu side="left">
+    <ion-header-bar class="bar-side" style="height:143px;">
 
-            <div class="list side-image text-center">
-                <div class="img-box">
-                    <img src="img/logo.jpg" class="full-image">
-                </div>
-            </div>
+      <div class=" side-image text-center">
+      
+          <img src="img/logo.jpg" >
+       
+      </div>
 
-        </ion-header-bar>
-        <ion-content style="top:125px" class="menu-list">
-            <ion-list class="icon">
-                <ion-item nav-clear menu-close href="#/app/home">
-                    <i class="ln-home3"></i> Bhepro
-                </ion-item>
-                <ion-item nav-clear menu-close href="#/app/gallery">
-                    <i class="ln-picture"></i> Gallery
-                </ion-item>
-                <ion-item nav-clear menu-close href="#/app/sponsor">
-                    <i class="ln-users2"></i> Sponsor
-                </ion-item>
-                <ion-item nav-clear menu-close href="#/app/team">
-                    <i class="ln-users"></i> Teams
-                </ion-item>
-                <ion-item nav-clear menu-close href="#/app/event">
+    </ion-header-bar>
+    <ion-content style="top:143px" class="menu-list">
+      <ion-list class="icon">
+        <ion-item nav-clear menu-close href="#/app/home">
+          <i class="ln-home3"></i> Bhepro
+        </ion-item>
+        <ion-item nav-clear menu-close href="#/app/gallery">
+          <i class="ln-picture"></i> Gallery
+        </ion-item>
+        <ion-item nav-clear menu-close href="#/app/team">
+          <i class="ln-users"></i> Teams
+        </ion-item>
+        <ion-item nav-clear menu-close href="#/app/venue">
+          <i class="ln-calendar3"></i> Venue
+        </ion-item>
+         <ion-item nav-clear menu-close href="#/app/sponsor">
+          <i class="ln-briefcase"></i> Sponsor
+        </ion-item>
+         <ion-item nav-clear menu-close href="#/app/score">
+          <i class="ln-medal2"></i> Team Standing
+        </ion-item>
+        <ion-item nav-clear menu-close href="#/app/sponsor">
+          <i class="ln-users2"></i> Schedule
+        </ion-item>
+       
+       
+        <ion-item nav-clear menu-close href="#/app/event">
 
-                    <i class="ln-calendar2"></i>Events
-                </ion-item>
-                <ion-item nav-clear menu-close href="#/app/score">
-                    <i class="ln-trophy"></i> Score
-                </ion-item>
-                <ion-item nav-clear menu-close href="#/app/merchandise">
-                    <i class="ln-cart-full"></i> Merchandise
-                </ion-item>
-                <ion-item nav-clear menu-close href="#/app/contact">
-                    <i class="ln-contacts"></i> Contact
-                </ion-item>
-                    <ion-item nav-clear menu-close href="#/app/notification">
-                    <i class="ln-bell"></i> Notification
-                </ion-item>
-            </ion-list>
-        </ion-content>
-    </ion-side-menu>
+          <i class="ln-calendar2"></i>Events
+        </ion-item>
+        <ion-item nav-clear menu-close href="#/app/notification">
+          <i class="ln-bell"></i> Notification
+        </ion-item>
+        <ion-item nav-clear menu-close href="#/app/score">
+          <i class="ln-trophy"></i> Score
+        </ion-item>
+
+        <ion-item nav-clear menu-close href="#/app/merchandise">
+          <i class="ln-cart-full"></i> Merchandise
+        </ion-item>
+
+
+        <ion-item nav-clear menu-close href="#/app/contact">
+          <i class="ln-contacts"></i> Contact us
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
 </ion-side-menus>

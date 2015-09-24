@@ -1,28 +1,29 @@
 <ion-view view-title="Home">
     <ion-content>
 
-        <ion-slide-box on-slide-changed="slideHasChanged($index)">
+        <ion-slide-box on-slide-changed="slideHasChanged($index)" class="home-slide">
             <ion-slide ng-repeat="slide in slides">
                 <img ng-src="{{slide.image}}" class="full-image">
             </ion-slide>
         </ion-slide-box>
-        <div class="register text-center padding">
-            <button class="button button-block button-positive">
+        <div class="register text-center">
+           <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <button class="button button-calm">
                 Register Now
             </button>
         </div>
         <div class="gallery-img ">
-            <h4 class="paddleft marzero">Gallery</h4>
+            <h5 class="paddleft marzero">Gallery</h5>
             <div class="row">
                 <div class="col col-25" ng-repeat="item in gallery">
                     <div class="img-hold">
-                        <img ng-src="{{item.image}}" class="full-image">
+                        <img ng-src="{{item.image}}" >
                     </div>
                 </div>
             </div>
         </div>
         <div class="view-more text-center" ui-sref="app.gallery">
-            <h4> View More</h4>
+            <h5> View More</h5>
             <hr>
         </div>
         <div class="list notitfy">
@@ -35,12 +36,13 @@
             </div>
 
         </div>
+        <hr class="hr">
         <div class="gallery-img ">
-            <h4 class="paddleft marzero">Sponsor</h4>
+            <h5 class="paddleft marzero">Sponsor</h5>
             <ion-slide-box on-slide-changed="slideHasChanged($index)">
                 <ion-slide ng-repeat="slides in repeatslides">
                     <div class="row">
-                        <div class="col" ng-repeat="img in slides"><img src="{{img.image}}" class="full-image"></div>
+                        <div class="col" ng-repeat="img in slides"><img ng-src="{{img.image}}" class="full-image"></div>
                     </div>
                 </ion-slide>
             </ion-slide-box>

@@ -95,6 +95,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     }
   })
+ .state('app.venue', {
+    url: '/venue',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/venue.html',
+           controller: 'VenueCtrl'
+      }
+    }
+  })
 
     .state('app.home', {
       url: '/home',

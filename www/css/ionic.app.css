@@ -16,44 +16,65 @@ $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
 @font-face {
-  font-family: 'Source Sans Pro';
-  src: url(../fonts/SourceSansPro-Regular.ttf);
+  font-family: 'Comfortaa';
+  src: url(../fonts/cr.ttf);
   font-weight: 400; }
 
 @font-face {
-  font-family: 'Source Sans Pro';
-  src: url(../fonts/SourceSansPro-Bold.ttf);
+  font-family: 'Comfortaa';
+  src: url(../fonts/cb.ttf);
   font-weight: 700; }
 
 @font-face {
-  font-family: 'Source Sans Pro';
-  src: url(../fonts/SourceSansPro-ExtraLight.ttf);
+  font-family: 'Comfortaa';
+  src: url(../fonts/cl.ttf);
   font-weight: 200; }
 
-@font-face {
-  font-family: 'Source Sans Pro';
-  src: url(../fonts/SourceSansPro-Light.ttf);
-  font-weight: 300; }
+.home-slide .slider-slide {
+  height: 157px !important;
+  overflow: hidden; }
+  .home-slide .slider-slide img {
+    height: auto; }
 
-@font-face {
-  font-family: 'Source Sans Pro';
-  src: url(../fonts/SourceSansPro-Semibold.ttf);
-  font-weight: 600; }
+p {
+  font-size: 13px;
+  color: grey; }
 
-.common-font, .gallery-img h4, .view-more h4 {
+.common-font, .gallery-img h5, .view-more h5, .venue .item-icon-left h3 {
   font-weight: 400 !important;
   color: #002c5f !important; }
 
 .marzero {
   margin: 0; }
 
+.active {
+  color: #fff;
+  border: 0 solid #fff;
+  border-width: 0px 0px 3px 0px !important; }
+
 .register {
-  margin: 35px 0px 10px; }
+  margin: 25px 0px 25px; }
+  .register button {
+    font-size: 14px;
+    min-height: 35px;
+    line-height: 40px;
+    padding: 0px 45px; }
 
-.gallery-img .paddleft {
-  padding-left: 10px; }
+.gallery-img {
+  margin-top: 25px; }
+  .gallery-img h5 {
+    font-size: 16px; }
+  .gallery-img .paddleft {
+    padding-left: 10px; }
+  .gallery-img .img-hold {
+    width: 100%;
+    height: 60px;
+    overflow: hidden;
+    display: block; }
+    .gallery-img .img-hold img {
+      height: 60px; }
 
-.view-more h4 {
+.view-more h5 {
   margin-bottom: 0; }
 .view-more hr {
   width: 50px; }
@@ -61,17 +82,77 @@ $dark:                            #444 !default;
 .notitfy {
   margin-top: 30px;
   color: #002c5f; }
+  .notitfy .item-divider {
+    background-color: #002c5f;
+    color: #fff;
+    font-size: 15px; }
+  .notitfy p {
+    margin: 16px 0px 0px; }
 
 .menu-list .item .item-content {
   color: #444;
   font-weight: 100;
   text-transform: capitalize;
-  font-size: 16px;
+  font-size: 14px;
   padding: 16px 49px 16px 26px; }
   .menu-list .item .item-content i {
     padding-right: 15px;
     font-size: 20px;
     vertical-align: sub; }
+
+.hr {
+  width: 150px; }
+
+.team {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; }
+  .team figure {
+    height: 180px; }
+  .team .layer {
+    background: rgba(0, 37, 197, 0.47);
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 180px; }
+  .team .team-name {
+    float: left; }
+    .team .team-name h4 {
+      color: #fff;
+      font-weight: 400;
+      line-height: 4;
+      text-transform: capitalize; }
+  .team .team-logo {
+    float: right;
+    overflow: hidden;
+    display: block;
+    width: 70px; }
+    .team .team-logo img {
+      height: auto;
+      width: 100%; }
+  .team .inner-layer {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    padding: 0px 10px 0px 10px; }
+
+.side-image {
+  text-align: center;
+  margin: 15px auto;
+  width: 100%; }
+  .side-image img img {
+    text-align: center;
+    margin: 0 auto;
+    width: 80px;
+    height: 80px; }
+
+.venue .item-icon-left {
+  padding-left: 25px; }
+  .venue .item-icon-left h3 {
+    font-size: 16px; }
 
 /*!
   Ionicons, v2.0.1
@@ -2624,7 +2705,7 @@ body, .ionic-body {
   color: #4a606f;
   word-wrap: break-word;
   font-size: 14px;
-  font-family: "Source Sans Pro", "Helvetica Neue", "Roboto", "Segoe UI", sans-serif;
+  font-family: "Comfortaa", cursive "Helvetica Neue", "Roboto", "Segoe UI", sans-serif;
   line-height: 20px;
   text-rendering: optimizeLegibility;
   -webkit-backface-visibility: hidden;
@@ -2854,7 +2935,7 @@ cite {
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   color: #4a606f;
   font-weight: 300;
-  font-family: "Source Sans Pro", "Helvetica Neue", "Roboto", "Segoe UI", sans-serif;
+  font-family: "Comfortaa", cursive "Helvetica Neue", "Roboto", "Segoe UI", sans-serif;
   line-height: 1.2; }
   h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .h1 small, .h2 small, .h3 small, .h4 small, .h5 small, .h6 small {
     font-weight: normal;
@@ -4205,7 +4286,7 @@ ion-tabs.tabs-color-active-dark .tab-item {
   white-space: nowrap;
   font-weight: 400;
   font-size: 14px;
-  font-family: "Source Sans Pro", "Helvetica Neue", "Roboto", "Segoe UI", sans-serif;
+  font-family: "Comfortaa", cursive "Helvetica Neue", "Roboto", "Segoe UI", sans-serif;
   opacity: 0.7; }
   .tab-item:hover {
     cursor: pointer; }
@@ -5724,7 +5805,7 @@ label, input, button, select, textarea {
   line-height: 1.42857; }
 
 input, button, select, textarea {
-  font-family: "Source Sans Pro", "Helvetica Neue", "Roboto", "Segoe UI", sans-serif; }
+  font-family: "Comfortaa", cursive "Helvetica Neue", "Roboto", "Segoe UI", sans-serif; }
 
 .item-input {
   display: -webkit-box;

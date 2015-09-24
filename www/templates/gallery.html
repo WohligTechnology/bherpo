@@ -1,16 +1,35 @@
 <ion-view view-title="Gallery" >
-  <ion-content>
-<!--
-   <div class="row" ng-repeat="item in gallerys track by $index">
-       <div class="col col-33" ng-repeat="img in item">
-           <div class="img-hold">
-               <img ng-src="{{img.image}}" class="full-image">
-           </div>
-       </div>
-   </div>
--->
+ 
+     <div class="tabs-striped tabs-top tabs-background-calm tabs-color-light">
+        <div class="tabs">
+            <a class="tab-item {{classa}}" ng-click="tabchange('photos',1)">
+                <span>Photos</span>
+            </a>
+            <a class="tab-item {{classb}}" ng-click="tabchange('video',2)">
+                <span>Video</span>
+            </a>
+          
+        </div>
+    </div>
+  <ion-content class="has-tabs-top">
+      <div class="photos" ng-show="tab=='photos'">
  
       <ion-gallery ion-gallery-items="gallery" ng-if="gallery"></ion-gallery>
+      </div>
+      <div class="gallery" ng-show="tab=='video'">
+ 
+    <div class="row">
+        <div class="col col-33">
+            <iframe width="100%" height="100" src="https://www.youtube.com/embed/eps0J53sb_w" frameborder="0" allowfullscreen></iframe>
+        </div>
+           <div class="col col-33">
+            <iframe width="100%" height="100" src="https://www.youtube.com/embed/cuw_fmiy3nA" frameborder="0" allowfullscreen></iframe>
+        </div>
+           <div class="col col-33">
+            <iframe width="100%" height="100" src="https://www.youtube.com/embed/oHvSUFmO47U" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+      </div>
       
   </ion-content>
 </ion-view>

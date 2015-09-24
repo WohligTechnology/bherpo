@@ -7,8 +7,8 @@ $energized: #ffc900 !default;
 $assertive: #ef473a !default;
 $royal: #886aea !default;
 $dark: #444 !default;
-$font-family-sans-serif: "Source Sans Pro",
-"Helvetica Neue",
+$font-family-sans-serif: "Comfortaa",
+cursive "Helvetica Neue",
 "Roboto",
 "Segoe UI",
 sans-serif !default;
@@ -27,84 +27,197 @@ $button-height: 40px !default;
 $font-size-input: 15px !default;
 //***** Font Famliy ********
 @font-face {
-    font-family: 'Source Sans Pro';
-    src: url(../fonts/SourceSansPro-Regular.ttf);
-    font-weight: 400;
+  font-family: 'Comfortaa';
+  src: url(../fonts/cr.ttf);
+  font-weight: 400;
 }
 
 @font-face {
-    font-family: 'Source Sans Pro';
-    src: url(../fonts/SourceSansPro-Bold.ttf);
-    font-weight: 700;
+  font-family: 'Comfortaa';
+  src: url(../fonts/cb.ttf);
+  font-weight: 700;
 }
 
 @font-face {
-    font-family: 'Source Sans Pro';
-    src: url(../fonts/SourceSansPro-ExtraLight.ttf);
-    font-weight: 200;
+  font-family: 'Comfortaa';
+  src: url(../fonts/cl.ttf);
+  font-weight: 200;
 }
 
-@font-face {
-    font-family: 'Source Sans Pro';
-    src: url(../fonts/SourceSansPro-Light.ttf);
-    font-weight: 300;
-}
-
-@font-face {
-    font-family: 'Source Sans Pro';
-    src: url(../fonts/SourceSansPro-Semibold.ttf);
-    font-weight: 600;
-}
-
+//@font-face {
+//    font-family: 'Source Sans Pro';
+//    src: url(../fonts/SourceSansPro-Light.ttf);
+//    font-weight: 300;
+//}
+//
+//@font-face {
+//    font-family: 'Source Sans Pro';
+//    src: url(../fonts/SourceSansPro-Semibold.ttf);
+//    font-weight: 600;
+//}
 /// scsss start
-
-.common-font{
-    font-weight: 400 !important;
-    color:$calm !important;
+.home-slide {
+  .slider-slide {
+    height: 157px !important;
+    overflow: hidden;
+    img {
+      height: auto;
+    }
+  }
+}
+p{
+    font-size: 13px;
+    color:grey;
+}
+.common-font {
+  font-weight: 400 !important;
+  color: $calm !important;
 }
 
 .marzero {
-    margin: 0;
+  margin: 0;
 }
-
+.active {
+    color: $light;
+    border: 0 solid $light;
+    border-width: 0px 0px 3px 0px !important;
+}
 .register {
-    margin: 35px 0px 10px;
+  margin: 25px 0px 25px;
+  button {
+    font-size: 14px;
+    min-height: 35px;
+    line-height: 40px;
+    padding: 0px 45px;
+  }
     
 }
 
 .gallery-img {
-    h4{
-      @extend .common-font;  
+  margin-top: 25px;
+  h5 {
+    @extend .common-font;
+      font-size: 16px;
+  }
+  .paddleft {
+    padding-left: 10px
+  }
+  .img-hold {
+    width: 100%;
+    height: 60px;
+    overflow: hidden;
+    display: block;
+    img {
+      height: 60px;
     }
-  
-    .paddleft {
-        padding-left: 10px
-    }
+  }
 }
-.view-more{
-h4{
-      @extend .common-font;  
+
+.view-more {
+  h5 {
+    @extend .common-font;
     margin-bottom: 0;
-    }
-    hr{
-        width: 50px;
-        
-    }
+  }
+  hr {
+    width: 50px;
+  }
 }
+
 .notitfy {
-    margin-top: 30px;
-    color:$calm;
+  margin-top: 30px;
+  color: $calm;
+  .item-divider {
+    background-color: $calm;
+    color: $light;
+    font-size: 15px;
+  }
+  p {
+    margin: 16px 0px 0px;
+  }
 }
 
 .menu-list .item .item-content {
-    color: $dark;
-    font-weight: 100;
-    text-transform: capitalize;
-    font-size: 16px;
-    padding: 16px 49px 16px 26px;
-    i {
-        padding-right: 15px;
-        font-size: 20px;
-        vertical-align: sub;
+  color: $dark;
+  font-weight: 100;
+  text-transform: capitalize;
+  font-size: 14px;
+  padding: 16px 49px 16px 26px;
+  i {
+    padding-right: 15px;
+    font-size: 20px;
+    vertical-align: sub;
+  }
+}
+
+.hr {
+  width: 150px;
+}
+
+.team {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+        overflow: hidden;
+  figure {
+    height: 180px;
+  }
+  .layer {
+    background: rgba(0, 37, 197, 0.47);
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 180px;
+  }
+  .team-name {
+    float: left;
+    h4 {
+      color: $light;
+      font-weight: 400;
+      line-height: 4;
+        text-transform: capitalize;
     }
+  }
+  .team-logo {
+    float: right;
+    overflow: hidden;
+    display: block;
+    width: 70px;
+    img {
+        height: auto;
+    width: 100%;
+    }
+  }
+  .inner-layer {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    padding: 0px 10px 0px 10px;
+  }
+}
+.side-image {
+    text-align: center;
+    margin: 15px auto;
+    width: 100%;
+    img{
+        img {
+    text-align: center;
+    margin: 0 auto;
+   
+    width: 80px;
+    height: 80px;
+}
+    }
+}
+.venue{
+    .item-icon-left {
+    padding-left: 25px;
+        
+        h3{
+            @extend .common-font;   
+            font-size: 16px;
+        }
+      
+}
 }
