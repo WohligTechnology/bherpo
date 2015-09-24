@@ -158,6 +158,10 @@ angular.module('starter.controllers', [ 'ion-gallery'])
 
 
   })
+    .controller('TeamstandingCtrl', function($scope, $ionicModal, $timeout) {
+
+
+  })
   .controller('ConatctCtrl', function($scope, $ionicModal, $timeout) {
 
 

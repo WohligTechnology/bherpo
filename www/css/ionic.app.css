@@ -154,6 +154,17 @@ p {
   .venue .item-icon-left h3 {
     font-size: 16px; }
 
+.tm-standing ul {
+  display: block; }
+  .tm-standing ul li {
+    display: inline-block;
+    font-size: 13px; }
+.tm-standing .item-divider {
+  padding-bottom: 4px;
+  padding-top: 4px; }
+.tm-standing .pull-right {
+  float: right; }
+
 /*!
   Ionicons, v2.0.1
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/

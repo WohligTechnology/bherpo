@@ -221,3 +221,19 @@ p{
       
 }
 }
+    .tm-standing{ 
+        ul{
+            display: block;
+            li{
+                display: inline-block;
+                font-size: 13px;
+            }
+        }
+        .item-divider{
+            padding-bottom: 4px;
+            padding-top: 4px;
+        }
+        .pull-right{
+            float: right;
+        }
+    }

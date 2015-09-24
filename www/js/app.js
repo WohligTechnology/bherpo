@@ -104,6 +104,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     }
   })
+ .state('app.teamstanding', {
+    url: '/teamstanding',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/teamstanding.html',
+           controller: 'TeamstandingCtrl'
+      }
+    }
+  })
 
     .state('app.home', {
       url: '/home',
