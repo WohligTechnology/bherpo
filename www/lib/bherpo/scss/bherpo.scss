@@ -27,23 +27,20 @@ $button-height: 40px !default;
 $font-size-input: 15px !default;
 //***** Font Famliy ********
 @font-face {
-  font-family: 'Comfortaa';
-  src: url(../fonts/cr.ttf);
-  font-weight: 400;
+    font-family: 'Comfortaa';
+    src: url(../fonts/cr.ttf);
+    font-weight: 400;
 }
-
 @font-face {
-  font-family: 'Comfortaa';
-  src: url(../fonts/cb.ttf);
-  font-weight: 700;
+    font-family: 'Comfortaa';
+    src: url(../fonts/cb.ttf);
+    font-weight: 700;
 }
-
 @font-face {
-  font-family: 'Comfortaa';
-  src: url(../fonts/cl.ttf);
-  font-weight: 200;
+    font-family: 'Comfortaa';
+    src: url(../fonts/cl.ttf);
+    font-weight: 200;
 }
-
 //@font-face {
 //    font-family: 'Source Sans Pro';
 //    src: url(../fonts/SourceSansPro-Light.ttf);
@@ -57,25 +54,30 @@ $font-size-input: 15px !default;
 //}
 /// scsss start
 .home-slide {
-  .slider-slide {
-    height: 157px !important;
-    overflow: hidden;
-    img {
-      height: auto;
+    .slider-slide {
+        height: 157px !important;
+        overflow: hidden;
+        img {
+            height: auto;
+        }
     }
-  }
 }
-p{
+ul {
+    display: block
+}
+li {
+    display: inline-block;
+}
+p {
     font-size: 13px;
-    color:grey;
+    color: grey;
 }
 .common-font {
-  font-weight: 400 !important;
-  color: $calm !important;
+    font-weight: 400 !important;
+    color: $calm !important;
 }
-
 .marzero {
-  margin: 0;
+    margin: 0;
 }
 .active {
     color: $light;
@@ -83,157 +85,267 @@ p{
     border-width: 0px 0px 3px 0px !important;
 }
 .register {
-  margin: 25px 0px 25px;
-  button {
-    font-size: 14px;
-    min-height: 35px;
-    line-height: 40px;
-    padding: 0px 45px;
-  }
-    
+    margin: 25px 0px 25px;
+    button {
+        font-size: 14px;
+        min-height: 35px;
+        line-height: 40px;
+        padding: 0px 45px;
+    }
 }
-
 .gallery-img {
-  margin-top: 25px;
-  h5 {
-    @extend .common-font;
-      font-size: 16px;
-  }
-  .paddleft {
-    padding-left: 10px
-  }
-  .img-hold {
-    width: 100%;
-    height: 60px;
-    overflow: hidden;
-    display: block;
-    img {
-      height: 60px;
+    margin-top: 25px;
+    h5 {
+        @extend .common-font;
+        font-size: 16px;
     }
-  }
-}
-
-.view-more {
-  h5 {
-    @extend .common-font;
-    margin-bottom: 0;
-  }
-  hr {
-    width: 50px;
-  }
-}
-
-.notitfy {
-  margin-top: 30px;
-  color: $calm;
-  .item-divider {
-    background-color: $calm;
-    color: $light;
-    font-size: 15px;
-  }
-  p {
-    margin: 16px 0px 0px;
-  }
-}
-
-.menu-list .item .item-content {
-  color: $dark;
-  font-weight: 100;
-  text-transform: capitalize;
-  font-size: 14px;
-  padding: 16px 49px 16px 26px;
-  i {
-    padding-right: 15px;
-    font-size: 20px;
-    vertical-align: sub;
-  }
-}
-
-.hr {
-  width: 150px;
-}
-
-.team {
-  position: relative;
-  display: block;
-  width: 100%;
-  height: 100%;
+    .paddleft {
+        padding-left: 10px
+    }
+    .img-hold {
+        width: 100%;
+        height: 60px;
         overflow: hidden;
-  figure {
-    height: 180px;
-  }
-  .layer {
-    background: rgba(0, 37, 197, 0.47);
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 180px;
-  }
-  .team-name {
-    float: left;
-    h4 {
-      color: $light;
-      font-weight: 400;
-      line-height: 4;
-        text-transform: capitalize;
+        display: block;
+        img {
+            height: 60px;
+        }
     }
-  }
-  .team-logo {
-    float: right;
-    overflow: hidden;
+}
+.view-more {
+    h5 {
+        @extend .common-font;
+        margin-bottom: 0;
+    }
+    hr {
+        width: 50px;
+    }
+}
+.notitfy {
+    margin-top: 30px;
+    color: $calm;
+    .item-divider {
+        background-color: $calm;
+        color: $light;
+        font-size: 15px;
+    }
+    p {
+        margin: 16px 0px 0px;
+    }
+}
+.menu-list .item .item-content {
+    color: $dark;
+    font-weight: 100;
+    text-transform: capitalize;
+    font-size: 14px;
+    padding: 16px 0px 16px 26px;
+    i {
+        
+        font-size: 20px;
+        vertical-align: sub;
+    }
+    span{
+            display: inline-block;
+    width: 35px;
+    }
+}
+.hr {
+    width: 150px;
+}
+.team {
+    position: relative;
     display: block;
-    width: 70px;
-    img {
-        height: auto;
     width: 100%;
+    height: 100%;
+    overflow: hidden;
+    figure {
+        height: 180px;
     }
-  }
-  .inner-layer {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 100%;
-    padding: 0px 10px 0px 10px;
-  }
+    .layer {
+        background: rgba(0, 37, 197, 0.47);
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 180px;
+    }
+    .team-name {
+        float: left;
+        h4 {
+            color: $light;
+            font-weight: 400;
+            line-height: 4;
+            text-transform: capitalize;
+        }
+    }
+    .team-logo {
+        float: right;
+        overflow: hidden;
+        display: block;
+        width: 70px;
+        img {
+            height: auto;
+            width: 100%;
+        }
+    }
+    .inner-layer {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        padding: 0px 10px 0px 10px;
+    }
+}
+.pull-left{
+    float: left;
+}
+.schedule{
+    h4{
+            padding-left: 10px;
+    font-size: 15px;
+    }
+    .card{
+            margin: 13px 10px 0px 10px;
+         .item{
+            padding: 5px 0px;
+    }
+    }
+   
 }
 .side-image {
     text-align: center;
     margin: 15px auto;
     width: 100%;
-    img{
+    img {
         img {
-    text-align: center;
-    margin: 0 auto;
-   
-    width: 80px;
-    height: 80px;
-}
+            text-align: center;
+            margin: 0 auto;
+            width: 80px;
+            height: 80px;
+        }
     }
 }
-.venue{
+.venue {
     .item-icon-left {
-    padding-left: 25px;
-        
-        h3{
-            @extend .common-font;   
+        padding-left: 25px;
+        h3 {
+            @extend .common-font;
             font-size: 16px;
         }
-      
+    }
 }
-}
-    .tm-standing{ 
-        ul{
-            display: block;
-            li{
-                display: inline-block;
-                font-size: 13px;
-            }
-        }
-        .item-divider{
-            padding-bottom: 4px;
-            padding-top: 4px;
-        }
-        .pull-right{
-            float: right;
+.tm-standing {
+    .list {
+        margin-bottom: 0;
+    }
+    ul {
+        li {
+            font-size: 13px;
         }
     }
+    .item-divider {
+        padding-bottom: 4px;
+        padding-top: 4px;
+        background-color: #D0B892;
+        color: $light;
+        margin: -2px;
+    }
+    .pull-right {
+        float: right;
+    }
+}
+.team-status {
+    ul {
+        li {
+            padding: 0px 2px;
+            p {
+                margin: 0;
+                font-size: 13px;
+                width: 15px;
+            }
+            h5 {
+                margin: 0;
+                font-weight: 400;
+                text-transform: capitalize;
+                padding: 0px 0px 0px 10px;
+            }
+            .team-lg {
+                width: 30px;
+                vertical-align: middle;
+            }
+        }
+    }
+}
+.bar-title {
+    h5 {
+        font-size: 15px !important;
+    }
+}
+.team-sc {
+    ul {
+        li {
+            .tm-logo {
+                width: 25px;
+                text-align: center;
+                display: block;
+              
+                .logo-img {
+                    width: 18px;
+                    vertical-align: middle;
+                }
+            }
+        }
+    }
+    p{
+        text-transform: capitalize;
+        font-size: 13px !important;
+        font-weight: 600;
+    }
+}
+.pull-right{
+    float: right;
+}
+.day{
+    h4{
+        font-size: 20px !important;
+        font-weight: 600;
+        color:$calm;
+        margin: 0 !important;
+    }
+    p{
+       font-size: 11px !important;
+         color:$calm !important;
+        margin: 0 !important;
+    }
+}
+.down {
+  position: absolute;
+  width: 100%;
+  bottom: 10px;
+  left: 0;
+  padding: 0 20px;
+}
+.rules{
+    color:grey;
+    font-size: 12px;
+    padding: 10px;
+    margin-bottom: 80px;
+
+    }
+
+.list-p{
+    p{
+        margin: 0;
+    }
+}
+.padten{
+    padding-top: 10px;
+}
+//.bg-color{
+//    background-color: $positive !important;
+//}
+.whiten-bg {
+//    border: 1px solid red;
+//    margin: 10px;
+        padding: 0px 10px 80px 10px;
+ 
+}

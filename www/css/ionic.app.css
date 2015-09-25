@@ -36,6 +36,12 @@ $dark:                            #444 !default;
   .home-slide .slider-slide img {
     height: auto; }
 
+ul {
+  display: block; }
+
+li {
+  display: inline-block; }
+
 p {
   font-size: 13px;
   color: grey; }
@@ -94,11 +100,13 @@ p {
   font-weight: 100;
   text-transform: capitalize;
   font-size: 14px;
-  padding: 16px 49px 16px 26px; }
+  padding: 16px 0px 16px 26px; }
   .menu-list .item .item-content i {
-    padding-right: 15px;
     font-size: 20px;
     vertical-align: sub; }
+  .menu-list .item .item-content span {
+    display: inline-block;
+    width: 35px; }
 
 .hr {
   width: 150px; }
@@ -139,6 +147,17 @@ p {
     width: 100%;
     padding: 0px 10px 0px 10px; }
 
+.pull-left {
+  float: left; }
+
+.schedule h4 {
+  padding-left: 10px;
+  font-size: 15px; }
+.schedule .card {
+  margin: 13px 10px 0px 10px; }
+  .schedule .card .item {
+    padding: 5px 0px; }
+
 .side-image {
   text-align: center;
   margin: 15px auto;
@@ -154,16 +173,83 @@ p {
   .venue .item-icon-left h3 {
     font-size: 16px; }
 
-.tm-standing ul {
-  display: block; }
-  .tm-standing ul li {
-    display: inline-block;
-    font-size: 13px; }
+.tm-standing .list {
+  margin-bottom: 0; }
+.tm-standing ul li {
+  font-size: 13px; }
 .tm-standing .item-divider {
   padding-bottom: 4px;
-  padding-top: 4px; }
+  padding-top: 4px;
+  background-color: #D0B892;
+  color: #fff;
+  margin: -2px; }
 .tm-standing .pull-right {
   float: right; }
+
+.team-status ul li {
+  padding: 0px 2px; }
+  .team-status ul li p {
+    margin: 0;
+    font-size: 13px;
+    width: 15px; }
+  .team-status ul li h5 {
+    margin: 0;
+    font-weight: 400;
+    text-transform: capitalize;
+    padding: 0px 0px 0px 10px; }
+  .team-status ul li .team-lg {
+    width: 30px;
+    vertical-align: middle; }
+
+.bar-title h5 {
+  font-size: 15px !important; }
+
+.team-sc ul li .tm-logo {
+  width: 25px;
+  text-align: center;
+  display: block; }
+  .team-sc ul li .tm-logo .logo-img {
+    width: 18px;
+    vertical-align: middle; }
+.team-sc p {
+  text-transform: capitalize;
+  font-size: 13px !important;
+  font-weight: 600; }
+
+.pull-right {
+  float: right; }
+
+.day h4 {
+  font-size: 20px !important;
+  font-weight: 600;
+  color: #002c5f;
+  margin: 0 !important; }
+.day p {
+  font-size: 11px !important;
+  color: #002c5f !important;
+  margin: 0 !important; }
+
+.down {
+  position: absolute;
+  width: 100%;
+  bottom: 10px;
+  left: 0;
+  padding: 0 20px; }
+
+.rules {
+  color: grey;
+  font-size: 12px;
+  padding: 10px;
+  margin-bottom: 80px; }
+
+.list-p p {
+  margin: 0; }
+
+.padten {
+  padding-top: 10px; }
+
+.whiten-bg {
+  padding: 0px 10px 80px 10px; }
 
 /*!
   Ionicons, v2.0.1

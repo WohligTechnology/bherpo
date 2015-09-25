@@ -112,6 +112,33 @@ angular.module('starter', ['ionic', 'starter.controllers'])
            controller: 'TeamstandingCtrl'
       }
     }
+  }) 
+      .state('app.schedule', {
+    url: '/schedule',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/schedule.html',
+           controller: 'ScheduleCtrl'
+      }
+    }
+  })
+        .state('app.registration', {
+    url: '/registration',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/registration.html',
+           controller: 'RegistrationCtrl'
+      }
+    }
+  })
+      .state('app.bherpo', {
+    url: '/bherpo',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/bherpo.html',
+           controller: 'BherpoCtrl'
+      }
+    }
   })
 
     .state('app.home', {

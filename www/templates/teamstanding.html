@@ -13,15 +13,36 @@
 
 
 </div>
-<!--
-            <div class="row">
-                <div class="col col-50"></div>
-                <div class="col"></div>
-                <div class="col"></div>
-                <div class="col"></div>
+             </div>
+            <div class="row" ng-repeat=" item in teams">
+                <div class="col col-80">
+                    <div class="team-status">
+                        <ul>
+                            <li>
+                            <p>{{item.num}}</p>
+                            </li>
+                            <li>
+                               <div class="img-holding">
+                                   <img ng-src="{{item.image}}" class="team-lg">
+                               </div>
+                                
+                            </li>
+                            <li>
+                                <h5>{{item.name}}</h5>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col ">
+                    <div class="points text-center">
+                        <h4>
+                            {{item.points}}
+                        </h4>
+                    </div>
+                </div>
+              
             </div>
--->
-        </div>
+      
 
     </ion-content>
 </ion-view>

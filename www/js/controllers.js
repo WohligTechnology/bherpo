@@ -4,6 +4,14 @@ angular.module('starter.controllers', [ 'ion-gallery'])
 
 
   })
+    .controller('BherpoCtrl', function($scope, $ionicModal, $timeout) {
+
+
+  })  
+    .controller('RegistrationCtrl', function($scope, $ionicModal, $timeout) {
+
+
+  })
   .controller('GalleryCtrl', function($scope, $ionicModal, $timeout, $ionicScrollDelegate) {
 
   $scope.gallery = [{
@@ -123,10 +131,34 @@ angular.module('starter.controllers', [ 'ion-gallery'])
 
   })
   .controller('EventCtrl', function($scope, $ionicModal, $timeout) {
+  $scope.venue = [{
+    image: "img/venue/1.jpg",
+    name: "Rectangular stadium",
+    place: "South Australia",
 
+  }, {
+    image: "img/venue/2.jpg",
+    name: "Oval stadium",
+    place: "Tasmania",
+
+  }, {
+    image: "img/venue/3.jpg",
+    name: "Soccer-specific stadium",
+    place: "Saskatchewan",
+
+  }, {
+    image: "img/venue/4.jpg",
+    name: "Football stadium",
+    place: "Mechelen",
+
+  }];
 
   })
   .controller('ScoreCtrl', function($scope, $ionicModal, $timeout) {
+
+
+  }) 
+    .controller('ScheduleCtrl', function($scope, $ionicModal, $timeout) {
 
 
   }) 
@@ -160,7 +192,55 @@ angular.module('starter.controllers', [ 'ion-gallery'])
   })
     .controller('TeamstandingCtrl', function($scope, $ionicModal, $timeout) {
 
+  $scope.teams = [{
+    image: "img/team-logo/t1.jpg",
+    name: "roman vision",
+    num: "1",
+      points:"0"
 
+  }, {
+    image: "img/team-logo/t2.jpg",
+    name: "yuvamann",
+    num: "2",
+        points:"0"
+
+  }, {
+    image: "img/team-logo/t3.png",
+    name: "khelaiya",
+    num: "3",
+        points:"0"
+
+  }, {
+    image: "img/team-logo/t4.png",
+    name: "Nirmall royals",
+    num: "4",
+        points:"0"
+
+  }, {
+    image: "img/team-logo/t5.png",
+    name: "vinipul",
+    num: "5",
+        points:"0"
+
+  }, {
+    image: "img/team-logo/t6.png",
+    name: "borivali stars",
+    num: "6",
+        points:"0"
+
+  }, {
+    image: "img/team-logo/t7.png",
+    name: "roaring lions",
+    num: "7",
+        points:"0"
+
+  }, {
+    image: "img/team-logo/t8.jpg",
+    name: "jyoti giants",
+    num: "8",
+        points:"0"
+
+  }];
   })
   .controller('ConatctCtrl', function($scope, $ionicModal, $timeout) {
 
@@ -171,9 +251,33 @@ angular.module('starter.controllers', [ 'ion-gallery'])
 
   })
 
-.controller('HomeCtrl', function($scope, $ionicSlideBoxDelegate, $ionicLoading) {
+.controller('HomeCtrl', function($scope, $ionicSlideBoxDelegate, $ionicLoading, $ionicModal) {
 
+// ***** Modal 
+    
+    
+    // Load the modal from the given template URL
+  $ionicModal.fromTemplateUrl('templates/modal-regi.html', function($ionicModal) {
+    $scope.modal = $ionicModal;
+  }, {
+    // Use our scope for the scope of the modal to keep it simple
+    scope: $scope,
+    // The animation we want to use for the modal entrance
+    animation: 'slide-in-up'
+  });
 
+  
+  $scope.openmodal = function() {
+    console.log('Opening Modal');
+    $scope.modal.show();
+  }; 
+    $scope.closemodal = function() {
+    console.log('Closing Modal');
+    $scope.modal.hide();
+  };
+    
+    
+//    *** end **** 
   $scope.slides = [{
     image: "img/slider/1.jpg",
 
