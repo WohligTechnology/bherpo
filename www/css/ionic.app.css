@@ -251,6 +251,44 @@ p {
 .whiten-bg {
   padding: 0px 10px 80px 10px; }
 
+.bold {
+  padding: 15px 0px; }
+  .bold h4 {
+    font-weight: 600;
+    margin-bottom: 0px; }
+  .bold hr {
+    width: 100px; }
+
+.custom-radio .item {
+  border-color: transparent; }
+.custom-radio .item-input {
+  padding: 7px 0px 11px 0px; }
+.custom-radio .item-stacked-label .input-label {
+  padding: 4px 0 0 0px; }
+
+.regi-form textarea, .regi-form input[type="text"], .regi-form input[type="number"], .regi-form input[type="email"] {
+  font-size: 13px; }
+.regi-form .input-label {
+  font-size: 14px; }
+
+.other-form {
+  background-color: #f5f5f5;
+  padding: 10px; }
+
+.quize .item {
+  border-color: transparent;
+  padding: 10px 0px 10px 0px; }
+.quize .item-checkbox {
+  padding-left: 50px !important; }
+
+.select-in .item {
+  font-size: 14px; }
+.select-in .checkbox input {
+  width: 22px;
+  height: 22px; }
+  .select-in .checkbox input:after {
+    width: 10px; }
+
 /*!
   Ionicons, v2.0.1
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/

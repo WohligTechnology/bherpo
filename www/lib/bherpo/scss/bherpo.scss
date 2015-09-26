@@ -31,16 +31,19 @@ $font-size-input: 15px !default;
     src: url(../fonts/cr.ttf);
     font-weight: 400;
 }
+
 @font-face {
     font-family: 'Comfortaa';
     src: url(../fonts/cb.ttf);
     font-weight: 700;
 }
+
 @font-face {
     font-family: 'Comfortaa';
     src: url(../fonts/cl.ttf);
     font-weight: 200;
 }
+
 //@font-face {
 //    font-family: 'Source Sans Pro';
 //    src: url(../fonts/SourceSansPro-Light.ttf);
@@ -62,28 +65,35 @@ $font-size-input: 15px !default;
         }
     }
 }
+
 ul {
     display: block
 }
+
 li {
     display: inline-block;
 }
+
 p {
     font-size: 13px;
     color: grey;
 }
+
 .common-font {
     font-weight: 400 !important;
     color: $calm !important;
 }
+
 .marzero {
     margin: 0;
 }
+
 .active {
     color: $light;
     border: 0 solid $light;
     border-width: 0px 0px 3px 0px !important;
 }
+
 .register {
     margin: 25px 0px 25px;
     button {
@@ -93,6 +103,7 @@ p {
         padding: 0px 45px;
     }
 }
+
 .gallery-img {
     margin-top: 25px;
     h5 {
@@ -112,6 +123,7 @@ p {
         }
     }
 }
+
 .view-more {
     h5 {
         @extend .common-font;
@@ -121,6 +133,7 @@ p {
         width: 50px;
     }
 }
+
 .notitfy {
     margin-top: 30px;
     color: $calm;
@@ -133,6 +146,7 @@ p {
         margin: 16px 0px 0px;
     }
 }
+
 .menu-list .item .item-content {
     color: $dark;
     font-weight: 100;
@@ -140,18 +154,19 @@ p {
     font-size: 14px;
     padding: 16px 0px 16px 26px;
     i {
-        
         font-size: 20px;
         vertical-align: sub;
     }
-    span{
-            display: inline-block;
-    width: 35px;
+    span {
+        display: inline-block;
+        width: 35px;
     }
 }
+
 .hr {
     width: 150px;
 }
+
 .team {
     position: relative;
     display: block;
@@ -195,22 +210,24 @@ p {
         padding: 0px 10px 0px 10px;
     }
 }
-.pull-left{
+
+.pull-left {
     float: left;
 }
-.schedule{
-    h4{
-            padding-left: 10px;
-    font-size: 15px;
+
+.schedule {
+    h4 {
+        padding-left: 10px;
+        font-size: 15px;
     }
-    .card{
-            margin: 13px 10px 0px 10px;
-         .item{
+    .card {
+        margin: 13px 10px 0px 10px;
+        .item {
             padding: 5px 0px;
+        }
     }
-    }
-   
 }
+
 .side-image {
     text-align: center;
     margin: 15px auto;
@@ -224,6 +241,7 @@ p {
         }
     }
 }
+
 .venue {
     .item-icon-left {
         padding-left: 25px;
@@ -233,6 +251,7 @@ p {
         }
     }
 }
+
 .tm-standing {
     .list {
         margin-bottom: 0;
@@ -253,6 +272,7 @@ p {
         float: right;
     }
 }
+
 .team-status {
     ul {
         li {
@@ -275,11 +295,13 @@ p {
         }
     }
 }
+
 .bar-title {
     h5 {
         font-size: 15px !important;
     }
 }
+
 .team-sc {
     ul {
         li {
@@ -287,7 +309,6 @@ p {
                 width: 25px;
                 text-align: center;
                 display: block;
-              
                 .logo-img {
                     width: 18px;
                     vertical-align: middle;
@@ -295,57 +316,120 @@ p {
             }
         }
     }
-    p{
+    p {
         text-transform: capitalize;
         font-size: 13px !important;
         font-weight: 600;
     }
 }
-.pull-right{
+
+.pull-right {
     float: right;
 }
-.day{
-    h4{
+
+.day {
+    h4 {
         font-size: 20px !important;
         font-weight: 600;
-        color:$calm;
+        color: $calm;
         margin: 0 !important;
     }
-    p{
-       font-size: 11px !important;
-         color:$calm !important;
+    p {
+        font-size: 11px !important;
+        color: $calm !important;
         margin: 0 !important;
     }
 }
+
 .down {
-  position: absolute;
-  width: 100%;
-  bottom: 10px;
-  left: 0;
-  padding: 0 20px;
+    position: absolute;
+    width: 100%;
+    bottom: 10px;
+    left: 0;
+    padding: 0 20px;
 }
-.rules{
-    color:grey;
+
+.rules {
+    color: grey;
     font-size: 12px;
     padding: 10px;
     margin-bottom: 80px;
+}
 
-    }
-
-.list-p{
-    p{
+.list-p {
+    p {
         margin: 0;
     }
 }
-.padten{
+
+.padten {
     padding-top: 10px;
 }
+
 //.bg-color{
 //    background-color: $positive !important;
 //}
 .whiten-bg {
-//    border: 1px solid red;
-//    margin: 10px;
-        padding: 0px 10px 80px 10px;
+    //    border: 1px solid red;
+    //    margin: 10px;
+    padding: 0px 10px 80px 10px;
+}
+
+.bold {
+        padding: 15px 0px;
+    h4 {
+        font-weight: 600;
+            margin-bottom: 0px;
+    }
+    hr{
+            width: 100px;
+    }
+}
+
+.custom-radio {
+    .item {
+        border-color: transparent;
+      
+    }
+    .item-input{
+           padding: 7px 0px 11px 0px;
+    }
+    .item-stacked-label .input-label {
  
+    padding: 4px 0 0 0px;
+  
+}
+}
+.regi-form{
+    textarea, input[type="text"], input[type="number"], input[type="email"]{
+        font-size: 13px;
+    }
+    .input-label{
+        font-size: 14px;
+    }
+}
+.other-form {
+    background-color: #f5f5f5;
+    padding: 10px;
+}
+.quize{
+    .item{
+        border-color: transparent; 
+        padding: 10px 0px 10px 0px;
+    }
+    .item-checkbox {
+    padding-left: 50px !important;
+}
+}
+.select-in{
+    .item{
+        font-size: 14px;
+    }
+    .checkbox input{
+            width: 22px;
+    height: 22px;
+        &:after{
+                width: 10px;
+        }
+    }
 }
