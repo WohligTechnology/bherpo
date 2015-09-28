@@ -30,6 +30,12 @@ $dark:                            #444 !default;
   src: url(../fonts/cl.ttf);
   font-weight: 200; }
 
+.bg-menu {
+  background-color: #19273d !important; }
+  .bg-menu .bar {
+    background: transparent !important;
+    background-image: transparent !important; }
+
 .home-slide .slider-slide {
   height: 157px !important;
   overflow: hidden; }
@@ -95,12 +101,17 @@ p {
   .notitfy p {
     margin: 16px 0px 0px; }
 
+.menu-list .item {
+  border-color: transparent !important;
+  border-width: 0px !important; }
+
 .menu-list .item .item-content {
-  color: #444;
+  color: #fff;
   font-weight: 100;
   text-transform: capitalize;
   font-size: 14px;
-  padding: 16px 0px 16px 26px; }
+  padding: 16px 0px 16px 26px;
+  background-color: #19273d !important; }
   .menu-list .item .item-content i {
     font-size: 20px;
     vertical-align: sub; }
@@ -288,6 +299,19 @@ p {
   height: 22px; }
   .select-in .checkbox input:after {
     width: 10px; }
+
+.rule-head p {
+  font-size: 12px; }
+
+.pad {
+  margin-top: 15px; }
+  .pad h4 {
+    font-weight: 400; }
+
+.padss {
+  margin-top: 35px;
+  margin-bottom: 20px;
+  font-weight: 400; }
 
 /*!
   Ionicons, v2.0.1

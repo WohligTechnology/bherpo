@@ -25,6 +25,7 @@ $headings-font-weight: 300 !default;
 $button-font-size: 15px !default;
 $button-height: 40px !default;
 $font-size-input: 15px !default;
+$bg-menu:url('../img/background/1.jpg') no-repeat center center;
 //***** Font Famliy ********
 @font-face {
     font-family: 'Comfortaa';
@@ -56,6 +57,13 @@ $font-size-input: 15px !default;
 //    font-weight: 600;
 //}
 /// scsss start
+.bg-menu{
+    background-color:#19273d !important;
+    .bar{
+        background: transparent !important;
+        background-image: transparent !important;
+    }
+}
 .home-slide {
     .slider-slide {
         height: 157px !important;
@@ -146,13 +154,19 @@ p {
         margin: 16px 0px 0px;
     }
 }
-
+.menu-list{
+     .item{
+            border-color:transparent !important;
+         border-width: 0px !important;
+        }
+}
 .menu-list .item .item-content {
-    color: $dark;
+    color: $light;
     font-weight: 100;
     text-transform: capitalize;
     font-size: 14px;
     padding: 16px 0px 16px 26px;
+    background-color: #19273d !important;
     i {
         font-size: 20px;
         vertical-align: sub;
@@ -161,6 +175,7 @@ p {
         display: inline-block;
         width: 35px;
     }
+      
 }
 
 .hr {
@@ -432,4 +447,20 @@ p {
                 width: 10px;
         }
     }
+}
+.rule-head{
+    p{
+        font-size: 12px;
+    }
+}
+.pad{
+    margin-top: 15px;
+    h4{
+        font-weight: 400;
+    }
+}
+.padss{
+        margin-top: 35px;
+    margin-bottom: 20px;
+        font-weight: 400;
 }
