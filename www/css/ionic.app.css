@@ -317,6 +317,14 @@ p {
   margin-bottom: 20px;
   font-weight: 400; }
 
+.fl-right {
+  float: right; }
+
+.left {
+  float: right;
+  margin-top: 22px !important;
+  padding: 0px 12px !important; }
+
 /*!
   Ionicons, v2.0.1
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
