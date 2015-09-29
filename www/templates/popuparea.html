@@ -3,13 +3,13 @@
         <h1 class="title">Area Name</h1>
         <div class="buttons closebtn">
 <!--            <button class=" button button-icon ion-close-round popup-btn" ng-click="closemodalarea();"></button>-->
-             <img src="img/c1.png" ng-click="closemodal();">
+             <img src="img/c1.png" ng-click="closemodalarea();">
         </div>
     </ion-header-bar>
 
     <ion-content>
         <ion-list>
-            <form class="item item-input-inset only-horizontal " ng-submit="doSearchArea(datasearch); ">
+            <form class="item item-input-inset only-horizontal serchbtn" ng-submit="doSearchArea(datasearch); ">
                 <label class="item-input-wrapper ">
                     <input type="text " placeholder="Area Name " ng-model="datasearch" ng-change="doSearchArea(datasearch);" style="border: 0px;">
                 </label>
