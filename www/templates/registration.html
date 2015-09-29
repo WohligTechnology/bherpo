@@ -44,7 +44,7 @@
                     <span class="input-label">Telehpone Number</span>
                     <div class="row">
                         <div class="col col-20">
-                            <input type="number" placeholder="+1">
+                            <input type="number" placeholder="022" ng-model='user.extension'>
                         </div>
                         <div class="col col-80">
                             <input type="number" placeholder="Telehpone Number" ng-model='user.telephoneno'>
@@ -129,17 +129,14 @@
                         </div>
                         <div class="item item-text-wrap">
                             <ul class="list">
-
                                 <li class="item item-checkbox">
-
                                     <label class="checkbox">
-                                        <input type="checkbox">
+                                        <input type="checkbox" ng-click="pushorpopquiz('Quiz');">
                                     </label>
                                     Quiz
                                 </li>
                             </ul>
                         </div>
-
                     </div>
                     <div class="card">
                         <div class="item item-divider text-center">
@@ -147,17 +144,14 @@
                         </div>
                         <div class="item item-text-wrap">
                             <ul class="list">
-
                                 <li class="item item-checkbox">
-
                                     <label class="checkbox">
-                                        <input type="checkbox">
+                                        <input type="checkbox" ng-click="pushorpopaqua('Aquatics');">
                                     </label>
                                     Aquatics
                                 </li>
                             </ul>
                         </div>
-
                     </div>
                     <div class="card">
                         <div class="item item-divider text-center">
@@ -165,24 +159,20 @@
                         </div>
                         <div class="item item-text-wrap">
                             <ul class="list">
-
                                 <li class="item item-checkbox">
-
                                     <label class="checkbox">
-                                        <input type="checkbox">
+                                        <input type="checkbox" ng-click="pushorpopdance('Dance');">
                                     </label>
                                     Dance
                                 </li>
                                 <li class="item item-checkbox">
-
                                     <label class="checkbox">
-                                        <input type="checkbox">
+                                        <input type="checkbox" ng-click="pushorpopdance('Street Play');">
                                     </label>
                                     Street Play
                                 </li>
                             </ul>
                         </div>
-
                     </div>
                     <div class="card">
                         <div class="item item-divider text-center">
@@ -192,7 +182,7 @@
                             <ul class="list">
                                 <li class="item item-checkbox" ng-repeat="sports in allsports">
                                     <label class="checkbox">
-                                        <input type="checkbox" ng-click="pushorpop(sports)">
+                                        <input type="checkbox" ng-click="pushorpopsports(sports)">
                                     </label>
                                     {{sports}}
                                 </li>
@@ -212,39 +202,33 @@
                     </div>
                     <div class="item item-text-wrap">
                         <ul class="list">
-
                             <li class="item item-checkbox">
                                 <label class="checkbox">
-                                    <input type="checkbox">
+                                    <input type="checkbox"  ng-click="pushorpopvolun('Banner Desigining / Art Work');">
                                 </label>
                                 Banner Desigining / Art Work
                             </li>
-
                             <li class="item item-checkbox">
                                 <label class="checkbox">
-                                    <input type="checkbox">
+                                    <input type="checkbox" ng-click="pushorpopvolun('Slogan And Other Write UPS');">
                                 </label>
                                 Slogan And Other Write UPS
                             </li>
-
                             <li class="item item-checkbox">
                                 <label class="checkbox">
-                                    <input type="checkbox">
+                                    <input type="checkbox" ng-click="pushorpopvolun('Cycling');">
                                 </label>
                                 Cycling
                             </li>
-
                             <li class="item item-checkbox">
                                 <label class="checkbox">
-                                    <input type="checkbox">
+                                    <input type="checkbox" ng-click="pushorpopvolun('Volunteer');">
                                 </label>
                                 Volunteer
                             </li>
-
                         </ul>
                     </div>
                 </div>
-
             </div>
             <div class="padding">
                 <button class="button button-block button-calm" ng-click="registerUser();">

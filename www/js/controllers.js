@@ -13,6 +13,10 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
     $scope.user = {};
     $scope.user.sports = [];
+    $scope.user.quiz = [];
+    $scope.user.aquatics = [];
+    $scope.user.dance = [];
+    $scope.user.volunteer = [];
     $scope.user.registrationdate = new Date();
     $scope.user.city = "Mumbai";
     //    $scope.user.dateofbirth = moment().subtract(18, 'years');
@@ -84,12 +88,44 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
         $scope.user.area = comp;
     }
 
-    $scope.pushorpop = function (value) {
+    $scope.pushorpopsports = function (value) {
         var popindex = $scope.user.sports.indexOf(value);
         if (popindex == -1)
             $scope.user.sports.push(value);
         else
             $scope.user.sports.splice(popindex, 1);
+    }
+
+    $scope.pushorpopquiz = function (value) {
+        var popindex = $scope.user.quiz.indexOf(value);
+        if (popindex == -1)
+            $scope.user.quiz.push(value);
+        else
+            $scope.user.quiz.splice(popindex, 1);
+    }
+
+    $scope.pushorpopaqua = function (value) {
+        var popindex = $scope.user.aquatics.indexOf(value);
+        if (popindex == -1)
+            $scope.user.aquatics.push(value);
+        else
+            $scope.user.aquatics.splice(popindex, 1);
+    }
+
+    $scope.pushorpopdance = function (value) {
+        var popindex = $scope.user.dance.indexOf(value);
+        if (popindex == -1)
+            $scope.user.dance.push(value);
+        else
+            $scope.user.dance.splice(popindex, 1);
+    }
+
+    $scope.pushorpopvolun = function (value) {
+        var popindex = $scope.user.volunteer.indexOf(value);
+        if (popindex == -1)
+            $scope.user.volunteer.push(value);
+        else
+            $scope.user.volunteer.splice(popindex, 1);
     }
 
     $scope.registerUser = function () {
@@ -358,7 +394,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
     })
 
-.controller('HomeCtrl', function ($scope, $ionicSlideBoxDelegate, $ionicLoading, $ionicModal, $location, $cordovaFileTransfer, $cordovaFile, $ionicPopup, $timeout) {
+.controller('HomeCtrl', function ($scope, $ionicSlideBoxDelegate, $ionicLoading, $ionicModal, $location, $cordovaFileTransfer, $cordovaFile, $ionicPopup, $timeout, MyServices) {
 
     // ***** Modal
 
@@ -385,45 +421,51 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
     };
 
     $scope.savePDF = function () {
-//        var url = "http://wohlig.co.in/bherpofiles/Participate_Rule.pdf";
-//        var targetPath = cordova.file.externalRootDirectory + "/bherpo/" + "Participate_Rule.pdf";
-//        var trustHosts = true;
-//        var options = {};
-//        var alertPopup = $ionicPopup.show({
-//            title: "Saving PDF...",
-//        });
-//        $cordovaFile.createDir(cordova.file.externalRootDirectory, "bherpo", true)
-//            .then(function (success) {
-//                console.log("directory created");
-//                saveNow();
-//                // success
-//            }, function (error) {
-//                // error
-//            });
-//
-//        function saveNow() {
-//            $cordovaFileTransfer.download(url, targetPath, options, trustHosts)
-//                .then(function (result) {
-//                    console.log(result);
-//                    alertPopup.close();
-//                    // Success!
-//                }, function (err) {
-//                    console.log(err);
-//                    var alertPopup = $ionicPopup.show({
-//                        title: "Error Saving PDF...",
-//                    });
-//                    $timeout(function () {
-//                            alertPopup.close();
-//                        }, 2500)
-//                        // Error
-//                }, function (progress) {
-//                    console.log(progress);
-//                    $timeout(function () {
-//                        $scope.downloadProgress = (progress.loaded / progress.total) * 100;
-//                    })
-//                });
-//        }
+        MyServices.downloadP(function (data, status) {
+            //            console.log(data);
+        })
     }
+
+    //    $scope.savePDF = function () {
+    //        var url = "http://wohlig.co.in/bherpofiles/Participate_Rule.pdf";
+    //        var targetPath = cordova.file.externalRootDirectory + "/bherpo/" + "Participate_Rule.pdf";
+    //        var trustHosts = true;
+    //        var options = {};
+    //        var alertPopup = $ionicPopup.show({
+    //            title: "Saving PDF...",
+    //        });
+    //        $cordovaFile.createDir(cordova.file.externalRootDirectory, "bherpo", true)
+    //            .then(function (success) {
+    //                console.log("directory created");
+    //                saveNow();
+    //                // success
+    //            }, function (error) {
+    //                // error
+    //            });
+    //
+    //        function saveNow() {
+    //            $cordovaFileTransfer.download(url, targetPath, options, trustHosts)
+    //                .then(function (result) {
+    //                    console.log(result);
+    //                    alertPopup.close();
+    //                    // Success!
+    //                }, function (err) {
+    //                    console.log(err);
+    //                    var alertPopup = $ionicPopup.show({
+    //                        title: "Error Saving PDF...",
+    //                    });
+    //                    $timeout(function () {
+    //                            alertPopup.close();
+    //                        }, 2500)
+    //                        // Error
+    //                }, function (progress) {
+    //                    console.log(progress);
+    //                    $timeout(function () {
+    //                        $scope.downloadProgress = (progress.loaded / progress.total) * 100;
+    //                    })
+    //                });
+    //        }
+    //    }
 
 
     //    *** end ****

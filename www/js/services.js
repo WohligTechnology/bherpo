@@ -43,6 +43,18 @@ angular.module('starter.services', [])
                     area: []
                 }
             }).success(callback);
+        },
+        downloadP: function (callback) {
+            $http({
+                url: adminurl + 'user/downloadP',
+                method: 'POST',
+            }).success(callback);
+        },
+        downloadE: function (callback) {
+            $http({
+                url: adminurl + 'user/downloadE',
+                method: 'POST',
+            }).success(callback);
         }
     };
 });
