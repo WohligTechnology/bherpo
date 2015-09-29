@@ -61,8 +61,7 @@ p {
 
 .active {
   color: #fff;
-  border: 0 solid #fff;
-  border-width: 0px 0px 3px 0px !important; }
+  border: 0 solid #fff; }
 
 .register {
   margin: 25px 0px 25px; }
