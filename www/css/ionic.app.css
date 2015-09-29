@@ -330,6 +330,11 @@ p {
   margin-top: 22px !important;
   padding: 0px 12px !important; }
 
+.vert .checkbox {
+  vertical-align: middle; }
+.vert span {
+  vertical-align: sub; }
+
 /*!
   Ionicons, v2.0.1
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
