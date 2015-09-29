@@ -1,5 +1,5 @@
-//var adminurl = "http://192.168.2.11:1337/";
-var adminurl = "http://localhost:1337/";
+var adminurl = "http://192.168.2.22:1337/";
+//var adminurl = "http://localhost:1337/";
 var imgpath = adminurl + "user/resize?file=";
 
 angular.module('starter.services', [])
@@ -24,23 +24,23 @@ angular.module('starter.services', [])
                 data: data
             }).success(callback);
         },
-        findVillage: function (data, village, callback) {
+        findVillage: function (data, callback) {
             $http({
                 url: adminurl + 'village/find',
                 method: 'POST',
                 data: {
                     search: data,
-                    village: village
+                    village: []
                 }
             }).success(callback);
         },
-        findArea: function (data, area, callback) {
+        findArea: function (data, callback) {
             $http({
                 url: adminurl + 'area/find',
                 method: 'POST',
                 data: {
                     search: data,
-                    area: area
+                    area: []
                 }
             }).success(callback);
         }

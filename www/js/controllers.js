@@ -12,8 +12,89 @@ angular.module('starter.controllers', ['ion-gallery'])
 .controller('RegistrationCtrl', function ($scope, $ionicModal, $timeout, MyServices, $filter) {
 
     $scope.user = {};
-//    $scope.user.registrationdate = moment().format("DD-MM-YYYY");
-//    $scope.user.dateofbirth = moment().subtract(18, 'years');
+    $scope.user.sports = [];
+    $scope.user.registrationdate = new Date();
+    $scope.user.city = "Mumbai";
+    //    $scope.user.dateofbirth = moment().subtract(18, 'years');
+
+    $scope.allsports = ["Bucket Ball", "Handminton", "Lagori", "Handball", "3 Legged Race", "4 Legged Race", "Triathalon", "Relay", "Skating Relay", "Tug of War"];
+
+    // Load the modal from the given template URL
+    $ionicModal.fromTemplateUrl('templates/popupsearch.html', function ($ionicModal) {
+        $scope.modal = $ionicModal;
+    }, {
+        // Use our scope for the scope of the modal to keep it simple
+        scope: $scope,
+        // The animation we want to use for the modal entrance
+        animation: 'slide-in-up'
+    });
+
+
+    $scope.openmodal = function () {
+        $scope.modal.show();
+    };
+    $scope.closemodal = function () {
+        $scope.modal.hide();
+    };
+
+    $ionicModal.fromTemplateUrl('templates/popuparea.html', function ($ionicModal) {
+        $scope.modal1 = $ionicModal;
+    }, {
+        // Use our scope for the scope of the modal to keep it simple
+        scope: $scope,
+        // The animation we want to use for the modal entrance
+        animation: 'slide-in-up'
+    });
+
+
+    $scope.openmodalarea = function () {
+        $scope.modal1.show();
+    };
+    $scope.closemodalarea = function () {
+        $scope.modal1.hide();
+    };
+
+    $scope.doSearchVillage = function (datasearch) {
+        if (datasearch.length >= 3) {
+            MyServices.findVillage(datasearch, function (data, status) {
+                console.log(data)
+                $scope.villages = data;
+            });
+        }
+    }
+
+    $scope.selectVillage = function (comp) {
+        console.log(comp);
+        $scope.closemodal();
+        $scope.user.village = comp;
+    }
+
+    $scope.doSearchArea = function (datasearch) {
+        if (datasearch.length >= 3) {
+            MyServices.findArea(datasearch, function (data, status) {
+                console.log(data)
+                $scope.areas = data;
+            });
+        }
+    }
+
+    $scope.selectArea = function (comp) {
+        console.log(comp);
+        $scope.closemodalarea();
+        $scope.user.area = comp;
+    }
+
+    $scope.pushorpop = function (value) {
+        var popindex = $scope.user.sports.indexOf(value);
+        if (popindex == -1)
+            $scope.user.sports.push(value);
+        else
+            $scope.user.sports.splice(popindex, 1);
+    }
+
+    $scope.registerUser = function () {
+        console.log($scope.user);
+    }
 
 })
 
@@ -113,45 +194,45 @@ angular.module('starter.controllers', ['ion-gallery'])
     })
     .controller('TeamCtrl', function ($scope, $ionicModal, $timeout) {
 
-  $scope.gallery = [{
-    image: "img/team/t1.jpg",
-    name: "Roman Vision",
-    logo: "img/team-logo/t1.jpg",
+        $scope.gallery = [{
+            image: "img/team/t1.jpg",
+            name: "Roman Vision",
+            logo: "img/team-logo/t1.jpg",
 
   }, {
-    image: "img/team/t2.jpg",
-    name: "Yuvamann",
-    logo: "img/team-logo/t2.jpg",
+            image: "img/team/t2.jpg",
+            name: "Yuvamann",
+            logo: "img/team-logo/t2.jpg",
 
   }, {
-    image: "img/team/t3.jpg",
-    name: "Khelaiya",
-    logo: "img/team-logo/t3.png",
+            image: "img/team/t3.jpg",
+            name: "Khelaiya",
+            logo: "img/team-logo/t3.png",
 
   }, {
-    image: "img/team/t4.jpg",
-    name: "Nirmall Roals",
-    logo: "img/team-logo/t4.png",
+            image: "img/team/t4.jpg",
+            name: "Nirmall Roals",
+            logo: "img/team-logo/t4.png",
 
   }, {
-    image: "img/team/t5.jpg",
-    name: "Vinipull",
-    logo: "img/team-logo/t5.png",
+            image: "img/team/t5.jpg",
+            name: "Vinipull",
+            logo: "img/team-logo/t5.png",
 
   }, {
-    image: "img/team/t6.jpg",
-    name: "Borivali Stars",
-    logo: "img/team-logo/t6.png",
+            image: "img/team/t6.jpg",
+            name: "Borivali Stars",
+            logo: "img/team-logo/t6.png",
 
   }, {
-    image: "img/team/t7.jpg",
-    name: "Roaring Lions",
-    logo: "img/team-logo/t7.png",
+            image: "img/team/t7.jpg",
+            name: "Roaring Lions",
+            logo: "img/team-logo/t7.png",
 
   }, {
-    image: "img/team/t8.jpg",
-    name: "Jyoti Giants",
-    logo: "img/team-logo/t8.jpg",
+            image: "img/team/t8.jpg",
+            name: "Jyoti Giants",
+            logo: "img/team-logo/t8.jpg",
 
   }];
 

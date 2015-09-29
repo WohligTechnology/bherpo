@@ -8,7 +8,7 @@
             <div class="list">
                 <label class="item item-input item-stacked-label">
                     <span class="input-label">Reg. Date</span>
-                    <input type="text" onfocus="(this.type='date')" placeholder="Reg. Date" ng-model='user.registrationdate'>
+                    <input type="date" placeholder="Reg. Date" ng-model='user.registrationdate' readonly>
                 </label>
 
                 <label class="item item-input item-stacked-label">
@@ -32,9 +32,8 @@
                         Gender
                     </div>
                     <select ng-model='user.gender'>
-                        <option value="male">Female</option>
-                        <option value="female">Male</option>
-
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
                     </select>
                 </label>
                 <label class="item item-input item-stacked-label">
@@ -55,19 +54,27 @@
 
                 </label>
 
+                <label class="item item-input" ng-click="openmodal();" ng-model='user.village'>
+                    <div class=" input-label ">
+                        Village<span class="citysearch">{{user.village.name}}</span>
+                    </div>
+                </label>
+
+                <!--
                 <label class="item item-input item-select">
                     <div class="input-label">
                         Village
                     </div>
                     <select ng-options="vil._id as vil.name for vil in village track by vil._id" ng-model='user.village'></select>
-                    <!--
+                    
                     <select ng-model='user.village'>
                         <option>Blue</option>
                         <option selected>Green</option>
                         <option>Red</option>
                     </select>
--->
+
                 </label>
+-->
                 <label class="item item-input item-stacked-label">
                     <span class="input-label">Email</span>
                     <input type="email" placeholder="Email" ng-model='user.emailid'>
@@ -81,22 +88,30 @@
                     <input type="text" placeholder="Address 2" ng-model='user.address2'>
                 </label>
 
+                <label class="item item-input" ng-click="openmodalarea();" ng-model='user.area'>
+                    <div class=" input-label ">
+                        Area<span class="citysearch">{{user.area.name}}</span>
+                    </div>
+                </label>
+
+                <!--
                 <label class="item item-input item-select">
                     <div class="input-label">
                         Area (Nearest Station)
                     </div>
                     <select ng-options="areas._id as areas.name for areas in area track by areas._id" ng-model='user.area'></select>
-                    <!--
+                    
                     <select>
                         <option>Blue</option>
                         <option selected>Green</option>
                         <option>Red</option>
                     </select>
--->
+
                 </label>
+-->
                 <label class="item item-input item-stacked-label">
                     <span class="input-label">City</span>
-                    <input type="text" placeholder="City" ng-model='user.city'>
+                    <input type="text" placeholder="City" ng-model='user.city' readonly>
                 </label>
                 <label class="item item-input item-stacked-label">
                     <span class="input-label">Pincode</span>
@@ -146,7 +161,7 @@
                     </div>
                     <div class="card">
                         <div class="item item-divider text-center">
-                            Dnace And Street Play
+                            Dance And Street Play
                         </div>
                         <div class="item item-text-wrap">
                             <ul class="list">
@@ -156,7 +171,7 @@
                                     <label class="checkbox">
                                         <input type="checkbox">
                                     </label>
-                                    Dnace
+                                    Dance
                                 </li>
                                 <li class="item item-checkbox">
 
@@ -175,76 +190,11 @@
                         </div>
                         <div class="item item-text-wrap">
                             <ul class="list">
-
-                                <li class="item item-checkbox">
-
+                                <li class="item item-checkbox" ng-repeat="sports in allsports">
                                     <label class="checkbox">
-                                        <input type="checkbox">
+                                        <input type="checkbox" ng-click="pushorpop(sports)">
                                     </label>
-                                    Bucket Ball
-                                </li>
-                                <li class="item item-checkbox">
-
-                                    <label class="checkbox">
-                                        <input type="checkbox">
-                                    </label>
-                                    Handminton
-                                </li>
-                                <li class="item item-checkbox">
-
-                                    <label class="checkbox">
-                                        <input type="checkbox">
-                                    </label>
-                                    Lagori
-                                </li>
-                                <li class="item item-checkbox">
-
-                                    <label class="checkbox">
-                                        <input type="checkbox">
-                                    </label>
-                                    4 Legged Race
-                                </li>
-                                <li class="item item-checkbox">
-
-                                    <label class="checkbox">
-                                        <input type="checkbox">
-                                    </label>
-                                    Handminton
-                                </li>
-                                <li class="item item-checkbox">
-
-                                    <label class="checkbox">
-                                        <input type="checkbox">
-                                    </label>
-                                    3 Legged Race
-                                </li>
-                                <li class="item item-checkbox">
-
-                                    <label class="checkbox">
-                                        <input type="checkbox">
-                                    </label>
-                                    Triathalon
-                                </li>
-                                <li class="item item-checkbox">
-
-                                    <label class="checkbox">
-                                        <input type="checkbox">
-                                    </label>
-                                    Relay
-                                </li>
-                                <li class="item item-checkbox">
-
-                                    <label class="checkbox">
-                                        <input type="checkbox">
-                                    </label>
-                                    Skating Relay
-                                </li>
-                                <li class="item item-checkbox">
-
-                                    <label class="checkbox">
-                                        <input type="checkbox">
-                                    </label>
-                                    Tug of War
+                                    {{sports}}
                                 </li>
                             </ul>
                         </div>
@@ -253,7 +203,7 @@
                 </div>
             </div>
             <div class="other-form">
-                Note: Kindly Click on Volunteer Square box if u want to participate as Volunteer
+                Note: Kindly Click on Volunteer Circle if u want to participate as Volunteer
             </div>
             <div class="select-in">
                 <div class="card">
@@ -297,7 +247,7 @@
 
             </div>
             <div class="padding">
-                <button class="button button-block button-calm">
+                <button class="button button-block button-calm" ng-click="registerUser();">
                     Submit
                 </button>
                 <button class="button button-block button-calm">

@@ -1,0 +1,27 @@
+<ion-modal-view>
+    <ion-header-bar class="bg-grnd">
+        <h1 class="title">Area Name</h1>
+        <div class="buttons closebtn">
+            <button class=" button button-icon ion-close-round popup-btn" ng-click="closemodalarea();"></button>
+        </div>
+    </ion-header-bar>
+
+    <ion-content>
+        <ion-list>
+            <form class="item item-input-inset only-horizontal " ng-submit="doSearchArea(datasearch); ">
+                <label class="item-input-wrapper ">
+                    <input type="text " placeholder="Area Name " ng-model="datasearch" ng-change="doSearchArea(datasearch);" style="border: 0px;">
+                </label>
+                <button class="button button-icon ion-search" type="submit"></button>
+            </form>
+
+            <!--Repeat pincode, cities-->
+            <!--            <ion-item ng-click="selectcomp('Puratek company'); ">Puratek company</ion-item>-->
+            <ion-item ng-click="selectArea(area);" ng-repeat="area in areas">{{area.name}}</ion-item>
+
+            <ion-item ng-if="areas.length==0">No data found.</ion-item>
+
+        </ion-list>
+
+    </ion-content>
+</ion-modal-view>
