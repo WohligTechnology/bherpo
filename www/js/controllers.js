@@ -1,4 +1,4 @@
-angular.module('starter.controllers', ['ion-gallery'])
+angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
 .controller('AppCtrl', function ($scope, $ionicModal, $timeout) {
 
@@ -358,10 +358,9 @@ angular.module('starter.controllers', ['ion-gallery'])
 
     })
 
-.controller('HomeCtrl', function ($scope, $ionicSlideBoxDelegate, $ionicLoading, $ionicModal, $location) {
+.controller('HomeCtrl', function ($scope, $ionicSlideBoxDelegate, $ionicLoading, $ionicModal, $location, $cordovaFileTransfer, $cordovaFile, $ionicPopup, $timeout) {
 
-    // ***** Modal 
-
+    // ***** Modal
 
     // Load the modal from the given template URL
     $ionicModal.fromTemplateUrl('templates/modal-regi.html', function ($ionicModal) {
@@ -378,14 +377,56 @@ angular.module('starter.controllers', ['ion-gallery'])
         console.log('Opening Modal');
         $scope.modal.show();
     };
+
     $scope.closemodal = function () {
         console.log('Closing Modal');
         $scope.modal.hide();
         $location.url("/app/registration");
     };
 
+    $scope.savePDF = function () {
+        var url = "http://wohlig.co.in/bherpofiles/Participate_Rule.pdf";
+        var targetPath = cordova.file.externalRootDirectory + "/bherpo/" + "Participate_Rule.pdf";
+        var trustHosts = true;
+        var options = {};
+        var alertPopup = $ionicPopup.show({
+            title: "Saving PDF...",
+        });
+        $cordovaFile.createDir(cordova.file.externalRootDirectory, "bherpo", true)
+            .then(function (success) {
+                console.log("directory created");
+                saveNow();
+                // success
+            }, function (error) {
+                // error
+            });
 
-    //    *** end **** 
+        function saveNow() {
+            $cordovaFileTransfer.download(url, targetPath, options, trustHosts)
+                .then(function (result) {
+                    console.log(result);
+                    alertPopup.close();
+                    // Success!
+                }, function (err) {
+                    console.log(err);
+                    var alertPopup = $ionicPopup.show({
+                        title: "Error Saving PDF...",
+                    });
+                    $timeout(function () {
+                            alertPopup.close();
+                        }, 2500)
+                        // Error
+                }, function (progress) {
+                    console.log(progress);
+                    $timeout(function () {
+                        $scope.downloadProgress = (progress.loaded / progress.total) * 100;
+                    })
+                });
+        }
+    }
+
+
+    //    *** end ****
     $scope.slides = [{
         image: "img/slider/1.jpg",
 
