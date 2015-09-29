@@ -385,44 +385,44 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
     };
 
     $scope.savePDF = function () {
-        var url = "http://wohlig.co.in/bherpofiles/Participate_Rule.pdf";
-        var targetPath = cordova.file.externalRootDirectory + "/bherpo/" + "Participate_Rule.pdf";
-        var trustHosts = true;
-        var options = {};
-        var alertPopup = $ionicPopup.show({
-            title: "Saving PDF...",
-        });
-        $cordovaFile.createDir(cordova.file.externalRootDirectory, "bherpo", true)
-            .then(function (success) {
-                console.log("directory created");
-                saveNow();
-                // success
-            }, function (error) {
-                // error
-            });
-
-        function saveNow() {
-            $cordovaFileTransfer.download(url, targetPath, options, trustHosts)
-                .then(function (result) {
-                    console.log(result);
-                    alertPopup.close();
-                    // Success!
-                }, function (err) {
-                    console.log(err);
-                    var alertPopup = $ionicPopup.show({
-                        title: "Error Saving PDF...",
-                    });
-                    $timeout(function () {
-                            alertPopup.close();
-                        }, 2500)
-                        // Error
-                }, function (progress) {
-                    console.log(progress);
-                    $timeout(function () {
-                        $scope.downloadProgress = (progress.loaded / progress.total) * 100;
-                    })
-                });
-        }
+//        var url = "http://wohlig.co.in/bherpofiles/Participate_Rule.pdf";
+//        var targetPath = cordova.file.externalRootDirectory + "/bherpo/" + "Participate_Rule.pdf";
+//        var trustHosts = true;
+//        var options = {};
+//        var alertPopup = $ionicPopup.show({
+//            title: "Saving PDF...",
+//        });
+//        $cordovaFile.createDir(cordova.file.externalRootDirectory, "bherpo", true)
+//            .then(function (success) {
+//                console.log("directory created");
+//                saveNow();
+//                // success
+//            }, function (error) {
+//                // error
+//            });
+//
+//        function saveNow() {
+//            $cordovaFileTransfer.download(url, targetPath, options, trustHosts)
+//                .then(function (result) {
+//                    console.log(result);
+//                    alertPopup.close();
+//                    // Success!
+//                }, function (err) {
+//                    console.log(err);
+//                    var alertPopup = $ionicPopup.show({
+//                        title: "Error Saving PDF...",
+//                    });
+//                    $timeout(function () {
+//                            alertPopup.close();
+//                        }, 2500)
+//                        // Error
+//                }, function (progress) {
+//                    console.log(progress);
+//                    $timeout(function () {
+//                        $scope.downloadProgress = (progress.loaded / progress.total) * 100;
+//                    })
+//                });
+//        }
     }
 
 

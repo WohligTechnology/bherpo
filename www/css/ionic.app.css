@@ -71,6 +71,9 @@ p {
     line-height: 40px;
     padding: 0px 45px; }
 
+.citysearch {
+  padding-left: 20px; }
+
 .gallery-img {
   margin-top: 25px; }
   .gallery-img h5 {
@@ -84,6 +87,9 @@ p {
     display: block; }
     .gallery-img .img-hold img {
       height: 60px; }
+
+.serchbtn .button {
+  font-size: 24px; }
 
 .view-more h5 {
   margin-bottom: 0; }

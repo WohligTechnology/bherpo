@@ -112,7 +112,9 @@ p {
         padding: 0px 45px;
     }
 }
-
+.citysearch{
+    padding-left:20px;
+}
 .gallery-img {
     margin-top: 25px;
     h5 {
@@ -132,7 +134,19 @@ p {
         }
     }
 }
-
+//.closebtn{
+//.bar .button.button-icon{
+//font-size: 20px !important;
+//    &:before{
+//    font-size: 20px !important;
+//    }
+//}
+//}
+.serchbtn{
+    .button{
+    font-size: 24px;
+    }
+}
 .view-more {
     h5 {
         @extend .common-font;
