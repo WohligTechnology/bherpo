@@ -335,6 +335,9 @@ p {
 .vert span {
   vertical-align: sub; }
 
+.ng-invalid.ng-dirty {
+  border-bottom: 2px solid red !important; }
+
 /*!
   Ionicons, v2.0.1
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/

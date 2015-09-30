@@ -9,7 +9,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
     })
 
-.controller('RegistrationCtrl', function ($scope, $ionicModal, $timeout, MyServices, $filter) {
+.controller('RegistrationCtrl', function ($scope, $ionicModal, $timeout, MyServices, $filter, $ionicPopup, $location) {
 
     $scope.user = {};
     $scope.user.sports = [];
@@ -17,8 +17,28 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
     $scope.user.aquatics = [];
     $scope.user.dance = [];
     $scope.user.volunteer = [];
+    $scope.checked = [];
+    $scope.divs = [{
+        name: "div1",
+        vlaue: false
+    }, {
+        name: "div2",
+        value: false
+    }, {
+        name: "div3",
+        value: false
+    }, {
+        name: "div4",
+        value: false
+    }];
     $scope.user.registrationdate = new Date();
     $scope.user.city = "Mumbai";
+    $scope.divmodel = {};
+    $scope.divmodel.sports = false;
+    $scope.divmodel.quiz = false;
+    $scope.divmodel.aquatics = false;
+    $scope.divmodel.dance = false;
+
     //    $scope.user.dateofbirth = moment().subtract(18, 'years');
 
     $scope.allsports = ["Bucket Ball", "Handminton", "Lagori", "Handball", "3 Legged Race", "4 Legged Race", "Triathalon", "Relay", "Skating Relay", "Tug of War"];
@@ -50,6 +70,85 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
         animation: 'slide-in-up'
     });
 
+    $scope.dancedisable = true;
+    $scope.quizdisable = true;
+    $scope.aquaticsdisable = true;
+    $scope.sportsdisable = true;
+
+    $scope.enableordisable = function (value) {
+        checknow();
+        var popindex = $scope.checked.indexOf(value);
+        if (popindex == -1) {
+            if ($scope.checked.length <= 1) {
+                $scope.checked.push(value);
+                console.log($scope.checked);
+                if ($scope.checked.length == 2) {
+                    _.each($scope.divs, function (n) {
+                        var foundindex = $scope.checked.indexOf(n.name);
+                        console.log(foundindex);
+                        if (foundindex == -1) {
+                            n.value = true;
+                        } else {
+                            n.value = false;
+                        }
+                    })
+                }
+            }
+        } else {
+            $scope.checked.splice(popindex, 1);
+            _.each($scope.divs, function (n) {
+                n.value = false;
+            })
+        }
+        console.log($scope.checked);
+
+        function checknow() {
+            if (value == 'div1') {
+                if ($scope.divmodel.quiz == false) {
+                    $scope.quizdisable = true;
+                    document.getElementById("quiz1").checked = false;
+                    $scope.user.quiz = [];
+                } else {
+                    $scope.quizdisable = false;
+                    document.getElementById("quiz1").checked = true;
+                }
+            }
+
+            if (value == 'div2') {
+                if ($scope.divmodel.aquatics == false) {
+                    $scope.aquaticsdisable = true;
+                    document.getElementById("aqua1").checked = false;
+                    $scope.user.aquatics = []
+                } else {
+                    $scope.aquaticsdisable = false;
+                    document.getElementById("aqua1").checked = true;
+                }
+            }
+
+            if (value == 'div3') {
+                if ($scope.divmodel.dance == false) {
+                    $scope.dancedisable = true;
+                    document.getElementById("dance1").checked = false;
+                    document.getElementById("dance2").checked = false;
+                    $scope.user.dance = [];
+                } else {
+                    $scope.dancedisable = false;
+                }
+            }
+
+            if (value == 'div4') {
+                if ($scope.divmodel.sports == false) {
+                    $scope.sportsdisable = true;
+                    for (var i = 0; i < $scope.allsports.length; i++) {
+                        document.getElementById($scope.allsports[i] + i + "").checked = false;
+                        $scope.user.sports = [];
+                    }
+                } else {
+                    $scope.sportsdisable = false;
+                }
+            }
+        }
+    }
 
     $scope.openmodalarea = function () {
         $scope.modal1.show();
@@ -89,19 +188,23 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
     }
 
     $scope.pushorpopsports = function (value) {
-        var popindex = $scope.user.sports.indexOf(value);
-        if (popindex == -1)
-            $scope.user.sports.push(value);
-        else
-            $scope.user.sports.splice(popindex, 1);
+        console.log($scope.divmodel.sports);
+        if ($scope.divmodel.sports != false) {
+            var popindex = $scope.user.sports.indexOf(value);
+            if (popindex == -1)
+                $scope.user.sports.push(value);
+            else
+                $scope.user.sports.splice(popindex, 1);
+        }
     }
 
     $scope.pushorpopquiz = function (value) {
         var popindex = $scope.user.quiz.indexOf(value);
         if (popindex == -1)
             $scope.user.quiz.push(value);
-        else
+        else {
             $scope.user.quiz.splice(popindex, 1);
+        }
     }
 
     $scope.pushorpopaqua = function (value) {
@@ -129,7 +232,78 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
     }
 
     $scope.registerUser = function () {
-        console.log($scope.user);
+        $scope.allvalidation = [{
+            field: $scope.user.firstname,
+            validation: ""
+        }, {
+            field: $scope.user.middlename,
+            validation: ""
+        }, {
+            field: $scope.user.lastname,
+            validation: ""
+        }, {
+            field: $scope.user.dateofbirth,
+            validation: ""
+        }, {
+            field: $scope.user.gender,
+            validation: ""
+        }, {
+            field: $scope.user.mobileno,
+            validation: ""
+        }, {
+            field: $scope.user.email,
+            validation: ""
+        }, {
+            field: $scope.user.address,
+            validation: ""
+        }, {
+            field: $scope.user.area,
+            validation: ""
+        }, {
+            field: $scope.user.pincode,
+            validation: ""
+        }];
+        var check = formvalidation($scope.allvalidation);
+        if (check) {
+            console.log($scope.user);
+            MyServices.registerUser($scope.user, function (data, status) {
+                console.log(data);
+                if (data.value == true) {
+                    var alertPopup = $ionicPopup.show({
+                        title: 'Thank You!',
+                        template: '<span style="color:#002C5F">Registration Successful</span>'
+                    });
+                    $timeout(function () {
+                        alertPopup.close();
+                        $location.url("/app/home");
+                    }, 2500)
+                } else if (data.value == false && data.comment == "No such pincode") {
+                    var alertPopup = $ionicPopup.show({
+                        title: 'Sorry! Registration failed',
+                        template: '<span style="color:#002C5F">Your Pincode is not valid</span>'
+                    });
+                    $timeout(function () {
+                        alertPopup.close();
+                    }, 2500)
+                } else if (data.value == false && data.comment == "User already exists") {
+                    var alertPopup = $ionicPopup.show({
+                        title: 'Sorry! Registration failed',
+                        template: '<span style="color:#002C5F">Email Id already exists</span>'
+                    });
+                    $timeout(function () {
+                        alertPopup.close();
+                    }, 2500)
+                }
+            })
+        } else {
+            var alertPopup = $ionicPopup.show({
+                title: 'Error!',
+                template: '<span style="color:#002C5F">Please fill in the mandatory fields</span>'
+            });
+            $timeout(function () {
+                alertPopup.close();
+            }, 2500)
+        }
     }
 
 })
