@@ -31,8 +31,18 @@
                 Notification
 
             </div>
-            <div class="padding">
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+            <div class="padss">
+                <div class="list" ui-sref="app.notidetail">
+
+    <a class="item item-thumbnail-left" href="#">
+      <img src="img/icon.png">
+      <h2>Pretty Hate Machine</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+    </a>
+
+
+
+</div>
             </div>
 
         </div>
@@ -40,9 +50,9 @@
         <div class="gallery-img ">
             <h5 class="paddleft marzero">Sponsor</h5>
             <ion-slide-box on-slide-changed="slideHasChanged($index)">
-                <ion-slide ng-repeat="slides in repeatslides">
-                    <div class="row">
-                        <div class="col" ng-repeat="img in slides"><img ng-src="{{img.image}}" class="full-image"></div>
+                <ion-slide ng-repeat="slides in repeatslides" >
+                    <div class="row ">
+                        <div class="col col-25 img-holds" ng-repeat="img in slides"><img ng-src="{{img.image}}" class="full-image"></div>
                     </div>
                 </ion-slide>
             </ion-slide-box>

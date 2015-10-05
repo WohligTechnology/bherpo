@@ -270,6 +270,16 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
             name: "Jyoti Giants",
             logo: "img/team-logo/t8.jpg",
 
+  }, {
+            image: "img/team/t9.jpg",
+            name: "Balzing Blues",
+            logo: "img/team-logo/t9.png",
+
+  }, {
+            image: "img/team/t10.jpg",
+            name: "Khelbaajz",
+            logo: "img/team-logo/t10.png",
+
   }];
 
     })
@@ -383,6 +393,18 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
             num: "8",
             points: "0"
 
+  }, {
+            image: "img/team-logo/t9.png",
+            name: "Blazing Blues",
+            num: "9",
+            points: "0"
+
+  }, {
+            image: "img/team-logo/t10.png",
+            name: "Khelbaajz",
+            num: "10",
+            points: "0"
+
   }];
     })
     .controller('ConatctCtrl', function ($scope, $ionicModal, $timeout) {
@@ -390,6 +412,10 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
     })
     .controller('NotificationCtrl', function ($scope, $ionicModal, $timeout) {
+
+
+    })   
+    .controller('NotidetailCtrl', function ($scope, $ionicModal, $timeout) {
 
 
     })
@@ -478,6 +504,9 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
   }, {
         image: "img/slider/3.jpg",
 
+  }, {
+        image: "img/slider/5.jpg",
+
   }];
 
     $scope.gallery = [{
@@ -490,32 +519,26 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
         image: "img/slider/3.jpg",
 
   }, {
-        image: "img/slider/4.jpg",
+        image: "img/slider/5.jpg",
 
   }];
     $scope.sponsor = [{
-        image: "img/sponsor/s1.jpg",
+        image: "img/sponsor/1.png",
 
   }, {
-        image: "img/sponsor/s2.jpg",
+        image: "img/sponsor/2.png",
 
   }, {
-        image: "img/sponsor/s3.jpg",
+        image: "img/sponsor/3.png",
+
+  },{
+        image: "img/sponsor/1.png",
 
   }, {
-        image: "img/sponsor/s4.jpg",
+        image: "img/sponsor/2.png",
 
   }, {
-        image: "img/sponsor/s1.jpg",
-
-  }, {
-        image: "img/sponsor/s2.jpg",
-
-  }, {
-        image: "img/sponsor/s3.jpg",
-
-  }, {
-        image: "img/sponsor/s4.jpg",
+        image: "img/sponsor/3.png",
 
   }];
 

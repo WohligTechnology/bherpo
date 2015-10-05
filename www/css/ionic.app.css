@@ -98,13 +98,14 @@ p {
 
 .notitfy {
   margin-top: 30px;
+  margin-bottom: 10px !important;
   color: #002c5f; }
   .notitfy .item-divider {
     background-color: #002c5f;
     color: #fff;
     font-size: 15px; }
   .notitfy p {
-    margin: 16px 0px 0px; }
+    margin: 0; }
 
 .menu-list .item {
   border-color: transparent !important;
@@ -321,6 +322,13 @@ p {
   margin-top: 35px;
   margin-bottom: 20px;
   font-weight: 400; }
+  .padss p {
+    font-size: 12px !important; }
+  .padss h2 {
+    font-size: 14px !important;
+    line-height: 130%; }
+  .padss .item p {
+    white-space: initial !important; }
 
 .fl-right {
   float: right; }
@@ -334,6 +342,40 @@ p {
   vertical-align: middle; }
 .vert span {
   vertical-align: sub; }
+
+.img-holds {
+  height: 80px;
+  width: 100%;
+  overflow: hidden;
+  display: block;
+  position: relative; }
+  .img-holds img {
+    padding: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -o-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%); }
+
+.min-height {
+  height: 100%;
+  width: 100%;
+  background-position: center center;
+  background-size: cover;
+  position: relative;
+  display: block;
+  overflow: hidden; }
+  .min-height figure {
+    height: 180px; }
+
+.noti-title h4 {
+  margin: 0; }
+.noti-title p {
+  padding-top: 15px;
+  font-size: 13px; }
 
 /*!
   Ionicons, v2.0.1

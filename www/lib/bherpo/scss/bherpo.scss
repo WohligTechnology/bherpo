@@ -159,6 +159,7 @@ p {
 
 .notitfy {
     margin-top: 30px;
+    margin-bottom: 10px !important;
     color: $calm;
     .item-divider {
         background-color: $calm;
@@ -166,7 +167,7 @@ p {
         font-size: 15px;
     }
     p {
-        margin: 16px 0px 0px;
+       margin: 0;
     }
 }
 
@@ -490,6 +491,18 @@ p {
     margin-top: 35px;
     margin-bottom: 20px;
     font-weight: 400;
+    p{
+        font-size: 12px !important;
+    }
+    h2{
+        font-size: 14px !important;
+        line-height: 130%;
+    }
+    .item{
+        p{
+            white-space: initial !important;
+        }
+    }
 }
 .fl-right{
     float: right;
@@ -505,5 +518,44 @@ p {
     }
     span{
             vertical-align: sub;
+    }
+}
+.img-holds {
+    height: 80px;
+    width: 100%;
+    overflow: hidden;
+    display: block;
+    position: relative;
+    img{
+        padding: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -o-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    }
+}
+.min-height{
+        height: 100%;
+    width: 100%;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    figure{
+        height: 180px;
+    }
+}
+.noti-title{
+    h4{
+        margin: 0;
+    }
+    p{
+        padding-top: 15px;
+        font-size: 13px;
     }
 }

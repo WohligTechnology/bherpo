@@ -149,6 +149,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
                     controller: 'HomeCtrl'
                 }
             }
+        })   
+        .state('app.notidetail', {
+            url: '/notidetail',
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/notidetail.html',
+                    controller: 'NotidetailCtrl'
+                }
+            }
         })
         .state('app.gallery', {
             url: '/gallery',
