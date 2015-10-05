@@ -55,6 +55,13 @@ angular.module('starter.services', [])
                 url: adminurl + 'user/downloadE',
                 method: 'POST',
             }).success(callback);
+        },
+        registerUser: function (data, callback) {
+            $http({
+                url: adminurl + 'user/save',
+                method: 'POST',
+                data: data
+            }).success(callback);
         }
     };
 });

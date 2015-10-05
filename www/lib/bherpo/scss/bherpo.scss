@@ -100,7 +100,7 @@ p {
 .active {
     color: $light;
     border: 0 solid $light;
-//    border-width: 0px 0px 3px 0px !important;
+    //    border-width: 0px 0px 3px 0px !important;
 }
 
 .register {
@@ -112,9 +112,11 @@ p {
         padding: 0px 45px;
     }
 }
-.citysearch{
-    padding-left:20px;
+
+.citysearch {
+    padding-left: 20px;
 }
+
 .gallery-img {
     margin-top: 25px;
     h5 {
@@ -134,6 +136,7 @@ p {
         }
     }
 }
+
 //.closebtn{
 //.bar .button.button-icon{
 //font-size: 20px !important;
@@ -142,11 +145,12 @@ p {
 //    }
 //}
 //}
-.serchbtn{
-    .button{
-    font-size: 24px;
+.serchbtn {
+    .button {
+        font-size: 24px;
     }
 }
+
 .view-more {
     h5 {
         @extend .common-font;
@@ -504,22 +508,26 @@ p {
         }
     }
 }
-.fl-right{
+
+.fl-right {
     float: right;
 }
-.left{
-        float: right;
+
+.left {
+    float: right;
     margin-top: 22px !important;
     padding: 0px 12px !important;
 }
-.vert{
-    .checkbox{
+
+.vert {
+    .checkbox {
         vertical-align: middle;
     }
-    span{
-            vertical-align: sub;
+    span {
+        vertical-align: sub;
     }
 }
+
 .img-holds {
     height: 80px;
     width: 100%;
@@ -558,4 +566,9 @@ p {
         padding-top: 15px;
         font-size: 13px;
     }
+
+
+.ng-invalid.ng-dirty {
+    border-bottom: 2px solid red !important;
+
 }

@@ -13,41 +13,41 @@
 
                 <label class="item item-input item-stacked-label">
                     <span class="input-label">First Name</span>
-                    <input type="text" placeholder="First Name" ng-model='user.firstname'>
+                    <input type="text" placeholder="First Name" ng-model='user.firstname' ng-class="allvalidation[0].validation" required>
                 </label>
                 <label class="item item-input item-stacked-label">
                     <span class="input-label">Middle Name</span>
-                    <input type="text" placeholder="Middle Name" ng-model='user.middlename'>
+                    <input type="text" placeholder="Middle Name" ng-model='user.middlename' ng-class="allvalidation[1].validation" required>
                 </label>
                 <label class="item item-input item-stacked-label">
                     <span class="input-label">Last Name</span>
-                    <input type="text" placeholder="Last Name" ng-model='user.lastname'>
+                    <input type="text" placeholder="Last Name" ng-model='user.lastname' ng-class="allvalidation[2].validation" required>
                 </label>
                 <label class="item item-input item-stacked-label">
                     <span class="input-label">Date of Birth</span>
-                    <input type="text" onfocus="(this.type='date')" placeholder="Date of Birth" ng-model='user.dateofbirth'>
+                    <input type="text" onfocus="(this.type='date')" placeholder="Date of Birth" ng-model='user.dateofbirth' ng-class="allvalidation[3].validation" required>
                 </label>
                 <label class="item item-input item-select">
                     <div class="input-label">
                         Gender
                     </div>
-                    <select ng-model='user.gender'>
+                    <select ng-model='user.gender' ng-class="allvalidation[4].validation" required>
                         <option value="male">Male</option>
                         <option value="female">Female</option>
                     </select>
                 </label>
                 <label class="item item-input item-stacked-label">
                     <span class="input-label">Mobile Number</span>
-                    <input type="number" placeholder="Mobile Number" ng-model='user.mobileno'>
+                    <input type="text" placeholder="Mobile Number" ng-model='user.mobileno' ng-class="allvalidation[5].validation" required only-digits>
                 </label>
                 <label class="item item-input item-stacked-label">
                     <span class="input-label">Telehpone Number</span>
                     <div class="row">
                         <div class="col col-20">
-                            <input type="number" placeholder="022" ng-model='user.extension'>
+                            <input type="text" placeholder="022" ng-model='user.extension' only-digits>
                         </div>
                         <div class="col col-80">
-                            <input type="number" placeholder="Telehpone Number" ng-model='user.telephoneno'>
+                            <input type="text" placeholder="Telehpone Number" ng-model='user.telephoneno' only-digits>
                         </div>
                     </div>
 
@@ -77,18 +77,18 @@
 -->
                 <label class="item item-input item-stacked-label">
                     <span class="input-label">Email</span>
-                    <input type="email" placeholder="Email" ng-model='user.emailid'>
+                    <input type="email" placeholder="Email" ng-model='user.email' ng-class="allvalidation[6].validation" required>
                 </label>
                 <label class="item item-input item-stacked-label">
                     <span class="input-label">Address</span>
-                    <input type="text" placeholder="Address" ng-model='user.address'>
+                    <input type="text" placeholder="Address" ng-model='user.address' ng-class="allvalidation[7].validation" required>
                 </label>
                 <label class="item item-input item-stacked-label">
                     <span class="input-label">Address 2</span>
                     <input type="text" placeholder="Address 2" ng-model='user.address2'>
                 </label>
 
-                <label class="item item-input" ng-click="openmodalarea();" ng-model='user.area'>
+                <label class="item item-input" ng-click="openmodalarea();" ng-model='user.area' ng-class="allvalidation[8].validation" required>
                     <div class=" input-label ">
                         Area<span class="citysearch">{{user.area.name}}</span>
                     </div>
@@ -115,7 +115,7 @@
                 </label>
                 <label class="item item-input item-stacked-label">
                     <span class="input-label">Pincode</span>
-                    <input type="number" placeholder="Pincode" ng-model='user.pincode'>
+                    <input type="text" placeholder="Pincode" ng-model='user.pincode' ng-class="allvalidation[9].validation" required only-digits>
                 </label>
             </div>
             <div class="other-form">
@@ -123,37 +123,45 @@
             </div>
             <div class="select-in">
                 <div class="quize padding">
-                    <div class="card">
+                    <div class="card" id="div1">
                         <div class="item item-divider text-center vert">
-                               <label class="checkbox">
-                                        <input type="checkbox">
-                                    </label>
-                                    <span>Quiz</span>
+                            <label class="checkbox">
+                                <input type="checkbox" ng-disabled="divs[0].value" ng-click="pushorpopquiz('Quiz');enableordisable('div1');" ng-model="divmodel.quiz">
+                            </label>
+                            <span>Quiz</span>
                         </div>
                         <div class="item item-text-wrap">
                             <ul class="list">
                                 <li class="item item-checkbox">
                                     <label class="checkbox">
-                                        <input type="checkbox" ng-click="pushorpopquiz('Quiz');">
+                                        <input type="checkbox" id="quiz1" ng-disabled="quizdisable" ng-click="pushorpopquiz('Quiz');">
                                     </label>
                                     Quiz
                                 </li>
                             </ul>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card" id="div2">
                         <div class="item item-divider text-center vert">
+
                            
                                  <label class="checkbox">
                                         <input type="checkbox">
                                     </label>
                                     <span> Other Games</span>
+
+
+                            <label class="checkbox">
+                                <input type="checkbox" ng-disabled="divs[1].value" ng-click="pushorpopaqua('Aquatics');enableordisable('div2');" ng-model="divmodel.aquatics">
+                            </label>
+                            <span> Aquatics</span>
+
                         </div>
                         <div class="item item-text-wrap">
                             <ul class="list">
                                 <li class="item item-checkbox">
                                     <label class="checkbox">
-                                        <input type="checkbox" ng-click="pushorpopaqua('Aquatics');">
+                                        <input type="checkbox" id="aqua1" ng-click="pushorpopaqua('Aquatics');" ng-disabled="aquaticsdisable">
                                     </label>
                                     Khatron ke Khiladi
                                 </li>
@@ -172,45 +180,42 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card" id="div3">
                         <div class="item item-divider text-center vert">
-                           
-                              <label class="checkbox">
-                                        <input type="checkbox">
-                                    </label>
-                                    <span>  Dance And Street Play</span>
+                            <label class="checkbox">
+                                <input type="checkbox" ng-disabled="divs[2].value" ng-click="enableordisable('div3');" ng-model="divmodel.dance">
+                            </label>
+                            <span>  Dance And Street Play</span>
                         </div>
                         <div class="item item-text-wrap">
                             <ul class="list">
                                 <li class="item item-checkbox">
                                     <label class="checkbox">
-                                        <input type="checkbox" ng-click="pushorpopdance('Dance');">
+                                        <input type="checkbox" id="dance1" ng-disabled="dancedisable" ng-click="pushorpopdance('Dance');">
                                     </label>
                                     Dance
                                 </li>
                                 <li class="item item-checkbox">
                                     <label class="checkbox">
-                                        <input type="checkbox" ng-click="pushorpopdance('Street Play');">
+                                        <input type="checkbox" id="dance2" ng-disabled="dancedisable" ng-click="pushorpopdance('Street Play');">
                                     </label>
                                     Street Play
                                 </li>
                             </ul>
                         </div>
                     </div>
-                    <div class="card">
+                    <div class="card" id="div4">
                         <div class="item item-divider text-center vert">
-                         
-                            
-                              <label class="checkbox">
-                                        <input type="checkbox">
-                                    </label>
-                                    <span>Team Games And Athletics</span>
+                            <label class="checkbox">
+                                <input type="checkbox" ng-disabled="divs[3].value" ng-click="enableordisable('div4');" ng-model="divmodel.sports">
+                            </label>
+                            <span>Team Games And Athletics</span>
                         </div>
                         <div class="item item-text-wrap">
                             <ul class="list">
                                 <li class="item item-checkbox" ng-repeat="sports in allsports">
                                     <label class="checkbox">
-                                        <input type="checkbox" ng-click="pushorpopsports(sports)">
+                                        <input type="checkbox" id="{{sports+$index}}" ng-click="pushorpopsports(sports)" ng-disabled="sportsdisable">
                                     </label>
                                     {{sports}}
                                 </li>
@@ -232,7 +237,7 @@
                         <ul class="list">
                             <li class="item item-checkbox">
                                 <label class="checkbox">
-                                    <input type="checkbox"  ng-click="pushorpopvolun('Banner Desigining / Art Work');">
+                                    <input type="checkbox" ng-click="pushorpopvolun('Banner Desigining / Art Work');">
                                 </label>
                                 Banner Desigining / Art Work
                             </li>
