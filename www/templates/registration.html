@@ -10,7 +10,6 @@
                     <span class="input-label">Reg. Date</span>
                     <input type="date" placeholder="Reg. Date" ng-model='user.registrationdate' readonly>
                 </label>
-
                 <label class="item item-input item-stacked-label">
                     <span class="input-label">First Name</span>
                     <input type="text" placeholder="First Name" ng-model='user.firstname' ng-class="allvalidation[0].validation" required>
@@ -50,16 +49,12 @@
                             <input type="text" placeholder="Telehpone Number" ng-model='user.telephoneno' only-digits>
                         </div>
                     </div>
-
-
                 </label>
-
                 <label class="item item-input" ng-click="openmodal();" ng-model='user.village'>
                     <div class=" input-label ">
-                        Village<span class="citysearch">{{user.village.name}}</span>
+                        Village<span class="citysearch">{{user.village[0].name}}</span>
                     </div>
                 </label>
-
                 <!--
                 <label class="item item-input item-select">
                     <div class="input-label">
@@ -87,13 +82,11 @@
                     <span class="input-label">Address 2</span>
                     <input type="text" placeholder="Address 2" ng-model='user.address2'>
                 </label>
-
                 <label class="item item-input" ng-click="openmodalarea();" ng-model='user.area' ng-class="allvalidation[8].validation" required>
                     <div class=" input-label ">
-                        Area<span class="citysearch">{{user.area.name}}</span>
+                        Area<span class="citysearch">{{user.area[0].name}}</span>
                     </div>
                 </label>
-
                 <!--
                 <label class="item item-input item-select">
                     <div class="input-label">
@@ -134,7 +127,7 @@
                             <ul class="list">
                                 <li class="item item-checkbox">
                                     <label class="checkbox">
-                                        <input type="checkbox" id="quiz1" ng-disabled="quizdisable" ng-click="pushorpopquiz('Quiz');">
+                                        <input type="checkbox" ng-true-value="'Quiz'" ng-false-value="" ng-model="user.quiz[0]" id="quiz1" ng-disabled="quizdisable">
                                     </label>
                                     Quiz
                                 </li>
@@ -143,39 +136,35 @@
                     </div>
                     <div class="card" id="div2">
                         <div class="item item-divider text-center vert">
-
-                           
-                                 <label class="checkbox">
-                                        <input type="checkbox">
-                                    </label>
-                                    <span> Other Games</span>
-
-<!--
+                            <label class="checkbox">
+                                <input type="checkbox" ng-disabled="divs[1].value" ng-click="enableordisable('div2');" ng-model="divmodel.aquatics">
+                            </label>
+                            <span> Other Games</span>
+                            <!--
 
                             <label class="checkbox">
                                 <input type="checkbox" ng-disabled="divs[1].value" ng-click="pushorpopaqua('Aquatics');enableordisable('div2');" ng-model="divmodel.aquatics">
                             </label>
                             <span> Aquatics</span>
 -->
-
                         </div>
                         <div class="item item-text-wrap">
                             <ul class="list">
                                 <li class="item item-checkbox">
                                     <label class="checkbox">
-                                        <input type="checkbox" id="aqua1" ng-click="pushorpopaqua('Aquatics');" ng-disabled="aquaticsdisable">
+                                        <input type="checkbox" ng-true-value="'Khatron ke Khiladi'" ng-false-value="" ng-model="user.aquatics[0]" id="aqua1" ng-disabled="aquaticsdisable">
                                     </label>
                                     Khatron ke Khiladi
                                 </li>
-                                   <li class="item item-checkbox">
+                                <li class="item item-checkbox">
                                     <label class="checkbox">
-                                        <input type="checkbox" ng-click="pushorpopaqua('Aquatics');">
+                                        <input type="checkbox" ng-true-value="'Musical Stations'" ng-false-value="" ng-model="user.aquatics[1]" id="aqua2" ng-disabled="aquaticsdisable">
                                     </label>
                                     Musical Stations
                                 </li>
-                                   <li class="item item-checkbox">
+                                <li class="item item-checkbox">
                                     <label class="checkbox">
-                                        <input type="checkbox" ng-click="pushorpopaqua('Aquatics');">
+                                        <input type="checkbox" ng-true-value="'Kho Kho'" ng-false-value="" ng-model="user.aquatics[2]" id="aqua3" ng-disabled="aquaticsdisable">
                                     </label>
                                     Kho Kho
                                 </li>
@@ -193,13 +182,13 @@
                             <ul class="list">
                                 <li class="item item-checkbox">
                                     <label class="checkbox">
-                                        <input type="checkbox" id="dance1" ng-disabled="dancedisable" ng-click="pushorpopdance('Dance');">
+                                        <input type="checkbox" ng-true-value="'Dance'" ng-false-value="" ng-model="user.dance[0]" id="dance1" ng-disabled="dancedisable">
                                     </label>
                                     Dance
                                 </li>
                                 <li class="item item-checkbox">
                                     <label class="checkbox">
-                                        <input type="checkbox" id="dance2" ng-disabled="dancedisable" ng-click="pushorpopdance('Street Play');">
+                                        <input type="checkbox" ng-true-value="'Street Play'" ng-false-value="" ng-model="user.dance[1]" id="dance2" ng-disabled="dancedisable">
                                     </label>
                                     Street Play
                                 </li>
@@ -217,13 +206,12 @@
                             <ul class="list">
                                 <li class="item item-checkbox" ng-repeat="sports in allsports">
                                     <label class="checkbox">
-                                        <input type="checkbox" id="{{sports+$index}}" ng-click="pushorpopsports(sports)" ng-disabled="sportsdisable">
+                                        <input type="checkbox" ng-true-value="'{{sports}}'" ng-false-value="" ng-model="user.sports[$index]" id="{{sports+$index}}" ng-disabled="sportsdisable">
                                     </label>
                                     {{sports}}
                                 </li>
                             </ul>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -239,25 +227,25 @@
                         <ul class="list">
                             <li class="item item-checkbox">
                                 <label class="checkbox">
-                                    <input type="checkbox" ng-click="pushorpopvolun('Banner Desigining / Art Work');">
+                                    <input type="checkbox" ng-true-value="'Banner Desigining / Art Work'" ng-false-value="" ng-model="user.volunteer[0]">
                                 </label>
                                 Banner Desigining / Art Work
                             </li>
                             <li class="item item-checkbox">
                                 <label class="checkbox">
-                                    <input type="checkbox" ng-click="pushorpopvolun('Slogan And Other Write UPS');">
+                                    <input type="checkbox" ng-true-value="'Slogan And Other Write UPS'" ng-false-value="" ng-model="user.volunteer[1]">
                                 </label>
                                 Slogan And Other Write UPS
                             </li>
                             <li class="item item-checkbox">
                                 <label class="checkbox">
-                                    <input type="checkbox" ng-click="pushorpopvolun('Cycling');">
+                                    <input type="checkbox" ng-true-value="'Cycling'" ng-false-value="" ng-model="user.volunteer[2]">
                                 </label>
                                 Cycling
                             </li>
                             <li class="item item-checkbox">
                                 <label class="checkbox">
-                                    <input type="checkbox" ng-click="pushorpopvolun('Volunteer');">
+                                    <input type="checkbox" ng-true-value="'Volunteer'" ng-false-value="" ng-model="user.volunteer[3]">
                                 </label>
                                 Volunteer
                             </li>
@@ -273,7 +261,6 @@
                     Cancel
                 </button>
             </div>
-
         </div>
     </ion-content>
 </ion-view>

@@ -3,11 +3,12 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
 
-    })
-    .controller('BherpoCtrl', function($scope, $ionicModal, $timeout) {
+})
+
+.controller('BherpoCtrl', function($scope, $ionicModal, $timeout) {
 
 
-    })
+})
 
 .controller('RegistrationCtrl', function($scope, $ionicModal, $timeout, MyServices, $filter, $ionicPopup, $location) {
 
@@ -83,11 +84,9 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
         if (popindex == -1) {
             if ($scope.checked.length <= 1) {
                 $scope.checked.push(value);
-                console.log($scope.checked);
                 if ($scope.checked.length == 2) {
                     _.each($scope.divs, function(n) {
                         var foundindex = $scope.checked.indexOf(n.name);
-                        console.log(foundindex);
                         if (foundindex == -1) {
                             n.value = true;
                         } else {
@@ -102,7 +101,6 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
                 n.value = false;
             })
         }
-        console.log($scope.checked);
 
         function checknow() {
             if (value == 'div1') {
@@ -120,10 +118,11 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
                 if ($scope.divmodel.aquatics == false) {
                     $scope.aquaticsdisable = true;
                     document.getElementById("aqua1").checked = false;
+                    document.getElementById("aqua2").checked = false;
+                    document.getElementById("aqua3").checked = false;
                     $scope.user.aquatics = []
                 } else {
                     $scope.aquaticsdisable = false;
-                    document.getElementById("aqua1").checked = true;
                 }
             }
 
@@ -187,50 +186,6 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
         console.log(comp);
         $scope.closemodalarea();
         $scope.user.area.push(comp);
-    }
-
-    $scope.pushorpopsports = function(value) {
-        console.log($scope.divmodel.sports);
-        if ($scope.divmodel.sports != false) {
-            var popindex = $scope.user.sports.indexOf(value);
-            if (popindex == -1)
-                $scope.user.sports.push(value);
-            else
-                $scope.user.sports.splice(popindex, 1);
-        }
-    }
-
-    $scope.pushorpopquiz = function(value) {
-        var popindex = $scope.user.quiz.indexOf(value);
-        if (popindex == -1)
-            $scope.user.quiz.push(value);
-        else {
-            $scope.user.quiz.splice(popindex, 1);
-        }
-    }
-
-    $scope.pushorpopaqua = function(value) {
-        var popindex = $scope.user.aquatics.indexOf(value);
-        if (popindex == -1)
-            $scope.user.aquatics.push(value);
-        else
-            $scope.user.aquatics.splice(popindex, 1);
-    }
-
-    $scope.pushorpopdance = function(value) {
-        var popindex = $scope.user.dance.indexOf(value);
-        if (popindex == -1)
-            $scope.user.dance.push(value);
-        else
-            $scope.user.dance.splice(popindex, 1);
-    }
-
-    $scope.pushorpopvolun = function(value) {
-        var popindex = $scope.user.volunteer.indexOf(value);
-        if (popindex == -1)
-            $scope.user.volunteer.push(value);
-        else
-            $scope.user.volunteer.splice(popindex, 1);
     }
 
     $scope.registerUser = function() {
@@ -447,17 +402,17 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
             logo: "img/team-logo/t8.jpg",
 
 
-  }, {
+        }, {
             image: "img/team/t9.jpg",
             name: "Balzing Blues",
             logo: "img/team-logo/t9.png",
 
-  }, {
+        }, {
             image: "img/team/t10.jpg",
             name: "Khelbaajz",
             logo: "img/team-logo/t10.png",
 
-  }];
+        }];
 
     })
     .controller('EventCtrl', function($scope, $ionicModal, $timeout) {
@@ -570,19 +525,19 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
             num: "8",
             points: "0"
 
-  }, {
+        }, {
             image: "img/team-logo/t9.png",
             name: "Blazing Blues",
             num: "9",
             points: "0"
 
-  }, {
+        }, {
             image: "img/team-logo/t10.png",
             name: "Khelbaajz",
             num: "10",
             points: "0"
 
-  }];
+        }];
 
     })
     .controller('ConatctCtrl', function($scope, $ionicModal, $timeout) {
@@ -592,8 +547,8 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
     .controller('NotificationCtrl', function($scope, $ionicModal, $timeout) {
 
 
-    })   
-    .controller('NotidetailCtrl', function ($scope, $ionicModal, $timeout) {
+    })
+    .controller('NotidetailCtrl', function($scope, $ionicModal, $timeout) {
 
 
     })
@@ -683,10 +638,10 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
         image: "img/slider/3.jpg",
 
 
-  }, {
+    }, {
         image: "img/slider/5.jpg",
 
-  }];
+    }];
 
 
     $scope.gallery = [{
@@ -699,7 +654,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
         image: "img/slider/3.jpg",
 
 
-  }, {
+    }, {
         image: "img/slider/5.jpg",
 
     }, {
@@ -711,19 +666,19 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
         image: "img/sponsor/1.png",
 
 
-  }, {
+    }, {
         image: "img/sponsor/2.png",
 
-  }, {
+    }, {
         image: "img/sponsor/3.png",
 
-  },{
+    }, {
         image: "img/sponsor/1.png",
 
-  }, {
+    }, {
         image: "img/sponsor/2.png",
 
-  }, {
+    }, {
         image: "img/sponsor/3.png",
 
     }, {
