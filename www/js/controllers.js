@@ -294,7 +294,14 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
         }];
 
+        $scope.galleryImg = [3078, 3079, 3096, 3127, 3142, 3156, 3159, 3166, 3171, 3167, 3169, 3173, 3174, 3177, 3182, 3193, 3201, 3210, 3215, 3224, 3244, 3248, 3250, 3254, 3266, 3271, 3280, 3292, 3294, 3298, 3307, 3315, 3317, 3322, 3326, 3392, 3414, 3416, 3426, 3430, 3431, 3438, 3436, 3440, 3442, 3444, 3481, 3485, 3550, 3553, 3583, 3642];
 
+        $scope.gallery = [];
+        _.each($scope.galleryImg, function(n) {
+            $scope.photoObj = {};
+            $scope.photoObj.src =  "http://wohlig.co.in/bherpoimg/IMG_" + n + ".JPG";
+            $scope.gallery.push($scope.photoObj);
+        });
 
         $scope.gallerys = _.chunk($scope.gallery, 3);
 
