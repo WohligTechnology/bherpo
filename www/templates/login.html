@@ -6,24 +6,16 @@
 		<div class="regi-form">
 			<div class="list">
 				<label class="item item-input item-stacked-label">
-					<span class="input-label">First Name</span>
-					<input type="text" placeholder="First Name" required>
-				</label>
-				<label class="item item-input item-stacked-label">
-					<span class="input-label">Middle Name</span>
-					<input type="text" placeholder="Middle Name" required>
-				</label>
-				<label class="item item-input item-stacked-label">
-					<span class="input-label">Last Name</span>
-					<input type="text" placeholder="Last Name" required>
+					<span class="input-label">Full Name</span>
+					<input type="text" placeholder="Full Name*" required>
 				</label>
 				<label class="item item-input item-stacked-label">
 					<span class="input-label">Pincode</span>
-					<input type="number" placeholder="Pincode" required>
+					<input type="text" placeholder="Pincode *" required>
 				</label>
 				<label class="item item-input item-stacked-label">
 					<span class="input-label">Mobile Number</span>
-					<input type="text" placeholder="Mobile Number" required>
+					<input type="tel" placeholder="Mobile Number *" required>
 				</label>
 				<div class="item item-divider">
 					I support this team
@@ -43,22 +35,10 @@
 						<option>Red</option>
 					</select>
 				</div>
-				<!--
-				<div class="button-bar padding-horizontal">
-					<a class="button button-calm button-outline">Save</a>
-					<a class="button button-calm button-outline">Undo</a>
-				</div>
--->
 			</div>
 		</div>
-		<div class="padding-horizontal">
-			<button class="button button-block button-calm" ng-click="openterms();">Terms &amp; Conditions</button>
-		</div>
-		<div class="item item-checkbox text-condt">
-			<label class="checkbox checkbox-calm">
-				<input type="checkbox">
-			</label>
-			I Accept the Terms and Conditions
+		<div class="padding text-right">
+			<a class="" ng-click="openterms();">Terms &amp; Conditions</a>
 		</div>
 		<div class="padding-horizontal">
 			<button class="button button-block button-calm">Login</button>

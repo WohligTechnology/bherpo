@@ -1,6 +1,9 @@
 <ion-modal-view view-title="Login">
 	<ion-header-bar align-title="center" class="bar-calm">
 		<h1 class="title">Terms &amp; Conditions</h1>
+		<div class="buttons">
+			<button class="button icon ion-android-close" ng-click="closeterms();"></button>
+		</div>
 	</ion-header-bar>
 	<ion-content class="padding">
 		<div class="cont-term">
@@ -9,7 +12,7 @@
 			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
 		</div>
 	</ion-content>
-<!--
+	<!--
 	<div class="down">
 		<button class="button button-block button-calm" ng-click="closeterms();">I Accept the Terms and Conditions</button>
 	</div>
