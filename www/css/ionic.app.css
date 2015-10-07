@@ -418,10 +418,6 @@ img.doneLoading {
     .handshake.padding ul .handshake-circle {
       width: 80px;
       height: 80px; }
-      .handshake.padding ul .handshake-circle img {
-        border-radius: 50%;
-        overflow: hidden;
-        height: 100%; }
     .handshake.padding ul .handshake2 {
       width: 50px;
       margin: 0 10%;

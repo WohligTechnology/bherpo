@@ -617,11 +617,6 @@
 		        .handshake-circle {
 		            width: 80px;
 		            height: 80px;
-		            img {
-		                border-radius: 50%;
-		                overflow: hidden;
-		                height: 100%;
-		            }
 		        }
 		        .handshake2 {
 		            width: 50px;
@@ -649,9 +644,9 @@
 		        bottom: -2px;
 		        width: 100%;
 		        padding-top: 4px;
-		            background-color: rgba(6, 6, 6, 0.30);
+		        background-color: rgba(6, 6, 6, 0.30);
 		        p {
-		                color: #ffffff;
+		            color: #ffffff;
 		            padding-left: 10px;
 		            text-transform: capitalize;
 		        }
