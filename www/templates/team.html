@@ -1,9 +1,16 @@
 <ion-view view-title="Team">
-  <ion-content>
-   <div class="team" ng-repeat="item in gallery">
-       <figure>
-           <img ng-src="{{item.image}}" class="full-image">
-<!--
+    <ion-content>
+        <div class="team">
+            <div class="row" ng-repeat="item in gallerys">
+                <div class="col col-33" ng-repeat="items in item">
+                    <figure> <img ng-src="{{items.logo}}"></figure>
+                    <div class="team-name">
+                        <h4>{{items.name}}</h4>
+                    </div>
+                </div>
+            </div>
+            <!--           <img ng-src="{{item.image}}" class="full-image">-->
+            <!--
            <div class="layer">
               <div class="inner-layer">
                <div class="team-name">
@@ -15,7 +22,6 @@
                </div>
            </div>
 -->
-       </figure>
-   </div>
-  </ion-content>
+        </div>
+    </ion-content>
 </ion-view>

@@ -515,7 +515,8 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
             logo: "img/team-logo/t10.png",
 
         }];
-
+    
+    $scope.gallerys = _.chunk($scope.gallery, 3);
     })
     .controller('EventCtrl', function($scope, $ionicModal, $timeout) {
         $scope.venue = [{
