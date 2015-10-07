@@ -311,78 +311,127 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
 })
 
-.controller('GalleryCtrl', function($scope, $ionicModal, $timeout, $ionicScrollDelegate) {
+.controller('GalleryCtrl', function($scope, $ionicModal, $timeout, $ionicScrollDelegate, $location) {
 
-        $scope.gallery = [{
-            "src": "img/gallery/1.jpg",
-            //      "sub":"lnzdvnsjd"
+    $scope.gallery = [{
+        "src": "img/gallery/1.jpg",
+        //      "sub":"lnzdvnsjd"
 
-        }, {
-            "src": "img/gallery/2.jpg",
+    }, {
+        "src": "img/gallery/2.jpg",
 
-        }, {
-            "src": "img/gallery/3.jpg",
+    }, {
+        "src": "img/gallery/3.jpg",
 
-        }, {
-            "src": "img/gallery/4.jpg",
+    }, {
+        "src": "img/gallery/4.jpg",
 
-        }, {
-            "src": "img/gallery/1.jpg",
+    }, {
+        "src": "img/gallery/1.jpg",
 
-        }, {
-            "src": "img/gallery/2.jpg",
+    }, {
+        "src": "img/gallery/2.jpg",
 
-        }, {
-            "src": "img/gallery/3.jpg",
+    }, {
+        "src": "img/gallery/3.jpg",
 
-        }, {
-            "src": "img/gallery/4.jpg",
+    }, {
+        "src": "img/gallery/4.jpg",
 
-        }];
+    }];
 
-        $scope.galleryImg = [3078, 3079, 3096, 3127, 3142, 3156, 3159, 3166, 3171, 3167, 3169, 3173, 3174, 3177, 3182, 3193, 3201, 3210, 3215, 3224, 3244, 3248, 3250, 3254, 3266, 3271, 3280, 3292, 3294, 3298, 3307, 3315, 3317, 3322, 3326, 3392, 3414, 3416, 3426, 3430, 3431, 3438, 3436, 3440, 3442, 3444, 3481, 3485, 3550, 3553, 3583, 3642];
+    $scope.galleryImg = [3078, 3079, 3096, 3127, 3142, 3156, 3159, 3166, 3171, 3167, 3169, 3173, 3174, 3177, 3182, 3193, 3201, 3210, 3215, 3224, 3244, 3248, 3250, 3254, 3266, 3271, 3280, 3292, 3294, 3298, 3307, 3315, 3317, 3322, 3326, 3392, 3414, 3416, 3426, 3430, 3431, 3438, 3436, 3440, 3442, 3444, 3481, 3485, 3550, 3553, 3583, 3642];
 
-        $scope.gallery = [];
+    $scope.gallery = [];
+    _.each($scope.galleryImg, function(n) {
+        $scope.photoObj = {};
+        $scope.photoObj.src = "http://wohlig.co.in/bherpoimg/IMG_" + n + ".JPG";
+        $scope.gallery.push($scope.photoObj);
+    });
+
+    $scope.gallerys = _.chunk($scope.gallery, 3);
+
+
+    //    *** Tab Change ****
+    $scope.tab = 'photos';
+    $scope.classa = 'active';
+    $scope.classb = '';
+
+    $scope.tabchange = function(tab, a) {
+        //        console.log(tab);
+        $scope.tab = tab;
+        if (a == 1) {
+            $ionicScrollDelegate.scrollTop();
+            $scope.classa = "active";
+            $scope.classb = '';
+            $scope.classc = '';
+        } else if (a == 2) {
+            $ionicScrollDelegate.scrollTop();
+            $scope.classa = '';
+            $scope.classb = "active";
+            $scope.classc = '';
+        } else {
+            $ionicScrollDelegate.scrollTop();
+            $scope.classa = '';
+            $scope.classb = '';
+            $scope.classc = "active";
+        }
+    };
+
+    $scope.openFolder = function(num) {
+        $location.url("/app/innergallery/" + num);
+    }
+
+})
+
+.controller('InnerGalleryCtrl', function($scope, $ionicModal, $timeout, $ionicScrollDelegate, $stateParams) {
+
+    $scope.galleryImg = [3078, 3079, 3096, 3127, 3142, 3156, 3159, 3166, 3171, 3167, 3169, 3173, 3174, 3177, 3182, 3193, 3201, 3210, 3215, 3224, 3244, 3248, 3250, 3254, 3266, 3271, 3280, 3292, 3294, 3298, 3307, 3315, 3317, 3322, 3326, 3392, 3414, 3416, 3426, 3430, 3431, 3438, 3436, 3440, 3442, 3444, 3481, 3485, 3550, 3553, 3583, 3642];
+
+    $scope.teamImg = [3476, 3479,3483,3485,3489,3490,3493,3496,3499,3501,3503,3505,3507,3510,3512,3517,3518,3520,3523,3525,3532,3535,3541,3547,3596,3597,3605,3607,3608,3612];
+
+
+    $scope.gallery = [];
+
+    if ($stateParams.id == 1) {
         _.each($scope.galleryImg, function(n) {
             $scope.photoObj = {};
             $scope.photoObj.src = "http://wohlig.co.in/bherpoimg/IMG_" + n + ".JPG";
             $scope.gallery.push($scope.photoObj);
         });
-
-        $scope.gallerys = _.chunk($scope.gallery, 3);
-
-
-        //    *** Tab Change ****
-        $scope.tab = 'photos';
-        $scope.classa = 'active';
-        $scope.classb = '';
-
-        $scope.tabchange = function(tab, a) {
-            //        console.log(tab);
-            $scope.tab = tab;
-            if (a == 1) {
-                $ionicScrollDelegate.scrollTop();
-                $scope.classa = "active";
-                $scope.classb = '';
-                $scope.classc = '';
-            } else if (a == 2) {
-                $ionicScrollDelegate.scrollTop();
-                $scope.classa = '';
-                $scope.classb = "active";
-                $scope.classc = '';
-            } else {
-                $ionicScrollDelegate.scrollTop();
-                $scope.classa = '';
-                $scope.classb = '';
-                $scope.classc = "active";
-            }
-        };
+    } else if ($stateParams.id == 2) {
+        _.each($scope.teamImg, function(n) {
+            $scope.photoObj = {};
+            $scope.photoObj.src = "http://wohlig.co.in/bherpoimg/IMG_" + n + ".JPG";
+            $scope.gallery.push($scope.photoObj);
+        });
+    }
 
 
-        //            ******** end *******
+    $ionicModal.fromTemplateUrl('templates/modal-gallery.html', function($ionicModal) {
+        $scope.omodal = $ionicModal;
+    }, {
+        // Use our scope for the scope of the modal to keep it simple
+        scope: $scope,
+        // The animation we want to use for the modal entrance
+        animation: 'slide-in-up'
+    });
 
-    })
-    .controller('SponsorCtrl', function($scope, $ionicModal, $timeout) {
+    $scope.opengallery = function() {
+        $scope.omodal.show();
+    };
+
+    $scope.closegallery = function() {
+        $scope.omodal.hide();
+    };
+
+    $scope.openFolder = function(num) {
+        $scope.opengallery();
+    }
+
+})
+
+.controller('SponsorCtrl', function($scope, $ionicModal, $timeout) {
         $scope.gallery = [{
             "src": "img/sponsor/s1.jpg",
 

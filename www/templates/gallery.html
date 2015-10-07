@@ -13,27 +13,27 @@
         <div class="photos" ng-show="tab=='photos'">
             <div class="row folders">
                 <div class="col">
-                    <div class="folder-inner">
-                        <img src="img/team-logo/t1.jpg" alt="" class="full-image">
+                    <div class="folder-inner" ng-click="openFolder(1);">
+                        <img src="img/folder.png" alt="" class="full-image">
                         <div class="folder-text">
                             <div class="folder-text">
-                                <p>folder1</p>
+                                <p>Event Images</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col">
-                    <div class="folder-inner">
-                        <img src="img/team-logo/t2.jpg" alt="" class="full-image">
+                    <div class="folder-inner" ng-click="openFolder(2);">
+                        <img src="img/folder.png" alt="" class="full-image">
                         <div class="folder-text">
                             <div class="folder-text">
-                                <p>folder2</p>
+                                <p>Team Owner Images</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <ion-gallery ion-gallery-items="gallery" ng-if="gallery.length>0"></ion-gallery>
+            <!-- <ion-gallery ion-gallery-items="gallery" ng-if="gallery.length>0"></ion-gallery> -->
         </div>
         <div class="gallery" ng-show="tab=='video'">
             <div class="row">

@@ -201,6 +201,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 					controller: 'GalleryCtrl'
 				}
 			}
+		}).state('app.innergallery', {
+			url: '/innergallery/:id',
+			views: {
+				'menuContent': {
+					templateUrl: 'templates/innergallery.html',
+					controller: 'InnerGalleryCtrl'
+				}
+			}
 		});
 	// if none of the above states are matched, use this as the fallback
 	$urlRouterProvider.otherwise('/app/home');
