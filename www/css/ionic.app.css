@@ -255,7 +255,7 @@ p {
   width: 100%;
   bottom: 10px;
   left: 0;
-  padding: 0 20px; }
+  padding: 0 10px; }
 
 .rules {
   color: grey;
@@ -376,6 +376,79 @@ p {
 .noti-title p {
   padding-top: 15px;
   font-size: 13px; }
+.noti-title .ng-invalid.ng-dirty {
+  border-bottom: 2px solid red !important; }
+
+img.loading {
+  background-image: url(../img/loading.gif);
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  background-size: contain;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  opacity: 1;
+  left: 50%;
+  tranform: translate(-50%, -50%);
+  width: 100px !important;
+  height: 100px !important; }
+
+img {
+  opacity: 0;
+  transition: all 1s ease; }
+
+img.doneLoading {
+  opacity: 1; }
+
+.text-condt {
+  font-size: 14px; }
+
+.cont-term p {
+  text-align: justify;
+  line-height: 120%;
+  padding: 5px; }
+
+.handshake.padding {
+  border-bottom: 2px solid #ddd; }
+  .handshake.padding ul {
+    text-align: center; }
+    .handshake.padding ul .handshake-circle {
+      width: 80px;
+      height: 80px; }
+      .handshake.padding ul .handshake-circle img {
+        border-radius: 50%;
+        overflow: hidden;
+        height: 100%; }
+    .handshake.padding ul .handshake2 {
+      width: 50px;
+      margin: 0 10%;
+      height: 100%; }
+
+.folder-inner {
+  overflow: hidden;
+  border: 2px solid white;
+  position: relative;
+  height: 110px; }
+  .folder-inner img {
+    position: absolute;
+    top: -9999px;
+    bottom: -9999px;
+    left: -9999px;
+    right: -9999px;
+    margin: auto; }
+  .folder-inner .folder-text {
+    position: absolute;
+    bottom: -2px;
+    width: 100%;
+    padding-top: 4px;
+    background-color: rgba(6, 6, 6, 0.3); }
+    .folder-inner .folder-text p {
+      color: #ffffff;
+      padding-left: 10px;
+      text-transform: capitalize; }
 
 /*!
   Ionicons, v2.0.1
