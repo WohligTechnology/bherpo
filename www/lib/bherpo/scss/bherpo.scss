@@ -600,15 +600,8 @@
 			opacity: 1;
 		}
 		
-		.list.radio-team .item {
-			.item-content {
-				padding: 8px 64px 8px 16px;
-				color: $calm;
-			}
-			.item-radio .radio-icon {
-				padding: 2px 16px 8px 5px;
-				color: $calm;
-			}
+		item-dividers {
+			border-bottom: 2px solid #fff;
 		}
 		
 		.text-condt {

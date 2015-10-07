@@ -492,6 +492,9 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
 
 	})
+	
+	.controller('AboutusCtrl', function ($scope, $ionicModal, $timeout) {
+	})
 	.controller('VenueCtrl', function ($scope, $ionicModal, $timeout) {
 
 		$scope.venue = [{
