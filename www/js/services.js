@@ -4,10 +4,10 @@ var imgpath = adminurl + "user/resize?file=";
 
 angular.module('starter.services', [])
 
-.factory('MyServices', function ($http) {
+.factory('MyServices', function($http) {
 
     return {
-        makeactive: function (menuname) {
+        makeactive: function(menuname) {
             for (var i = 0; i < navigation.length; i++) {
                 if (navigation[i].name == menuname) {
                     navigation[i].classis = "active";
@@ -17,14 +17,14 @@ angular.module('starter.services', [])
             }
             return menuname;
         },
-        saveUser: function (data, callback) {
+        saveUser: function(data, callback) {
             $http({
                 url: adminurl + 'user/save',
                 method: 'POST',
                 data: data
             }).success(callback);
         },
-        findVillage: function (data, callback) {
+        findVillage: function(data, callback) {
             $http({
                 url: adminurl + 'village/find',
                 method: 'POST',
@@ -34,7 +34,7 @@ angular.module('starter.services', [])
                 }
             }).success(callback);
         },
-        findArea: function (data, callback) {
+        findArea: function(data, callback) {
             $http({
                 url: adminurl + 'area/find',
                 method: 'POST',
@@ -44,23 +44,29 @@ angular.module('starter.services', [])
                 }
             }).success(callback);
         },
-        downloadP: function (callback) {
+        downloadP: function(callback) {
             $http({
                 url: adminurl + 'user/downloadP',
                 method: 'POST',
             }).success(callback);
         },
-        downloadE: function (callback) {
+        downloadE: function(callback) {
             $http({
                 url: adminurl + 'user/downloadE',
                 method: 'POST',
             }).success(callback);
         },
-        registerUser: function (data, callback) {
+        registerUser: function(data, callback) {
             $http({
                 url: adminurl + 'user/save',
                 method: 'POST',
                 data: data
+            }).success(callback);
+        },
+        findTeam: function(callback) {
+            $http({
+                url: adminurl + 'team/find',
+                method: 'POST'
             }).success(callback);
         }
     };
