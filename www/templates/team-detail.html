@@ -1,0 +1,57 @@
+<ion-view view-title="Team Details">
+    <ion-content>
+        <div class="head-team">
+            <div class="item item-thumbnail-left" href="#">
+                <img src="img/team-logo/t3.png">
+                <h2>Transform Heroes</h2>
+            </div>
+        </div>
+        <ion-scroll direction="x">
+        <div class="tabs-item">
+            <ul class="tab-item-inner">
+                <li class="tab-li">News</li>
+                <li class="tab-li">Gallery</li>
+                <li class="tab-li">Schedule</li>
+                <li class="tab-li">Player</li>
+                <li class="tab-li">Notification</li>
+            </ul>
+        </div>
+        </ion-scroll>
+        <div class="news">
+            <div class="news-inner">
+                <img src="img/news/1.jpg" class="full-image">
+                <div class="item item-divider">
+                    <span class="item-note">12 Sep 2015</span>
+                    <h2>Inograting New team</h2>
+                    <span class="item-note">12.30 pm</span>
+                </div>
+            </div>
+            <div class="news-inner">
+                <img src="img/news/1.jpg" class="full-image">
+                <div class="item item-divider">
+                    <span class="item-note">12 Sep 2015</span>
+                    <h2>Inograting New team</h2>
+                    <span class="item-note">11.30 pm</span>
+                </div>
+            </div>
+            <div class="news-inner">
+                <img src="img/news/1.jpg" class="full-image">
+                <div class="item item-divider">
+                    <span class="item-note">12 Sep 2015</span>
+                    <h2>Inograting New team</h2>
+                    <span class="item-note">1.30 pm</span>
+                </div>
+            </div>
+        </div>
+        <div class="gallery-img ">
+            <h5 class="paddleft marzero">Merchant</h5>
+            <ion-slide-box on-slide-changed="slideHasChanged($index)">
+                <ion-slide ng-repeat="slides in repeatslides">
+                    <div class="row ">
+                        <div class="col col-25 img-holds" ng-repeat="img in slides"><img ng-src="{{img.image}}" class="full-image"></div>
+                    </div>
+                </ion-slide>
+            </ion-slide-box>
+        </div>
+    </ion-content>
+</ion-view>

@@ -3,10 +3,14 @@
         <div class="team">
             <div class="row" ng-repeat="item in gallerys">
                 <div class="col col-33" ng-repeat="items in item">
-                    <figure> <img ng-src="{{items.logo}}"></figure>
-                    <div class="team-name">
-                        <h4>{{items.name}}</h4>
-                    </div>
+                    <a href="#/app/team/detail" class="inner-layer">
+                            <div>
+                            <figure> <img ng-src="{{items.logo}}"></figure>
+                            <div class="team-name">
+                                <h4>{{items.name}}</h4>
+                            </div>
+                        </div>
+                    </a>
                 </div>
             </div>
             <!--           <img ng-src="{{item.image}}" class="full-image">-->
