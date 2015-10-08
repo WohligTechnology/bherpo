@@ -106,6 +106,18 @@ p {
     font-size: 15px; }
   .notitfy p {
     margin: 0; }
+  .notitfy .event .list {
+    margin: -1px 0px !important; }
+    .notitfy .event .list .item {
+      padding: 10px 0px 10px 0px; }
+      .notitfy .event .list .item p {
+        font-size: 12px !important;
+        white-space: initial !important; }
+      .notitfy .event .list .item h2 {
+        font-size: 14px !important;
+        line-height: 130%; }
+  .notitfy .event {
+    margin-bottom: 20px; }
 
 .menu-list .item {
   border-color: transparent !important;
@@ -446,39 +458,27 @@ img.doneLoading {
       padding-left: 10px;
       text-transform: capitalize; }
 
-.head-team .item-thumbnail-left > img:first-child {
-  height: auto; }
-.head-team .item {
-  background-color: #002c5f;
-  border: 0px; }
-  .head-team .item h2 {
-    padding-top: 10px;
-    color: #fff; }
+.navneet {
+  margin: 20px 0px; }
 
-ul.tab-item-inner {
-  padding: 10px 0;
-  background-color: #002c5f;
-  display: table; }
-  ul.tab-item-inner li.tab-li + li.tab-li {
-    padding-left: 10px; }
-  ul.tab-item-inner li.tab-li:nth-child(1) {
-    padding-left: 10px; }
-  ul.tab-item-inner li.tab-li:nth-last-child {
-    padding-right: 10px; }
-  ul.tab-item-inner li.tab-li {
-    text-transform: uppercase;
-    font-weight: 600;
-    color: #fff;
-    display: table-cell; }
+.image-hold {
+  width: 80px;
+  height: 80px;
+  border-radius: 3px;
+  overflow: hidden;
+  background-image: url(../img/notification/1.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: #ccc;
+  position: relative;
+  left: 10px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
 
-.news .item.item-divider {
-  border: 0px;
-  background-color: #fff;
-  border-bottom: 1px solid #f8f8f8; }
-  .news .item.item-divider h2 {
-    color: #444; }
-  .news .item.item-divider .item-note {
-    color: #444; }
+.padzero {
+  padding: 0px !important; }
 
 /*!
   Ionicons, v2.0.1

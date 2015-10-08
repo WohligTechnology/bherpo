@@ -798,67 +798,54 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
 
     $scope.gallery = [{
-        image: "img/slider/1.jpg",
+        image: "img/sponsor/4.png",
 
     }, {
-        image: "img/slider/2.jpg",
+        image: "img/sponsor/4.png",
 
     }, {
-        image: "img/slider/3.jpg",
-
-
-    }, {
-        image: "img/slider/5.jpg",
-
-    }, {
-        image: "img/slider/4.jpg",
+        image: "img/sponsor/4.png",
 
 
     }];
+    
+    $scope.repeatslides = _.chunk($scope.gallery, 1);
     $scope.sponsor = [{
         image: "img/sponsor/1.png",
 
-
     }, {
         image: "img/sponsor/2.png",
 
     }, {
         image: "img/sponsor/3.png",
 
-    }, {
+    },{
         image: "img/sponsor/1.png",
-
     }, {
         image: "img/sponsor/2.png",
 
     }, {
         image: "img/sponsor/3.png",
-
-    }, {
-        image: "img/sponsor/s2.jpg",
-
-    }, {
-        image: "img/sponsor/s3.jpg",
-
-    }, {
-        image: "img/sponsor/s4.jpg",
-
-    }, {
-        image: "img/sponsor/s1.jpg",
-
-    }, {
-        image: "img/sponsor/s2.jpg",
-
-    }, {
-        image: "img/sponsor/s3.jpg",
-
-    }, {
-        image: "img/sponsor/s4.jpg",
-
 
     }];
 
-    $scope.repeatslides = _.chunk($scope.sponsor, 4);
+    $scope.repeatslides = _.chunk($scope.sponsor, 3);
+    
+    	$scope.video = [{
+		image: "img/notification/1.jpg",
+		title: "Disnei Beauty and the Beast",
+		detail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vulputate venenatis faucibus"
+  }, {
+		image: "img/notification/3.jpg",
+		title: "Bollywud Dream Tours",
+		detail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vulputate venenatis faucibus"
+  }, {
+		image: "img/notification/5.jpg",
+		title: "Mumbai Filmcity Tours",
+		detail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vulputate venenatis faucibus"
+  }];
+
+    
 })
 
 .controller('PlaylistCtrl', function ($scope, $stateParams) {});
