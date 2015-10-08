@@ -444,18 +444,6 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
         }, {
         "src": "img/sponsor/s4.jpg",
 
-        }, {
-        "src": "img/sponsor/s1.jpg",
-
-        }, {
-        "src": "img/sponsor/s2.jpg",
-
-        }, {
-        "src": "img/sponsor/s3.jpg",
-
-        }, {
-        "src": "img/sponsor/s4.jpg",
-
         }];
 
     $scope.gallerys = _.chunk($scope.gallery, 3);
