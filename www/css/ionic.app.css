@@ -431,9 +431,11 @@ img.doneLoading {
       width: 80px;
       height: 80px; }
     .handshake.padding ul .handshake2 {
-      width: 50px;
+      width: 60px;
       margin: 0 10%;
-      height: 100%; }
+      height: 100%;
+      vertical-align: top;
+      line-height: 7; }
 
 .folder-inner {
   overflow: hidden;
@@ -491,6 +493,13 @@ img.doneLoading {
 .kn-team {
   text-align: left;
   line-height: 4; }
+
+.fn-sz {
+  font-size: 14px !important; }
+  .fn-sz i {
+    font-size: 20px !important;
+    padding-left: 10px;
+    vertical-align: middle; }
 
 /*!
   Ionicons, v2.0.1

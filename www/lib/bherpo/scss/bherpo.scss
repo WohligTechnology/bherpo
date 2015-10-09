@@ -593,9 +593,11 @@
 		            height: 80px;
 		        }
 		        .handshake2 {
-		            width: 50px;
-		            margin: 0 10%;
-		            height: 100%;
+		               width: 60px;
+    margin: 0 10%;
+    height: 100%;
+    vertical-align: top;
+    line-height: 7;
 		        }
 		    }
 		}
@@ -705,4 +707,12 @@
 .kn-team{
         text-align: left;
     line-height: 4;
+}
+.fn-sz{
+    font-size: 14px !important;
+    i{
+           font-size: 20px !important;
+    padding-left: 10px;
+    vertical-align: middle;
+    }
 }
