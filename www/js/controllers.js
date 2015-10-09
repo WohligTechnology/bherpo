@@ -502,6 +502,11 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 .controller('TeamCtrl', function ($scope, $ionicModal, $timeout) {
 
         $scope.gallery = [{
+            
+            name: "Antra Ace",
+            logo: "img/team-logo/t12.jpg",
+
+        },{
             image: "img/team/t9.jpg",
             name: "Blazing Blues",
             logo: "img/team-logo/t9.png",
@@ -624,51 +629,57 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
     .controller('TeamstandingCtrl', function ($scope, $ionicModal, $timeout) {
 
         $scope.teams = [ {
+            image: "img/team-logo/t12.jpg",
+            name: "Antra Ace",
+            num: "1",
+            points: "0"
+
+        }, {
             image: "img/team-logo/t9.png",
             name: "Blazing Blues",
-            num: "1",
+            num: "2",
             points: "0"
 
         }, {
             image: "img/team-logo/t6.png",
             name: "borivali stars",
-            num: "2",
+            num: "3",
             points: "0"
 
         }, {
             image: "img/team-logo/t8.jpg",
             name: "jyoti giants",
-            num: "3",
+            num: "4",
             points: "0"
 
         }, {
             image: "img/team-logo/t3.png",
             name: "khelaiya",
-            num: "4",
+            num: "5",
             points: "0"
 
         }, {
             image: "img/team-logo/t10.png",
             name: "Khelbaajz",
-            num: "5",
+            num: "6",
             points: "0"
 
         }, {
             image: "img/team-logo/t4.png",
             name: "Nirmall royals",
-            num: "6",
+            num: "7",
             points: "0"
 
         }, {
             image: "img/team-logo/t7.png",
             name: "roaring lions",
-            num: "7",
+            num: "8",
             points: "0"
 
         },{
             image: "img/team-logo/t1.jpg",
             name: "roman vision",
-            num: "8",
+            num: "9",
             points: "0"
 
         },{
@@ -676,19 +687,19 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
            
             image: "img/team-logo/t11.png",
              name: "Transform Heroes",
-             num: "9",
+             num: "10",
             points: "0"
 
         },  {
             image: "img/team-logo/t5.png",
             name: "vinipul",
-            num: "10",
+            num: "11",
             points: "0"
 
         }, {
             image: "img/team-logo/t2.jpg",
             name: "yuvamann",
-            num: "11",
+            num: "12",
             points: "0"
 
         }];
@@ -842,36 +853,18 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
         image: "img/sponsor/4.png",
 
     }, {
+        image: "img/sponsor/s5.jpg",
+
+    },{
         image: "img/sponsor/4.png",
 
     }, {
-        image: "img/sponsor/4.png",
-
+        image: "img/sponsor/s5.jpg",
 
     }];
     
     $scope.repeatslides = _.chunk($scope.gallery, 1);
-    $scope.sponsor = [{
-        image: "img/sponsor/1.png",
 
-    }, {
-        image: "img/sponsor/2.png",
-
-    }, {
-        image: "img/sponsor/3.png",
-
-    },{
-        image: "img/sponsor/1.png",
-    }, {
-        image: "img/sponsor/2.png",
-
-    }, {
-        image: "img/sponsor/3.png",
-
-    }];
-
-    $scope.repeatslides = _.chunk($scope.sponsor, 3);
-    
     	$scope.video = [{
 		image: "img/notification/1.jpg",
 		title: "Disnei Beauty and the Beast",
