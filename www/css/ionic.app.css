@@ -501,6 +501,25 @@ img.doneLoading {
     padding-left: 10px;
     vertical-align: middle; }
 
+.cont-tm h4 {
+  font-weight: 400; }
+
+.tm-name {
+  text-transform: capitalize; }
+  .tm-name p {
+    font-size: 12px; }
+
+.tm-email p {
+  font-size: 12px;
+  color: #002c5f; }
+
+.wht-fn p {
+  color: #fff !important;
+  font-size: 13px !important; }
+
+.contact {
+  margin-top: 20px; }
+
 /*!
   Ionicons, v2.0.1
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/

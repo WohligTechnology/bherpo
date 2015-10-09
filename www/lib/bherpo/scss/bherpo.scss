@@ -716,3 +716,34 @@
     vertical-align: middle;
     }
 }
+.cont-tm{
+    h4{
+        font-weight: 400;
+    }
+}
+.tm-name{
+    
+    
+    p{
+        font-size: 12px;
+       
+    }
+    text-transform: capitalize;
+}
+.tm-email{
+    p{
+      font-size: 12px;
+     color:$calm;   
+    }
+   
+}
+.wht-fn{
+    p{
+       color:$light !important;
+    font-size: 13px !important;  
+    }
+   
+}
+.contact{
+        margin-top: 20px;
+}

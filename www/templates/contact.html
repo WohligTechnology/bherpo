@@ -1,7 +1,50 @@
-<ion-view view-title="Contact" >
-  <ion-content>
-      <div class="text-center">
-      <h4>Coming Soon</h4>
-  </div>
-  </ion-content>
+<ion-view view-title="Contact">
+    <ion-content>
+        <div class="contact padding">
+            <p>Email : bherpo21@gmail.com</p>
+            <p>Address : M.G Road, Mumbai-420001.</p>
+
+        </div>
+        <div class="cont-tm">
+            <div class="list text-center" style="margin-bottom: 0px;">
+                <h4>Team Owner</h4>
+            </div>
+            <div class="tm-standing">
+                <div class="list">
+
+                    <div class="item item-divider">
+                        <div class="row wht-fn">
+                            <div class="col-50">
+                                <p>Teams Name</p>
+                            </div>
+                            <div class="col-50 text-center">
+                                <p>Email</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" ng-repeat="item in teams">
+                
+               <div class="col-10 "> 
+                  <div class="text-center tm-num">
+                      <p>{{item.num}}</p>
+                  </div>
+
+               </div>
+
+                <div class="col-33">
+                    <div class="tm-name">
+                        <p>{{item.name}}</p>
+
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="tm-email">
+                        <p>{{item.email}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
 </ion-view>

@@ -707,7 +707,81 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
     })
     .controller('ConatctCtrl', function ($scope, $ionicModal, $timeout) {
 
+        $scope.teams = [ {
+           
+            name: "Antra Ace",
+            num: "1",
+            email:"antra_ace@gmail.com"
 
+        }, {
+            
+            name: "Blazing Blues",
+            num: "2",
+             email:"blazing_blues@gmail.com"
+
+        }, {
+         
+            name: "borivali stars",
+            num: "3",
+             email:"borivali_star@gmail.com"
+
+        }, {
+            
+            name: "jyoti giants",
+            num: "4",
+             email:"jyoti_giant@gmail.com"
+
+        }, {
+            
+            name: "khelaiya",
+            num: "5",
+             email:"khelaiya@gmail.com"
+
+        }, {
+            
+            name: "Khelbaajz",
+            num: "6",
+             email:"khelbaajz@gmail.com"
+
+        }, {
+         
+            name: "Nirmall royals",
+            num: "7",
+             email:"nirmall_royals@gmail.com"
+
+        }, {
+            
+            name: "roaring lions",
+            num: "8",
+             email:"roaring_lions@gmail.com"
+
+        },{
+            
+            name: "roman vision",
+            num: "9",
+             email:"roman_vision@gmail.com"
+
+        },{
+           
+           
+          
+             name: "Transform Heroes",
+             num: "10",
+       email:"transform_heroes@gmail.com"
+
+        },  {
+           
+            name: "vinipul",
+            num: "11",
+          
+ email:"vinipul@gmail.com"
+        }, {
+        
+            name: "yuvamann",
+            num: "12",
+           email:"yuvamann@gmail.com"
+
+        }];
     })
     .controller('NotificationCtrl', function ($scope, $ionicModal, $ionicScrollDelegate, $timeout) {
 
