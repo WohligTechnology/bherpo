@@ -502,39 +502,14 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 .controller('TeamCtrl', function ($scope, $ionicModal, $timeout) {
 
         $scope.gallery = [{
-            image: "img/team/t1.jpg",
-            name: "Roman Vision",
-            logo: "img/team-logo/t1.jpg",
+            image: "img/team/t9.jpg",
+            name: "Blazing Blues",
+            logo: "img/team-logo/t9.png",
 
-        }, {
-            image: "img/team/t2.jpg",
-            name: "Yuvamann",
-            logo: "img/team-logo/t2.jpg",
-
-        }, {
-            image: "img/team/t3.jpg",
-            name: "Khelaiya",
-            logo: "img/team-logo/t3.png",
-
-        }, {
-            image: "img/team/t4.jpg",
-            name: "Nirmall Roals",
-            logo: "img/team-logo/t4.png",
-
-        }, {
-            image: "img/team/t5.jpg",
-            name: "Vinipull",
-            logo: "img/team-logo/t5.png",
-
-        }, {
+        },{
             image: "img/team/t6.jpg",
             name: "Borivali Stars",
             logo: "img/team-logo/t6.png",
-
-        }, {
-            image: "img/team/t7.jpg",
-            name: "Roaring Lions",
-            logo: "img/team-logo/t7.png",
 
         }, {
             image: "img/team/t8.jpg",
@@ -543,14 +518,44 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
 
         }, {
-            image: "img/team/t9.jpg",
-            name: "Balzing Blues",
-            logo: "img/team-logo/t9.png",
+            image: "img/team/t3.jpg",
+            name: "Khelaiya",
+            logo: "img/team-logo/t3.png",
 
-        }, {
+        },  {
             image: "img/team/t10.jpg",
             name: "Khelbaajz",
             logo: "img/team-logo/t10.png",
+
+        }, {
+            image: "img/team/t4.jpg",
+            name: "Nirmall Roals",
+            logo: "img/team-logo/t4.png",
+
+        },  {
+            image: "img/team/t7.jpg",
+            name: "Roaring Lions",
+            logo: "img/team-logo/t7.png",
+
+        },{
+            image: "img/team/t1.jpg",
+            name: "Roman Vision",
+            logo: "img/team-logo/t1.jpg",
+
+        },{
+            image: "img/team/t1.jpg",
+            name: "Transform Heroes",
+            logo: "img/team-logo/t11.png",
+
+        }, {
+            image: "img/team/t5.jpg",
+            name: "Vinipull",
+            logo: "img/team-logo/t5.png",
+
+        }, {
+            image: "img/team/t2.jpg",
+            name: "Yuvamann",
+            logo: "img/team-logo/t2.jpg",
 
         }];
 
@@ -618,39 +623,39 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
     })
     .controller('TeamstandingCtrl', function ($scope, $ionicModal, $timeout) {
 
-        $scope.teams = [{
-            image: "img/team-logo/t1.jpg",
-            name: "roman vision",
+        $scope.teams = [ {
+            image: "img/team-logo/t9.png",
+            name: "Blazing Blues",
             num: "1",
-            points: "0"
-
-        }, {
-            image: "img/team-logo/t2.jpg",
-            name: "yuvamann",
-            num: "2",
-            points: "0"
-
-        }, {
-            image: "img/team-logo/t3.png",
-            name: "khelaiya",
-            num: "3",
-            points: "0"
-
-        }, {
-            image: "img/team-logo/t4.png",
-            name: "Nirmall royals",
-            num: "4",
-            points: "0"
-
-        }, {
-            image: "img/team-logo/t5.png",
-            name: "vinipul",
-            num: "5",
             points: "0"
 
         }, {
             image: "img/team-logo/t6.png",
             name: "borivali stars",
+            num: "2",
+            points: "0"
+
+        }, {
+            image: "img/team-logo/t8.jpg",
+            name: "jyoti giants",
+            num: "3",
+            points: "0"
+
+        }, {
+            image: "img/team-logo/t3.png",
+            name: "khelaiya",
+            num: "4",
+            points: "0"
+
+        }, {
+            image: "img/team-logo/t10.png",
+            name: "Khelbaajz",
+            num: "5",
+            points: "0"
+
+        }, {
+            image: "img/team-logo/t4.png",
+            name: "Nirmall royals",
             num: "6",
             points: "0"
 
@@ -660,22 +665,30 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
             num: "7",
             points: "0"
 
-        }, {
-            image: "img/team-logo/t8.jpg",
-            name: "jyoti giants",
+        },{
+            image: "img/team-logo/t1.jpg",
+            name: "roman vision",
             num: "8",
             points: "0"
 
-        }, {
-            image: "img/team-logo/t9.png",
-            name: "Blazing Blues",
-            num: "9",
+        },{
+           
+           
+            image: "img/team-logo/t11.png",
+             name: "Transform Heroes",
+             num: "9",
+            points: "0"
+
+        },  {
+            image: "img/team-logo/t5.png",
+            name: "vinipul",
+            num: "10",
             points: "0"
 
         }, {
-            image: "img/team-logo/t10.png",
-            name: "Khelbaajz",
-            num: "10",
+            image: "img/team-logo/t2.jpg",
+            name: "yuvamann",
+            num: "11",
             points: "0"
 
         }];
@@ -685,11 +698,51 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
 
     })
-    .controller('NotificationCtrl', function ($scope, $ionicModal, $timeout) {
+    .controller('NotificationCtrl', function ($scope, $ionicModal, $ionicScrollDelegate, $timeout) {
+
+    //    *** Tab Change ****
+    $scope.tab = 'photos';
+    $scope.classa = 'active';
+    $scope.classb = '';
+
+    $scope.tabchange = function (tab, a) {
+        //        console.log(tab);
+        $scope.tab = tab;
+        if (a == 1) {
+            $ionicScrollDelegate.scrollTop();
+            $scope.classa = "active";
+            $scope.classb = '';
+            $scope.classc = '';
+        } else if (a == 2) {
+            $ionicScrollDelegate.scrollTop();
+            $scope.classa = '';
+            $scope.classb = "active";
+            $scope.classc = '';
+        } else {
+            $ionicScrollDelegate.scrollTop();
+            $scope.classa = '';
+            $scope.classb = '';
+            $scope.classc = "active";
+        }
+    };
+    
+        	$scope.video = [{
+		image: "img/notification/1.jpg",
+		title: "Disnei Beauty and the Beast",
+		detail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vulputate venenatis faucibus"
+  }, {
+		image: "img/notification/3.jpg",
+		title: "Bollywud Dream Tours",
+		detail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vulputate venenatis faucibus"
+  }, {
+		image: "img/notification/5.jpg",
+		title: "Mumbai Filmcity Tours",
+		detail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vulputate venenatis faucibus"
+  }];
 
 
     })
-    .controller('NotidetailCtrl', function ($scope, $ionicModal, $timeout) {
+    .controller('NotidetailCtrl', function ($scope, $ionicModal, $ionicScrollDelegate, $timeout) {
 
 
     })
@@ -836,4 +889,4 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
     
 })
 
-.controller('PlaylistCtrl', function ($scope, $stateParams) {});
+.controller('KnowyourteamCtrl', function ($scope, $stateParams) {});

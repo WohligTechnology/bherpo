@@ -217,7 +217,7 @@
 		    //		        border-bottom: 1px solid #ddd;
 		    //		    }
 		    figure {
-		        height: 115px;
+		        height: 60px;
 		        text-align: center;
 		        img {
 		            max-height: 100%;
@@ -237,7 +237,7 @@
 		            color: $calm;
 		            font-weight: 600;
 		            text-transform: capitalize;
-		            font-size: 14px;
+		            font-size: 12px;
 		            text-align: center;
 		        }
 		    }
@@ -619,9 +619,11 @@
 		        padding-top: 4px;
 		        background-color: rgba(6, 6, 6, 0.30);
 		        p {
-		            color: #ffffff;
-		            padding-left: 10px;
-		            text-transform: capitalize;
+		               color: #ffffff;
+    padding-left: 0px;
+    text-transform: capitalize;
+    font-size: 13px;
+    text-align: center;
 		        }
 		    }
 		}
@@ -693,4 +695,14 @@
 }
 .padzero{
     padding: 0px !important;
+}
+.gallery-slide-view{
+    border:transparent !important;
+}
+.photos{
+    margin-top:0px;
+}
+.kn-team{
+        text-align: left;
+    line-height: 4;
 }

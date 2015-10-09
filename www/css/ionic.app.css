@@ -147,7 +147,7 @@ p {
   height: 100%;
   overflow: hidden; }
   .team figure {
-    height: 115px;
+    height: 60px;
     text-align: center; }
     .team figure img {
       max-height: 100%;
@@ -162,7 +162,7 @@ p {
     color: #002c5f;
     font-weight: 600;
     text-transform: capitalize;
-    font-size: 14px;
+    font-size: 12px;
     text-align: center; }
   .team .team-logo {
     float: right;
@@ -455,8 +455,10 @@ img.doneLoading {
     background-color: rgba(6, 6, 6, 0.3); }
     .folder-inner .folder-text p {
       color: #ffffff;
-      padding-left: 10px;
-      text-transform: capitalize; }
+      padding-left: 0px;
+      text-transform: capitalize;
+      font-size: 13px;
+      text-align: center; }
 
 .navneet {
   margin: 20px 0px; }
@@ -479,6 +481,16 @@ img.doneLoading {
 
 .padzero {
   padding: 0px !important; }
+
+.gallery-slide-view {
+  border: transparent !important; }
+
+.photos {
+  margin-top: 0px; }
+
+.kn-team {
+  text-align: left;
+  line-height: 4; }
 
 /*!
   Ionicons, v2.0.1

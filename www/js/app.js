@@ -73,6 +73,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
                     controller: 'EventCtrl'
                 }
             }
+        })  
+        .state('app.knowyourteam', {
+            url: '/knowyourteam',
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/knowyourteam.html',
+                    controller: 'KnowyourteamCtrl'
+                }
+            }
         })
         .state('app.score', {
             url: '/score',
