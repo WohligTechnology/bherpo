@@ -452,48 +452,12 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
 .controller('TeamDetailCtrl', function ($scope, $ionicModal, $timeout, $ionicScrollDelegate, $location) {
 
-    $scope.sponsor = [{
-        image: "img/sponsor/1.png",
+    	$scope.video = [{
+		image: "img/team-logo/t11.png",
+		name: "Transform Heroes",
+		slogane: "Hum Hai Khel ke Veeroes.. Banege Jeet ke Heroes "
+  }];
 
-
-    }, {
-        image: "img/sponsor/2.png",
-
-    }, {
-        image: "img/sponsor/3.png",
-
-    }, {
-        image: "img/sponsor/1.png",
-
-    }, {
-        image: "img/sponsor/2.png",
-
-    }, {
-        image: "img/sponsor/3.png",
-
-    }, {
-        image: "img/sponsor/s2.jpg",
-
-    }, {
-        image: "img/sponsor/s3.jpg",
-
-    }, {
-        image: "img/sponsor/s4.jpg",
-
-    }, {
-        image: "img/sponsor/s1.jpg",
-
-    }, {
-        image: "img/sponsor/s2.jpg",
-
-    }, {
-        image: "img/sponsor/s3.jpg",
-
-    }, {
-        image: "img/sponsor/s4.jpg",
-
-
-    }];
 
     $scope.repeatslides = _.chunk($scope.sponsor, 4);
 
