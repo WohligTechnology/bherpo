@@ -114,8 +114,9 @@ p {
         font-size: 12px !important;
         white-space: initial !important; }
       .notitfy .event .list .item h2 {
-        font-size: 14px !important;
-        line-height: 130%; }
+        font-size: 15px;
+        line-height: 130%;
+        font-weight: 600; }
   .notitfy .event {
     margin-bottom: 20px; }
 
@@ -489,6 +490,16 @@ img.doneLoading {
 
 .photos {
   margin-top: 0px; }
+  .photos .head .item {
+    background-color: #002c5f !important;
+    border: transparent !important;
+    margin: 0px !important;
+    color: #fff !important;
+    padding: 10px 0px 18px 0px !important; }
+  .photos .head h2 {
+    color: #fff; }
+  .photos .head p {
+    color: #fff; }
 
 .kn-team {
   text-align: left;
@@ -523,6 +534,26 @@ img.doneLoading {
 .abt {
   width: 140px;
   margin: 0 auto; }
+
+.owner-pic {
+  position: absolute;
+  width: 100%;
+  bottom: -40px;
+  z-index: 9; }
+  .owner-pic img {
+    width: 70px;
+    height: 70px;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    border-radius: 100%;
+    border: 3px solid #fff; }
+
+.owner-nam {
+  padding-top: 10px; }
+  .owner-nam h4 {
+    margin-bottom: 0px;
+    font-weight: 400; }
 
 /*!
   Ionicons, v2.0.1

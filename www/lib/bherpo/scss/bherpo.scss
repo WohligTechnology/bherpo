@@ -168,8 +168,9 @@
                 white-space: initial !important;
 		    }
 		    h2 {
-		        font-size: 14px !important;
+		        font-size: 15px ;
 		        line-height: 130%;
+                font-weight: 600;
 		    }
 } 
                 }
@@ -703,6 +704,23 @@
 }
 .photos{
     margin-top:0px;
+    .head{
+        
+        .item{
+            background-color: $calm !important;
+            border:transparent !important;
+            margin: 0px !important;
+            color: #fff !important;
+                padding: 10px 0px 18px 0px !important;
+        } 
+        h2{
+            color:$light;
+        
+        }
+        p{
+            color:$light;
+        }
+    }
 }
 .kn-team{
         text-align: left;
@@ -750,4 +768,26 @@
 .abt {
     width: 140px;
     margin: 0 auto;
+}
+.owner-pic{
+        position: absolute;
+    width: 100%;
+    bottom: -40px;
+z-index: 9;
+        img{
+            width: 70px;
+    height: 70px;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    border-radius: 100%;
+    border: 3px solid #fff;
+}
+}
+.owner-nam{
+    padding-top: 10px;
+    h4{
+        margin-bottom: 0px;
+        font-weight: 400;
+    }
 }

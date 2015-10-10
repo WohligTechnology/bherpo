@@ -1,0 +1,32 @@
+<ion-view view-title="Team Name">
+    <ion-content>
+        <div class="team-det notitfy photos">
+            <div class="padzero event">
+
+                <div class="all-video list head">
+                    <div class="row item" ng-repeat="item in video" ui-sref="app.notidetail">
+                        <div class="col col-33">
+                            <div class="image-hold" ng-style="{'background-image':'url({{item.image}})'}">
+
+                            </div>
+
+                        </div>
+                        <div class="col col-67 head">
+                            <h2>{{item.name}}</h2>
+                            <p>{{item.slogane}}</p>
+                        </div>
+                    </div>
+<div class="owner-pic text-center">
+    <img src="img/team/1.png" class="full-image">
+</div>
+                </div>
+            </div>
+        </div>
+        <div class="owner-nam text-center">
+            <h4>MANOJ M CHHEDA</h4>
+            <p>Team Owner</p>
+            <hr class="hr">
+            <p>As bherpo means to come together, the moto is get the people together.we want that all our KVO come together and show your talent in the field you are best into.</p>
+        </div>
+    </ion-content>
+</ion-view>
