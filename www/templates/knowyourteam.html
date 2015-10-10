@@ -9,18 +9,20 @@
 
 </div>
 <div class="padding-horizontal">
-    <button class="button button-full button-positive" ng-click="findTeam()">
+    <button class="button button-full button-calm" ng-click="findTeam()">
   Submit
 </button>
 </div>
-	<div class="row" ng-if="myteam.value"></div>
+	<div class="row" ng-if="myteam.value">
+		No data found.
+	</div>
 	
-<div class="row" ng-if="myteam.value">
+<div class="row" isdata data = 'myteam'>
     <div class="col col-33">
         <img src="img/team-logo/t10.png" class="full-image">
     </div>
     <div class="col col-67">
-        <h4 class="kn-team">Khelbaajz Team</h4>
+        <h4 class="kn-team">{{myteam.teamname}}</h4>
     </div>
 </div>
 </div>

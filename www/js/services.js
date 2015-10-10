@@ -63,6 +63,13 @@ angular.module('starter.services', [])
                 data: data
             }).success(callback);
         },
+        findMyTeam: function(pincode, callback) {
+            $http({
+                url: adminurl + 'team/findteam',
+                method: 'POST',
+                data: {"pincode":JSON.stringify(pincode)}
+            }).success(callback);
+        },
         findTeam: function(callback) {
             $http({
                 url: adminurl + 'team/find',

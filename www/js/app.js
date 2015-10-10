@@ -263,6 +263,27 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 	};
 })
 
+
+.directive('isdata', function ($sce) {
+	return {
+		restrict: 'A',
+		scope: {
+			data: '='
+		},
+		replace: true,
+		template: '<p>{{msg}}</p>',
+		link: function (scope) {
+			scope.$watch('data', function (newVal) {
+				if (newVal == '') {
+					scope.msg = '';
+				}else if(newVal.value == false){
+					scope.msg = "No data found";
+				}
+			});
+		}
+	};
+})
+
 .directive('img', function ($compile, $parse) {
 	return {
 		restrict: 'EA',
