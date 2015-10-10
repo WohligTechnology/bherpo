@@ -4,16 +4,18 @@
     <h4>To Know Your Team Enter Your Area Pincode</h4>
     <div class="list list-inset">
   <label class="item item-input">
-    <input type="number" placeholder="Enter Pincode">
+    <input type="number" placeholder="Enter Pincode" ng-model="team.pincode">
   </label>
 
 </div>
 <div class="padding-horizontal">
-    <button class="button button-full button-positive">
+    <button class="button button-full button-positive" ng-click="findTeam()">
   Submit
 </button>
 </div>
-<div class="row">
+	<div class="row" ng-if="myteam.value"></div>
+	
+<div class="row" ng-if="myteam.value">
     <div class="col col-33">
         <img src="img/team-logo/t10.png" class="full-image">
     </div>

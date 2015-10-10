@@ -37,22 +37,22 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
     })
 
     $scope.loginUser = function () {
-        // console.log("habch");
-        // $scope.allvalidation = [{
-        //     field: $scope.user.firstname,
-        //     validation: ""
-        // }, {
-        //     field: $scope.user.pincode,
-        //     validation: ""
-        // }, {
-        //     field: $scope.user.mobileno,
-        //     validation: ""
-        // }, {
-        //     field: $scope.user.team,
-        //     validation: ""
-        // }];
-        // var check = formvalidation($scope.allvalidation);
-        // if (check) {}
+         console.log("habch");
+         $scope.allvalidation = [{
+             field: $scope.user.firstname,
+             validation: ""
+         }, {
+             field: $scope.user.pincode,
+             validation: ""
+         }, {
+             field: $scope.user.mobileno,
+             validation: ""
+         }, {
+             field: $scope.user.team,
+             validation: ""
+         }];
+         var check = formvalidation($scope.allvalidation);
+         if (check) {}
     }
 })
 
@@ -626,83 +626,89 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
 
     })
-    .controller('TeamstandingCtrl', function ($scope, $ionicModal, $timeout) {
+    .controller('TeamstandingCtrl', function ($scope, $ionicModal, $timeout, MyServices) {
 
-        $scope.teams = [ {
-            image: "img/team-logo/t12.jpg",
-            name: "Antra Ace",
-            num: "1",
-            points: "0"
-
-        }, {
-            image: "img/team-logo/t9.png",
-            name: "Blazing Blues",
-            num: "2",
-            points: "0"
-
-        }, {
-            image: "img/team-logo/t6.png",
-            name: "borivali stars",
-            num: "3",
-            points: "0"
-
-        }, {
-            image: "img/team-logo/t8.jpg",
-            name: "jyoti giants",
-            num: "4",
-            points: "0"
-
-        }, {
-            image: "img/team-logo/t3.png",
-            name: "khelaiya",
-            num: "5",
-            points: "0"
-
-        }, {
-            image: "img/team-logo/t10.png",
-            name: "Khelbaajz",
-            num: "6",
-            points: "0"
-
-        }, {
-            image: "img/team-logo/t4.png",
-            name: "Nirmall royals",
-            num: "7",
-            points: "0"
-
-        }, {
-            image: "img/team-logo/t7.png",
-            name: "roaring lions",
-            num: "8",
-            points: "0"
-
-        },{
-            image: "img/team-logo/t1.jpg",
-            name: "roman vision",
-            num: "9",
-            points: "0"
-
-        },{
-           
-           
-            image: "img/team-logo/t11.png",
-             name: "Transform Heroes",
-             num: "10",
-            points: "0"
-
-        },  {
-            image: "img/team-logo/t5.png",
-            name: "vinipul",
-            num: "11",
-            points: "0"
-
-        }, {
-            image: "img/team-logo/t2.jpg",
-            name: "yuvamann",
-            num: "12",
-            points: "0"
-
-        }];
+	MyServices.findTeam(function(data){
+		console.log(data);
+		$scope.teams = data;
+	});
+	
+	
+//        $scope.teams = [ {
+//            image: "img/team-logo/t12.jpg",
+//            name: "Antra Ace",
+//            num: "1",
+//            points: "0"
+//
+//        }, {
+//            image: "img/team-logo/t9.png",
+//            name: "Blazing Blues",
+//            num: "2",
+//            points: "0"
+//
+//        }, {
+//            image: "img/team-logo/t6.png",
+//            name: "borivali stars",
+//            num: "3",
+//            points: "0"
+//
+//        }, {
+//            image: "img/team-logo/t8.jpg",
+//            name: "jyoti giants",
+//            num: "4",
+//            points: "0"
+//
+//        }, {
+//            image: "img/team-logo/t3.png",
+//            name: "khelaiya",
+//            num: "5",
+//            points: "0"
+//
+//        }, {
+//            image: "img/team-logo/t10.png",
+//            name: "Khelbaajz",
+//            num: "6",
+//            points: "0"
+//
+//        }, {
+//            image: "img/team-logo/t4.png",
+//            name: "Nirmall royals",
+//            num: "7",
+//            points: "0"
+//
+//        }, {
+//            image: "img/team-logo/t7.png",
+//            name: "roaring lions",
+//            num: "8",
+//            points: "0"
+//
+//        },{
+//            image: "img/team-logo/t1.jpg",
+//            name: "roman vision",
+//            num: "9",
+//            points: "0"
+//
+//        },{
+//           
+//           
+//            image: "img/team-logo/t11.png",
+//             name: "Transform Heroes",
+//             num: "10",
+//            points: "0"
+//
+//        },  {
+//            image: "img/team-logo/t5.png",
+//            name: "vinipul",
+//            num: "11",
+//            points: "0"
+//
+//        }, {
+//            image: "img/team-logo/t2.jpg",
+//            name: "yuvamann",
+//            num: "12",
+//            points: "0"
+//
+//        }];
 
     })
     .controller('ConatctCtrl', function ($scope, $ionicModal, $timeout) {
@@ -956,4 +962,12 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
     
 })
 
-.controller('KnowyourteamCtrl', function ($scope, $stateParams) {});
+.controller('KnowyourteamCtrl', function ($scope, $stateParams, MyServices) {
+	$scope.team = {};
+	$scope.myteam = {};
+	$scope.findTeam = function(){
+		MyServices.findteambyarea($scope.team, function(data){
+			$scope.myteam = data;
+		})
+	}
+});
