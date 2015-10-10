@@ -1,6 +1,6 @@
 var adminurl = "http://192.168.2.22:1337/";
 //var adminurl = "http://localhost:1337/";
-var imgpath = adminurl + "user/resize?file=";
+var imgpath = adminurl + "uploadfile/resize?file=";
 
 angular.module('starter.services', [])
 
@@ -63,6 +63,13 @@ angular.module('starter.services', [])
                 data: data
             }).success(callback);
         },
+        login: function(data, callback) {
+            $http({
+                url: adminurl + 'loginuser/save',
+                method: 'POST',
+                data: data
+            }).success(callback);
+        },
         findMyTeam: function(pincode, callback) {
             $http({
                 url: adminurl + 'team/findteam',
@@ -75,6 +82,12 @@ angular.module('starter.services', [])
                 url: adminurl + 'team/find',
                 method: 'POST'
             }).success(callback);
+        },
+        setUser: function(data) {
+		   $.jStorage.set("user",data);
+        },
+        getUser: function() {
+		   return $.jStorage.get("user");
         }
     };
 });

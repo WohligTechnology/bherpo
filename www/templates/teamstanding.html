@@ -19,11 +19,11 @@
                     <div class="team-status">
                         <ul>
                             <li>
-                            <p>{{item.num}}</p>
+                            <p>{{$index +1}}</p>
                             </li>
                             <li>
                                <div class="img-holding">
-                                   <img ng-src="{{item.image}}" class="team-lg">
+                                   <img ng-src="{{item.image | serverimage}}" class="team-lg">
                                </div>
                                 
                             </li>
@@ -36,7 +36,7 @@
                 <div class="col ">
                     <div class="points text-center">
                         <h4>
-                            {{item.points}}
+                            {{item.points | mypoints}}
                         </h4>
                     </div>
                 </div>

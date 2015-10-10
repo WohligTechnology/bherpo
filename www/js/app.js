@@ -103,7 +103,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 		})
 
 	.state('app.team-detail', {
-		url: '/team/detail',
+		url: '/team/detail/:id',
 		views: {
 			'menuContent': {
 				templateUrl: 'templates/team-detail.html',
@@ -250,15 +250,19 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 .filter('serverimage', function () {
 	return function (image) {
 		if (image && image != null) {
-			var start = image.substr(0, 4);
-
-			if (start == "http") {
-				return image;
-			}
-
-			return adminimage + image;
+			return imgpath + image;
 		} else {
-			return undefined;
+			return "img/default.png";
+		}
+	};
+})
+
+.filter('mypoints', function () {
+	return function (points) {
+		if (points && points != null) {
+			return points;
+		} else {
+			return 0;
 		}
 	};
 })

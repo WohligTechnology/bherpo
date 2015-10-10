@@ -13,16 +13,16 @@
   Submit
 </button>
 </div>
-	<div class="row" ng-if="myteam.value">
-		No data found.
+	<div class="row" ng-if="!myteam.value && msg">
+		No data found
 	</div>
 	
-<div class="row" isdata data = 'myteam'>
-    <div class="col col-33">
-        <img src="img/team-logo/t10.png" class="full-image">
+<div class="row" ng-if="myteam.value">
+    <div class="col col-33">{{myteam.imgae}}
+        <img ng-src="{{myteam.image | serverimage}}" class="full-image">
     </div>
     <div class="col col-67">
-        <h4 class="kn-team">{{myteam.teamname}}</h4>
+        <h4 class="kn-team" ng-if="myteam.teamname">{{myteam.teamname}} Team</h4>
     </div>
 </div>
 </div>

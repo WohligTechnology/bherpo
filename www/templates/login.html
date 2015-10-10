@@ -11,7 +11,7 @@
                 </label>
                 <label class="item item-input item-stacked-label">
                     <span class="input-label">Pincode*</span>
-                    <input type="text" placeholder="Pincode" ng-model="user.pincode" ng-class="allvalidation[1].validation" required>
+                    <input type="number" ng-pattern="/^[0-9]{1,6}$/" placeholder="Pincode" ng-model="user.pincode" ng-class="allvalidation[1].validation" required>
                 </label>
                 <label class="item item-input item-stacked-label">
                     <span class="input-label">Mobile Number*</span>
@@ -40,7 +40,7 @@
             <a class="" ng-click="openterms();">Terms &amp; Conditions</a>
         </div>
         <div class="padding-horizontal">
-            <a href="#/app/home" class="button button-block button-calm" ng-click="loginUser();">Login</a>
+            <a class="button button-block button-calm" ng-click="loginUser();">Login</a>
         </div>
     </ion-content>
 </ion-view>
