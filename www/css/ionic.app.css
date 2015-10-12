@@ -569,7 +569,8 @@ img.doneLoading {
 .info-tm p {
   font-size: 12px;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  text-transform: uppercase; }
 
 img.loading {
   position: absolute;
@@ -592,6 +593,13 @@ div.img-holding {
   font-size: 12px;
   margin: 0;
   text-transform: capitalize; }
+
+.names h5 {
+  margin: 0;
+  font-weight: 400; }
+.names p {
+  font-size: 12px;
+  margin: 0; }
 
 .info-tms {
   padding-bottom: 15px; }

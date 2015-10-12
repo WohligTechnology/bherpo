@@ -811,6 +811,7 @@ z-index: 9;
         font-size: 12px;
         margin: 0;
         padding: 0;
+        text-transform: uppercase;
     }
 }
 img.loading {
@@ -837,6 +838,17 @@ div.img-holding
         font-size: 12px;
         margin: 0;
         text-transform: capitalize;
+    }
+}
+.names{
+    h5{
+        margin: 0;
+        font-weight: 400;
+    }
+    p{
+        font-size: 12px;
+        margin: 0;
+        
     }
 }
 .info-tms {
