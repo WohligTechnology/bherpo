@@ -63,6 +63,12 @@ angular.module('starter.services', [])
                 data: data
             }).success(callback);
         },
+        getSlider: function(callback) {
+            $http({
+                url: adminurl + 'slider/find',
+                method: 'POST'
+            }).success(callback);
+        },
         login: function(data, callback) {
             $http({
                 url: adminurl + 'loginuser/save',

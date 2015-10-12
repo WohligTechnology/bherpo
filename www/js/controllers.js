@@ -874,22 +874,11 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
 
 	//    *** end ****
-	$scope.slides = [{
-		image: "img/slider/1.jpg",
-
-    }, {
-		image: "img/slider/2.jpg",
-
-    }, {
-		image: "img/slider/3.jpg",
-
-
-    }, {
-		image: "img/slider/5.jpg",
-
-    }];
-
-
+	MyServices.getSlider(function(data){
+		console.log(data);
+		$scope.slides = data.image;
+	});
+	
 	$scope.gallery = [{
 		image: "img/sponsor/4.png",
 
