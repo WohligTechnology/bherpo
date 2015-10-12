@@ -553,7 +553,8 @@ img.doneLoading {
   padding-top: 10px; }
   .owner-nam h4 {
     margin-bottom: 0px;
-    font-weight: 400; }
+    font-weight: 400;
+    text-transform: uppercase; }
 
 .icon-tm i {
   font-size: 18px;
@@ -569,11 +570,24 @@ img.doneLoading {
   margin: 0;
   padding: 0; }
 
+img.loading {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); }
+
+div.img-holding {
+  position: relative; }
+
 .name h5 {
   margin: 0;
   font-weight: 400; }
 .name p {
-  font-size: 12px; }
+  font-size: 12px;
+  margin: 0;
+  text-transform: capitalize; }
 
 .info-tms {
   padding-bottom: 15px; }

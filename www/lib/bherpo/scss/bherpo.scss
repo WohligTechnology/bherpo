@@ -789,6 +789,7 @@ z-index: 9;
     h4{
         margin-bottom: 0px;
         font-weight: 400;
+            text-transform: uppercase
     }
 }
 
@@ -811,6 +812,18 @@ z-index: 9;
         padding: 0;
     }
 }
+img.loading {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+div.img-holding
+{
+	position: relative;
+}
 .name{
     h5{
         margin: 0;
@@ -818,6 +831,8 @@ z-index: 9;
     }
     p{
         font-size: 12px;
+        margin: 0;
+        text-transform: capitalize;
     }
 }
 .info-tms {
