@@ -32,7 +32,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 	});
 })
 
-.config(function ($stateProvider, $urlRouterProvider) {
+.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+	$ionicConfigProvider.views.maxCache(0);
 	$stateProvider
 
 		.state('app', {
@@ -288,6 +289,25 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 	};
 })
 
+.filter('cut', function () {
+	return function (value, wordwise, max, tail) {
+		if (!value) return '';
+
+		max = parseInt(max, 10);
+		if (!max) return value;
+		if (value.length <= max) return value;
+
+		value = value.substr(0, max);
+		if (wordwise) {
+			var lastspace = value.lastIndexOf(' ');
+			if (lastspace != -1) {
+				value = value.substr(0, lastspace);
+			}
+		}
+
+		return value + (tail || ' …');
+	};
+})
 .directive('img', function ($compile, $parse) {
 	return {
 		restrict: 'EA',

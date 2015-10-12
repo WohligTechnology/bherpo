@@ -1,53 +1,53 @@
 <ion-view view-title="Notification">
-       <div class="tabs-striped tabs-top tabs-background-calm tabs-color-light">
-        <div class="tabs">
-            <a class="tab-item {{classa}}" ng-click="tabchange('photos',1)">
-                <span>Latest Notification</span>
-            </a>
-            <a class="tab-item {{classb}}" ng-click="tabchange('video',2)">
-                <span>Hot Notification</span>
-            </a>
-        </div>
-    </div>
-    <ion-content class="has-tabs-top">
-        <div class="photos notitfy" ng-show="tab=='photos'">
-        <div class="padzero event">
+	<div class="tabs-striped tabs-top tabs-background-calm tabs-color-light">
+		<div class="tabs">
+			<a class="tab-item {{classa}}" ng-click="tabchange('photos',1)">
+				<span>Latest Notification</span>
+			</a>
+			<a class="tab-item {{classb}}" ng-click="tabchange('video',2)">
+				<span>Hot Notification</span>
+			</a>
+		</div>
+	</div>
+	<ion-content class="has-tabs-top">
+		<div class="photos notitfy" ng-show="tab=='photos'">
+			<div class="padzero event">
 
-            <div class="all-video list">
-                <div class="row item" ng-repeat="item in video" ui-sref="app.notidetail" >
-                    <div class="col col-33">
-                        <div class="image-hold" ng-style="{'background-image':'url({{item.image}})'}">
+				<div class="all-video list">
+					<div class="row item" ng-repeat="item in notification" ng-click="detailNotification(item)">
+						<div class="col col-33">
+							<div class="image-hold" ng-style="{'background-image':'url({{item.image | serverimage}})'}">
 
-                        </div>
-                    </div>
-                    <div class="col col-67">
-                           <h2>{{item.title}}</h2>
-      <p>{{item.detail}}</p>
-                    </div>
-                </div>
+							</div>
+						</div>
+						<div class="col col-67">
+							<h2>{{item.title}}</h2>
+							<p ng-bind-html="item.content| cut:true:120:'. . .'"></p>
+						</div>
+					</div>
 
-            </div>
-        </div>
-            <!-- <ion-gallery ion-gallery-items="gallery" ng-if="gallery.length>0"></ion-gallery> -->
-        </div>
-                <div class="photos notitfy" ng-show="tab=='video'">
-        <div class="padzero event">
+				</div>
+			</div>
+			<!-- <ion-gallery ion-gallery-items="gallery" ng-if="gallery.length>0"></ion-gallery> -->
+		</div>
+		<div class="photos notitfy" ng-show="tab=='video'">
+			<div class="padzero event">
 
-            <div class="all-video list">
-                <div class="row item" ng-repeat="item in video" ui-sref="app.notidetail" >
-                    <div class="col col-33">
-                        <div class="image-hold" ng-style="{'background-image':'url({{item.image}})'}">
+				<div class="all-video list">
+					<div class="row item" ng-repeat="item in video" ui-sref="app.notidetail">
+						<div class="col col-33">
+							<div class="image-hold" ng-style="{'background-image':'url({{item.image}})'}">
 
-                        </div>
-                    </div>
-                    <div class="col col-67">
-                           <h2>{{item.title}}</h2>
-      <p>{{item.detail}}</p>
-                    </div>
-                </div>
+							</div>
+						</div>
+						<div class="col col-67">
+							<h2>{{item.title}}</h2>
+							<p>{{item.detail}}</p>
+						</div>
+					</div>
 
-            </div>
-        </div>
-        </div>
-    </ion-content>
+				</div>
+			</div>
+		</div>
+	</ion-content>
 </ion-view>

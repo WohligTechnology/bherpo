@@ -10,16 +10,14 @@
    </div>
     <ion-content>
        <div class="padding">
-             <h4>"Neque porro quisquam est qui dolorem"</h4>
+             <h4>{{notification.title}}</h4>
         </div>
         <div class="min-height">
             <figure>
-                <img src="img/slider/2.jpg" class="full-image">
+                <img ng-src="{{notification.image | serverimage}}"class="full-image">
 
             </figure>
         </div>
-        <div class="noti-title padding">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec eleifend quam, sit amet gravida leo. Sed ullamcorper gravida consectetur. Donec a massa convallis, fringilla orci a, varius sapien. Duis lacus leo, faucibus nec sollicitudin pellentesque, hendrerit in torto</p>
-        </div>
+        <div ng-bind-html="notification.content" class="noti-title padding"></div>
     </ion-content>
 </ion-view>

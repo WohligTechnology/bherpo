@@ -70,9 +70,23 @@ angular.module('starter.services', [])
                 data: data
             }).success(callback);
         },
+        getNotification: function(callback) {
+            $http({
+                url: adminurl + 'notification/find',
+                method: 'POST',
+			 data:{user:$.jStorage.get("user").id}
+            }).success(callback);
+        },
         findMyTeam: function(pincode, callback) {
             $http({
                 url: adminurl + 'team/findteam',
+                method: 'POST',
+                data: {"pincode":JSON.stringify(pincode)}
+            }).success(callback);
+        },
+        notification: function(pincode, callback) {
+            $http({
+                url: adminurl + 'loginuser/save',
                 method: 'POST',
                 data: {"pincode":JSON.stringify(pincode)}
             }).success(callback);
@@ -82,6 +96,12 @@ angular.module('starter.services', [])
                 url: adminurl + 'team/find',
                 method: 'POST'
             }).success(callback);
+        },
+        setNotify: function(data) {
+		   $.jStorage.set("notify",data);
+        },
+        getNotify: function() {
+		   return $.jStorage.get("notify");
         },
         setUser: function(data) {
 		   $.jStorage.set("user",data);
