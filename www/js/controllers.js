@@ -3,13 +3,13 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
 .controller('AppCtrl', function ($scope, $ionicModal, $timeout, $ionicPopup, $ionicLoading, $timeout, MyServices) {
 
-	if(!MyServices.getUser()){
+	if (!MyServices.getUser()) {
 		$location.url("/login");
 	}
 	console.log("appctrl");
-	allfunction.msg = function(msg, title){
-	var myPopup = $ionicPopup.show({
-			template: '<p class="text-center">'+msg+'!</p>',
+	allfunction.msg = function (msg, title) {
+		var myPopup = $ionicPopup.show({
+			template: '<p class="text-center">' + msg + '!</p>',
 			title: title,
 			scope: $scope,
 		});
@@ -17,7 +17,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 			myPopup.close(); //close the popup after 3 seconds for some reason
 		}, 2000);
 	}
-	
+
 	allfunction.loading = function () {
 		$ionicLoading.show({
 			template: '<ion-spinner class="spinner-positive"></ion-spinner>'
@@ -26,7 +26,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 			$ionicLoading.hide();
 		}, 5000);
 	}
-	
+
 
 })
 
@@ -38,12 +38,12 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 .controller('LoginCtrl', function ($scope, $ionicModal, $timeout, MyServices, $ionicPopup, $location) {
 	$scope.teams = {};
 	$scope.user = {};
-	if(MyServices.getUser()){
+	if (MyServices.getUser()) {
 		$location.url("/app/home");
 	}
-	allfunction.msg = function(msg, title){
-	var myPopup = $ionicPopup.show({
-			template: '<p class="text-center">'+msg+'!</p>',
+	allfunction.msg = function (msg, title) {
+		var myPopup = $ionicPopup.show({
+			template: '<p class="text-center">' + msg + '!</p>',
 			title: title,
 			scope: $scope,
 		});
@@ -88,17 +88,17 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
          }];
 		var check = formvalidation($scope.allvalidation);
 		if (check) {
-			MyServices.login($scope.user, function(data){
+			MyServices.login($scope.user, function (data) {
 				console.log(data);
-				if(data.value == true){
+				if (data.value == true) {
 					MyServices.setUser(data);
 					$location.url("/app/home");
-				}else{
+				} else {
 					allfunction.msg("Login successfully !", "Login");
 				}
 			})
-		}else{
-			allfunction.msg("Fill all data", "Login");
+		} else {
+			allfunction.msg("mandatory fields are ", "Error !");
 		}
 	}
 })
@@ -517,74 +517,74 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
 			name: "Antra Ace",
 			logo: "img/team-logo/t12.jpg",
-			id:1
+			id: 1
 
         }, {
 			image: "img/team/t9.jpg",
 			name: "Blazing Blues",
 			logo: "img/team-logo/t9.png",
-		   	id:2
+			id: 2
 
         }, {
 			image: "img/team/t6.jpg",
 			name: "Borivali Stars",
 			logo: "img/team-logo/t6.png",
-		   	id:3
+			id: 3
 
         }, {
 			image: "img/team/t8.jpg",
 			name: "Jyoti Giants",
 			logo: "img/team-logo/t8.jpg",
-		   	id:4
+			id: 4
 
 
         }, {
 			image: "img/team/t3.jpg",
 			name: "Khelaiya",
 			logo: "img/team-logo/t3.png",
-		   	id:5
+			id: 5
 
         }, {
 			image: "img/team/t10.jpg",
 			name: "Khelbaajz",
 			logo: "img/team-logo/t10.png",
-		   	id:6
+			id: 6
 
         }, {
 			image: "img/team/t4.jpg",
 			name: "Nirmall Roals",
 			logo: "img/team-logo/t4.png",
-		   	id:7
+			id: 7
 
         }, {
 			image: "img/team/t7.jpg",
 			name: "Roaring Lions",
 			logo: "img/team-logo/t7.png",
-		   	id:8
+			id: 8
 
         }, {
 			image: "img/team/t1.jpg",
 			name: "Roman Vision",
 			logo: "img/team-logo/t1.jpg",
-		   	id:9
+			id: 9
 
         }, {
 			image: "img/team/t1.jpg",
 			name: "Transform Heroes",
 			logo: "img/team-logo/t11.png",
-		   	id:10
+			id: 10
 
         }, {
 			image: "img/team/t5.jpg",
 			name: "Vinipull",
 			logo: "img/team-logo/t5.png",
-		   	id:11
+			id: 11
 
         }, {
 			image: "img/team/t2.jpg",
 			name: "Yuvamann",
 			logo: "img/team-logo/t2.jpg",
-		   	id:12
+			id: 12
 
         }];
 
@@ -651,7 +651,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
 	})
 	.controller('TeamstandingCtrl', function ($scope, $ionicModal, $timeout, MyServices, $ionicLoading) {
-	
+
 		allfunction.loading();
 		MyServices.findTeam(function (data) {
 			$scope.teams = data;
@@ -738,59 +738,68 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
         }];
 	})
-	.controller('NotificationCtrl', function ($scope, $ionicModal, $ionicScrollDelegate, $timeout, MyServices, $ionicLoading, $location) {
-		//    *** Tab Change ****
-		$scope.tab = 'photos';
-		$scope.classa = 'active';
-		$scope.classb = '';
-		allfunction.loading();
-		MyServices.getNotification(function(data){
-			$scope.notification = data;
-			$ionicLoading.hide();
-			
-		});
-	
-		$scope.detailNotification = function(notify){
-			MyServices.setNotify(notify);
-			var changenot = {};
-//			changenot.user = MyServices.getUser().id;
-//			changenot.id = notify.id
-			$location.url("/app/notidetail");
+
+.controller('NotificationCtrl', function ($scope, $ionicModal, $ionicScrollDelegate, $timeout, MyServices, $ionicLoading, $location) {
+	//    *** Tab Change ****
+	$scope.tab = 'photos';
+	$scope.classa = 'active';
+	$scope.classb = '';
+	allfunction.loading();
+	MyServices.getNotification(function (data) {
+		$scope.notification = data;
+		$ionicLoading.hide();
+
+	});
+
+	$scope.detailNotification = function (notify) {
+		MyServices.setNotify(notify);
+		var changenot = {};
+		//			changenot.user = MyServices.getUser().id;
+		//			changenot.id = notify.id
+		$location.url("/app/notidetail");
+	}
+
+	$scope.tabchange = function (tab, a) {
+		//        console.log(tab);
+		$scope.tab = tab;
+		if (a == 1) {
+			$ionicScrollDelegate.scrollTop();
+			$scope.classa = "active";
+			$scope.classb = '';
+			$scope.classc = '';
+		} else if (a == 2) {
+			$ionicScrollDelegate.scrollTop();
+			$scope.classa = '';
+			$scope.classb = "active";
+			$scope.classc = '';
+		} else {
+			$ionicScrollDelegate.scrollTop();
+			$scope.classa = '';
+			$scope.classb = '';
+			$scope.classc = "active";
 		}
-
-		$scope.tabchange = function (tab, a) {
-			//        console.log(tab);
-			$scope.tab = tab;
-			if (a == 1) {
-				$ionicScrollDelegate.scrollTop();
-				$scope.classa = "active";
-				$scope.classb = '';
-				$scope.classc = '';
-			} else if (a == 2) {
-				$ionicScrollDelegate.scrollTop();
-				$scope.classa = '';
-				$scope.classb = "active";
-				$scope.classc = '';
-			} else {
-				$ionicScrollDelegate.scrollTop();
-				$scope.classa = '';
-				$scope.classb = '';
-				$scope.classc = "active";
-			}
-		};
-
-
-	})
-	.controller('NotidetailCtrl', function ($scope, $ionicModal, $ionicScrollDelegate, $timeout, MyServices) {
+	};
 	
-		$scope.notification = MyServices.getNotify();
+
+})
+
+.controller('NotidetailCtrl', function ($scope, $ionicModal, $ionicScrollDelegate, $timeout, MyServices, $filter) {
+
+	$scope.notification = MyServices.getNotify();
 	
-	})
+	$scope.share = function(){
+		console.log("share");
+		console.log($filter("cut")($scope.notification.content, "true", "120", "'....'"));
+		window.plugins.socialsharing.shareViaTwitter("he hi !!!");
+	}
+
+
+})
 
 .controller('HomeCtrl', function ($scope, $ionicSlideBoxDelegate, $ionicLoading, $ionicModal, $location, $cordovaFileTransfer, $cordovaFile, $ionicPopup, $timeout, MyServices) {
 
 	// ***** Modal
-	if(!MyServices.getUser()){
+	if (!MyServices.getUser()) {
 		$location.url("/login");
 	}
 
