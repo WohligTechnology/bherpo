@@ -581,6 +581,9 @@ img.loading {
 div.img-holding {
   position: relative; }
 
+.min-h {
+  min-height: 100px; }
+
 .name h5 {
   margin: 0;
   font-weight: 400; }
