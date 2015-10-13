@@ -1,7 +1,7 @@
 var allfunction = {};
 angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
-.controller('AppCtrl', function ($scope, $ionicModal, $timeout, $ionicPopup, $ionicLoading, $timeout, MyServices) {
+.controller('AppCtrl', function ($scope, $ionicModal, $timeout, $ionicPopup, $ionicLoading, $timeout, MyServices, $location) {
 
 	if (!MyServices.getUser()) {
 		$location.url("/login");
@@ -88,6 +88,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
          }];
 		var check = formvalidation($scope.allvalidation);
 		if (check) {
+			$scope.user.token=$.jStorage.get("pushid");
 			MyServices.login($scope.user, function (data) {
 				console.log(data);
 				if (data.value == true) {
