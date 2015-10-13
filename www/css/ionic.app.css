@@ -414,8 +414,7 @@ img {
   transition: all 1s ease; }
 
 img.doneLoading {
-  opacity: 1;
-  height: auto; }
+  opacity: 1; }
 
 .text-condt {
   font-size: 14px; }
