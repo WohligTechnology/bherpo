@@ -20,15 +20,18 @@ angular.module('starter', ['ionic', 'ionic.service.core', 'starter.controllers',
     $ionicPlatform.ready(function() {
 
         Ionic.io();
-
         var push = new Ionic.Push({
-            "debug": true
+            "debug": true,
+            "onNotification": function(notification) {
+                var payload = notification.payload;
+                console.log(notification, payload);
+            },
+            "onRegister": function(data) {
+                console.log(data.token);
+                 $.jStoage.set("pushid", data.token);
+            }
         });
 
-        push.register(function(token) {
-            console.log("Device token:", token.token);
-            $.jStoage.set("pushid",token.token);
-        });
 
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
         // for form inputs)
