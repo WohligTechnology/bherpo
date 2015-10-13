@@ -725,7 +725,7 @@
 }
 .kn-team{
         text-align: left;
-    line-height: 4;
+    line-height: 3;
 }
 .fn-sz{
     font-size: 14px !important;
@@ -857,4 +857,13 @@ div.img-holding
 .tm-co.text-center {
     padding-top: 15px;
     padding-bottom: 15px;
+}
+.fn {
+    width: 100%;
+    h4 {
+    text-align: center;
+    margin: 0 auto;
+    font-weight: 400;
+    font-size: 16px;
+}
 }
