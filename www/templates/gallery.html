@@ -11,9 +11,9 @@
     </div>
     <ion-content class="has-tabs-top">
         <div class="photos" ng-show="tab=='photos'">
-            <div class="row folders" ng-repeat="folder in folders">
+            <div class="row folders" >
 			  {{msg}}
-                <div class="col col-50" >
+                <div class="col col-50" ng-repeat="folder in folders" >
                     <div class="folder-inner" ng-click="openFolder(folder);">
                         <img src="img/folder.png" alt="" class="full-image">
                         <div class="folder-text">
