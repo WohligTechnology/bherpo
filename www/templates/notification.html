@@ -12,7 +12,7 @@
 	<ion-content class="has-tabs-top">
 		<div class="photos notitfy" ng-show="tab=='photos'">
 			<div class="padzero event">
-
+				{{msg}}
 				<div class="all-video list">
 					<div class="row item" ng-repeat="item in notification" ng-click="detailNotification(item)">
 						<div class="col col-33">
@@ -32,7 +32,7 @@
 		</div>
 		<div class="photos notitfy" ng-show="tab=='video'">
 			<div class="padzero event">
-
+				{{msg1}}
 				<div class="all-video list">
 					<div class="row item" ng-repeat="item in video" ui-sref="app.notidetail">
 						<div class="col col-33">

@@ -715,8 +715,13 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 	allfunction.loading();
 	$scope.notificationtosend = {};
 	allfunction.loading();
+	$scope.msg = "";
+	$scope.msg1 = "";
 	MyServices.getNotification(function (data) {
 		$scope.notification = data;
+		if(data.value == false){
+			$scope.msg = "No notifications.";
+		}
 		$ionicLoading.hide();
 
 	});
@@ -747,6 +752,9 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 			allfunction.loading();
 			MyServices.getHotNotification(function (data) {
 				$scope.video = data;
+				if(data.value == false){
+					$scope.msg1 = "No hotnotifications.";
+				}
 				$ionicLoading.hide();
 
 			});
@@ -781,9 +789,38 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 .controller('HomeCtrl', function ($scope, $ionicSlideBoxDelegate, $ionicLoading, $ionicModal, $location, $cordovaFileTransfer, $cordovaFile, $ionicPopup, $timeout, MyServices) {
 
 	// ***** Modal
+	$scope.notificationtosend = {};
+	
+	MyServices.getNotification(function (data) {
+		if(data){
+		$scope.notification = data.slice(0,2);
+		}
+		if(data.value == false){
+			$scope.msg = "No notifications.";
+		}
+		$ionicLoading.hide();
+
+	});
+	
 	if (!MyServices.getUser()) {
 		$location.url("/login");
 	}
+	
+	
+	$scope.detailNotification = function (notify) {
+		MyServices.setNotify(notify);
+		if (notify.clicks) {
+			++notify.clicks;
+		} else {
+			notify.clicks = 1;
+		}
+		$scope.notificationtosend._id = notify._id;
+		$scope.notificationtosend.clicks = notify.clicks;
+		MyServices.saveNotification($scope.notificationtosend, function (data) {})
+
+		$location.url("/app/notidetail");
+	}
+
 
 	// Load the modal from the given template URL
 	$ionicModal.fromTemplateUrl('templates/modal-regi.html', function ($ionicModal) {
