@@ -616,6 +616,11 @@ div.img-holding {
     font-weight: 400;
     font-size: 16px; }
 
+.custm-sc {
+  margin: 10px auto;
+  text-align: center;
+  font-size: 16px; }
+
 /*!
   Ionicons, v2.0.1
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
