@@ -36,13 +36,13 @@
 				<div class="all-video list">
 					<div class="row item" ng-repeat="item in video" ui-sref="app.notidetail">
 						<div class="col col-33">
-							<div class="image-hold" ng-style="{'background-image':'url({{item.image}})'}">
+							<div class="image-hold" ng-style="{'background-image':'url({{item.image | serverimage}})'}">
 
 							</div>
 						</div>
 						<div class="col col-67">
 							<h2>{{item.title}}</h2>
-							<p>{{item.detail}}</p>
+							<p ng-bind-html="item.content| cut:true:120:'. . .'"></p>
 						</div>
 					</div>
 

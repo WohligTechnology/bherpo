@@ -78,9 +78,16 @@ angular.module('starter.services', [])
         },
         saveNotification: function(data, callback) {
             $http({
-                url: adminurl + 'loginuser/save',
+                url: adminurl + 'notification/save',
                 method: 'POST',
                 data: data
+            }).success(callback);
+        },
+        getFolderImages: function(id, callback) {
+            $http({
+                url: adminurl + 'folder/findone',
+                method: 'POST',
+			 data:{_id:id}
             }).success(callback);
         },
         getNotification: function(callback) {
@@ -104,9 +111,21 @@ angular.module('starter.services', [])
                 data: {"pincode":JSON.stringify(pincode)}
             }).success(callback);
         },
+        getFolder: function(callback) {
+            $http({
+                url: adminurl + 'folder/find',
+                method: 'POST'
+            }).success(callback);
+        },
         findTeam: function(callback) {
             $http({
                 url: adminurl + 'team/find',
+                method: 'POST'
+            }).success(callback);
+        },
+        getHotNotification: function(callback) {
+            $http({
+                url: adminurl + 'notification/findhotnotify',
                 method: 'POST'
             }).success(callback);
         },

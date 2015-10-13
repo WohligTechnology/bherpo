@@ -88,7 +88,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
          }];
 		var check = formvalidation($scope.allvalidation);
 		if (check) {
-			$scope.user.token=$.jStorage.get("pushid");
+			$scope.user.token = $.jStorage.get("pushid");
 			MyServices.login($scope.user, function (data) {
 				console.log(data);
 				if (data.value == true) {
@@ -359,46 +359,19 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
 })
 
-.controller('GalleryCtrl', function ($scope, $ionicModal, $timeout, $ionicScrollDelegate, $location) {
+.controller('GalleryCtrl', function ($scope, $ionicModal, $timeout, $ionicScrollDelegate, $location, MyServices, $ionicLoading) {
 
-	$scope.gallery = [{
-		"src": "img/gallery/1.jpg",
-		//      "sub":"lnzdvnsjd"
+	$scope.folders = [];
+	$scope.msg = "";
 
-    }, {
-		"src": "img/gallery/2.jpg",
-
-    }, {
-		"src": "img/gallery/3.jpg",
-
-    }, {
-		"src": "img/gallery/4.jpg",
-
-    }, {
-		"src": "img/gallery/1.jpg",
-
-    }, {
-		"src": "img/gallery/2.jpg",
-
-    }, {
-		"src": "img/gallery/3.jpg",
-
-    }, {
-		"src": "img/gallery/4.jpg",
-
-    }];
-
-	$scope.galleryImg = [3078, 3079, 3096, 3127, 3142, 3156, 3159, 3166, 3171, 3167, 3169, 3173, 3174, 3177, 3182, 3193, 3201, 3210, 3215, 3224, 3244, 3248, 3250, 3254, 3266, 3271, 3280, 3292, 3294, 3298, 3307, 3315, 3317, 3322, 3326, 3392, 3414, 3416, 3426, 3430, 3431, 3438, 3436, 3440, 3442, 3444, 3481, 3485, 3550, 3553, 3583, 3642];
-
-	$scope.gallery = [];
-	_.each($scope.galleryImg, function (n) {
-		$scope.photoObj = {};
-		$scope.photoObj.src = "http://wohlig.co.in/bherpoimg/IMG_" + n + ".JPG";
-		$scope.gallery.push($scope.photoObj);
+	allfunction.loading();
+	MyServices.getFolder(function (data) {
+		$scope.folders = data;
+		if(data.value == false){
+			$scope.msg = "No Folders";
+		}
+		$ionicLoading.hide();
 	});
-
-	$scope.gallerys = _.chunk($scope.gallery, 3);
-
 
 	//    *** Tab Change ****
 	$scope.tab = 'photos';
@@ -426,34 +399,28 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 		}
 	};
 
-	$scope.openFolder = function (num) {
-		$location.url("/app/innergallery/" + num);
+	$scope.openFolder = function (folder) {
+		$location.url("/app/innergallery/" + folder._id);
 	}
 
 })
 
-.controller('InnerGalleryCtrl', function ($scope, $ionicModal, $timeout, $ionicScrollDelegate, $stateParams) {
-
-	$scope.galleryImg = [3078, 3079, 3096, 3127, 3142, 3156, 3159, 3166, 3171, 3167, 3169, 3173, 3174, 3177, 3182, 3193, 3201, 3210, 3215, 3224, 3244, 3248, 3250, 3254, 3266, 3271, 3280, 3292, 3294, 3298, 3307, 3315, 3317, 3322, 3326, 3392, 3414, 3416, 3426, 3430, 3431, 3438, 3436, 3440, 3442, 3444, 3481, 3485, 3550, 3553, 3583, 3642];
-
-	$scope.teamImg = [3476, 3479, 3483, 3485, 3489, 3490, 3493, 3496, 3499, 3501, 3503, 3505, 3507, 3510, 3512, 3517, 3518, 3520, 3523, 3525, 3532, 3535, 3541, 3547, 3596, 3597, 3605, 3607, 3608, 3612];
-
+.controller('InnerGalleryCtrl', function ($scope, $ionicModal, $timeout, $ionicScrollDelegate, $stateParams, MyServices, $filter, $ionicLoading) {
 
 	$scope.gallery = [];
-
-	if ($stateParams.id == 1) {
-		_.each($scope.galleryImg, function (n) {
-			$scope.photoObj = {};
-			$scope.photoObj.src = "http://wohlig.co.in/bherpoimg/IMG_" + n + ".JPG";
-			$scope.gallery.push($scope.photoObj);
+	$scope.msg = "";
+	allfunction.loading();
+	MyServices.getFolderImages($stateParams.id, function (data) {
+		if(data.value == false || !data.image || data.image==''){
+			$scope.msg = "No Galleries";
+		}
+		_.each(data.image, function (n) {
+			$scope.gallery.push({
+				"src": $filter("serverimage")(n)
+			});
 		});
-	} else if ($stateParams.id == 2) {
-		_.each($scope.teamImg, function (n) {
-			$scope.photoObj = {};
-			$scope.photoObj.src = "http://wohlig.co.in/bherpoimg/IMG_" + n + ".JPG";
-			$scope.gallery.push($scope.photoObj);
-		});
-	}
+		$ionicLoading.hide();
+	});
 
 
 	$ionicModal.fromTemplateUrl('templates/modal-gallery.html', function ($ionicModal) {
@@ -747,6 +714,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 	$scope.classb = '';
 	allfunction.loading();
 	$scope.notificationtosend = {};
+	allfunction.loading();
 	MyServices.getNotification(function (data) {
 		$scope.notification = data;
 		$ionicLoading.hide();
@@ -755,34 +723,16 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
 	$scope.detailNotification = function (notify) {
 		MyServices.setNotify(notify);
-		if(notify.click){
+		if (notify.clicks) {
 			++notify.clicks;
-		}else{
+		} else {
 			notify.clicks = 1;
 		}
+		$scope.notificationtosend._id = notify._id;
+		$scope.notificationtosend.clicks = notify.clicks;
+		MyServices.saveNotification($scope.notificationtosend, function (data) {})
 
-		console.log($scope.notification);
-		$scope.notificationtosend._id = MyServices.getUser().id;
-		$scope.notificationtosend.hotnotification = [];
-		_.each($scope.notification, function(n){
-			var noti = {}
-			if(!n.clicks){
-				noti.clicks = 0
-			}else{
-				noti.clicks = n.clicks;
-			}
-			noti.notification = n._id;
-			$scope.notificationtosend.hotnotification.push(noti);
-		});
-		console.log($scope.notificationtosend);
-		MyServices.saveNotification($scope.notificationtosend, function(data){
-			console.log(data);
-		})
-
-		var changenot = {};
-		//			changenot.user = MyServices.getUser().id;
-		//			changenot.id = notify.id
-		//		$location.url("/app/notidetail");
+		$location.url("/app/notidetail");
 	}
 
 	$scope.tabchange = function (tab, a) {
@@ -794,6 +744,12 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 			$scope.classb = '';
 			$scope.classc = '';
 		} else if (a == 2) {
+			allfunction.loading();
+			MyServices.getHotNotification(function (data) {
+				$scope.video = data;
+				$ionicLoading.hide();
+
+			});
 			$ionicScrollDelegate.scrollTop();
 			$scope.classa = '';
 			$scope.classb = "active";

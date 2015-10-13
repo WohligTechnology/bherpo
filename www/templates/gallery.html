@@ -12,16 +12,18 @@
     <ion-content class="has-tabs-top">
         <div class="photos" ng-show="tab=='photos'">
             <div class="row folders">
-                <div class="col">
-                    <div class="folder-inner" ng-click="openFolder(1);">
+			  {{msg}}
+                <div class="col" ng-repeat="folder in folders">
+                    <div class="folder-inner" ng-click="openFolder(folder);">
                         <img src="img/folder.png" alt="" class="full-image">
                         <div class="folder-text">
                             <div class="folder-text">
-                                <p>Event Images</p>
+                                <p>{{folder.title}}</p>
                             </div>
                         </div>
                     </div>
                 </div>
+<!--
                 <div class="col">
                     <div class="folder-inner" ng-click="openFolder(2);">
                         <img src="img/folder.png" alt="" class="full-image">
@@ -32,6 +34,7 @@
                         </div>
                     </div>
                 </div>
+-->
             </div>
             <!-- <ion-gallery ion-gallery-items="gallery" ng-if="gallery.length>0"></ion-gallery> -->
         </div>
