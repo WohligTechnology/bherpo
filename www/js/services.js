@@ -76,6 +76,13 @@ angular.module('starter.services', [])
                 data: data
             }).success(callback);
         },
+        saveNotification: function(data, callback) {
+            $http({
+                url: adminurl + 'loginuser/save',
+                method: 'POST',
+                data: data
+            }).success(callback);
+        },
         getNotification: function(callback) {
             $http({
                 url: adminurl + 'notification/find',

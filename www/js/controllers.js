@@ -745,6 +745,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 	$scope.classa = 'active';
 	$scope.classb = '';
 	allfunction.loading();
+	$scope.notificationtosend = {};
 	MyServices.getNotification(function (data) {
 		$scope.notification = data;
 		$ionicLoading.hide();
@@ -753,10 +754,34 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
 	$scope.detailNotification = function (notify) {
 		MyServices.setNotify(notify);
+		if(notify.click){
+			++notify.clicks;
+		}else{
+			notify.clicks = 1;
+		}
+
+		console.log($scope.notification);
+		$scope.notificationtosend._id = MyServices.getUser().id;
+		$scope.notificationtosend.hotnotification = [];
+		_.each($scope.notification, function(n){
+			var noti = {}
+			if(!n.clicks){
+				noti.clicks = 0
+			}else{
+				noti.clicks = n.clicks;
+			}
+			noti.notification = n._id;
+			$scope.notificationtosend.hotnotification.push(noti);
+		});
+		console.log($scope.notificationtosend);
+		MyServices.saveNotification($scope.notificationtosend, function(data){
+			console.log(data);
+		})
+
 		var changenot = {};
 		//			changenot.user = MyServices.getUser().id;
 		//			changenot.id = notify.id
-		$location.url("/app/notidetail");
+		//		$location.url("/app/notidetail");
 	}
 
 	$scope.tabchange = function (tab, a) {
@@ -779,15 +804,15 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 			$scope.classc = "active";
 		}
 	};
-	
+
 
 })
 
 .controller('NotidetailCtrl', function ($scope, $ionicModal, $ionicScrollDelegate, $timeout, MyServices, $filter) {
 
 	$scope.notification = MyServices.getNotify();
-	
-	$scope.share = function(){
+
+	$scope.share = function () {
 		console.log("share");
 		console.log($filter("cut")($scope.notification.content, "true", "120", "'....'"));
 		window.plugins.socialsharing.shareViaTwitter("he hi !!!");
@@ -874,11 +899,11 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
 
 	//    *** end ****
-	MyServices.getSlider(function(data){
-		console.log(data);
+	MyServices.getSlider(function (data) {
 		$scope.slides = data.image;
+		$ionicSlideBoxDelegate.$getByHandle("bannerSlides").update();
 	});
-	
+
 	$scope.gallery = [{
 		image: "img/sponsor/4.png",
 
