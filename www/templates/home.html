@@ -1,6 +1,5 @@
 <ion-view view-title="Home">
 	<ion-content>
-
 		<ion-slide-box on-slide-changed="slideHasChanged($index)" delegate-handle="bannerSlides" does-continue="true" slide-interval="3000" auto-play="true">
 			<ion-slide ng-repeat="slide in slides">
 				<img ng-src="{{slide | serverimage}}" class="full-image">
@@ -40,13 +39,13 @@
 				</div>
 		</div>
 		</ion-list>
-	
+
 		<div class="gallery-img ">
 			<h5 class="paddleft marzero">Sponsor</h5>
 			<div class="navneet">
-				<ion-slide-box on-slide-changed="slideHasChanged($index)" does-continue="true" slide-interval="3000" auto-play="true">
+				<ion-slide-box on-slide-changed="slideHasChanged($index)" delegate-handle="Slides" does-continue="true" slide-interval="3000" auto-play="false">
 					<ion-slide ng-repeat="slide in gallery">
-						<img ng-src="{{slide.image}}" class="full-image">
+						<img src="{{slide}}" class="full-image">
 					</ion-slide>
 				</ion-slide-box>
 			</div>
