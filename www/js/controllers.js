@@ -488,52 +488,52 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 			id: 1
 
         }, {
+			image: "img/team/t10.jpg",
+			name: "Ator Khelbaajz",
+			logo: "img/team-logo/t10.png",
+			id: 2
+
+        }, {
 			image: "img/team/t9.jpg",
 			name: "Blazing Blues",
 			logo: "img/team-logo/t9.png",
-			id: 2
+			id: 3
 
         }, {
 			image: "img/team/t6.jpg",
 			name: "Borivali Stars",
 			logo: "img/team-logo/t6.png",
-			id: 3
+			id: 4
 
         }, {
 			image: "img/team/t8.jpg",
 			name: "Jyoti Giants",
 			logo: "img/team-logo/t8.jpg",
-			id: 4
+			id: 5
 
 
         }, {
 			image: "img/team/t3.jpg",
 			name: "Khelaiya",
 			logo: "img/team-logo/t3.png",
-			id: 5
+			id: 6
 
         }, {
-			image: "img/team/t10.jpg",
-			name: "Khelbaajz",
-			logo: "img/team-logo/t10.png",
-			id: 6
+			image: "img/team/t1.jpg",
+			name: "Kutchi Banka",
+			logo: "img/team-logo/t1.jpg",
+			id: 7
 
         }, {
 			image: "img/team/t4.jpg",
 			name: "Nirmall Roals",
 			logo: "img/team-logo/t4.png",
-			id: 7
+			id: 8
 
         }, {
 			image: "img/team/t7.jpg",
 			name: "Roaring Lions",
 			logo: "img/team-logo/t7.png",
-			id: 8
-
-        }, {
-			image: "img/team/t1.jpg",
-			name: "Roman Vision",
-			logo: "img/team-logo/t1.jpg",
 			id: 9
 
         }, {
@@ -559,7 +559,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 		$scope.gallerys = _.chunk($scope.gallery, 3);
 	
 		$scope.toTeamDetail = function(id){
-			if(id==1 || id==3 || id==5 || id==6 || id==8 || id==10 || id==11){
+			if(id==1 || id==2 || id==4 || id==6 || id==9 || id==10 || id==11){
 			$location.url("/app/team/detail/"+id);
 			}
 		}
@@ -646,59 +646,59 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
         }, {
 
-			name: "Blazing Blues",
+			name: "Ator Khelbaajz",
 			num: "2",
+			email: "bherpokandivali@gmail.com",
+            href:"mailto:bherpokandivali@gmail.com"
+
+        }, {
+
+			name: "Blazing Blues",
+			num: "3",
 			email: "dombivalibherpo@gmail.com",
             href:"mailto:dombivalibherpo@gmail.com"
 
         }, {
 
 			name: "borivali stars",
-			num: "3",
+			num: "4",
 			email: "borivalidahisarbherpo@gmail.com",
             href:"mailto:borivalidahisarbherpo@gmail.com"
 
         }, {
 
 			name: "jyoti giants",
-			num: "4",
+			num: "5",
 			email: "smbherpo@gmail.com",
             href:"mailto:smbherpo@gmail.com"
 
         }, {
 
 			name: "khelaiya",
-			num: "5",
+			num: "6",
 			email: "mulundbherpo@gmail.com",
             href:"mailto:mulundbherpo@gmail.com"
 
         }, {
 
-			name: "Khelbaajz",
-			num: "6",
-			email: "bherpokandivali@gmail.com",
-            href:"mailto:bherpokandivali@gmail.com"
+			name: "Kutchi Banka",
+			num: "7",
+			email: "Miranavirbherpo@gmail.com",
+            href:"mailto:Miranavirbherpo@gmail.com"
 
         }, {
 
 			name: "Nirmall royals",
-			num: "7",
+			num: "8",
 			email: "nirmallroyals@gmail.com",
             href:"mailto:nirmallroyals@gmail.com"
 
         }, {
 
 			name: "roaring lions",
-			num: "8",
+			num: "9",
 			email: "roaring_lions@gmail.com",
             href:"mailto:roaring_lions@gmail.com"
-
-        }, {
-
-			name: "roman vision",
-			num: "9",
-			email: "Miranavirbherpo@gmail.com",
-            href:"mailto:Miranavirbherpo@gmail.com"
 
         }, {
 
