@@ -916,15 +916,12 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 		$scope.slides = data.image;
 		$ionicSlideBoxDelegate.$getByHandle("bannerSlides").update();
 	});
+	
+	$scope.gallery = ["img/sponsor/s1.jpg", "img/sponsor/s6.jpg"];
+	
+		$ionicSlideBoxDelegate.$getByHandle("Slides").update();
 
-	$scope.gallery = [{
-		image: "img/sponsor/s1.jpg",
-
-    }, {
-		image: "img/sponsor/s6.jpg",
-
-    }];
-
+	
 	$scope.repeatslides = _.chunk($scope.gallery, 1);
 
 	$scope.video = [{
