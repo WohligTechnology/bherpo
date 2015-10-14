@@ -620,6 +620,11 @@ div.img-holding {
 .names p {
   font-size: 12px;
   margin: 0; }
+.names a {
+  font-size: 12px;
+  margin: 0;
+  color: #002c5f;
+  text-decoration: none; }
 
 .m20 {
   margin-top: 25px; }
