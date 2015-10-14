@@ -698,6 +698,24 @@
     -o-background-size: cover;
     background-size: cover;
 }
+.image-holds{
+    width: 65px;
+    height: 65px;
+    border-radius: 100%;
+    overflow: hidden;
+    background-image: url(../img/notification/1.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: #ccc;
+    position: relative;
+    left: 10px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin: 0 auto;
+    border: 2px solid #fff;
+}
 .padzero{
     padding: 0px !important;
 }
@@ -751,9 +769,10 @@
     text-transform: capitalize;
 }
 .tm-email{
-    p{
+   a{
       font-size: 12px;
-     color:$calm;   
+     color:$calm;  
+       text-decoration: none
     }
    
 }
@@ -791,7 +810,8 @@ z-index: 9;
     h4{
         margin-bottom: 0px;
         font-weight: 400;
-            text-transform: uppercase
+            text-transform: uppercase;
+            margin-top: 20px;
     }
 }
 

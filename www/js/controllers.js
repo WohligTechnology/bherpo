@@ -634,55 +634,64 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
 			name: "Antra Ace",
 			num: "1",
-			email: "antra_ace@gmail.com"
+			email: "antra_ace@gmail.com",
+            href:"mailto:antra_ace@gmail.com"
 
         }, {
 
 			name: "Blazing Blues",
 			num: "2",
-			email: "blazing_blues@gmail.com"
+			email: "dombivalibherpo@gmail.com",
+            href:"mailto:dombivalibherpo@gmail.com"
 
         }, {
 
 			name: "borivali stars",
 			num: "3",
-			email: "borivali_star@gmail.com"
+			email: "borivalidahisarbherpo@gmail.com",
+            href:"mailto:borivalidahisarbherpo@gmail.com"
 
         }, {
 
 			name: "jyoti giants",
 			num: "4",
-			email: "jyoti_giant@gmail.com"
+			email: "smbherpo@gmail.com",
+            href:"mailto:smbherpo@gmail.com"
 
         }, {
 
 			name: "khelaiya",
 			num: "5",
-			email: "khelaiya@gmail.com"
+			email: "mulundbherpo@gmail.com",
+            href:"mailto:mulundbherpo@gmail.com"
 
         }, {
 
 			name: "Khelbaajz",
 			num: "6",
-			email: "khelbaajz@gmail.com"
+			email: "bherpokandivali@gmail.com",
+            href:"mailto:bherpokandivali@gmail.com"
 
         }, {
 
 			name: "Nirmall royals",
 			num: "7",
-			email: "nirmall_royals@gmail.com"
+			email: "nirmallroyals@gmail.com",
+            href:"mailto:nirmallroyals@gmail.com"
 
         }, {
 
 			name: "roaring lions",
 			num: "8",
-			email: "roaring_lions@gmail.com"
+			email: "roaring_lions@gmail.com",
+            href:"mailto:roaring_lions@gmail.com"
 
         }, {
 
 			name: "roman vision",
 			num: "9",
-			email: "roman_vision@gmail.com"
+			email: "Miranavirbherpo@gmail.com",
+            href:"mailto:Miranavirbherpo@gmail.com"
 
         }, {
 
@@ -690,19 +699,22 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
 			name: "Transform Heroes",
 			num: "10",
-			email: "transform_heroes@gmail.com"
+			email: "Bksvbherpo@gmail.com",
+            href:"mailto:Bksvbherpo@gmail.com"
 
         }, {
 
 			name: "vinipul",
 			num: "11",
 
-			email: "vinipul@gmail.com"
+			email: "Vinipul@gmail.com",
+            href:"mailto:Vinipul@gmail.com"
         }, {
 
 			name: "yuvamann",
 			num: "12",
-			email: "yuvamann@gmail.com"
+			email: "bherpomalad@gmail.com",
+            href:"mailto:bherpomalad@gmail.com"
 
         }];
 	})
@@ -899,12 +911,6 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 	});
 
 	$scope.gallery = [{
-		image: "img/sponsor/4.png",
-
-    }, {
-		image: "img/sponsor/s5.jpg",
-
-    }, {
 		image: "img/sponsor/4.png",
 
     }, {
