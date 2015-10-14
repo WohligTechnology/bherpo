@@ -7,15 +7,15 @@
             <div class="list">
                 <label class="item item-input item-stacked-label">
                     <span class="input-label">Full Name*</span>
-                    <input type="text" placeholder="Full Name" ng-model="user.firstname" ng-class="allvalidation[0].validation" required>
+                    <input type="text" placeholder="eg. chirag shah" ng-model="user.firstname" ng-class="allvalidation[0].validation" required>
                 </label>
                 <label class="item item-input item-stacked-label">
                     <span class="input-label">Pincode*</span>
-                    <input type="number" ng-pattern="/^[0-9]{1,6}$/" placeholder="Pincode" ng-model="user.pincode" ng-class="allvalidation[1].validation" required>
+                    <input type="number" ng-pattern="/^[0-9]{1,6}$/" placeholder="eg. 400001" ng-model="user.pincode" ng-class="allvalidation[1].validation" required>
                 </label>
                 <label class="item item-input item-stacked-label">
                     <span class="input-label">Mobile Number*</span>
-                    <input type="tel" placeholder="Mobile Number" ng-model="user.mobileno" ng-class="allvalidation[2].validation" required>
+                    <input type="tel" placeholder="eg. 8796622179" ng-model="user.mobileno" ng-class="allvalidation[2].validation" required>
                 </label>
                 <div class="item item-divider">
                     I support this team

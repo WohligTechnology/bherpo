@@ -111,12 +111,14 @@ p {
     .notitfy .event .list .item {
       padding: 10px 0px 10px 0px; }
       .notitfy .event .list .item p {
-        font-size: 12px !important;
-        white-space: initial !important; }
-      .notitfy .event .list .item h2 {
-        font-size: 15px;
-        line-height: 130%;
+        font-size: 14px !important;
+        white-space: initial !important;
+        color: #FFFF02;
         font-weight: 600; }
+      .notitfy .event .list .item h2 {
+        font-size: 18px;
+        line-height: 130%;
+        font-weight: 700; }
   .notitfy .event {
     margin-bottom: 20px; }
 
@@ -484,8 +486,8 @@ img.doneLoading {
   background-size: cover; }
 
 .image-holds {
-  width: 65px;
-  height: 65px;
+  width: 90px;
+  height: 90px;
   border-radius: 100%;
   overflow: hidden;
   background-image: url(../img/notification/1.jpg);
@@ -514,7 +516,7 @@ img.doneLoading {
     border: transparent !important;
     margin: 0px !important;
     color: #fff !important;
-    padding: 10px 0px 18px 0px !important; }
+    padding: 10px 0px 45px 0px !important; }
   .photos .head h2 {
     color: #fff; }
   .photos .head p {
@@ -537,7 +539,11 @@ img.doneLoading {
 .tm-name {
   text-transform: capitalize; }
   .tm-name p {
-    font-size: 12px; }
+    font-size: 12px;
+    margin-top: 6px; }
+
+.tm-num p {
+  margin-top: 6px; }
 
 .tm-email a {
   font-size: 12px;
@@ -635,6 +641,15 @@ div.img-holding {
 .tm-co.text-center {
   padding-top: 15px;
   padding-bottom: 15px; }
+  .tm-co.text-center h4 {
+    font-weight: 700; }
+
+.colr {
+  color: grey !important; }
+
+p.date {
+  font-size: 14px;
+  line-height: 1.8; }
 
 .fn {
   width: 100%; }
@@ -648,6 +663,9 @@ div.img-holding {
   margin: 10px auto;
   text-align: center;
   font-size: 16px; }
+
+.col.col-67.head {
+  padding-bottom: 20px; }
 
 /*!
   Ionicons, v2.0.1
