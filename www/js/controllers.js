@@ -809,6 +809,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
 	
 		$ionicSlideBoxDelegate.$getByHandle("Slides").update();
+	$scope.msg = "";
 	// ***** Modal
 	$scope.notificationtosend = {};
 	
