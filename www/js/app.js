@@ -14,7 +14,7 @@ var formvalidation = function (allvalidation) {
 	}
 	return isvalid2;
 }
-angular.module('starter', ['ionic', 'ionic.service.core', 'starter.controllers', 'starter.services', 'ngCordova'])
+angular.module('starter', ['ionic', 'ionic.service.core', 'starter.controllers', 'starter.services', 'ngCordova', 'ionic.service.push'])
 
 .run(function ($ionicPlatform) {
 	$ionicPlatform.ready(function () {
@@ -34,6 +34,7 @@ angular.module('starter', ['ionic', 'ionic.service.core', 'starter.controllers',
 			}
 		});
 		push.register(function (token) {
+			console.log("push register");
 			console.log("Device token:", token.token);
 		});
 

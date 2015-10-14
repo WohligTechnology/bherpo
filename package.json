@@ -1,7 +1,7 @@
 {
   "name": "bherpo",
   "version": "1.0.0",
-  "description": "bherpo: An Ionic project",
+  "description": "Bherpo",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-concat": "^2.2.0",
@@ -22,7 +22,15 @@
     "cordova-plugin-splashscreen",
     "com.ionic.keyboard",
     "cordova-plugin-statusbar",
-    "phonegap-plugin-push"
+    "phonegap-plugin-push",
+    {
+      "locator": "https://github.com/phonegap-build/PushPlugin.git",
+      "id": "com.phonegap.plugins.PushPlugin"
+    },
+    {
+      "locator": "https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin.git",
+      "id": "cordova-plugin-x-socialsharing"
+    }
   ],
   "cordovaPlatforms": [
     "ios",
