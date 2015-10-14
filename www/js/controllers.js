@@ -807,6 +807,8 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
 .controller('HomeCtrl', function ($scope, $ionicSlideBoxDelegate, $ionicLoading, $ionicModal, $location, $cordovaFileTransfer, $cordovaFile, $ionicPopup, $timeout, MyServices) {
 
+	
+		$ionicSlideBoxDelegate.$getByHandle("Slides").update();
 	// ***** Modal
 	$scope.notificationtosend = {};
 	
@@ -918,12 +920,8 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 	});
 	
 	$scope.gallery = ["img/sponsor/s1.jpg", "img/sponsor/s6.jpg"];
+	console.log($scope.gallery);
 	
-		$ionicSlideBoxDelegate.$getByHandle("Slides").update();
-
-	
-	$scope.repeatslides = _.chunk($scope.gallery, 1);
-
 	$scope.video = [{
 		image: "img/notification/1.jpg",
 		title: "Disnei Beauty and the Beast",
