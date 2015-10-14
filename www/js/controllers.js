@@ -559,7 +559,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 		$scope.gallerys = _.chunk($scope.gallery, 3);
 	
 		$scope.toTeamDetail = function(id){
-			if(id==1 && id==3 && id==5 && id==6 && id==8 && id==10 && id==11){
+			if(id==1 || id==3 || id==5 || id==6 || id==8 || id==10 || id==11){
 			$location.url("/app/team/detail/"+id);
 			}
 		}
