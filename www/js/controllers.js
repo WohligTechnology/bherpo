@@ -911,10 +911,10 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 	});
 
 	$scope.gallery = [{
-		image: "img/sponsor/4.png",
+		image: "img/sponsor/s1.jpg",
 
     }, {
-		image: "img/sponsor/s5.jpg",
+		image: "img/sponsor/s6.jpg",
 
     }];
 
