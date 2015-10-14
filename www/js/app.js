@@ -4,6 +4,8 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
+
+push = {};
 var formvalidation = function (allvalidation) {
 	var isvalid2 = true;
 	for (var i = 0; i < allvalidation.length; i++) {
@@ -16,12 +18,12 @@ var formvalidation = function (allvalidation) {
 }
 angular.module('starter', ['ionic', 'ionic.service.core', 'starter.controllers', 'starter.services', 'ngCordova', 'ionic.service.push'])
 
-.run(function ($ionicPlatform) {
+.run(function ($ionicPlatform, $http) {
 	$ionicPlatform.ready(function () {
 
 		Ionic.io();
-		var push = new Ionic.Push({
-			"debug": true,
+		push = new Ionic.Push({
+			"debug": false,
 			"onNotification": function (notification) {
 				console.log("on notification");
 				var payload = notification.payload;
@@ -30,13 +32,62 @@ angular.module('starter', ['ionic', 'ionic.service.core', 'starter.controllers',
 			"onRegister": function (data) {
 				console.log("on registered");
 				console.log(data.token);
+
+				// Define relevant info
+				var privateKey = '53eeb170092240340c354dc59160facf4b633c72255f52b6';
+				var tokens = data.token;
+				var appId = 'e9ef8369';
+
+				// Encode your key
+				var auth = btoa(privateKey + ':');
+				console.log(auth);
+
+				// Build the request object
+				var req = {
+					method: 'POST',
+					url: 'https://push.ionic.io/api/v1/push',
+					headers: {
+						'Content-Type': 'application/json',
+						'X-Ionic-Application-Id': appId,
+						'Authorization': 'basic ' + auth
+					},
+					data: {
+						"tokens": tokens,
+						"notification": {
+							"alert": "Hello World!"
+						}
+					}
+				};
+
+				// Make the API call
+				console.log(req);
+				$http(req).success(function (resp) {
+					// Handle success
+					console.log("Ionic Push: Push success!");
+				}).error(function (error) {
+					// Handle error 
+					console.log("Ionic Push: Push error...");
+				});
+
+
+
 				$.jStoage.set("pushid", data.token);
 			}
 		});
 		push.register(function (token) {
 			console.log("push register");
 			console.log("Device token:", token.token);
+
+
 		});
+
+
+
+
+
+
+
+
 
 		// Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
 		// for form inputs)

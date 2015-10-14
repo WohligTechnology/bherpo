@@ -479,7 +479,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
 })
 
-.controller('TeamCtrl', function ($scope, $ionicModal, $timeout) {
+.controller('TeamCtrl', function ($scope, $ionicModal, $timeout, $location) {
 
 		$scope.gallery = [{
 
@@ -557,6 +557,13 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
         }];
 
 		$scope.gallerys = _.chunk($scope.gallery, 3);
+	
+		$scope.toTeamDetail = function(id){
+			if(id!=3 && id!=5 && id!=6 && id!=8 && id!=10 && id!=11){
+			$location.url("/app/team/detail/"+id);
+			}
+		}
+	
 	})
 	.controller('EventCtrl', function ($scope, $ionicModal, $timeout) {
 		$scope.venue = [{
@@ -792,7 +799,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 	$scope.share = function () {
 		console.log("share");
 		console.log($filter("cut")($scope.notification.content, "true", "120", "'....'"));
-		window.plugins.socialsharing.shareViaTwitter("he hi !!!");
+		window.plugins.socialsharing.share($scope.notification.title, null, $filter("serverimage")($scope.notification.image));
 	}
 
 

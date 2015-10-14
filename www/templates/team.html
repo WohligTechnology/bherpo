@@ -3,7 +3,7 @@
         <div class="team">
             <div class="row" ng-repeat="item in gallerys">
                 <div class="col col-33" ng-repeat="items in item">
-                    <a href="#/app/team/detail/{{items.id}}" class="inner-layer">
+                    <a ng-click="toTeamDetail(items.id)" class="inner-layer">
                             <div>
                             <figure> <img ng-src="{{items.logo}}"></figure>
                             <div class="team-name">
