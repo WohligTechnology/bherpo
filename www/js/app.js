@@ -351,6 +351,21 @@ angular.module('starter', ['ionic', 'ionic.service.core', 'starter.controllers',
 })
 
 
+.directive('bherpoactive', function(){
+	return{
+		link: function(scope, element, attr){
+			var $element = $(element);
+			var allelements = $(".menuitem");
+			$element.on("touch", function(data){
+				for(var i = 0 ; i < allelements.length ; i++){
+					allelements.eq(i).removeClass("active");
+				}
+					$element.addClass("active");
+			})
+		}
+	}
+})
+
 .directive('isdata', function ($sce) {
 	return {
 		restrict: 'A',
