@@ -15,7 +15,7 @@
 			  {{msg}}
                 <div class="col col-50" ng-repeat="folder in folders" >
                     <div class="folder-inner" ng-click="openFolder(folder);">
-                        <img ng-src="{{folder.image[0] | serverimage}}" alt="" class="full-image">
+                        <img ng-src="{{folder.thumb | serverimage}}" alt="" class="full-image">
                         <div class="folder-text">
                             <div class="folder-text">
                                 <p>{{folder.title}}</p>
