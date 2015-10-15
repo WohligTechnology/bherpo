@@ -330,6 +330,15 @@ angular.module('starter', ['ionic', 'ionic.service.core', 'starter.controllers',
 		}
 	};
 })
+.filter('teamimage', function () {
+	return function (image) {
+		if (image && image != null) {
+			return "img/team-logo/" + image;
+		} else {
+			return "img/default.png";
+		}
+	};
+})
 
 .filter('mypoints', function () {
 	return function (points) {
@@ -363,161 +372,40 @@ angular.module('starter', ['ionic', 'ionic.service.core', 'starter.controllers',
 })
 
 .filter('cut', function () {
-	return function (value, wordwise, max, tail) {
-		if (!value) return '';
+		return function (value, wordwise, max, tail) {
+			if (!value) return '';
 
-		max = parseInt(max, 10);
-		if (!max) return value;
-		if (value.length <= max) return value;
+			max = parseInt(max, 10);
+			if (!max) return value;
+			if (value.length <= max) return value;
 
-		value = value.substr(0, max);
-		if (wordwise) {
-			var lastspace = value.lastIndexOf(' ');
-			if (lastspace != -1) {
-				value = value.substr(0, lastspace);
-			}
-		}
-
-		return value + (tail || ' …');
-	};
-})
-
-.directive('img', function ($compile, $parse) {
-	return {
-		restrict: 'EA',
-		replace: false,
-		link: function ($scope, element, attrs) {
-			var $element = $(element);
-			if (!attrs.noloading) {
-				$element.after("<img src='img/loading.gif' class='loading' />");
-				var $loading = $element.next(".loading");
-				$element.load(function () {
-					$loading.remove();
-					$(this).addClass("doneLoading");
-				});
-			} else {
-				$($element).addClass("doneLoading");
-			}
-		}
-	};
-})
-
-.directive('bherpoactive', function(){
-	return{
-		link: function(scope, element, attr){
-			var $element = $(element);
-			var allelements = $(".menuitem");
-			$element.on("touch", function(data){
-				for(var i = 0 ; i < allelements.length ; i++){
-					allelements.eq(i).removeClass("active");
+			value = value.substr(0, max);
+			if (wordwise) {
+				var lastspace = value.lastIndexOf(' ');
+				if (lastspace != -1) {
+					value = value.substr(0, lastspace);
 				}
-				$element.addClass("active");
-			})
-		}
-	}
-})
+			}
 
-.directive('dragcanvasitem', function() {
-  return {
-    link: function(scope, element, attr) {
-      var lastdata = {};
-      var lastdatascale = {};
-      var $element = $(element);
-      var touchscreen = 1;
-
-      var oldwidth = 420;
-
-
-      function getnumvalue(data) {
-        var value = 0;
-        data = parseInt(data);
-        if (!isNaN(data)) {
-          value = parseInt(data);
-        }
-        return value;
-      };
-
-      function movetouches(data, element2) {
-        var fromdata = {};
-        var fromdata = data;
-        var margin = "";
-        var newtouch = {
-          left: 0,
-          top: 0,
-          abc: abc++
-        };
-        //				if (fromdata.layerX) {
-        //					newtouch.left = fromdata.layerX;
-        //					newtouch.top = fromdata.layerY;
-        //				} else if (fromdata.touches) {
-        if (fromdata.pageX && fromdata.pageX != 0) {
-          newtouch.left = fromdata.pageX;
-          newtouch.top = fromdata.pageY;
-        } else if (fromdata.touches) {
-          newtouch.left = fromdata.touches[0].clientX;
-          newtouch.top = fromdata.touches[0].clientY;
-        } else if (fromdata.targetTouches) {
-          newtouch.left = fromdata.targetTouches[0].clientX;
-          newtouch.top = fromdata.targetTouches[0].clientY;
-
-        } else if (fromdata.gesture) {
-          newtouch.left = fromdata.gesture.touches[0].clientX;
-          newtouch.top = fromdata.gesture.touches[0].clientY;
-        }
-        //
-        if (lastdata.left) {
-
-
-          var changeposition = {
-            left: getnumvalue($element.css("left")) + newtouch.left - lastdata.left,
-            top: getnumvalue($element.css("top")) + newtouch.top - lastdata.top
-          };
-
-
-          $element.css(changeposition);
-        }
-        lastdata = newtouch;
-      }
-
-      ionic.on("pinch", function(data) {
-        var newwidth = data.gesture.scale * oldwidth;
-
-        $element.css({
-          width: newwidth
-          //           			transform: 'rotate(' + data.gesture.rotation + 'deg)'
-        });
-
-
-
-      }, $element.get(0))
-
-      ionic.on("touch", function(data) {
-        index = attr.imgindex;
-        var newonedata = {};
-        oldwidth = $element.width();
-        if (data.gesture.layerX && data.gesture.layerX != 0) {
-          lastdata.left = data.gesture.layerX;
-          lastdata.top = data.gesture.layerY;
-        } else if (data.gesture.touches) {
-          newonedata.left = data.gesture.touches[0].pageX;
-          newonedata.top = data.gesture.touches[0].pageY;
-          newonedata.abc = abc++;
-        }
-        lastdata = newonedata;
-      }, $element.get(0));
-      ionic.on("touchmove", function(data) {
-        movetouches(data, $element);
-      }, $element.get(0));
-      //			ionic.on("mousemove", function (data) {
-      //				movetouches(data, $element);
-      //
-      //			}, $element.get(0));
-
-      ionic.on("drag", function(data) {
-        movetouches(data, $element);
-
-      }, $element.get(0));
-
-    }
-  };
-});
+			return value + (tail || ' …');
+		};
+	})
+	.directive('img', function ($compile, $parse) {
+		return {
+			restrict: 'EA',
+			replace: false,
+			link: function ($scope, element, attrs) {
+				var $element = $(element);
+				if (!attrs.noloading) {
+					$element.after("<img src='img/loading.gif' class='loading' />");
+					var $loading = $element.next(".loading");
+					$element.load(function () {
+						$loading.remove();
+						$(this).addClass("doneLoading");
+					});
+				} else {
+					$($element).addClass("doneLoading");
+				}
+			}
+		};
+	});
