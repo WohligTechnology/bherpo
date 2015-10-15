@@ -516,74 +516,74 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
         $scope.gallery = [{
 
             name: "Antra Ace",
-            logo: "img/team-logo/t12.jpg",
+            logo: "img/team-logo/Antara Aces.jpg",
             id: 1
 
         }, {
             image: "img/team/t10.jpg",
             name: "Ator Khelbaajz",
-            logo: "img/team-logo/t10.png",
+            logo: "img/team-logo/Ator Khelbaajz.png",
             id: 2
 
         }, {
             image: "img/team/t9.jpg",
             name: "Blazing Blues",
-            logo: "img/team-logo/t9.png",
+            logo: "img/team-logo/Blazing Blues.png",
             id: 3
 
         }, {
             image: "img/team/t6.jpg",
             name: "Borivali Stars",
-            logo: "img/team-logo/t6.png",
+            logo: "img/team-logo/Borivali Stars.png",
             id: 4
 
         }, {
             image: "img/team/t8.jpg",
             name: "Jyoti Giants",
-            logo: "img/team-logo/t8.jpg",
+            logo: "img/team-logo/Jyoti Giants.jpg",
             id: 5
 
 
         }, {
             image: "img/team/t3.jpg",
             name: "Khelaiya",
-            logo: "img/team-logo/t3.png",
+            logo: "img/team-logo/Khelaiya.png",
             id: 6
 
         }, {
             image: "img/team/t1.jpg",
             name: "Kutchhi Banka",
-            logo: "img/team-logo/t1.jpg",
+            logo: "img/team-logo/Kutchi Banka.jpg",
             id: 7
 
         }, {
             image: "img/team/t4.jpg",
             name: "Nirmall Royals",
-            logo: "img/team-logo/t4.png",
+            logo: "img/team-logo/Nirmal Royals.png",
             id: 8
 
         }, {
             image: "img/team/t7.jpg",
             name: "Roaring Lions",
-            logo: "img/team-logo/t7.png",
+            logo: "img/team-logo/Roaring Lions.png",
             id: 9
 
         }, {
             image: "img/team/t1.jpg",
             name: "Transform Heroes",
-            logo: "img/team-logo/t11.png",
+            logo: "img/team-logo/Transform Heroes.png",
             id: 10
 
         }, {
             image: "img/team/t5.jpg",
             name: "Vinipul",
-            logo: "img/team-logo/t5.png",
+            logo: "img/team-logo/Vinipul Warriors.png",
             id: 11
 
         }, {
             image: "img/team/t2.jpg",
             name: "Yuvamann",
-            logo: "img/team-logo/t2.jpg",
+            logo: "img/team-logo/Yuvamann.jpg",
             id: 12
 
         }];
