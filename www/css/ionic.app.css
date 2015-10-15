@@ -672,6 +672,17 @@ p.date {
 .col.col-67.head {
   padding-bottom: 20px; }
 
+.app h4 {
+  margin: 10px auto;
+  font-weight: 600; }
+.app a {
+  color: #002c5f;
+  text-decoration-line: none;
+  text-decoration: none;
+  font-size: 13px; }
+.app p {
+  margin: 0; }
+
 /*!
   Ionicons, v2.0.1
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
