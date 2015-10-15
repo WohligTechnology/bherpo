@@ -14,7 +14,7 @@
 			<div class="padzero event">
 				{{msg}}
 				<div class="all-video list">
-					<div class="row item" ng-repeat="item in notification" ng-click="detailNotification(item)">
+					<div class="row item" ng-repeat="item in notification" ng-click="detailNotification(item)" ng-class="item.unread">
 						<div class="col col-33">
 							<div class="image-hold" ng-style="{'background-image':'url({{item.image | serverimage}})'}">
 
