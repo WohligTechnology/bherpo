@@ -565,7 +565,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
         }, {
             image: "img/team/t7.jpg",
             name: "Roaring Lions",
-            logo: "img/team-logo/Roaring Lions.png",
+            logo: "img/team-logo/RoaringLions.png",
             id: 9
 
         }, {
