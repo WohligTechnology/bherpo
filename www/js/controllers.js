@@ -492,7 +492,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
             break;  case "6":
             $scope.team.name = "Khelaiya";
             break;  case "7":
-            $scope.team.name = "Kutchi Banka";
+            $scope.team.name = "Kutchhi Banka";
             break;  case "8":
             $scope.team.name = "Nirmall Royals";
             break;  case "9":
@@ -552,7 +552,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
         }, {
             image: "img/team/t1.jpg",
-            name: "Kutchi Banka",
+            name: "Kutchhi Banka",
             logo: "img/team-logo/t1.jpg",
             id: 7
 
