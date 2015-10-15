@@ -505,7 +505,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 	case "5":
 		$scope.team.name = "Jyoti Giants";
 		$scope.team.image = {
-			'background-image': "url('img/team-logo/Jyoti Giants.jpg')"
+			'background-image': "url('img/team-logo/Jyoti-Giants.jpg')"
 		};
 		break;
 	case "6":
@@ -637,7 +637,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 		$scope.gallerys = _.chunk($scope.gallery, 3);
 
 		$scope.toTeamDetail = function (id) {
-			if (id == 1 || id == 2 || id == 4 || id == 6 || id == 7 || id == 9 || id == 10 || id == 11) {
+			if (id == 1 || id == 2 || id == 4 || id == 5 ||  id == 6 || id == 7 || id == 9 || id == 10 || id == 11 || id == 12) {
 				$location.url("/app/team/detail/" + id);
 			}
 		}
