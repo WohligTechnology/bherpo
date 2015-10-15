@@ -3,6 +3,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
 .controller('AppCtrl', function ($scope, $ionicModal, $timeout, $ionicPopup, $ionicLoading, $timeout, MyServices, $location) {
 
+	$scope.badge = 0;
 	if (!MyServices.getUser()) {
 		$location.url("/login");
 	}
@@ -26,7 +27,14 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 			$ionicLoading.hide();
 		}, 5000);
 	}
+	allfunction.callbadge = function () {
+		MyServices.badgeCount(function(data){
+			console.log(data);
+			$scope.badge = data;
+		});
+	}
 
+	allfunction.callbadge();
 
 })
 
@@ -363,15 +371,35 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
 	$scope.folders = [];
 	$scope.msg = "";
+	$scope.pageno = 1;
+	$scope.keepscrolling = true;
 
 	allfunction.loading();
-	MyServices.getFolder(function (data) {
-		$scope.folders = data;
-		if (data.value == false) {
-			$scope.msg = "No Folders";
-		}
-		$ionicLoading.hide();
-	});
+	$scope.loadFolder = function (pageno) {
+		MyServices.getFolder(pageno, function (data) {
+			if (data.value == false) {
+				$scope.keepscrolling = false;
+			}
+			_.each(data.data, function (n) {
+				$scope.folders.push(n);
+			})
+			$ionicLoading.hide();
+		});
+		$timeout(function () {
+			if ($scope.folders == "") {
+				$scope.msg = "No notifications.";
+			} else {
+				$scope.msg = "";
+			}
+		}, 3000);
+		$scope.$broadcast('scroll.infiniteScrollComplete');
+		$scope.$broadcast('scroll.refreshComplete');
+	}
+	$scope.loadFolder($scope.pageno);
+
+	$scope.loadMoreFolders = function () {
+		$scope.loadFolder(++$scope.pageno);
+	}
 
 	//    *** Tab Change ****
 	$scope.tab = 'photos';
@@ -804,24 +832,45 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
         }];
 	})
 
-.controller('NotificationCtrl', function ($scope, $ionicModal, $ionicScrollDelegate, $timeout, MyServices, $ionicLoading, $location) {
+.controller('NotificationCtrl', function ($scope, $ionicModal, $ionicScrollDelegate, $timeout, MyServices, $ionicLoading, $location, $timeout) {
 	//    *** Tab Change ****
 	$scope.tab = 'photos';
 	$scope.classa = 'active';
 	$scope.classb = '';
 	allfunction.loading();
 	$scope.notificationtosend = {};
+	$scope.notification = [];
+	$scope.keepscrolling = true;
 	allfunction.loading();
 	$scope.msg = "";
 	$scope.msg1 = "";
-	MyServices.getNotification(function (data) {
-		$scope.notification = data;
-		if (data.value == false) {
-			$scope.msg = "No notifications.";
-		}
-		$ionicLoading.hide();
+	$scope.pageno = 1;
+	$scope.loadNotify = function (pageno) {
+		MyServices.getNotification(pageno, function (data) {
+			if (data.value == false) {
+				$scope.keepscrolling = false;
+			}
+			_.each(data.data, function (n) {
+				$scope.notification.push(n);
+			});
+			$ionicLoading.hide();
 
-	});
+		});
+		$timeout(function () {
+			if ($scope.notification == "") {
+				$scope.msg = "No notifications.";
+			} else {
+				$scope.msg = "";
+			}
+		}, 3000);
+		$scope.$broadcast('scroll.infiniteScrollComplete');
+		$scope.$broadcast('scroll.refreshComplete');
+	}
+	$scope.loadNotify($scope.pageno);
+
+	$scope.loadMoreNotification = function () {
+		$scope.loadNotify(++$scope.pageno);
+	}
 
 	$scope.detailNotification = function (notify) {
 		MyServices.setNotify(notify);
@@ -832,7 +881,10 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 		}
 		$scope.notificationtosend._id = notify._id;
 		$scope.notificationtosend.clicks = notify.clicks;
-		MyServices.saveNotification($scope.notificationtosend, function (data) {})
+		$scope.notificationtosend.user = MyServices.getUser().id;
+		MyServices.saveNotification($scope.notificationtosend, function (data) {
+			allfunction.callbadge();
+		})
 
 		$location.url("/app/notidetail");
 	}
@@ -885,15 +937,14 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
 .controller('HomeCtrl', function ($scope, $ionicSlideBoxDelegate, $ionicLoading, $ionicModal, $location, $cordovaFileTransfer, $cordovaFile, $ionicPopup, $timeout, MyServices) {
 
-
 	$ionicSlideBoxDelegate.$getByHandle("Slides").update();
 	$scope.msg = "";
 	// ***** Modal
 	$scope.notificationtosend = {};
 
-	MyServices.getNotification(function (data) {
+	MyServices.getNotification(1, function (data) {
 		if (data) {
-			$scope.notification = data.slice(0, 2);
+			$scope.notification = data.data.slice(0, 2);
 		}
 		if (data.value == false) {
 			$scope.msg = "No notifications.";
@@ -916,7 +967,9 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 		}
 		$scope.notificationtosend._id = notify._id;
 		$scope.notificationtosend.clicks = notify.clicks;
-		MyServices.saveNotification($scope.notificationtosend, function (data) {})
+		MyServices.saveNotification($scope.notificationtosend, function (data) {
+			allfunction.callbadge();
+		})
 
 		$location.url("/app/notidetail");
 	}
