@@ -936,7 +936,8 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 })
 
 .controller('HomeCtrl', function ($scope, $ionicSlideBoxDelegate, $ionicLoading, $ionicModal, $location, $cordovaFileTransfer, $cordovaFile, $ionicPopup, $timeout, MyServices) {
-
+	
+	allfunction.loading();
 	$ionicSlideBoxDelegate.$getByHandle("Slides").update();
 	$scope.msg = "";
 	// ***** Modal
@@ -1049,6 +1050,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 	MyServices.getSlider(function (data) {
 		$scope.slides = data.image;
 		$ionicSlideBoxDelegate.$getByHandle("bannerSlides").update();
+		$ionicLoading.hide();
 	});
 
 	$scope.gallery = ["img/sponsor/s1.jpg", "img/sponsor/s6.jpg"];
