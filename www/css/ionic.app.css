@@ -111,7 +111,7 @@ p {
     .notitfy .event .list .item {
       padding: 10px 0px 10px 0px; }
       .notitfy .event .list .item p {
-        font-size: 14px !important;
+        font-size: 14px;
         white-space: initial !important;
         color: #FFFF02;
         font-weight: 600; }
@@ -650,7 +650,8 @@ div.img-holding {
     font-weight: 700; }
 
 .colr {
-  color: grey !important; }
+  color: grey !important;
+  font-size: 13px !important; }
 
 p.date {
   font-size: 14px;
@@ -671,6 +672,9 @@ p.date {
 
 .col.col-67.head {
   padding-bottom: 20px; }
+
+.sm {
+  font-size: 15px !important; }
 
 .app h4 {
   margin: 10px auto;
