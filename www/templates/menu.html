@@ -52,7 +52,7 @@
 				<hr>
 				<ion-item class="menuitem" bherpoactive nav-clear menu-close ui-sref="app.notification">
 					<span><i class="ln-bell"></i></span>Notifications
-					  <span class="badge badge-positive">0</span>
+					  <span class="badge badge-positive" ng-if="badge!=0">{{badge}}</span>
 				</ion-item>
 				<ion-item class="menuitem" bherpoactive nav-clear menu-close ui-sref="app.contact">
 					<span><i class="ln-contacts"></i></span>Contact us

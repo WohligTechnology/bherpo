@@ -87,6 +87,13 @@ angular.module('starter.services', [])
 				data: data
 			}).success(callback);
 		},
+		badgeCount: function (callback) {
+			$http({
+				url: adminurl + 'loginuser/countnotify',
+				method: 'POST',
+				data: {_id:$.jStorage.get("user").id}
+			}).success(callback);
+		},
 		getSlider: function (callback) {
 			$http({
 				url: adminurl + 'slider/find',
@@ -116,12 +123,14 @@ angular.module('starter.services', [])
 				}
 			}).success(callback);
 		},
-		getNotification: function (callback) {
+		getNotification: function (pageno, callback) {
 			$http({
-				url: adminurl + 'notification/find',
+				url: adminurl + 'notification/findlimited',
 				method: 'POST',
 				data: {
-					user: $.jStorage.get("user").id
+					user: $.jStorage.get("user").id,
+					pagesize:10,
+					pagenumber:pageno
 				}
 			}).success(callback);
 		},
@@ -143,10 +152,14 @@ angular.module('starter.services', [])
 				}
 			}).success(callback);
 		},
-		getFolder: function (callback) {
+		getFolder: function (pageno, callback) {
 			$http({
-				url: adminurl + 'folder/find',
-				method: 'POST'
+				url: adminurl + 'folder/findlimited',
+				method: 'POST',
+				data:{
+					pagenumber:pageno,
+					pagesize:2
+				}
 			}).success(callback);
 		},
 		findTeam: function (callback) {

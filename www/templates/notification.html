@@ -30,6 +30,9 @@
 			</div>
 			<!-- <ion-gallery ion-gallery-items="gallery" ng-if="gallery.length>0"></ion-gallery> -->
 		</div>
+
+		<ion-infinite-scroll on-infinite="loadMoreNotification()" ng-if="keepscrolling" distance="25%">
+		</ion-infinite-scroll>
 		<div class="photos notitfy" ng-show="tab=='video'">
 			<div class="padzero event">
 				{{msg1}}
@@ -41,8 +44,8 @@
 							</div>
 						</div>
 						<div class="col col-67">
-							<h2>{{item.title}}</h2>
-							<p class="colr" ng-bind-html="item.content| cut:true:120:'. . .'"></p>
+							<h2 class="sm">{{item.title}}</h2>
+							<p class="colr" ng-bind-html="item.content| cut:true:80:'. . .'"></p>
 						</div>
 					</div>
 
