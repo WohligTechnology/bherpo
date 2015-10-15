@@ -140,8 +140,10 @@ p {
     display: inline-block;
     width: 35px; }
 
-.menu-list .item.active, .menu-list .item.activated, .menu-list .item-complex.active .item-content, .menu-list .item-complex.activated .item-content, .menu-list .item .item-content.active, .menu-list .item .item-content.activated {
+.menu-list .item.active, .menu-list .item.activated, .menu-list .item-complex.active .item-content, .menu-list .item-complex.activated .item-content, .menu-list .item .item-content.active {
   background-color: rgba(1, 159, 218, 0.18) !important; }
+.menu-list .item .item-content.activated {
+  background-color: #114f72 !important; }
 
 .hr {
   width: 150px; }

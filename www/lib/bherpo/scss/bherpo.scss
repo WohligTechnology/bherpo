@@ -222,9 +222,12 @@
         
 		}
 .menu-list{
-      .item.active, .item.activated, .item-complex.active .item-content, .item-complex.activated .item-content, .item .item-content.active, .item .item-content.activated{
+      .item.active, .item.activated, .item-complex.active .item-content, .item-complex.activated .item-content, .item .item-content.active{
                     background-color: rgba(1, 159, 218, 0.18) !important;
             }
+    .item .item-content.activated{
+        background-color: #114f72 !important;
+    }
 }
  
 		
