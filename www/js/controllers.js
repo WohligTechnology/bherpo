@@ -26,8 +26,8 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
             $ionicLoading.hide();
         }, 5000);
     }
-
-
+    
+    
 })
 
 .controller('BherpoCtrl', function ($scope, $ionicModal, $timeout) {
@@ -839,7 +839,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
 .controller('HomeCtrl', function ($scope, $ionicSlideBoxDelegate, $ionicLoading, $ionicModal, $location, $cordovaFileTransfer, $cordovaFile, $ionicPopup, $timeout, MyServices) {
 
-	allfunction.loading();
+
     $ionicSlideBoxDelegate.$getByHandle("Slides").update();
     $scope.msg = "";
     // ***** Modal
