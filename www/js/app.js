@@ -356,6 +356,7 @@ angular.module('starter', ['ionic', 'ionic.service.core', 'starter.controllers',
 		link: function(scope, element, attr){
 			var $element = $(element);
 			var allelements = $(".menuitem");
+			allelements.eq(0).addClass("active");
 			$element.on("touch", function(data){
 				for(var i = 0 ; i < allelements.length ; i++){
 					allelements.eq(i).removeClass("active");
