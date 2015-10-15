@@ -687,6 +687,10 @@ p.date {
 .app p {
   margin: 0; }
 
+.noti {
+  background-color: rgba(194, 194, 194, 0.78);
+  opacity: 0.3; }
+
 /*!
   Ionicons, v2.0.1
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
