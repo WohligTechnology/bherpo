@@ -688,8 +688,7 @@ p.date {
   margin: 0; }
 
 .noti {
-  background-color: rgba(194, 194, 194, 0.78);
-  opacity: 0.3; }
+  background-color: #eae8e8 !important; }
 
 /*!
   Ionicons, v2.0.1
