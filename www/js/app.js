@@ -16,74 +16,10 @@ var formvalidation = function (allvalidation) {
 	}
 	return isvalid2;
 }
-angular.module('starter', ['ionic', 'ionic.service.core', 'starter.controllers', 'starter.services', 'ngCordova', 'ionic.service.push'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ngCordova'])
 
 .run(function ($ionicPlatform, $http) {
 	$ionicPlatform.ready(function () {
-
-		Ionic.io();
-		push = new Ionic.Push({
-			"debug": false,
-			"onNotification": function (notification) {
-				console.log("on notification");
-				var payload = notification.payload;
-				console.log(notification, payload);
-			},
-			"onRegister": function (data) {
-				console.log("on registered");
-				console.log(data.token);
-
-				// Define relevant info
-				var privateKey = '53eeb170092240340c354dc59160facf4b633c72255f52b6';
-				var tokens = data.token;
-				var appId = 'e9ef8369';
-
-				// Encode your key
-				var auth = btoa(privateKey + ':');
-				console.log(auth);
-
-				// Build the request object
-				var req = {
-					method: 'POST',
-					url: 'https://push.ionic.io/api/v1/push',
-					headers: {
-						'Content-Type': 'application/json',
-						'X-Ionic-Application-Id': appId,
-						'Authorization': 'basic ' + auth
-					},
-					data: {
-						"tokens": tokens,
-						"notification": {
-							"alert": "Hello World!"
-						}
-					}
-				};
-
-				// Make the API call
-				console.log(req);
-				$http(req).success(function (resp) {
-					// Handle success
-					console.log("Ionic Push: Push success!");
-				}).error(function (error) {
-					// Handle error 
-					console.log("Ionic Push: Push error...");
-				});
-
-
-
-				$.jStoage.set("pushid", data.token);
-			}
-		});
-		push.register(function (token) {
-			console.log("push register");
-			console.log("Device token:", token.token);
-
-
-		});
-
-
-
-
 
 
 
