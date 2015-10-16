@@ -8,3 +8,5 @@ plugins/
 *.apk
 
 bherpo.keystore
+*.zip
+*.zip
