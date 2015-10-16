@@ -58,6 +58,10 @@ p {
 .marzero {
   margin: 0; }
 
+.bar.bar-calm {
+  border-color: #002C5F !important;
+  color: #fff; }
+
 .active {
   color: #fff;
   border: 0 solid #fff; }

@@ -86,7 +86,11 @@
 		.marzero {
 		    margin: 0;
 		}
-		
+		.bar.bar-calm {
+    border-color: #002C5F !important;
+
+    color: #fff;
+}
 		.active {
 		    color: $light;
 		    border: 0 solid $light;
