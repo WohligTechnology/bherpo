@@ -30,7 +30,11 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 	allfunction.callbadge = function () {
 		MyServices.badgeCount(function(data){
 			console.log(data);
-			$scope.badge = data;
+			if(data.value==false){
+				$scope.badge = 0;
+			}else{
+				$scope.badge = data;
+			}
 		});
 	}
 
