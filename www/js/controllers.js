@@ -513,7 +513,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
 	switch ($scope.id) {
 	case "1":
-		$scope.team.name = "Antra Ace";
+		$scope.team.name = "Antara Aces";
 		$scope.team.image = {
 			'background-image': "url('img/team-logo/Antara Aces.jpg')"
 		};
@@ -573,7 +573,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 		};
 		break;
 	case "11":
-		$scope.team.name = "Vinipul";
+		$scope.team.name = "Vinipul Warriors";
 		$scope.team.image = {
 			'background-image': "url('img/team-logo/Vinipul Warriors.png')"
 		};
@@ -595,7 +595,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
 		$scope.gallery = [{
 
-			name: "Antra Ace",
+			name: "Antara Aces",
 			logo: "img/team-logo/Antara Aces.jpg",
 			id: 1
 
@@ -656,7 +656,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
         }, {
 			image: "img/team/t5.jpg",
-			name: "Vinipul",
+			name: "Vinipul Warriors",
 			logo: "img/team-logo/Vinipul Warriors.png",
 			id: 11
 
@@ -751,7 +751,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
 		$scope.teams = [{
 
-			name: "Antra Ace",
+			name: "Antara Aces",
 			num: "1",
 			email: "antra_ace@gmail.com",
 			href: "mailto:antra_ace@gmail.com"
@@ -823,7 +823,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
         }, {
 
-			name: "vinipul",
+			name: "vinipul Warriors",
 			num: "11",
 
 			email: "Vinipul@gmail.com",
