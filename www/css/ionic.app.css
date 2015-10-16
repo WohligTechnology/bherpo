@@ -499,7 +499,6 @@ img.doneLoading {
   background-repeat: no-repeat;
   background-color: #ccc;
   position: relative;
-  left: 10px;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -687,7 +686,9 @@ p.date {
   margin: 0; }
 
 .noti {
-  background-color: #eae8e8 !important; }
+  background-color: #eee !important; }
+  .noti h2 {
+    color: black; }
 
 /*!
   Ionicons, v2.0.1
