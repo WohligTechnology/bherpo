@@ -113,7 +113,8 @@ p {
         font-size: 14px;
         white-space: initial !important;
         color: #FFFF02;
-        font-weight: 600; }
+        font-weight: 600;
+        text-transform: capitalize; }
       .notitfy .event .list .item h2 {
         font-size: 18px;
         line-height: 130%;
