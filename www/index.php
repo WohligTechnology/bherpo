@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="lib/linearicons/icons.css">
 
     <!-- compiled css output -->
+    
     <link href="css/ionic.app.css" rel="stylesheet">
     <link href="lib/ion-gallery/ion-gallery.css" rel="stylesheet">
     <!--	<link href="css/style.css" rel="stylesheet">-->
@@ -32,6 +33,7 @@
     <script src="lib/js/lodash.js"></script>
     <script src="lib/js/jstorage.js"></script>
     <script src="lib/js/moment/min/moment-with-locales.min.js"></script>
+    <link href="css/web.css" rel="stylesheet">
 </head>
 
 <body ng-app="starter">
