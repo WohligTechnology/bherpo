@@ -4,3 +4,11 @@
 node_modules/
 platforms/
 plugins/
+
+bherpo.keystore
+
+bherpo-release-unsigned.apk
+
+*.apk
+
+*.zip
