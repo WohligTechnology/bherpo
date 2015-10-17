@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' *; style-src 'self' 'unsafe-inline' *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *">
-    <title></title>
+    <title>Bherpo</title>
 
     <link rel="stylesheet" href="lib/linearicons/icons.css">
 
@@ -13,13 +13,11 @@
     
     <link href="css/ionic.app.css" rel="stylesheet">
     <link href="lib/ion-gallery/ion-gallery.css" rel="stylesheet">
-    <!--	<link href="css/style.css" rel="stylesheet">-->
 
     <script src="lib/js/jquery-2.1.4.min.js"></script>
 
     <!-- ionic/angularjs js -->
-    <script src="lib/ionic/js/ionic.bundle.js"></script>
-    <script src="lib/ionic-platform-web-client/dist/ionic.io.bundle.min.js"></script>
+    <script src="lib/ionic/js/ionic.bundle.min.js"></script>
     <script src="lib/ion-gallery/ion.gallery.min.js"></script>
     <script src="lib/js/ng-cordova.min.js"></script>
 
