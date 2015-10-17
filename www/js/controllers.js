@@ -909,9 +909,11 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 		} else if (a == 2) {
 			allfunction.loading();
 			MyServices.getHotNotification(function (data) {
-				$scope.video = data;
 				if (data.value == false) {
-					$scope.msg1 = "No hotnotifications.";
+					$scope.msg1 = "No Hot notifications.";
+				}else{
+					
+				$scope.video = data;
 				}
 				$ionicLoading.hide();
 
