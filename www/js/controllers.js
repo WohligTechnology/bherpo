@@ -754,7 +754,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 			name: "Antara Aces",
 			num: "1",
 			email: "antra_ace@gmail.com",
-			href: "mailto:antra_ace@gmail.com"
+			href: "mailto:gajbherpo@gmail.com"
 
         }, {
 
