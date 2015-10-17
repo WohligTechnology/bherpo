@@ -28,15 +28,15 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 		}, 5000);
 	}
 	allfunction.callbadge = function () {
-		if(MyServices.getUser()){
-		MyServices.badgeCount(function(data){
-			console.log(data);
-			if(data.value==false){
-				$scope.badge = 0;
-			}else{
-				$scope.badge = data;
-			}
-		});
+		if (MyServices.getUser()) {
+			MyServices.badgeCount(function (data) {
+				console.log(data);
+				if (data.value == false) {
+					$scope.badge = 0;
+				} else {
+					$scope.badge = data;
+				}
+			});
 		}
 	}
 
@@ -102,7 +102,6 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
          }];
 		var check = formvalidation($scope.allvalidation);
 		if (check) {
-			$scope.user.token = $.jStorage.get("pushid");
 			MyServices.login($scope.user, function (data) {
 				console.log(data);
 				if (data.value == true) {
@@ -113,7 +112,8 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 				}
 			})
 		} else {
-			allfunction.msg("mandatory fields are ", "Error !");
+			console.log("inerror");
+			allfunction.msg("Fill all mandatory fields Or Invalid Pincode", "Error !");
 		}
 	}
 })
@@ -393,11 +393,11 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 		});
 		$timeout(function () {
 			if ($scope.folders == "") {
-				$scope.msg = "No notifications.";
+				$scope.msg = "No Folders.";
 			} else {
 				$scope.msg = "";
 			}
-		}, 3000);
+		}, 2000);
 		$scope.$broadcast('scroll.infiniteScrollComplete');
 		$scope.$broadcast('scroll.refreshComplete');
 	}
@@ -671,7 +671,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 		$scope.gallerys = _.chunk($scope.gallery, 3);
 
 		$scope.toTeamDetail = function (id) {
-			if (id == 1 || id == 2 || id == 3 || id == 4 || id == 5 ||  id == 6 || id == 7 || id == 8|| id == 9 || id == 10 || id == 11 || id == 12) {
+			if (id == 1 || id == 2 || id == 3 || id == 4 || id == 5 || id == 6 || id == 7 || id == 8 || id == 9 || id == 10 || id == 11 || id == 12) {
 				$location.url("/app/team/detail/" + id);
 			}
 		}
@@ -857,7 +857,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 				$scope.keepscrolling = false;
 			}
 			_.each(data.data, function (n) {
-				if(!n.click){
+				if (!n.click) {
 					n.unread = "noti";
 				}
 				$scope.notification.push(n);
@@ -945,24 +945,24 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 })
 
 .controller('HomeCtrl', function ($scope, $ionicSlideBoxDelegate, $ionicLoading, $ionicModal, $location, $cordovaFileTransfer, $cordovaFile, $ionicPopup, $timeout, MyServices) {
-	
+
 	allfunction.loading();
 	$ionicSlideBoxDelegate.$getByHandle("Slides").update();
 	$scope.msg = "";
 	// ***** Modal
 	$scope.notificationtosend = {};
 
-	if(MyServices.getUser()){
-	MyServices.getNotification(1, function (data) {
-		if (data) {
-			$scope.notification = data.data.slice(0, 2);
-		}
-		if (data.value == false) {
-			$scope.msg = "No notifications.";
-		}
-		$ionicLoading.hide();
+	if (MyServices.getUser()) {
+		MyServices.getNotification(1, function (data) {
+			if (data) {
+				$scope.notification = data.data.slice(0, 2);
+			}
+			if (data.value == false) {
+				$scope.msg = "No notifications.";
+			}
+			$ionicLoading.hide();
 
-	});
+		});
 	}
 
 	if (!MyServices.getUser()) {
@@ -1065,7 +1065,6 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 	});
 
 	$scope.gallery = ["img/sponsor/s1.jpg", "img/sponsor/s6.jpg"];
-	console.log($scope.gallery);
 
 	$scope.video = [{
 		image: "img/notification/1.jpg",
@@ -1084,7 +1083,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
 })
 
-.controller('KnowyourteamCtrl', function ($scope, $stateParams, MyServices, $ionicLoading, $timeout) {
+.controller('KnowyourteamCtrl', function ($scope, $stateParams, MyServices, $ionicLoading, $timeout, $ionicPopup, $timeout) {
 	$scope.team = {};
 	$scope.myteam = {};
 	$scope.msg = false;
@@ -1098,18 +1097,36 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 	}
 
 	$scope.findTeam = function () {
-		showloading();
-		MyServices.findMyTeam($scope.team.pincode, function (data) {
-			console.log(data);
-			$ionicLoading.hide();
-			$scope.myteam = data;
-			if (data.value == false) {
-				$scope.myteam.value = false;
-				$scope.msg = true;
-			} else {
-				$scope.myteam.value = true;
-				$scope.msg = true;
-			}
-		})
+		
+		$scope.allvalidation = [{
+			field: $scope.team.pincode,
+			validation: ""
+         }];
+		var check = formvalidation($scope.allvalidation);
+		if (check) {
+			showloading();
+			MyServices.findMyTeam($scope.team.pincode, function (data) {
+				console.log(data);
+				$ionicLoading.hide();
+				$scope.myteam = data;
+				if (data.value == false) {
+					$scope.myteam.value = false;
+					$scope.msg = true;
+				} else {
+					$scope.myteam.value = true;
+					$scope.msg = true;
+				}
+			})
+		} else {
+			console.log("else error");
+			var myPopup = $ionicPopup.show({
+				template: '<p class="text-center">Enter proper pincode!</p>',
+				title: "Error !",
+				scope: $scope,
+			});
+			$timeout(function () {
+				myPopup.close(); //close the popup after 3 seconds for some reason
+			}, 2000);
+		}
 	}
 });
