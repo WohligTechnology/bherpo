@@ -608,7 +608,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 	case "10":
 		$scope.team.name = "Transform Heroes";
 		$scope.team.image = {
-			'background-image': "url('img/team-logo/Transform Heroes.png')"
+			'background-image': "url('img/team-logo/Transform-Heroes.png')"
 		};
 		break;
 	case "11":
