@@ -1,16 +1,16 @@
 <ion-view view-title="Notification">
 	<div class="tabs-striped tabs-top tabs-background-calm tabs-color-light">
 		<div class="tabs">
-			<a class="tab-item {{classa}}" ng-click="tabchange('photos',1)">
+			<a class="tab-item {{classa}}" ng-click="tabchange('notify',1)">
 				<span>Latest Notification</span>
 			</a>
-			<a class="tab-item {{classb}}" ng-click="tabchange('video',2)">
+			<a class="tab-item {{classb}}" ng-click="tabchange('hotnotify',2)">
 				<span>Hot Notification</span>
 			</a>
 		</div>
 	</div>
 	<ion-content class="has-tabs-top">
-		<div class="photos notitfy" ng-show="tab=='photos'">
+		<div class="photos notitfy" ng-show="tab=='notify'">
 			<div class="padzero event">
 				{{msg}}
 				<div class="all-video list">
@@ -33,11 +33,11 @@
 
 		<ion-infinite-scroll on-infinite="loadMoreNotification()" ng-if="keepscrolling" distance="25%">
 		</ion-infinite-scroll>
-		<div class="photos notitfy" ng-show="tab=='video'">
+		<div class="photos notitfy" ng-show="tab=='hotnotify'">
 			<div class="padzero event">
 				{{msg1}}
 				<div class="all-video list">
-					<div class="row item" ng-repeat="item in video" ui-sref="app.notidetail">
+					<div class="row item" ng-repeat="item in hotnotification" ui-sref="app.notidetail">
 						<div class="col col-33">
 							<div class="image-hold" ng-style="{'background-image':'url({{item.image | serverimage}})'}">
 

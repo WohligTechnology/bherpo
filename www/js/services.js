@@ -1,5 +1,5 @@
-//var adminurl = "http://192.168.2.22:1337/";
-var adminurl = "http://wohlig.in:81/";
+var adminurl = "http://192.168.2.22:1337/";
+//var adminurl = "http://wohlig.in:81/";
 //var adminurl = "http://wohlig.com:81/";
 //var adminurl = "http://localhost:1337/";
 var imgpath = adminurl + "uploadfile/resize?file=";
@@ -168,10 +168,14 @@ angular.module('starter.services', [])
 				method: 'POST'
 			}).success(callback);
 		},
-		getHotNotification: function (callback) {
+		getHotNotification: function (pageno, callback) {
 			$http({
 				url: adminurl + 'notification/findhotnotify',
-				method: 'POST'
+				method: 'POST',
+				data:{
+					pagenumber:pageno,
+					pagesize:1
+				}
 			}).success(callback);
 		},
 		setNotify: function (data) {

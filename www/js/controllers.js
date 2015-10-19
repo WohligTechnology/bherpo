@@ -28,15 +28,15 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 		}, 5000);
 	}
 	allfunction.callbadge = function () {
-		if(MyServices.getUser()){
-		MyServices.badgeCount(function(data){
-			console.log(data);
-			if(data.value==false){
-				$scope.badge = 0;
-			}else{
-				$scope.badge = data;
-			}
-		});
+		if (MyServices.getUser()) {
+			MyServices.badgeCount(function (data) {
+				console.log(data);
+				if (data.value == false) {
+					$scope.badge = 0;
+				} else {
+					$scope.badge = data;
+				}
+			});
 		}
 	}
 
@@ -671,7 +671,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 		$scope.gallerys = _.chunk($scope.gallery, 3);
 
 		$scope.toTeamDetail = function (id) {
-			if (id == 1 || id == 2 || id == 3 || id == 4 || id == 5 ||  id == 6 || id == 7 || id == 8|| id == 9 || id == 10 || id == 11 || id == 12) {
+			if (id == 1 || id == 2 || id == 3 || id == 4 || id == 5 || id == 6 || id == 7 || id == 8 || id == 9 || id == 10 || id == 11 || id == 12) {
 				$location.url("/app/team/detail/" + id);
 			}
 		}
@@ -861,38 +861,63 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
 .controller('NotificationCtrl', function ($scope, $ionicModal, $ionicScrollDelegate, $timeout, MyServices, $ionicLoading, $location, $timeout) {
 	//    *** Tab Change ****
-	$scope.tab = 'photos';
+	$scope.tab = 'notify';
 	$scope.classa = 'active';
 	$scope.classb = '';
 	allfunction.loading();
 	$scope.notificationtosend = {};
 	$scope.notification = [];
+	$scope.hotnotification = [];
 	$scope.keepscrolling = true;
 	allfunction.loading();
 	$scope.msg = "";
 	$scope.msg1 = "";
 	$scope.pageno = 1;
 	$scope.loadNotify = function (pageno) {
-		MyServices.getNotification(pageno, function (data) {
-			if (data.value == false) {
-				$scope.keepscrolling = false;
-			}
-			_.each(data.data, function (n) {
-				if(!n.click){
-					n.unread = "noti";
+		if ($scope.tab == 'notify') {
+			MyServices.getNotification(pageno, function (data) {
+				if (data.value == false) {
+					$scope.keepscrolling = false;
+				} else {
+					_.each(data.data, function (n) {
+						if (!n.click) {
+							n.unread = "noti";
+						}
+						$scope.notification.push(n);
+					});
 				}
-				$scope.notification.push(n);
-			});
-			$ionicLoading.hide();
+				$ionicLoading.hide();
 
-		});
-		$timeout(function () {
-			if ($scope.notification == "") {
-				$scope.msg = "No notifications.";
-			} else {
-				$scope.msg = "";
-			}
-		}, 3000);
+
+			});
+			$timeout(function () {
+				if ($scope.notification == "") {
+					$scope.msg = "No notifications.";
+				} else {
+					$scope.msg = "";
+				}
+			}, 3000);
+		} else {
+			MyServices.getHotNotification(pageno, function (data) {
+				if (data.value == false) {
+					$scope.keepscrolling = false;
+				} else {
+					_.each(data, function (n) {
+						$scope.hotnotification.push(n);
+					})
+				}
+				$ionicLoading.hide();
+
+
+			});
+			$timeout(function () {
+				if ($scope.notification == "") {
+					$scope.msg = "No hot notifications.";
+				} else {
+					$scope.msg = "";
+				}
+			}, 2000);
+		}
 		$scope.$broadcast('scroll.infiniteScrollComplete');
 		$scope.$broadcast('scroll.refreshComplete');
 	}
@@ -924,19 +949,19 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 		$scope.tab = tab;
 		if (a == 1) {
 			$ionicScrollDelegate.scrollTop();
+			$scope.pageno = 1;
+			$scope.notification = [];
+			$scope.keepscrolling = true;
+			$scope.loadNotify($scope.pageno);
 			$scope.classa = "active";
 			$scope.classb = '';
 			$scope.classc = '';
 		} else if (a == 2) {
 			allfunction.loading();
-			MyServices.getHotNotification(function (data) {
-				$scope.video = data;
-				if (data.value == false) {
-					$scope.msg1 = "No hot notifications.";
-				}
-				$ionicLoading.hide();
-
-			});
+			$scope.pageno = 1;
+			$scope.hotnotification = [];
+			$scope.keepscrolling = true;
+			$scope.loadNotify($scope.pageno);
 			$ionicScrollDelegate.scrollTop();
 			$scope.classa = '';
 			$scope.classb = "active";
@@ -973,17 +998,17 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 	// ***** Modal
 	$scope.notificationtosend = {};
 
-	if(MyServices.getUser()){
-	MyServices.getNotification(1, function (data) {
-		if (data) {
-			$scope.notification = data.data.slice(0, 2);
-		}
-		if (data.value == false) {
-			$scope.msg = "No notifications.";
-		}
-		$ionicLoading.hide();
+	if (MyServices.getUser()) {
+		MyServices.getNotification(1, function (data) {
+			if (data) {
+				$scope.notification = data.data.slice(0, 2);
+			}
+			if (data.value == false) {
+				$scope.msg = "No notifications.";
+			}
+			$ionicLoading.hide();
 
-	});
+		});
 	}
 
 	if (!MyServices.getUser()) {
