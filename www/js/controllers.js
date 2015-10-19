@@ -2,6 +2,11 @@ var allfunction = {};
 angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
 .controller('AppCtrl', function ($scope, $ionicModal, $timeout, $ionicPopup, $ionicLoading, $timeout, MyServices, $location) {
+	if (window.cordova) {
+		iswebapp = false;
+	} else {
+		iswebapp = true;
+	}
 
 	$scope.badge = 0;
 	allfunction.checkisapp = function () {
@@ -928,10 +933,10 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 					_.each(data.data, function (n) {
 						console.log(n);
 						if (n.click) {
-							if(n.click == 0){
-							n.unread = "noti";
+							if (n.click == 0) {
+								n.unread = "noti";
 							}
-						}else{
+						} else {
 							n.unread = "";
 						}
 						$scope.notification.push(n);
