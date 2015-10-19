@@ -102,7 +102,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
          }];
 		var check = formvalidation($scope.allvalidation);
 		if (check) {
-			$scope.user.token = $.jStorage.get("pushid");
+			// $scope.user.token = $.jStorage.get("pushid");
 			MyServices.login($scope.user, function (data) {
 				console.log(data);
 				if (data.value == true) {
@@ -113,7 +113,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 				}
 			})
 		} else {
-			allfunction.msg("mandatory fields are ", "Error !");
+			allfunction.msg("Fill all mandatory fields Or Invalid Pincode", "Error !");
 		}
 	}
 })
@@ -393,7 +393,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 		});
 		$timeout(function () {
 			if ($scope.folders == "") {
-				$scope.msg = "No notifications.";
+				$scope.msg = "No folders.";
 			} else {
 				$scope.msg = "";
 			}
@@ -738,14 +738,35 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
 	})
 	.controller('TeamstandingCtrl', function ($scope, $ionicModal, $timeout, MyServices, $ionicLoading) {
-
-		allfunction.loading();
-		MyServices.findTeam(function (data) {
-			$scope.teams = data;
-			$ionicLoading.hide();
-		});
-
-
+		$scope.allvalidation = [{
+			field: $scope.team.pincode,
+			validation: ""
+         }];
+		var check = formvalidation($scope.allvalidation);
+		if (check) {
+			showloading();
+			MyServices.findMyTeam($scope.team.pincode, function (data) {
+				$ionicLoading.hide();
+				$scope.myteam = data;
+				if (data.value == false) {
+					$scope.myteam.value = false;
+					$scope.msg = true;
+				} else {
+					$scope.myteam.value = true;
+					$scope.msg = true;
+				}
+			})
+		} else {
+			console.log("else error");
+			var myPopup = $ionicPopup.show({
+				template: '<p class="text-center">Enter proper pincode!</p>',
+				title: "Error !",
+				scope: $scope,
+			});
+			$timeout(function () {
+				myPopup.close(); //close the popup after 3 seconds for some reason
+			}, 2000);
+		}
 	})
 	.controller('ConatctCtrl', function ($scope, $ionicModal, $timeout) {
 
@@ -911,7 +932,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 			MyServices.getHotNotification(function (data) {
 				$scope.video = data;
 				if (data.value == false) {
-					$scope.msg1 = "No hotnotifications.";
+					$scope.msg1 = "No hot notifications.";
 				}
 				$ionicLoading.hide();
 
@@ -945,7 +966,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 })
 
 .controller('HomeCtrl', function ($scope, $ionicSlideBoxDelegate, $ionicLoading, $ionicModal, $location, $cordovaFileTransfer, $cordovaFile, $ionicPopup, $timeout, MyServices) {
-	
+
 	allfunction.loading();
 	$ionicSlideBoxDelegate.$getByHandle("Slides").update();
 	$scope.msg = "";
