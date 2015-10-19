@@ -932,10 +932,8 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 				} else {
 					_.each(data.data, function (n) {
 						console.log(n);
-						if (n.click) {
-							if (n.click == 0) {
-								n.unread = "noti";
-							}
+						if (n.click == '0' || !n.click) {
+							n.unread = "noti";
 						} else {
 							n.unread = "";
 						}
