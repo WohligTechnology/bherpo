@@ -21,8 +21,10 @@
     <script src="lib/ion-gallery/ion.gallery.min.js"></script>
     <script src="lib/js/ng-cordova.min.js"></script>
 
-    <!-- cordova script (this will be a 404 during development) -->
+<!--
+     cordova script (this will be a 404 during development) 
     <script src="cordova.js"></script>
+-->
 
     <!-- your app's js -->
     <script src="js/app.js"></script>
