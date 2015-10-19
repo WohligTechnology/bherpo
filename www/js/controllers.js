@@ -926,8 +926,11 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 					$scope.keepscrolling = false;
 				} else {
 					_.each(data.data, function (n) {
-						if (!n.click && n.click) {
+						console.log(n);
+						if (n.click && n.click == 0) {
 							n.unread = "noti";
+						}else{
+							n.unread = "";
 						}
 						$scope.notification.push(n);
 					});
