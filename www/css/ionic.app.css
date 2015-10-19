@@ -626,7 +626,7 @@ div.img-holding {
 .name p {
   font-size: 12px;
   margin: 0;
-  text-transform: uppercase; }
+  text-transform: capitalize; }
 
 .names h5 {
   margin: 0;
