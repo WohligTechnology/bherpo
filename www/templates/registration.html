@@ -82,11 +82,16 @@
                     <span class="input-label">Address 2</span>
                     <input type="text" placeholder="Address 2" ng-model='user.address2'>
                 </label>
-                <label class="item item-input" ng-click="openmodalarea();" ng-model='user.area' ng-class="allvalidation[8].validation" required>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Area</span>
+                    <input type="text" placeholder="Area" ng-model='user.area' ng-class="allvalidation[8].validation" required>
+                </label>
+                <!-- <label class="item item-input" ng-click="openmodalarea();" ng-model='user.area' ng-class="allvalidation[8].validation" required>
                     <div class=" input-label ">
                         Area<span class="citysearch">{{user.area[0].name}}</span>
                     </div>
-                </label>
+                    <input type="text" placeholder="Area" ng-model='user.area'>
+                </label> -->
                 <!--
                 <label class="item item-input item-select">
                     <div class="input-label">
@@ -108,7 +113,7 @@
                 </label>
                 <label class="item item-input item-stacked-label">
                     <span class="input-label">Pincode</span>
-                    <input type="text" placeholder="Pincode" ng-model='user.pincode' ng-class="allvalidation[9].validation" required only-digits>
+                    <input type="text" placeholder="Pincode" maxlength="6" ng-model='user.pincode' ng-class="allvalidation[9].validation" required only-digits>
                 </label>
             </div>
             <div class="other-form">
