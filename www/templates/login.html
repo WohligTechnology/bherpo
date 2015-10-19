@@ -29,7 +29,7 @@
                     <div class="input-label">
                         Select Team*
                     </div>
-                    <select ng-model="user.team" ng-change="selectedVal();" ng-class="allvalidation[3].validation">
+                    <select ng-model="user.team" ng-change="selectedVal();">
                     	<option value="">Please Select</option>
                         <option ng-repeat="team in teams" value="{{team._id}}">{{team.teamname}}</option>
                     </select>

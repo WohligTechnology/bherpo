@@ -96,9 +96,6 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
         }, {
             field: $scope.user.mobileno,
             validation: ""
-        }, {
-            field: $scope.user.team,
-            validation: ""
         }];
         var check = formvalidation($scope.allvalidation);
         if (check) {
