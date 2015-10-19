@@ -124,6 +124,16 @@ angular.module('starter.services', [])
 			}).success(callback);
 		},
 		getNotification: function (pageno, callback) {
+			if(iswebapp){
+			$http({
+				url: adminurl + 'notification/findlimited',
+				method: 'POST',
+				data: {
+					pagesize:10,
+					pagenumber:pageno
+				}
+			}).success(callback);
+			}else{
 			$http({
 				url: adminurl + 'notification/findlimited',
 				method: 'POST',
@@ -133,6 +143,7 @@ angular.module('starter.services', [])
 					pagenumber:pageno
 				}
 			}).success(callback);
+			}
 		},
 		findMyTeam: function (pincode, callback) {
 			$http({
