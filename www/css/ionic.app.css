@@ -343,7 +343,7 @@ p {
     font-weight: 400; }
 
 .padss {
-  margin-top: 35px;
+  margin-top: 10px;
   margin-bottom: 20px;
   font-weight: 400; }
   .padss p {
@@ -694,6 +694,10 @@ p.date {
   background-color: #eee !important; }
   .noti h2 {
     color: black; }
+
+.ng-invalid.ng-dirty {
+  /*   border-bottom: 1px solid red !important;*/
+  border-bottom: 2px solid red !important; }
 
 /*!
   Ionicons, v2.0.1
