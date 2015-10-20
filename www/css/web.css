@@ -21,4 +21,16 @@ body {
                 left: 0;
                 transform: translatex(0);
             }
+
         }
+@media (min-width: 680px){
+              .modal {
+    top: 20%;
+    right: 20%;
+    bottom: 20%;
+    left: 20%;
+    min-height: 240px;
+    width: 29%;
+    margin: 0 auto;
+}  
+}
