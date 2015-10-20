@@ -345,6 +345,21 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
         }];
         var check = formvalidation($scope.allvalidation);
         if (check) {
+
+            if ($scope.checked.indexOf("div1") != -1 && $scope.user.quiz.length == 0) {
+                $scope.user.quiz = ["Quiz"];
+            }
+            if ($scope.checked.indexOf("div2") != -1 && $scope.user.aquatics.length == 0) {
+                $scope.user.aquatics = ["Khatron ke Khiladi", "Musical Stations", "Kho Kho"];
+            }
+            if ($scope.checked.indexOf("div3") != -1 && $scope.user.dance.length == 0) {
+                $scope.user.dance = ["Dance", "Street Play"];
+            }
+            if ($scope.checked.indexOf("div4") != -1 && $scope.user.sports.length == 0) {
+                $scope.user.sports = $scope.allsports;
+            }
+
+
             $scope.user.sportsdata = "";
             _.each($scope.user.quiz, function(q) {
                 if (q != null) {
@@ -374,7 +389,9 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
             var lastindex = $scope.user.sportsdata.lastIndexOf(",");
             if (lastindex != -1)
                 $scope.user.sportsdata = $scope.user.sportsdata.substr(0, lastindex);
+
             console.log($scope.user);
+
             MyServices.registerUser($scope.user, function(data, status) {
                 console.log(data);
                 if (data.value == true) {
