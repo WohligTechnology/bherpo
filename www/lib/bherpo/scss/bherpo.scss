@@ -1050,3 +1050,24 @@
     
     border-bottom: 2px solid red !important;
 }
+.video-overlay {
+    background-color: black !important;
+}
+.full-height .scroll {
+    min-height: 100%;
+}
+.at-center {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+}
+
+.at-bottom {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+}

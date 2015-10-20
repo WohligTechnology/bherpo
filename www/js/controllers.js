@@ -499,8 +499,10 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
     }
 
     MyServices.getVideos(function(data, status) {
-        console.log(data);
+//        console.log(data);
+       
         $scope.allvideos = _.chunk(data,3);
+         console.log($scope.allvideos);
         // $scope.allvideos = data;
     })
 
