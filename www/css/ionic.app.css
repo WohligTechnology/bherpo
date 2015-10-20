@@ -495,16 +495,19 @@ img.doneLoading {
   background-size: cover; }
 
 .image-hol {
+  width: 100%;
+  height: 200px;
   overflow: hidden;
   background-image: url(../img/sponsor/s1.jpg);
   background-position: center center;
   background-repeat: no-repeat;
-  background-color: #ccc;
+  background-color: rgba(204, 204, 204, 0);
   position: relative;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover; }
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  background-size: contain;
+  min-height: 200px; }
 
 .image-holds {
   width: 90px;
