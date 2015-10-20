@@ -69,9 +69,9 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 .controller('LoginCtrl', function($scope, $ionicModal, $timeout, MyServices, $ionicPopup, $location) {
     $scope.teams = {};
     $scope.user = {};
-    //	if (MyServices.getUser()) {
-    //		$location.url("/app/home");
-    //	}
+    //  if (MyServices.getUser()) {
+    //      $location.url("/app/home");
+    //  }
     allfunction.checkisapp();
     allfunction.msg = function(msg, title) {
         var myPopup = $ionicPopup.show({
@@ -498,6 +498,38 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
         $location.url("/app/innergallery/" + folder._id);
     }
 
+    MyServices.getVideos(function(data, status) {
+        console.log(data);
+        $scope.allvideos = _.chunk(data,3);
+        // $scope.allvideos = data;
+    })
+
+    var init = function () {
+        return $ionicModal.fromTemplateUrl('templates/modal-video.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function (modal) {
+            $scope.modal = modal;
+
+        });
+    };
+
+
+    $scope.showVideo = function (url) {
+        init().then(function () {
+            $scope.modal.show();
+        });
+        $scope.video = [];
+        $scope.video.url = url + "?autoplay=1";
+    };
+
+    $scope.closeVideo = function () {
+        $scope.modal.remove()
+            .then(function () {
+                $scope.modal = null;
+            });
+    };
+
 })
 
 .controller('InnerGalleryCtrl', function($scope, $ionicModal, $timeout, $ionicScrollDelegate, $stateParams, MyServices, $filter, $ionicLoading) {
@@ -806,35 +838,35 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
         });
 
 
-        //		$scope.allvalidation = [{
-        //			field: $scope.team.pincode,
-        //			validation: ""
+        //      $scope.allvalidation = [{
+        //          field: $scope.team.pincode,
+        //          validation: ""
         //        }];
-        //		var check = formvalidation($scope.allvalidation);
-        //		if (check) {
-        //			showloading();
-        //			MyServices.findMyTeam($scope.team.pincode, function (data) {
-        //				$ionicLoading.hide();
-        //				$scope.myteam = data;
-        //				if (data.value == false) {
-        //					$scope.myteam.value = false;
-        //					$scope.msg = true;
-        //				} else {
-        //					$scope.myteam.value = true;
-        //					$scope.msg = true;
-        //				}
-        //			})
-        //		} else {
-        //			console.log("else error");
-        //			var myPopup = $ionicPopup.show({
-        //				template: '<p class="text-center">Enter proper pincode!</p>',
-        //				title: "Error !",
-        //				scope: $scope,
-        //			});
-        //			$timeout(function () {
-        //				myPopup.close(); //close the popup after 3 seconds for some reason
-        //			}, 2000);
-        //		}
+        //      var check = formvalidation($scope.allvalidation);
+        //      if (check) {
+        //          showloading();
+        //          MyServices.findMyTeam($scope.team.pincode, function (data) {
+        //              $ionicLoading.hide();
+        //              $scope.myteam = data;
+        //              if (data.value == false) {
+        //                  $scope.myteam.value = false;
+        //                  $scope.msg = true;
+        //              } else {
+        //                  $scope.myteam.value = true;
+        //                  $scope.msg = true;
+        //              }
+        //          })
+        //      } else {
+        //          console.log("else error");
+        //          var myPopup = $ionicPopup.show({
+        //              template: '<p class="text-center">Enter proper pincode!</p>',
+        //              title: "Error !",
+        //              scope: $scope,
+        //          });
+        //          $timeout(function () {
+        //              myPopup.close(); //close the popup after 3 seconds for some reason
+        //          }, 2000);
+        //      }
     })
     .controller('ConatctCtrl', function($scope, $ionicModal, $timeout) {
 
@@ -1087,9 +1119,9 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
         });
     }
 
-    //	if (!MyServices.getUser()) {
-    //		$location.url("/login");
-    //	}
+    //  if (!MyServices.getUser()) {
+    //      $location.url("/login");
+    //  }
     allfunction.checkisapp();
 
 
@@ -1207,6 +1239,11 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
         detail: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vulputate venenatis faucibus"
     }];
 
+    $scope.sponsorSlider = [{
+        img: "s1.jpg"
+    }, {
+        img: "s51.jpg"
+    }];
 
 })
 

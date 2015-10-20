@@ -189,6 +189,12 @@ angular.module('starter.services', [])
 				}
 			}).success(callback);
 		},
+		getVideos: function (callback) {
+			$http({
+				url: adminurl + 'videogallery/find',
+				method: 'POST'
+			}).success(callback);
+		},
 		setNotify: function (data) {
 			$.jStorage.set("notify", data);
 		},
