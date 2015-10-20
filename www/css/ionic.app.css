@@ -494,6 +494,18 @@ img.doneLoading {
   -o-background-size: cover;
   background-size: cover; }
 
+.image-hol {
+  overflow: hidden;
+  background-image: url(../img/sponsor/s1.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: #ccc;
+  position: relative;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
+
 .image-holds {
   width: 90px;
   height: 90px;

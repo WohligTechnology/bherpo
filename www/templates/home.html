@@ -42,10 +42,14 @@
 			<div class="navneet">
 				<ion-slide-box on-slide-changed="slideHasChanged(index)" auto-play="true">
 					<ion-slide>
-						<img src="img/sponsor/s1.jpg" class="full-image">
+<!--						<img src="img/sponsor/s1.jpg" class="full-image">-->
+						<div class="image-hol" ng-style="{'background-image':'url({{item.image | serverimage}})'}">
+
 					</ion-slide>
 					<ion-slide>
-						<img src="img/sponsor/s51.jpg" class="full-image">
+<!--						<img src="img/sponsor/s51.jpg" class="full-image">-->
+						<div class="image-hol" ng-style="{'background-image':'url({{item.image | serverimage}})'}">
+
 					</ion-slide>
 				</ion-slide-box>
 			</div>
