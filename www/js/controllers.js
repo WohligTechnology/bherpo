@@ -1074,7 +1074,6 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
     // ***** Modal
     $scope.notificationtosend = {};
 
-    if (MyServices.getUser()) {
         MyServices.getNotification(1, function(data) {
             if (data) {
                 $scope.notification = data.data.slice(0, 2);
@@ -1085,7 +1084,6 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
             $ionicLoading.hide();
 
         });
-    }
 
     //	if (!MyServices.getUser()) {
     //		$location.url("/login");

@@ -124,7 +124,7 @@ angular.module('starter.services', [])
 			}).success(callback);
 		},
 		getNotification: function (pageno, callback) {
-			if(iswebapp){
+			if(!$.jStorage.get("user")){
 			$http({
 				url: adminurl + 'notification/findlimited',
 				method: 'POST',
