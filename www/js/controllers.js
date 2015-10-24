@@ -883,8 +883,8 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
             name: "Ator Khelbaajz",
             num: "2",
-            email: "bherpokandivali@gmail.com",
-            href: "mailto:bherpokandivali@gmail.com"
+            email: "smbherpo@gmail.com",
+            href: "mailto:smbherpo@gmail.com"
 
         }, {
 
