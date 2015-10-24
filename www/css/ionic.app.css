@@ -734,6 +734,9 @@ p.date {
   left: 0;
   right: 0; }
 
+.tm-email.text-center {
+  margin-top: 5px; }
+
 /*!
   Ionicons, v2.0.1
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
