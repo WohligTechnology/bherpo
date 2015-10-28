@@ -217,6 +217,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
                     controller: 'NotidetailCtrl'
                 }
             }
+        })     
+        .state('app.scheduledetail', {
+            url: '/scheduledetail',
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/scheduledetail.html',
+                    controller: 'ScheduledetailCtrl'
+                }
+            }
         })
         .state('app.gallery', {
             url: '/gallery',

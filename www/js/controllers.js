@@ -949,8 +949,8 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
             name: "vinipul Warriors",
             num: "11",
 
-            email: "Vinipul@gmail.com",
-            href: "mailto:Vinipul@gmail.com"
+            email: "Vinipul.bherpo@gmail.com",
+            href: "mailto:vinipul.bherpo@gmail.com"
         }, {
 
             name: "yuvamann",
@@ -1086,6 +1086,18 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 })
 
 .controller('NotidetailCtrl', function($scope, $ionicModal, $ionicScrollDelegate, $timeout, MyServices, $filter) {
+
+    $scope.notification = MyServices.getNotify();
+    $scope.iswebapp = iswebapp;
+    $scope.share = function() {
+        if (!iswebapp) {
+            window.plugins.socialsharing.share($scope.notification.title, null, $filter("serverimage")($scope.notification.image));
+        }
+    }
+
+
+})
+    .controller('ScheduledetailCtrl', function($scope, $ionicModal, $ionicScrollDelegate, $timeout, MyServices, $filter) {
 
     $scope.notification = MyServices.getNotify();
     $scope.iswebapp = iswebapp;

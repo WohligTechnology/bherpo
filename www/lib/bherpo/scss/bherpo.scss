@@ -7,8 +7,16 @@
 		$assertive: #ef473a !default;
 		$royal: #886aea !default;
 		$dark: #444 !default;
-         $font-family-sans-serif:         "Lato","Helvetica Neue","Roboto","Segoe UI",sans-serif !default;
-         $font-family-light-sans-serif:   "Lato","HelveticaNeue-Light","Roboto-Light","Segoe UI-Light",sans-serif-light !default;
+		$font-family-sans-serif: "Lato",
+		"Helvetica Neue",
+		"Roboto",
+		"Segoe UI",
+		sans-serif !default;
+		$font-family-light-sans-serif: "Lato",
+		"HelveticaNeue-Light",
+		"Roboto-Light",
+		"Segoe UI-Light",
+		sans-serif-light !default;
 		$base-color: #4a606f !default;
 		$input-color: $base-color !default;
 		$button-border-radius: 0px !default;
@@ -20,20 +28,22 @@
 		$font-size-input: 15px !default;
 		$bg-menu:url('../img/background/1.jpg') no-repeat center center;
 		//***** Font Famliy ********
-@font-face {
-    font-family: 'Lato';
-    src: url("../fonts/Lato-Bold.ttf");
-    font-weight: 700;
-}
-@font-face {
-    font-family: 'Lato';
-    src: url(../fonts/Lato-Light.ttf);
-    font-weight: 300;
-}
-@font-face {
-    font-family: 'Lato';
-    src: url(../fonts/Lato-Regular.ttf);
-}
+		@font-face {
+		    font-family: 'Lato';
+		    src: url("../fonts/Lato-Bold.ttf");
+		    font-weight: 700;
+		}
+		
+		@font-face {
+		    font-family: 'Lato';
+		    src: url(../fonts/Lato-Light.ttf);
+		    font-weight: 300;
+		}
+		
+		@font-face {
+		    font-family: 'Lato';
+		    src: url(../fonts/Lato-Regular.ttf);
+		}
 		
 		//@font-face {
 		//    font-family: 'Source Sans Pro';
@@ -86,11 +96,12 @@
 		.marzero {
 		    margin: 0;
 		}
+		
 		.bar.bar-calm {
-    border-color: #002C5F !important;
-
-    color: #fff;
-}
+		    border-color: #002C5F !important;
+		    color: #fff;
+		}
+		
 		.active {
 		    color: $light;
 		    border: 0 solid $light;
@@ -177,7 +188,7 @@
 		                    white-space: initial !important;
 		                    color: #FFFF02;
 		                    font-weight: 600;
-                                text-transform: capitalize;
+		                    text-transform: capitalize;
 		                }
 		                h2 {
 		                    font-size: 18px;
@@ -214,17 +225,20 @@
 		        display: inline-block;
 		        width: 35px;
 		    }
-        
 		}
-.menu-list{
-      .item.active, .item.activated, .item-complex.active .item-content, .item-complex.activated .item-content, .item .item-content.active{
-                    background-color: rgba(1, 159, 218, 0.18) !important;
-            }
-    .item .item-content.activated{
-        background-color: #114f72 !important;
-    }
-}
- 
+		
+		.menu-list {
+		    .item.active,
+		    .item.activated,
+		    .item-complex.active .item-content,
+		    .item-complex.activated .item-content,
+		    .item .item-content.active {
+		        background-color: rgba(1, 159, 218, 0.18) !important;
+		    }
+		    .item .item-content.activated {
+		        background-color: #114f72 !important;
+		    }
+		}
 		
 		.hr {
 		    width: 150px;
@@ -295,12 +309,14 @@
 		.schedule {
 		    h4 {
 		        padding-left: 10px;
-		        font-size: 15px;
+		        font-size: 16px;
+		        font-weight: 400;
 		    }
 		    .card {
 		        margin: 13px 10px 0px 10px;
+		        cursor: pointer;
 		        .item {
-		            padding: 5px 0px;
+		            padding: 0px 0px;
 		        }
 		    }
 		}
@@ -406,15 +422,17 @@
 		
 		.day {
 		    h4 {
-		        font-size: 20px !important;
-		        font-weight: 600;
-		        color: $calm;
+		        font-size: 18px !important;
+		        font-weight: 400;
+		        color: #002c5f;
 		        margin: 0 !important;
+		        text-transform: capitalize;
 		    }
 		    p {
-		        font-size: 11px !important;
+		        font-size: 14px !important;
+		        font-weight: 400;
+		        padding: 6px 0px 0px 0px;
 		        color: $calm !important;
-		        margin: 0 !important;
 		    }
 		}
 		
@@ -762,22 +780,22 @@
 		    -o-background-size: cover;
 		    background-size: cover;
 		}
-	.image-hol {
-		    width: 100%;
-    height: 200px;
-    overflow: hidden;
-    background-image: url(../img/sponsor/s1.jpg);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-color: rgba(204, 204, 204, 0);
-    position: relative;
-    -webkit-background-size: contain;
-    -moz-background-size: contain;
-    -o-background-size: contain;
-    background-size: contain;
-    min-height: 200px;
-		}
 		
+		.image-hol {
+		    width: 100%;
+		    height: 200px;
+		    overflow: hidden;
+		    background-image: url(../img/sponsor/s1.jpg);
+		    background-position: center center;
+		    background-repeat: no-repeat;
+		    background-color: rgba(204, 204, 204, 0);
+		    position: relative;
+		    -webkit-background-size: contain;
+		    -moz-background-size: contain;
+		    -o-background-size: contain;
+		    background-size: contain;
+		    min-height: 200px;
+		}
 		
 		.image-holds {
 		    width: 90px;
@@ -789,7 +807,6 @@
 		    background-repeat: no-repeat;
 		    background-color: #ccc;
 		    position: relative;
-		    
 		    -webkit-background-size: cover;
 		    -moz-background-size: cover;
 		    -o-background-size: cover;
@@ -995,7 +1012,7 @@
 		
 		.colr {
 		    color: grey !important;
-            font-size: 13px !important;
+		    font-size: 13px !important;
 		}
 		
 		p.date {
@@ -1018,59 +1035,175 @@
 		    text-align: center;
 		    font-size: 16px;
 		}
-.col.col-67.head {
-    padding-bottom: 20px;
-}
-.sm{
-    font-size: 15px !important;
-}
-.app{
-    h4{
-            margin: 10px auto;
-    font-weight: 600;
-    }
-    a{
-        color:$calm;
-        text-decoration-line: none;
-        text-decoration: none;
-        font-size: 13px;
-    }
-    p{
-        margin: 0;
-    }
-}
-.noti{
-        background-color: #eee !important;
-	h2 {
-		color: black;
-	}
-}
-.ng-invalid.ng-dirty {
-    /*   border-bottom: 1px solid red !important;*/
-    
-    border-bottom: 2px solid red !important;
-}
-.video-overlay {
-    background-color: black !important;
-}
-.full-height .scroll {
-    min-height: 100%;
-}
-.at-center {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
-}
+		
+		.col.col-67.head {
+		    padding-bottom: 20px;
+		}
+		
+		.sm {
+		    font-size: 15px !important;
+		}
+		
+		.app {
+		    h4 {
+		        margin: 10px auto;
+		        font-weight: 600;
+		    }
+		    a {
+		        color: $calm;
+		        text-decoration-line: none;
+		        text-decoration: none;
+		        font-size: 13px;
+		    }
+		    p {
+		        margin: 0;
+		    }
+		}
+		
+		.noti {
+		    background-color: #eee !important;
+		    h2 {
+		        color: black;
+		    }
+		}
+		
+		.ng-invalid.ng-dirty {
+		    /*   border-bottom: 1px solid red !important;*/
+		    border-bottom: 2px solid red !important;
+		}
+		
+		.video-overlay {
+		    background-color: black !important;
+		}
+		
+		.full-height .scroll {
+		    min-height: 100%;
+		}
+		
+		.at-center {
+		    position: absolute;
+		    top: 50%;
+		    left: 0;
+		    right: 0;
+		    transform: translateY(-50%);
+		    -webkit-transform: translateY(-50%);
+		}
+		
+		.at-bottom {
+		    position: absolute;
+		    bottom: 10px;
+		    left: 0;
+		    right: 0;
+		}
+		
+		.tm-email.text-center {
+		    margin-top: 5px;
+		}
+		
+		//		.colum {
+		//		    -webkit-column-count: 2;
+		//		    -moz-column-count: 2;
+		//		    -ms-column-count: 2;
+		//		    text-align: left;
+		////		    padding-top: 5px;
+		//		    margin: 0px 0px 0px 15px;
+		//		    li {
+		//		        font-size: 14px;
+		//		        font-weight: 400;
+		//		        color: #017aa7;
+		//		        padding-bottom: 5px;
+		//		    }
+		//		}
+		.h5 {
+		    h5 {
+		        font-size: 16px !important;
+		        text-transform: capitalize;
+		        font-weight: 400;
+		        color: #FFFFFF;
+		        border-bottom: 1px solid #D0B892;
+		        padding: 8px 0px 10px 0px;
+		        background: #D0B892;
+		    }
+		}
+		
+		.tms-logo {
+		    display: inline-block;
+		    width: 18px;
+		    height: 18px;
+		    border-radius: 100%;
+		    overflow: hidden;
+		    background-image: url(../img/team-logo/Antara Aces.jpg);
+		    background-position: center center;
+		    background-repeat: no-repeat;
+		    background-color: #ccc;
+		    position: relative;
+		    -webkit-background-size: cover;
+		    -moz-background-size: cover;
+		    -o-background-size: cover;
+		    background-size: cover;
+		    vertical-align: sub;
+		    margin-right: 8px;
+		}
+		
+		.classp {
+		    p {
+		        font-size: 14px !important;
+		        font-weight: 400;
+		        color: #017aa7 !important;
+		        padding-bottom: 5px;
+		        display: inline-block;
+		    }
+		}
+		
+		.listclass {
+            .list{
+                 margin-top: -1px !important;
+            }
+		    .item {
+		        padding: 5px !important;
+                border-color:#D0B892;
+                   
+		        p {
+		            margin: 0;
+		            padding: 0;
+		            color: #fff;
+		            text-align: center;
+		            font-size: 13px;
+		        }
+		    }
+		}
+.colclass{
+    text-transform: capitalize;
+        p{
+            color: #002C5F;
 
-.at-bottom {
-    position: absolute;
-    bottom: 10px;
-    left: 0;
-    right: 0;
+    }
 }
-.tm-email.text-center {
-    margin-top: 5px;
+.caps{
+    text-transform: uppercase;
+
+}
+.top-back{
+        background: #00bbd4;
+    h4{
+        margin: 0;
+        color:#fff;
+       
+    }
+    h3{
+            margin-top: 5px;
+    margin-bottom: 10px;
+         color:#fff;
+    }
+    .ptop{
+        padding-top: 30px;
+    }  
+    .pbot{
+        padding-bottom: 30px;
+    }
+}
+.myp {
+    color: #fff !important;
+    padding: 5px;
+    text-transform: capitalize;
 }

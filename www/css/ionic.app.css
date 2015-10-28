@@ -197,11 +197,13 @@ p {
 
 .schedule h4 {
   padding-left: 10px;
-  font-size: 15px; }
+  font-size: 16px;
+  font-weight: 400; }
 .schedule .card {
-  margin: 13px 10px 0px 10px; }
+  margin: 13px 10px 0px 10px;
+  cursor: pointer; }
   .schedule .card .item {
-    padding: 5px 0px; }
+    padding: 0px 0px; }
 
 .side-image {
   text-align: center;
@@ -265,14 +267,16 @@ p {
   float: right; }
 
 .day h4 {
-  font-size: 20px !important;
-  font-weight: 600;
+  font-size: 18px !important;
+  font-weight: 400;
   color: #002c5f;
-  margin: 0 !important; }
+  margin: 0 !important;
+  text-transform: capitalize; }
 .day p {
-  font-size: 11px !important;
-  color: #002c5f !important;
-  margin: 0 !important; }
+  font-size: 14px !important;
+  font-weight: 400;
+  padding: 6px 0px 0px 0px;
+  color: #002c5f !important; }
 
 .down {
   position: absolute;
@@ -736,6 +740,79 @@ p.date {
 
 .tm-email.text-center {
   margin-top: 5px; }
+
+.h5 h5 {
+  font-size: 16px !important;
+  text-transform: capitalize;
+  font-weight: 400;
+  color: #FFFFFF;
+  border-bottom: 1px solid #D0B892;
+  padding: 8px 0px 10px 0px;
+  background: #D0B892; }
+
+.tms-logo {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 100%;
+  overflow: hidden;
+  background-image: url(../img/team-logo/Antara Aces.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: #ccc;
+  position: relative;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  vertical-align: sub;
+  margin-right: 8px; }
+
+.classp p {
+  font-size: 14px !important;
+  font-weight: 400;
+  color: #017aa7 !important;
+  padding-bottom: 5px;
+  display: inline-block; }
+
+.listclass .list {
+  margin-top: -1px !important; }
+.listclass .item {
+  padding: 5px !important;
+  border-color: #D0B892; }
+  .listclass .item p {
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+    font-size: 13px; }
+
+.colclass {
+  text-transform: capitalize; }
+  .colclass p {
+    color: #002C5F; }
+
+.caps {
+  text-transform: uppercase; }
+
+.top-back {
+  background: #00bbd4; }
+  .top-back h4 {
+    margin: 0;
+    color: #fff; }
+  .top-back h3 {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    color: #fff; }
+  .top-back .ptop {
+    padding-top: 30px; }
+  .top-back .pbot {
+    padding-bottom: 30px; }
+
+.myp {
+  color: #fff !important;
+  padding: 5px;
+  text-transform: capitalize; }
 
 /*!
   Ionicons, v2.0.1
