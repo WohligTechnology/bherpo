@@ -197,6 +197,21 @@ angular.module('starter.services', [])
                 method: 'POST'
             }).success(callback);
         },
+        findSchedule: function(callback) {
+            $http({
+                url: adminurl + 'schedule/find',
+                method: 'POST'
+            }).success(callback);
+        },
+        findoneSchedule: function(id, callback) {
+            $http({
+                url: adminurl + 'schedule/findone',
+                method: 'POST',
+                data: {
+                    _id: id
+                }
+            }).success(callback);
+        },
         setNotify: function (data) {
             $.jStorage.set("notify", data);
         },

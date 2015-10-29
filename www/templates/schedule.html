@@ -1,66 +1,61 @@
 <ion-view view-title="Schedule">
     <ion-content>
         <!--
-		
+        
   <div class="text-center">
       <h4>Coming Soon</h4>
   </div>
 -->
-
-        <div class="schedule">
-            <h4>30 september</h4>
-            <div class="card" ui-sref="app.scheduledetail">
+        <div class="schedule" ng-repeat="sch in schedule">
+            <h4>{{sch.date}}</h4>
+            <div class="card" ui-sref="app.scheduledetail({id:sch._id})">
                 <div class="item item-text-wrap h5">
-                    <h5 class="text-center">South Zone teams </h5>
+                    <h5 class="text-center">{{sch.zone}}</h5>
                     <div class="row classp">
-                        <div class="col col-50">
+                        <div class="col col-50" ng-repeat="teams in sch.team">
+                            <div ng-repeat="team in teams">
+                                <div class="grp1" ng-if="$index%2==0">
+                                    <div class="tms-logo" ng-style="{'background-image':'url(img/teams/{{team | name}}.jpg)'}">
+                                    </div>
+                                    <p>{{team}}</p>
+                                </div>
+                                <div class="grp2" ng-if="$index%2!=0">
+                                    <div class="tms-logo" ng-style="{'background-image':'url(img/teams/{{team | name}}.jpg)'}">
+                                    </div>
+                                    <p>{{team}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="col col-50">
                             <div class="grp1">
                                 <div class="tms-logo" ng-style="{'background-image':'url(img/teams/10.jpg)'}">
-
                                 </div>
-                                <p>Transfor Heroes</p>
+                                <p>kfjf Heroes</p>
                             </div>
                             <div class="grp2">
                                 <div class="tms-logo" ng-style="{'background-image':'url(img/teams/10.jpg)'}">
-
                                 </div>
-                                <p>Transfor Heroes</p>
+                                <p>ijsrsigjisj Heroes</p>
                             </div>
-                        </div>
-                        <div class="col col-50">
-                            <div class="grp1">
-                                <div class="tms-logo" ng-style="{'background-image':'url(img/teams/10.jpg)'}">
-
-                                </div>
-                                <p>Transfor Heroes</p>
-                            </div>
-                            <div class="grp2">
-                                <div class="tms-logo" ng-style="{'background-image':'url(img/teams/10.jpg)'}">
-
-                                </div>
-                                <p>Transfor Heroes</p>
-                            </div>
-
-                        </div>
+                        </div> -->
                     </div>
                     <div class="day">
                         <div class="row text-center">
                             <div class="col">
-                                <h4>Acess ,Wadala</h4>
-                                <p>7.30 PM</p>
+                                <h4>{{sch.venue}}</h4>
+                                <p>{{sch.report}}</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
-        <div class="schedule">
+        <!-- <div class="schedule">
             <h4>30 september</h4>
             <div class="card">
                 <div class="item item-text-wrap h5">
                     <h5 class="text-center">South Zone teams </h5>
-                    <!--
+                    
                     <ul class="colum">
                         <li>
                             <div class="tms-logo" ng-style="{'background-image':'url(img/teams/1.jpg)'}">
@@ -70,7 +65,7 @@
                         <li><div class="tms-logo" ng-style="{'background-image':'url(img/teams/5.jpg)'}"></div>Jyoti Giants</li>
                         <li><div class="tms-logo" ng-style="{'background-image':'url(img/teams/8.png)'}"></div>Nirmall Royals</li>
                     </ul>
--->
+
                     <div class="row classp">
                         <div class="col col-50">
                             <div class="grp1">
@@ -114,7 +109,6 @@
             </div>
 
         </div>
-        </div>
-
+        </div> -->
     </ion-content>
 </ion-view>

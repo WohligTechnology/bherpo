@@ -217,9 +217,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
                     controller: 'NotidetailCtrl'
                 }
             }
-        })     
+        })
         .state('app.scheduledetail', {
-            url: '/scheduledetail',
+            url: '/scheduledetail/:id',
             views: {
                 'menuContent': {
                     templateUrl: 'templates/scheduledetail.html',
@@ -388,6 +388,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         }
 
         return value + (tail || ' …');
+    };
+})
+
+.filter('name', function() {
+    return function(input) {
+        var trimmer = input.trim();
+        return trimmer.split(" ").join("_");
     };
 })
 

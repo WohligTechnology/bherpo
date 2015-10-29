@@ -499,35 +499,35 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
     }
 
     MyServices.getVideos(function(data, status) {
-//        console.log(data);
-       
-        $scope.allvideos = _.chunk(data,3);
-         console.log($scope.allvideos);
+        //        console.log(data);
+
+        $scope.allvideos = _.chunk(data, 3);
+        console.log($scope.allvideos);
         // $scope.allvideos = data;
     })
 
-    var init = function () {
+    var init = function() {
         return $ionicModal.fromTemplateUrl('templates/modal-video.html', {
             scope: $scope,
             animation: 'slide-in-up'
-        }).then(function (modal) {
+        }).then(function(modal) {
             $scope.modal = modal;
 
         });
     };
 
 
-    $scope.showVideo = function (url) {
-        init().then(function () {
+    $scope.showVideo = function(url) {
+        init().then(function() {
             $scope.modal.show();
         });
         $scope.video = [];
         $scope.video.url = url + "?autoplay=1";
     };
 
-    $scope.closeVideo = function () {
+    $scope.closeVideo = function() {
         $scope.modal.remove()
-            .then(function () {
+            .then(function() {
                 $scope.modal = null;
             });
     };
@@ -800,9 +800,17 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
 
     })
-    .controller('ScheduleCtrl', function($scope, $ionicModal, $timeout) {
-
-
+    .controller('ScheduleCtrl', function($scope, $ionicModal, $timeout, MyServices, $ionicLoading, $ionicPopup) {
+        allfunction.loading();
+        MyServices.findSchedule(function(data) {
+            _.each(data, function(n) {
+                n.team = n.team.split(",");
+                n.team = _.chunk(n.team, 2);
+            })
+            $scope.schedule = data;
+            console.log($scope.schedule);
+            $ionicLoading.hide();
+        });
     })
     .controller('VenueCtrl', function($scope, $ionicModal, $timeout) {
 
@@ -1087,28 +1095,30 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
 .controller('NotidetailCtrl', function($scope, $ionicModal, $ionicScrollDelegate, $timeout, MyServices, $filter) {
 
-    $scope.notification = MyServices.getNotify();
-    $scope.iswebapp = iswebapp;
-    $scope.share = function() {
-        if (!iswebapp) {
-            window.plugins.socialsharing.share($scope.notification.title, null, $filter("serverimage")($scope.notification.image));
+        $scope.notification = MyServices.getNotify();
+        $scope.iswebapp = iswebapp;
+        $scope.share = function() {
+            if (!iswebapp) {
+                window.plugins.socialsharing.share($scope.notification.title, null, $filter("serverimage")($scope.notification.image));
+            }
         }
-    }
 
 
-})
-    .controller('ScheduledetailCtrl', function($scope, $ionicModal, $ionicScrollDelegate, $timeout, MyServices, $filter) {
+    })
+    .controller('ScheduledetailCtrl', function($scope, $ionicModal, $ionicScrollDelegate, $timeout, MyServices, $filter, $stateParams) {
 
-    $scope.notification = MyServices.getNotify();
-    $scope.iswebapp = iswebapp;
-    $scope.share = function() {
-        if (!iswebapp) {
-            window.plugins.socialsharing.share($scope.notification.title, null, $filter("serverimage")($scope.notification.image));
+        $scope.notification = MyServices.getNotify();
+        $scope.iswebapp = iswebapp;
+        $scope.share = function() {
+            if (!iswebapp) {
+                window.plugins.socialsharing.share($scope.notification.title, null, $filter("serverimage")($scope.notification.image));
+            }
         }
-    }
-
-
-})
+        MyServices.findoneSchedule($stateParams.id, function(data) {
+            console.log(data);
+            $scope.schdetail = data;
+        });
+    })
 
 .controller('HomeCtrl', function($scope, $ionicSlideBoxDelegate, $ionicLoading, $ionicModal, $location, $cordovaFileTransfer, $cordovaFile, $ionicPopup, $timeout, MyServices) {
 
