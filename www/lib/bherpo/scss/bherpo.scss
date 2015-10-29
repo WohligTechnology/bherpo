@@ -1217,20 +1217,10 @@
     margin: 0px !important;
         color:#fff !important;
     }
-    p{
-            display: inline-block;
-    float: right;
-        font-size: 13px !important;
-        font-weight: 100;
-         color:#fff !important;
-        i{
-                padding-right: 6px;
-
-        } 
-    }
     h6{
             font-size: 13px !important;
          color:#fff !important;
+            line-height: 85%;
     }
 }
 .yoname{
@@ -1238,8 +1228,8 @@
              font-size: 14px !important;
     font-weight: 400; 
     }
-    p{
-        font-size: 14px;
-    font-weight: 300;  
-    }
+
+}
+.item.item-text-wrap.yoname {
+    padding: 5px;
 }

@@ -823,24 +823,17 @@ p.date {
     font-size: 14px !important;
     margin: 0px !important;
     color: #fff !important; }
-  .cardclass p {
-    display: inline-block;
-    float: right;
-    font-size: 13px !important;
-    font-weight: 100;
-    color: #fff !important; }
-    .cardclass p i {
-      padding-right: 6px; }
   .cardclass h6 {
     font-size: 13px !important;
-    color: #fff !important; }
+    color: #fff !important;
+    line-height: 85%; }
 
 .yoname h4 {
   font-size: 14px !important;
   font-weight: 400; }
-.yoname p {
-  font-size: 14px;
-  font-weight: 300; }
+
+.item.item-text-wrap.yoname {
+  padding: 5px; }
 
 /*!
   Ionicons, v2.0.1
