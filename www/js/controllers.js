@@ -1105,8 +1105,8 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
 
     })
-    .controller('ScheduledetailCtrl', function($scope, $ionicModal, $ionicScrollDelegate, $timeout, MyServices, $filter, $stateParams) {
-
+    .controller('ScheduledetailCtrl', function($scope, $ionicModal, $ionicScrollDelegate, $timeout, MyServices, $filter, $stateParams, $ionicLoading) {
+        allfunction.loading();
         $scope.notification = MyServices.getNotify();
         $scope.iswebapp = iswebapp;
         $scope.share = function() {
@@ -1117,6 +1117,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
         MyServices.findoneSchedule($stateParams.id, function(data) {
             console.log(data);
             $scope.schdetail = data;
+            $ionicLoading.hide();
         });
     })
 
