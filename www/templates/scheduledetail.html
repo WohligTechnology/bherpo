@@ -45,10 +45,13 @@
                     <p>{{event.event}}</p>
                 </div>
                 <div class="col-20">
-                    <p>{{event.category}}</p>
+                    <p ng-if="event.category">{{event.category}}</p>
+                    <p ng-if="event.zone">{{event.zone}}</p>
+                    <p ng-if="event.ground">{{event.ground}}</p>
                 </div>
                 <div class="col-25">
-                    <p>{{event.court}}</p>
+                    <p ng-if="event.court">{{event.court}}</p>
+                    <p ng-if="event.track">{{event.track}}</p>
                 </div>
             </div>
         </div>
