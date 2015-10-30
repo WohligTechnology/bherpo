@@ -6,7 +6,7 @@
       <h4>Coming Soon</h4>
   </div>
 -->
-        <div class="schedule" ng-repeat="sch in schedule">
+        <div class="schedule" ng-repeat="sch in schedule | orderBy:'date'">
             <h4>{{sch.date}}</h4>
             <div class="card" ui-sref="app.scheduledetail({id:sch._id})">
                 <div class="item item-text-wrap h5">
@@ -15,12 +15,12 @@
                         <div class="col col-50" ng-repeat="teams in sch.team">
                             <div ng-repeat="team in teams">
                                 <div class="grp1" ng-if="$index%2==0">
-                                    <div class="tms-logo" ng-style="{'background-image':'url(img/teams/{{team | name}}.jpg)'}">
+                                    <div class="tms-logo" ng-style="{'background-image':'url(img/teams/{{team | name}}.jpg)'}" ng-if="team!='All Teams'">
                                     </div>
                                     <p>{{team}}</p>
                                 </div>
                                 <div class="grp2" ng-if="$index%2!=0">
-                                    <div class="tms-logo" ng-style="{'background-image':'url(img/teams/{{team | name}}.jpg)'}">
+                                    <div class="tms-logo" ng-style="{'background-image':'url(img/teams/{{team | name}}.jpg)'}" ng-if="team!='All Teams'">
                                     </div>
                                     <p>{{team}}</p>
                                 </div>

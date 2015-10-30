@@ -69,9 +69,10 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 .controller('LoginCtrl', function($scope, $ionicModal, $timeout, MyServices, $ionicPopup, $location) {
     $scope.teams = {};
     $scope.user = {};
-    //  if (MyServices.getUser()) {
-    //      $location.url("/app/home");
-    //  }
+    if (MyServices.getUser()) {
+        $location.url("/app/home");
+    }
+
     allfunction.checkisapp();
     allfunction.msg = function(msg, title) {
         var myPopup = $ionicPopup.show({
