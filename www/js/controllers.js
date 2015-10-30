@@ -800,6 +800,10 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
     .controller('ScoreCtrl', function ($scope, $ionicModal, $timeout) {
 
 
+    })  
+    .controller('SponsordetailCtrl', function ($scope, $ionicModal, $timeout) {
+
+
     })
     .controller('ScheduleCtrl', function ($scope, $ionicModal, $timeout, MyServices, $ionicLoading, $ionicPopup) {
         allfunction.loading();
