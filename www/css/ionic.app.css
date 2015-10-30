@@ -828,9 +828,12 @@ p.date {
     color: #fff !important;
     line-height: 85%; }
 
-.yoname h4 {
-  font-size: 14px !important;
-  font-weight: 400; }
+.yoname {
+  margin: 0 auto;
+  text-align: center; }
+  .yoname h4 {
+    font-size: 14px !important;
+    font-weight: 400; }
 
 .item.item-text-wrap.yoname {
   padding: 5px; }
