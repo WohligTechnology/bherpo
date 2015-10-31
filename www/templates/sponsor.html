@@ -1,41 +1,44 @@
-<ion-view view-title="Sponsor" >
-  <ion-content>
-
-<div class="list tm-standing">
-
-  <div class="item item-divider text-center">
-   Title Sponsor
-  </div>
- <img src="img/sponsor/s1.jpg" class="full-image m20" ui-sref="app.sponsordetail">
-
-</div>
-<div class="list tm-standing">
-
-  <div class="item item-divider text-center">
-   Co-Sponsor
-  </div>
-<!--<img src="img/sponsor/s51.jpg" class="full-image m20">-->
-<div class="row">
-    <div class="col-33">
-      <div class="bx-im">
-           <img src="img/sponsor/e1.jpg" class="full-image bor">
-      </div>
-      
-      
-    </div>
-      <div class="col-33">
-       <div class="bx-im">
-        <img src="img/sponsor/2.png" class="full-image bor">
-          </div>
-    </div>
-    <div class="col-33">
-       <div class="bx-im">
-        <img src="img/sponsor/3.png" class="full-image bor">
+<ion-view view-title="Sponsor">
+    <ion-content>
+        <div class="list tm-standing">
+            <div class="item item-divider text-center">
+                Title Sponsor
+            </div>
+            <a href="#/app/sponsordetail/{{sponsor[0]._id}}/s1.jpg" ng-if="sponsor[0].status=='Yes'">
+                <img src="img/sponsor/s1.jpg" class="full-image m20">
+            </a>
+            <img src="img/sponsor/s1.jpg" class="full-image bor" ng-if="sponsor[0].status=='No'">
         </div>
-    </div>
-  
-</div>
-</div>
-
-  </ion-content>
+        <div class="list tm-standing">
+            <div class="item item-divider text-center">
+                Co-Sponsor
+            </div>
+            <div class="row">
+                <div class="col-33">
+                    <div class="bx-im">
+                        <a href="#/app/sponsordetail/{{sponsor[1]._id}}/e1.jpg" ng-if="sponsor[1].status=='Yes'">
+                            <img src="img/sponsor/e1.jpg" class="full-image bor">
+                        </a>
+                        <img src="img/sponsor/e1.jpg" class="full-image bor" ng-if="sponsor[1].status=='No'">
+                    </div>
+                </div>
+                <div class="col-33">
+                    <div class="bx-im">
+                        <a href="#/app/sponsordetail/{{sponsor[2]._id}}/2.png" ng-if="sponsor[2].status=='Yes'">
+                            <img src="img/sponsor/2.png" class="full-image bor">
+                        </a>
+                        <img src="img/sponsor/2.png" class="full-image bor" ng-if="sponsor[2].status=='No'">
+                    </div>
+                </div>
+                <div class="col-33">
+                    <div class="bx-im">
+                        <a href="#/app/sponsordetail/{{sponsor[3]._id}}/3.png" ng-if="sponsor[3].status=='Yes'">
+                            <img src="img/sponsor/3.png" class="full-image bor">
+                        </a>
+                        <img src="img/sponsor/3.png" class="full-image bor" ng-if="sponsor[3].status=='No'">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
 </ion-view>

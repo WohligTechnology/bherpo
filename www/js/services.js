@@ -1,7 +1,7 @@
 var adminurl = "http://192.168.2.22:1337/";
 var adminurl = "http://wohlig.in:81/";
 //var adminurl = "http://wohlig.com:81/";
-//var adminurl = "http://localhost:1337/";
+// var adminurl = "http://localhost:1337/";
 var imgpath = adminurl + "uploadfile/resize?file=";
 
 angular.module('starter.services', [])
@@ -203,9 +203,24 @@ angular.module('starter.services', [])
                 method: 'POST'
             }).success(callback);
         },
+        findSponsor: function(callback) {
+            $http({
+                url: adminurl + 'sponsor/find',
+                method: 'POST'
+            }).success(callback);
+        },
         findoneSchedule: function(id, callback) {
             $http({
                 url: adminurl + 'schedule/findone',
+                method: 'POST',
+                data: {
+                    _id: id
+                }
+            }).success(callback);
+        },
+        findSponsorDetail: function(id, callback) {
+            $http({
+                url: adminurl + 'sponsor/findone',
                 method: 'POST',
                 data: {
                     _id: id

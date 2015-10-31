@@ -228,7 +228,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
             }
         })     
         .state('app.sponsordetail', {
-            url: '/sponsordetail',
+            url: '/sponsordetail/:id/:image',
             views: {
                 'menuContent': {
                     templateUrl: 'templates/sponsordetail.html',
