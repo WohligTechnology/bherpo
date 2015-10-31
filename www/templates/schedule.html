@@ -6,7 +6,7 @@
       <h4>Coming Soon</h4>
   </div>
 -->
-        <div class="schedule" ng-repeat="sch in schedule | orderBy:'date'">
+        <div class="schedule" ng-repeat="sch in schedule | orderBy:'_id'">
             <h4>{{sch.date}}</h4>
             <div class="card" ui-sref="app.scheduledetail({id:sch._id})" ng-if="sch.events.length>0">
                 <div class="item item-text-wrap h5">
