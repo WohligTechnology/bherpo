@@ -8,7 +8,48 @@
 -->
         <div class="schedule" ng-repeat="sch in schedule | orderBy:'date'">
             <h4>{{sch.date}}</h4>
-            <div class="card" ui-sref="app.scheduledetail({id:sch._id})">
+            <div class="card" ui-sref="app.scheduledetail({id:sch._id})" ng-if="sch.events.length>0">
+                <div class="item item-text-wrap h5">
+                    <h5 class="text-center">{{sch.zone}}</h5>
+                    <div class="row classp">
+                        <div class="col col-50" ng-repeat="teams in sch.team">
+                            <div ng-repeat="team in teams">
+                                <div class="grp1" ng-if="$index%2==0">
+                                    <div class="tms-logo" ng-style="{'background-image':'url(img/teams/{{team | name}}.jpg)'}" ng-if="team!='All Teams'">
+                                    </div>
+                                    <p>{{team}}</p>
+                                </div>
+                                <div class="grp2" ng-if="$index%2!=0">
+                                    <div class="tms-logo" ng-style="{'background-image':'url(img/teams/{{team | name}}.jpg)'}" ng-if="team!='All Teams'">
+                                    </div>
+                                    <p>{{team}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="col col-50">
+                            <div class="grp1">
+                                <div class="tms-logo" ng-style="{'background-image':'url(img/teams/10.jpg)'}">
+                                </div>
+                                <p>kfjf Heroes</p>
+                            </div>
+                            <div class="grp2">
+                                <div class="tms-logo" ng-style="{'background-image':'url(img/teams/10.jpg)'}">
+                                </div>
+                                <p>ijsrsigjisj Heroes</p>
+                            </div>
+                        </div> -->
+                    </div>
+                    <div class="day">
+                        <div class="row text-center">
+                            <div class="col">
+                                <h4>{{sch.venue}}</h4>
+                                <p>{{sch.report}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card" ng-if="sch.events.length==0">
                 <div class="item item-text-wrap h5">
                     <h5 class="text-center">{{sch.zone}}</h5>
                     <div class="row classp">
