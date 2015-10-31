@@ -37,7 +37,7 @@
 			<div class="padzero event">
 				{{msg1}}
 				<div class="all-video list">
-					<div class="row item" ng-repeat="item in hotnotification" ui-sref="app.notidetail">
+					<div class="row item" ng-repeat="item in hotnotification | orderBy:'-clicks'" ng-click="detailNotification(item)">
 						<div class="col col-33">
 							<div class="image-hold" ng-style="{'background-image':'url({{item.image | serverimage}})'}">
 
