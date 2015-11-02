@@ -1,4 +1,4 @@
-<ion-view view-title="Home">
+<ion-view view-title="Home" data-ng-init="init()">
 	<ion-content>
 		<ion-slide-box on-slide-changed="slideHasChanged($index)" delegate-handle="bannerSlides" does-continue="true" slide-interval="3000" auto-play="true">
 			<ion-slide ng-repeat="slide in slides">
