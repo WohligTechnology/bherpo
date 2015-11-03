@@ -1,7 +1,8 @@
 var allfunction = {};
+var currentversion = 8;
 angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
-.controller('AppCtrl', function ($scope, $ionicModal, $timeout, $ionicPopup, $ionicLoading, $timeout, MyServices, $location) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout, $ionicPopup, $ionicLoading, $timeout, MyServices, $location) {
     if (window.cordova) {
         iswebapp = false;
     } else {
@@ -9,7 +10,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
     }
 
     $scope.badge = 0;
-    allfunction.checkisapp = function () {
+    allfunction.checkisapp = function() {
         if (iswebapp) {
             //app on website
             $location.url("/app/home");
@@ -23,28 +24,28 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
         }
     }
     console.log("appctrl");
-    allfunction.msg = function (msg, title) {
+    allfunction.msg = function(msg, title) {
         var myPopup = $ionicPopup.show({
             template: '<p class="text-center">' + msg + '!</p>',
             title: title,
             scope: $scope,
         });
-        $timeout(function () {
+        $timeout(function() {
             myPopup.close(); //close the popup after 3 seconds for some reason
         }, 2000);
     }
 
-    allfunction.loading = function () {
+    allfunction.loading = function() {
         $ionicLoading.show({
             template: '<ion-spinner class="spinner-positive"></ion-spinner>'
         });
-        $timeout(function () {
+        $timeout(function() {
             $ionicLoading.hide();
         }, 5000);
     }
-    allfunction.callbadge = function () {
+    allfunction.callbadge = function() {
         if (MyServices.getUser()) {
-            MyServices.badgeCount(function (data) {
+            MyServices.badgeCount(function(data) {
                 console.log(data);
                 if (data.value == false) {
                     $scope.badge = 0;
@@ -61,12 +62,12 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
 })
 
-.controller('BherpoCtrl', function ($scope, $ionicModal, $timeout) {
+.controller('BherpoCtrl', function($scope, $ionicModal, $timeout) {
 
 
 })
 
-.controller('LoginCtrl', function ($scope, $ionicModal, $timeout, MyServices, $ionicPopup, $location) {
+.controller('LoginCtrl', function($scope, $ionicModal, $timeout, MyServices, $ionicPopup, $location) {
     $scope.teams = {};
     $scope.user = {};
     if (MyServices.getUser()) {
@@ -74,17 +75,17 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
     }
 
     allfunction.checkisapp();
-    allfunction.msg = function (msg, title) {
+    allfunction.msg = function(msg, title) {
         var myPopup = $ionicPopup.show({
             template: '<p class="text-center">' + msg + '!</p>',
             title: title,
             scope: $scope,
         });
-        $timeout(function () {
+        $timeout(function() {
             myPopup.close(); //close the popup after 3 seconds for some reason
         }, 2000);
     }
-    $ionicModal.fromTemplateUrl('templates/modal-terms.html', function ($ionicModal) {
+    $ionicModal.fromTemplateUrl('templates/modal-terms.html', function($ionicModal) {
         $scope.modal = $ionicModal;
     }, {
         // Use our scope for the scope of the modal to keep it simple
@@ -93,19 +94,19 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
         animation: 'slide-in-up'
     });
 
-    $scope.openterms = function () {
+    $scope.openterms = function() {
         $scope.modal.show();
     };
 
-    $scope.closeterms = function () {
+    $scope.closeterms = function() {
         $scope.modal.hide();
     };
 
-    MyServices.findTeam(function (data, status) {
+    MyServices.findTeam(function(data, status) {
         $scope.teams = data;
     })
 
-    $scope.loginUser = function () {
+    $scope.loginUser = function() {
         $scope.allvalidation = [{
             field: $scope.user.firstname,
             validation: ""
@@ -119,7 +120,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
         var check = formvalidation($scope.allvalidation);
         if (check) {
             // $scope.user.token = $.jStorage.get("pushid");
-            MyServices.login($scope.user, function (data) {
+            MyServices.login($scope.user, function(data) {
                 console.log(data);
                 if (data.value == true) {
                     MyServices.setUser(data);
@@ -134,7 +135,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
     }
 })
 
-.controller('RegistrationCtrl', function ($scope, $ionicModal, $timeout, MyServices, $filter, $ionicPopup, $location) {
+.controller('RegistrationCtrl', function($scope, $ionicModal, $timeout, MyServices, $filter, $ionicPopup, $location) {
 
     $scope.user = {};
     $scope.user.sports = [];
@@ -171,7 +172,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
     $scope.allsports = ["Bucket Ball", "Handminton", "Lagori", "Handball", "3 Legged Race", "4 Legged Race", "Triathalon", "Relay", "Skating Relay", "Tug of War"];
 
     // Load the modal from the given template URL
-    $ionicModal.fromTemplateUrl('templates/popupsearch.html', function ($ionicModal) {
+    $ionicModal.fromTemplateUrl('templates/popupsearch.html', function($ionicModal) {
         $scope.modal = $ionicModal;
     }, {
         // Use our scope for the scope of the modal to keep it simple
@@ -181,14 +182,14 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
     });
 
 
-    $scope.openmodal = function () {
+    $scope.openmodal = function() {
         $scope.modal.show();
     };
-    $scope.closemodal = function () {
+    $scope.closemodal = function() {
         $scope.modal.hide();
     };
 
-    $ionicModal.fromTemplateUrl('templates/popuparea.html', function ($ionicModal) {
+    $ionicModal.fromTemplateUrl('templates/popuparea.html', function($ionicModal) {
         $scope.modal1 = $ionicModal;
     }, {
         // Use our scope for the scope of the modal to keep it simple
@@ -202,14 +203,14 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
     $scope.aquaticsdisable = true;
     $scope.sportsdisable = true;
 
-    $scope.enableordisable = function (value) {
+    $scope.enableordisable = function(value) {
         checknow();
         var popindex = $scope.checked.indexOf(value);
         if (popindex == -1) {
             if ($scope.checked.length <= 1) {
                 $scope.checked.push(value);
                 if ($scope.checked.length == 2) {
-                    _.each($scope.divs, function (n) {
+                    _.each($scope.divs, function(n) {
                         var foundindex = $scope.checked.indexOf(n.name);
                         if (foundindex == -1) {
                             n.value = true;
@@ -221,7 +222,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
             }
         } else {
             $scope.checked.splice(popindex, 1);
-            _.each($scope.divs, function (n) {
+            _.each($scope.divs, function(n) {
                 n.value = false;
             })
         }
@@ -275,44 +276,44 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
         }
     }
 
-    $scope.openmodalarea = function () {
+    $scope.openmodalarea = function() {
         $scope.modal1.show();
     };
-    $scope.closemodalarea = function () {
+    $scope.closemodalarea = function() {
         $scope.modal1.hide();
     };
 
-    $scope.doSearchVillage = function (datasearch) {
+    $scope.doSearchVillage = function(datasearch) {
         if (datasearch.length >= 3) {
-            MyServices.findVillage(datasearch, function (data, status) {
+            MyServices.findVillage(datasearch, function(data, status) {
                 console.log(data)
                 $scope.villages = data;
             });
         }
     }
 
-    $scope.selectVillage = function (comp) {
+    $scope.selectVillage = function(comp) {
         console.log(comp);
         $scope.closemodal();
         $scope.user.village.push(comp);
     }
 
-    $scope.doSearchArea = function (datasearch) {
+    $scope.doSearchArea = function(datasearch) {
         if (datasearch.length >= 3) {
-            MyServices.findArea(datasearch, function (data, status) {
+            MyServices.findArea(datasearch, function(data, status) {
                 console.log(data)
                 $scope.areas = data;
             });
         }
     }
 
-    $scope.selectArea = function (comp) {
+    $scope.selectArea = function(comp) {
         console.log(comp);
         $scope.closemodalarea();
         $scope.user.area.push(comp);
     }
 
-    $scope.registerUser = function () {
+    $scope.registerUser = function() {
         $scope.allvalidation = [{
             field: $scope.user.firstname,
             validation: ""
@@ -362,27 +363,27 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
 
             $scope.user.sportsdata = "";
-            _.each($scope.user.quiz, function (q) {
+            _.each($scope.user.quiz, function(q) {
                 if (q != null) {
                     $scope.user.sportsdata += q + ", ";
                 }
             })
-            _.each($scope.user.sports, function (q) {
+            _.each($scope.user.sports, function(q) {
                 if (q != null) {
                     $scope.user.sportsdata += q + ", ";
                 }
             })
-            _.each($scope.user.aquatics, function (q) {
+            _.each($scope.user.aquatics, function(q) {
                 if (q != null) {
                     $scope.user.sportsdata += q + ", ";
                 }
             })
-            _.each($scope.user.dance, function (q) {
+            _.each($scope.user.dance, function(q) {
                 if (q != null) {
                     $scope.user.sportsdata += q + ", ";
                 }
             })
-            _.each($scope.user.volunteer, function (q) {
+            _.each($scope.user.volunteer, function(q) {
                 if (q != null) {
                     $scope.user.sportsdata += q + ", ";
                 }
@@ -393,14 +394,14 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
             console.log($scope.user);
 
-            MyServices.registerUser($scope.user, function (data, status) {
+            MyServices.registerUser($scope.user, function(data, status) {
                 console.log(data);
                 if (data.value == true) {
                     var alertPopup = $ionicPopup.show({
                         title: 'Thank You!',
                         template: '<span style="color:#002C5F">Registration Successful</span>'
                     });
-                    $timeout(function () {
+                    $timeout(function() {
                         alertPopup.close();
                         $location.url("/app/home");
                     }, 2500)
@@ -409,7 +410,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
                         title: 'Sorry! Registration failed',
                         template: '<span style="color:#002C5F">Your Pincode is not valid</span>'
                     });
-                    $timeout(function () {
+                    $timeout(function() {
                         alertPopup.close();
                     }, 2500)
                 } else if (data.value == false && data.comment == "User already exists") {
@@ -417,7 +418,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
                         title: 'Sorry! Registration failed',
                         template: '<span style="color:#002C5F">Email Id already exists</span>'
                     });
-                    $timeout(function () {
+                    $timeout(function() {
                         alertPopup.close();
                     }, 2500)
                 }
@@ -427,7 +428,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
                 title: 'Error!',
                 template: '<span style="color:#002C5F">Please fill in the mandatory fields</span>'
             });
-            $timeout(function () {
+            $timeout(function() {
                 alertPopup.close();
             }, 2500)
         }
@@ -435,7 +436,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
 })
 
-.controller('GalleryCtrl', function ($scope, $ionicModal, $timeout, $ionicScrollDelegate, $location, MyServices, $ionicLoading) {
+.controller('GalleryCtrl', function($scope, $ionicModal, $timeout, $ionicScrollDelegate, $location, MyServices, $ionicLoading) {
 
     $scope.folders = [];
     $scope.msg = "";
@@ -443,17 +444,17 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
     $scope.keepscrolling = true;
 
     allfunction.loading();
-    $scope.loadFolder = function (pageno) {
-        MyServices.getFolder(pageno, function (data) {
+    $scope.loadFolder = function(pageno) {
+        MyServices.getFolder(pageno, function(data) {
             if (data.value == false) {
                 $scope.keepscrolling = false;
             }
-            _.each(data.data, function (n) {
+            _.each(data.data, function(n) {
                 $scope.folders.push(n);
             })
             $ionicLoading.hide();
         });
-        $timeout(function () {
+        $timeout(function() {
             if ($scope.folders == "") {
                 $scope.msg = "No folders.";
             } else {
@@ -465,7 +466,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
     }
     $scope.loadFolder($scope.pageno);
 
-    $scope.loadMoreFolders = function () {
+    $scope.loadMoreFolders = function() {
         $scope.loadFolder(++$scope.pageno);
     }
 
@@ -474,7 +475,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
     $scope.classa = 'active';
     $scope.classb = '';
 
-    $scope.tabchange = function (tab, a) {
+    $scope.tabchange = function(tab, a) {
         //        console.log(tab);
         $scope.tab = tab;
         if (a == 1) {
@@ -495,11 +496,11 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
         }
     };
 
-    $scope.openFolder = function (folder) {
+    $scope.openFolder = function(folder) {
         $location.url("/app/innergallery/" + folder._id);
     }
 
-    MyServices.getVideos(function (data, status) {
+    MyServices.getVideos(function(data, status) {
         //        console.log(data);
 
         $scope.allvideos = _.chunk(data, 3);
@@ -507,44 +508,44 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
         // $scope.allvideos = data;
     })
 
-    var init = function () {
+    var init = function() {
         return $ionicModal.fromTemplateUrl('templates/modal-video.html', {
             scope: $scope,
             animation: 'slide-in-up'
-        }).then(function (modal) {
+        }).then(function(modal) {
             $scope.modal = modal;
 
         });
     };
 
 
-    $scope.showVideo = function (url) {
-        init().then(function () {
+    $scope.showVideo = function(url) {
+        init().then(function() {
             $scope.modal.show();
         });
         $scope.video = [];
         $scope.video.url = url + "?autoplay=1";
     };
 
-    $scope.closeVideo = function () {
+    $scope.closeVideo = function() {
         $scope.modal.remove()
-            .then(function () {
+            .then(function() {
                 $scope.modal = null;
             });
     };
 
 })
 
-.controller('InnerGalleryCtrl', function ($scope, $ionicModal, $timeout, $ionicScrollDelegate, $stateParams, MyServices, $filter, $ionicLoading) {
+.controller('InnerGalleryCtrl', function($scope, $ionicModal, $timeout, $ionicScrollDelegate, $stateParams, MyServices, $filter, $ionicLoading) {
 
     $scope.gallery = [];
     $scope.msg = "";
     allfunction.loading();
-    MyServices.getFolderImages($stateParams.id, function (data) {
+    MyServices.getFolderImages($stateParams.id, function(data) {
         if (data.value == false || !data.image || data.image == '') {
             $scope.msg = "No Galleries";
         }
-        _.each(data.image, function (n) {
+        _.each(data.image, function(n) {
             $scope.gallery.push({
                 "src": $filter("serverimage")(n)
             });
@@ -553,7 +554,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
     });
 
 
-    $ionicModal.fromTemplateUrl('templates/modal-gallery.html', function ($ionicModal) {
+    $ionicModal.fromTemplateUrl('templates/modal-gallery.html', function($ionicModal) {
         $scope.omodal = $ionicModal;
     }, {
         // Use our scope for the scope of the modal to keep it simple
@@ -562,21 +563,21 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
         animation: 'slide-in-up'
     });
 
-    $scope.opengallery = function () {
+    $scope.opengallery = function() {
         $scope.omodal.show();
     };
 
-    $scope.closegallery = function () {
+    $scope.closegallery = function() {
         $scope.omodal.hide();
     };
 
-    $scope.openFolder = function (num) {
+    $scope.openFolder = function(num) {
         $scope.opengallery();
     }
 
 })
 
-.controller('SponsorCtrl', function ($scope, $ionicModal, $timeout, $stateParams, MyServices, $filter, $ionicLoading) {
+.controller('SponsorCtrl', function($scope, $ionicModal, $timeout, $stateParams, MyServices, $filter, $ionicLoading) {
     // $scope.gallery = [{
     //     "src": "img/sponsor/s1.jpg",
 
@@ -593,16 +594,16 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
     // $scope.gallerys = _.chunk($scope.gallery, 3);
     allfunction.loading();
-    MyServices.findSponsor(function (data) {
+    MyServices.findSponsor(function(data) {
         console.log(data);
         $scope.sponsor = data;
         $ionicLoading.hide();
     });
 })
 
-.controller('SponsordetailCtrl', function ($scope, $ionicModal, $timeout, $stateParams, MyServices, $filter, $ionicLoading) {
+.controller('SponsordetailCtrl', function($scope, $ionicModal, $timeout, $stateParams, MyServices, $filter, $ionicLoading) {
     allfunction.loading();
-    MyServices.findSponsorDetail($stateParams.id, function (data) {
+    MyServices.findSponsorDetail($stateParams.id, function(data) {
         console.log(data);
         $scope.sponsor = data;
         $scope.sponsor.image = $stateParams.image;
@@ -610,7 +611,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
     });
 })
 
-.controller('TeamDetailCtrl', function ($scope, $ionicModal, $timeout, $ionicScrollDelegate, $location, $stateParams) {
+.controller('TeamDetailCtrl', function($scope, $ionicModal, $timeout, $ionicScrollDelegate, $location, $stateParams) {
 
     $scope.id = $stateParams.id;
     $scope.video = [{
@@ -623,78 +624,78 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
     };
 
     switch ($scope.id) {
-    case "1":
-        $scope.team.name = "Antara Aces";
-        $scope.team.image = {
-            'background-image': "url('img/team-logo/Antara Aces.jpg')"
-        };
-        break;
-    case "2":
-        $scope.team.name = "Ator Khelbaajz";
-        $scope.team.image = {
-            'background-image': "url('img/team-logo/Ator Khelbaajz.png')"
-        };
-        break;
-    case "3":
-        $scope.team.name = "Blazing Blues";
-        $scope.team.image = {
-            'background-image': "url('img/team-logo/Blazing Blues.png')"
-        };
-        break;
-    case "4":
-        $scope.team.name = "Borivali Stars";
-        $scope.team.image = {
-            'background-image': "url('img/team-logo/Borivali Stars.png')"
-        };
-        break;
-    case "5":
-        $scope.team.name = "Jyoti Giants";
-        $scope.team.image = {
-            'background-image': "url('img/team-logo/Jyoti-Giants.jpg')"
-        };
-        break;
-    case "6":
-        $scope.team.name = "Khelaiya";
-        $scope.team.image = {
-            'background-image': "url('img/team-logo/Khelaiya.png')"
-        };
-        break;
-    case "7":
-        $scope.team.name = "Kutchhi Banka";
-        $scope.team.image = {
-            'background-image': "url('img/team-logo/Kutchi Banka.jpg')"
-        };
-        break;
-    case "8":
-        $scope.team.name = "Nirmall Royals";
-        $scope.team.image = {
-            'background-image': "url('img/team-logo/Nirmal Royals.png')"
-        };
-        break;
-    case "9":
-        $scope.team.name = "Roaring Lions";
-        $scope.team.image = {
-            'background-image': "url('img/team-logo/Roaring Lions.png')"
-        };
-        break;
-    case "10":
-        $scope.team.name = "Transform Heroes";
-        $scope.team.image = {
-            'background-image': "url('img/team-logo/Transform-Heroes.png')"
-        };
-        break;
-    case "11":
-        $scope.team.name = "Vinipul Warriors";
-        $scope.team.image = {
-            'background-image': "url('img/team-logo/Vinipul Warriors.png')"
-        };
-        break;
-    case "12":
-        $scope.team.name = "Yuvamann";
-        $scope.team.image = {
-            'background-image': "url('img/team-logo/Yuvamann.jpg')"
-        };
-        break;
+        case "1":
+            $scope.team.name = "Antara Aces";
+            $scope.team.image = {
+                'background-image': "url('img/team-logo/Antara Aces.jpg')"
+            };
+            break;
+        case "2":
+            $scope.team.name = "Ator Khelbaajz";
+            $scope.team.image = {
+                'background-image': "url('img/team-logo/Ator Khelbaajz.png')"
+            };
+            break;
+        case "3":
+            $scope.team.name = "Blazing Blues";
+            $scope.team.image = {
+                'background-image': "url('img/team-logo/Blazing Blues.png')"
+            };
+            break;
+        case "4":
+            $scope.team.name = "Borivali Stars";
+            $scope.team.image = {
+                'background-image': "url('img/team-logo/Borivali Stars.png')"
+            };
+            break;
+        case "5":
+            $scope.team.name = "Jyoti Giants";
+            $scope.team.image = {
+                'background-image': "url('img/team-logo/Jyoti-Giants.jpg')"
+            };
+            break;
+        case "6":
+            $scope.team.name = "Khelaiya";
+            $scope.team.image = {
+                'background-image': "url('img/team-logo/Khelaiya.png')"
+            };
+            break;
+        case "7":
+            $scope.team.name = "Kutchhi Banka";
+            $scope.team.image = {
+                'background-image': "url('img/team-logo/Kutchi Banka.jpg')"
+            };
+            break;
+        case "8":
+            $scope.team.name = "Nirmall Royals";
+            $scope.team.image = {
+                'background-image': "url('img/team-logo/Nirmal Royals.png')"
+            };
+            break;
+        case "9":
+            $scope.team.name = "Roaring Lions";
+            $scope.team.image = {
+                'background-image': "url('img/team-logo/Roaring Lions.png')"
+            };
+            break;
+        case "10":
+            $scope.team.name = "Transform Heroes";
+            $scope.team.image = {
+                'background-image': "url('img/team-logo/Transform-Heroes.png')"
+            };
+            break;
+        case "11":
+            $scope.team.name = "Vinipul Warriors";
+            $scope.team.image = {
+                'background-image': "url('img/team-logo/Vinipul Warriors.png')"
+            };
+            break;
+        case "12":
+            $scope.team.name = "Yuvamann";
+            $scope.team.image = {
+                'background-image': "url('img/team-logo/Yuvamann.jpg')"
+            };
+            break;
     }
 
 
@@ -702,7 +703,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
 })
 
-.controller('TeamCtrl', function ($scope, $ionicModal, $timeout, $location) {
+.controller('TeamCtrl', function($scope, $ionicModal, $timeout, $location) {
 
         $scope.gallery = [{
 
@@ -781,14 +782,14 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
         $scope.gallerys = _.chunk($scope.gallery, 3);
 
-        $scope.toTeamDetail = function (id) {
+        $scope.toTeamDetail = function(id) {
             if (id == 1 || id == 2 || id == 3 || id == 4 || id == 5 || id == 6 || id == 7 || id == 8 || id == 9 || id == 10 || id == 11 || id == 12) {
                 $location.url("/app/team/detail/" + id);
             }
         }
 
     })
-    .controller('EventCtrl', function ($scope, $ionicModal, $timeout) {
+    .controller('EventCtrl', function($scope, $ionicModal, $timeout) {
         $scope.venue = [{
             image: "img/venue/1.jpg",
             name: "Rectangular stadium",
@@ -812,14 +813,14 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
         }];
 
     })
-    .controller('ScoreCtrl', function ($scope, $ionicModal, $timeout) {
+    .controller('ScoreCtrl', function($scope, $ionicModal, $timeout) {
 
 
     })
-    .controller('ScheduleCtrl', function ($scope, $ionicModal, $timeout, MyServices, $ionicLoading, $ionicPopup) {
+    .controller('ScheduleCtrl', function($scope, $ionicModal, $timeout, MyServices, $ionicLoading, $ionicPopup) {
         allfunction.loading();
-        MyServices.findSchedule(function (data) {
-            _.each(data, function (n) {
+        MyServices.findSchedule(function(data) {
+            _.each(data, function(n) {
                 n.team = n.team.split(",");
                 n.team = _.chunk(n.team, 2);
             })
@@ -828,7 +829,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
             $ionicLoading.hide();
         });
     })
-    .controller('VenueCtrl', function ($scope, $ionicModal, $timeout) {
+    .controller('VenueCtrl', function($scope, $ionicModal, $timeout) {
 
         $scope.venue = [{
             image: "img/venue/1.jpg",
@@ -852,18 +853,18 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
         }];
 
-        $scope.openLink = function (link) {
+        $scope.openLink = function(link) {
             ref = window.open(link, '_blank', 'location=yes');
         }
 
     })
-    .controller('MerchandiseCtrl', function ($scope, $ionicModal, $timeout) {
+    .controller('MerchandiseCtrl', function($scope, $ionicModal, $timeout) {
 
 
     })
-    .controller('TeamstandingCtrl', function ($scope, $ionicModal, $timeout, MyServices, $ionicLoading, $ionicPopup, $timeout) {
+    .controller('TeamstandingCtrl', function($scope, $ionicModal, $timeout, MyServices, $ionicLoading, $ionicPopup, $timeout) {
         allfunction.loading();
-        MyServices.findTeam(function (data) {
+        MyServices.findTeam(function(data) {
             $scope.teams = data;
             $ionicLoading.hide();
         });
@@ -899,7 +900,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
         //          }, 2000);
         //      }
     })
-    .controller('ConatctCtrl', function ($scope, $ionicModal, $timeout) {
+    .controller('ConatctCtrl', function($scope, $ionicModal, $timeout) {
 
         $scope.teams = [{
 
@@ -990,7 +991,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
         }];
     })
 
-.controller('NotificationCtrl', function ($scope, $ionicModal, $ionicScrollDelegate, $timeout, MyServices, $ionicLoading, $location, $timeout) {
+.controller('NotificationCtrl', function($scope, $ionicModal, $ionicScrollDelegate, $timeout, MyServices, $ionicLoading, $location, $timeout) {
     //    *** Tab Change ****
     $scope.tab = 'notify';
     $scope.classa = 'active';
@@ -1004,13 +1005,13 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
     $scope.msg = "";
     $scope.msg1 = "";
     $scope.pageno = 1;
-    $scope.loadNotify = function (pageno) {
+    $scope.loadNotify = function(pageno) {
         if ($scope.tab == 'notify') {
-            MyServices.getNotification(pageno, function (data) {
+            MyServices.getNotification(pageno, function(data) {
                 if (data.value == false) {
                     $scope.keepscrolling = false;
                 } else {
-                    _.each(data.data, function (n) {
+                    _.each(data.data, function(n) {
                         console.log(n);
                         if (n.click == '0' || !n.click) {
                             n.unread = "noti";
@@ -1024,7 +1025,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
 
             });
-            $timeout(function () {
+            $timeout(function() {
                 if ($scope.notification == "") {
                     $scope.msg = "No notifications.";
                 } else {
@@ -1032,11 +1033,11 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
                 }
             }, 3000);
         } else {
-            MyServices.getHotNotification(pageno, function (data) {
+            MyServices.getHotNotification(pageno, function(data) {
                 if (data.value == false) {
                     $scope.keepscrolling = false;
                 } else {
-                    _.each(data, function (n) {
+                    _.each(data, function(n) {
                         $scope.hotnotification.push(n);
                     })
                 }
@@ -1044,7 +1045,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
 
             });
-            $timeout(function () {
+            $timeout(function() {
                 if ($scope.notification == "") {
                     $scope.msg = "No hot notifications.";
                 } else {
@@ -1057,11 +1058,11 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
     }
     $scope.loadNotify($scope.pageno);
 
-    $scope.loadMoreNotification = function () {
+    $scope.loadMoreNotification = function() {
         $scope.loadNotify(++$scope.pageno);
     }
 
-    $scope.detailNotification = function (notify) {
+    $scope.detailNotification = function(notify) {
         MyServices.setNotify(notify);
         if (iswebapp) {
             $location.url("/app/notidetail");
@@ -1074,14 +1075,14 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
             $scope.notificationtosend._id = notify._id;
             $scope.notificationtosend.clicks = notify.clicks;
             $scope.notificationtosend.user = MyServices.getUser().id;
-            MyServices.saveNotification($scope.notificationtosend, function (data) {
+            MyServices.saveNotification($scope.notificationtosend, function(data) {
                 allfunction.callbadge();
             })
             $location.url("/app/notidetail");
         }
     }
 
-    $scope.tabchange = function (tab, a) {
+    $scope.tabchange = function(tab, a) {
         //        console.log(tab);
         $scope.tab = tab;
         if (a == 1) {
@@ -1114,11 +1115,11 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
 })
 
-.controller('NotidetailCtrl', function ($scope, $ionicModal, $ionicScrollDelegate, $timeout, MyServices, $filter) {
+.controller('NotidetailCtrl', function($scope, $ionicModal, $ionicScrollDelegate, $timeout, MyServices, $filter) {
 
         $scope.notification = MyServices.getNotify();
         $scope.iswebapp = iswebapp;
-        $scope.share = function () {
+        $scope.share = function() {
             if (!iswebapp) {
                 window.plugins.socialsharing.share($scope.notification.title, null, $filter("serverimage")($scope.notification.image));
             }
@@ -1126,23 +1127,23 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
 
     })
-    .controller('ScheduledetailCtrl', function ($scope, $ionicModal, $ionicScrollDelegate, $timeout, MyServices, $filter, $stateParams, $ionicLoading) {
+    .controller('ScheduledetailCtrl', function($scope, $ionicModal, $ionicScrollDelegate, $timeout, MyServices, $filter, $stateParams, $ionicLoading) {
         allfunction.loading();
         $scope.notification = MyServices.getNotify();
         $scope.iswebapp = iswebapp;
-        $scope.share = function () {
+        $scope.share = function() {
             if (!iswebapp) {
                 window.plugins.socialsharing.share($scope.notification.title, null, $filter("serverimage")($scope.notification.image));
             }
         }
-        MyServices.findoneSchedule($stateParams.id, function (data) {
+        MyServices.findoneSchedule($stateParams.id, function(data) {
             console.log(data);
             $scope.schdetail = data;
             $ionicLoading.hide();
         });
     })
 
-.controller('HomeCtrl', function ($scope, $ionicSlideBoxDelegate, $ionicLoading, $ionicModal, $location, $cordovaFileTransfer, $cordovaFile, $ionicPopup, $timeout, MyServices, $ionicPopup) {
+.controller('HomeCtrl', function($scope, $ionicSlideBoxDelegate, $ionicLoading, $ionicModal, $location, $cordovaFileTransfer, $cordovaFile, $ionicPopup, $timeout, MyServices, $ionicPopup) {
 
     console.log(iswebapp);
     $scope.iswebapp = iswebapp;
@@ -1153,7 +1154,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
     $scope.notificationtosend = {};
 
     if (MyServices.getUser()) {
-        MyServices.getNotification(1, function (data) {
+        MyServices.getNotification(1, function(data) {
             if (data) {
                 $scope.notification = data.data.slice(0, 2);
             }
@@ -1171,7 +1172,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
     allfunction.checkisapp();
 
 
-    $scope.detailNotification = function (notify) {
+    $scope.detailNotification = function(notify) {
         MyServices.setNotify(notify);
         if (iswebapp) {
             $location.url("/app/notidetail");
@@ -1183,7 +1184,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
             }
             $scope.notificationtosend._id = notify._id;
             $scope.notificationtosend.clicks = notify.clicks;
-            MyServices.saveNotification($scope.notificationtosend, function (data) {
+            MyServices.saveNotification($scope.notificationtosend, function(data) {
                 allfunction.callbadge();
             })
             $location.url("/app/notidetail");
@@ -1192,7 +1193,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
 
     // Load the modal from the given template URL
-    $ionicModal.fromTemplateUrl('templates/modal-regi.html', function ($ionicModal) {
+    $ionicModal.fromTemplateUrl('templates/modal-regi.html', function($ionicModal) {
         $scope.modal = $ionicModal;
     }, {
         // Use our scope for the scope of the modal to keep it simple
@@ -1202,24 +1203,24 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
     });
 
 
-    $scope.openmodal = function () {
+    $scope.openmodal = function() {
         console.log('Opening Modal');
         $scope.modal.show();
     };
 
-    $scope.closemodal = function () {
+    $scope.closemodal = function() {
         console.log('Closing Modal');
         $scope.modal.hide();
         $location.url("/app/registration");
     };
 
-    $scope.savePDF = function () {
-        MyServices.downloadP(function (data, status) {
+    $scope.savePDF = function() {
+        MyServices.downloadP(function(data, status) {
             //            console.log(data);
         })
     }
 
-    $scope.savePDF = function () {
+    $scope.savePDF = function() {
 
         var url = "http://192.168.2.22:1337/user/downloadP";
         var targetPath = cordova.file.externalRootDirectory + "/bherpo/" + "Participate_Rule.pdf";
@@ -1227,34 +1228,34 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
         var options = {};
 
         $cordovaFile.createDir(cordova.file.externalRootDirectory, "bherpo", true)
-            .then(function (success) {
+            .then(function(success) {
                 console.log("directory created");
                 saveNow();
-            }, function (error) {});
+            }, function(error) {});
 
         function saveNow() {
             var alertPopup = $ionicPopup.show({
                 title: "Saving PDF...",
             });
             $cordovaFileTransfer.download(url, targetPath, options, trustHosts)
-                .then(function (result) {
+                .then(function(result) {
                     alertPopup.close();
                     console.log(result);
-                }, function (err) {
+                }, function(err) {
                     console.log(err);
                     var alertPopup2 = $ionicPopup.show({
                         title: "Error Saving PDF...",
                     });
-                    $timeout(function () {
+                    $timeout(function() {
                         alertPopup2.close();
                     }, 2500)
-                }, function (progress) {
-                    $timeout(function () {
+                }, function(progress) {
+                    $timeout(function() {
                         $scope.downloadProgress = (progress.loaded / progress.total) * 100;
                     })
                 });
 
-            $timeout(function () {
+            $timeout(function() {
                 alertPopup.close();
             }, 2500);
         }
@@ -1262,7 +1263,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
 
     //    *** end ****
-    MyServices.getSlider(function (data) {
+    MyServices.getSlider(function(data) {
         $scope.slides = data.image;
         $ionicSlideBoxDelegate.$getByHandle("bannerSlides").update();
         $ionicLoading.hide();
@@ -1293,49 +1294,40 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
 
     //update popup
-
-    $scope.init = function () {
-        //        var alertPopup = $ionicPopup.alert({
-        //          title: 'Update Your App',
-        //          template: '<p style="text-align:center;color:black;">Please first update your app</p>',
-        //        });
-        //        alertPopup.then(function(res) {
-        //          console.log('Thanks');
-        ////            $location.path("https://play.google.com/store/apps/details?id=com.wohlig.bherpo");
-        //        });
-
-        var myPopup = $ionicPopup.show({
-            template: '<p style="text-align:center;color:black;">Please first update your app</p>',
-            title: 'Update Your App',
-            scope: $scope,
-            buttons: [{
+    MyServices.findOneVersion(function(data) {
+        console.log(data);
+        if (currentversion < parseInt(data.version)) {
+            var myPopup = $ionicPopup.show({
+                template: '<p style="text-align: center;color: black;">Please first update your app</p>',
+                title: 'Update Your App',
+                scope: $scope,
+                buttons: [{
                     text: '<b>Update</b>',
                     type: 'button-calm',
-                    onTap: function (e) {
-                        ref = window.open("https://play.google.com/store/apps/details?id=com.wohlig.bherpo", '_blank', 'location=yes');
+                    onTap: function(e) {
+                        ref = window.open("https://play.google.com/store/apps/details?id=com.wohlig.bherpo&hl=en", '_blank', 'location=yes');
                     }
-      }
-    ]
-        });
-    };
-
+                }]
+            });
+        }
+    });
 
 })
 
-.controller('KnowyourteamCtrl', function ($scope, $stateParams, MyServices, $ionicLoading, $timeout, $ionicPopup) {
+.controller('KnowyourteamCtrl', function($scope, $stateParams, MyServices, $ionicLoading, $timeout, $ionicPopup) {
     $scope.team = {};
     $scope.myteam = {};
     $scope.msg = false;
-    var showloading = function () {
+    var showloading = function() {
         $ionicLoading.show({
             template: '<ion-spinner class="spinner-positive"></ion-spinner>'
         });
-        $timeout(function () {
+        $timeout(function() {
             $ionicLoading.hide();
         }, 5000);
     }
 
-    $scope.findTeam = function () {
+    $scope.findTeam = function() {
         $scope.allvalidation = [{
             field: $scope.team.pincode,
             validation: ""
@@ -1343,7 +1335,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
         var check = formvalidation($scope.allvalidation);
         if (check) {
             showloading();
-            MyServices.findMyTeam($scope.team.pincode, function (data) {
+            MyServices.findMyTeam($scope.team.pincode, function(data) {
                 $ionicLoading.hide();
                 $scope.myteam = data;
                 if (data.value == false) {
@@ -1361,7 +1353,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
                 title: "Error !",
                 scope: $scope,
             });
-            $timeout(function () {
+            $timeout(function() {
                 myPopup.close(); //close the popup after 3 seconds for some reason
             }, 2000);
         }

@@ -227,6 +227,15 @@ angular.module('starter.services', [])
                 }
             }).success(callback);
         },
+        findOneVersion: function(callback) {
+            $http({
+                url: adminurl + 'version/findone',
+                method: 'POST',
+                data: {
+                    _id: "5638421140a7afc36318db17"
+                }
+            }).success(callback);
+        },
         setNotify: function (data) {
             $.jStorage.set("notify", data);
         },
