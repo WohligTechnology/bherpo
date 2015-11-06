@@ -171,7 +171,7 @@ angular.module('starter.services', [])
                 method: 'POST',
                 data: {
                     pagenumber: pageno,
-                    pagesize: 2
+                    pagesize: 50
                 }
             }).success(callback);
         },

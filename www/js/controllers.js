@@ -441,17 +441,19 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
     $scope.folders = [];
     $scope.msg = "";
     $scope.pageno = 1;
-    $scope.keepscrolling = true;
+    $scope.keepscrolling = false;
 
     allfunction.loading();
     $scope.loadFolder = function(pageno) {
         MyServices.getFolder(pageno, function(data) {
+            console.log(data);
             if (data.value == false) {
                 $scope.keepscrolling = false;
             }
             _.each(data.data, function(n) {
                 $scope.folders.push(n);
             })
+            $scope.folders = _.chunk($scope.folders, 2);
             $ionicLoading.hide();
         });
         $timeout(function() {
