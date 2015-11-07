@@ -1,15 +1,15 @@
-var adminurl = "http://192.168.2.22:1337/";
-var adminurl = "http://wohlig.in:81/";
+var adminurl = "http://192.168.0.121:1337/";
+// var adminurl = "http://wohlig.in:81/";
 //var adminurl = "http://wohlig.com:81/";
 // var adminurl = "http://localhost:1337/";
 var imgpath = adminurl + "uploadfile/resize?file=";
 
 angular.module('starter.services', [])
 
-.factory('MyServices', function ($http) {
+.factory('MyServices', function($http) {
 
     return {
-        makeactive: function (menuname) {
+        makeactive: function(menuname) {
             for (var i = 0; i < navigation.length; i++) {
                 if (navigation[i].name == menuname) {
                     navigation[i].classis = "active";
@@ -19,14 +19,14 @@ angular.module('starter.services', [])
             }
             return menuname;
         },
-        saveUser: function (data, callback) {
+        saveUser: function(data, callback) {
             $http({
                 url: adminurl + 'user/save',
                 method: 'POST',
                 data: data
             }).success(callback);
         },
-        findVillage: function (data, callback) {
+        findVillage: function(data, callback) {
             $http({
                 url: adminurl + 'village/find',
                 method: 'POST',
@@ -36,7 +36,7 @@ angular.module('starter.services', [])
                 }
             }).success(callback);
         },
-        findArea: function (data, callback) {
+        findArea: function(data, callback) {
             $http({
                 url: adminurl + 'area/find',
                 method: 'POST',
@@ -46,7 +46,7 @@ angular.module('starter.services', [])
                 }
             }).success(callback);
         },
-        sendNotification: function (data, callback) {
+        sendNotification: function(data, callback) {
             var privateKey = '53eeb170092240340c354dc59160facf4b633c72255f52b6';
             var tokens = [token.token];
             var appId = 'e9ef8369';
@@ -68,26 +68,33 @@ angular.module('starter.services', [])
                 }
             }).success(callback);
         },
-        downloadP: function (callback) {
+        downloadP: function(callback) {
             $http({
                 url: adminurl + 'user/downloadP',
                 method: 'POST',
             }).success(callback);
         },
-        downloadE: function (callback) {
+        downloadE: function(callback) {
             $http({
                 url: adminurl + 'user/downloadE',
                 method: 'POST',
             }).success(callback);
         },
-        registerUser: function (data, callback) {
+        registerUser: function(data, callback) {
             $http({
                 url: adminurl + 'user/save',
                 method: 'POST',
                 data: data
             }).success(callback);
         },
-        badgeCount: function (callback) {
+        registerWellWisher: function(data, callback) {
+            $http({
+                url: adminurl + 'user/wellwisher',
+                method: 'POST',
+                data: data
+            }).success(callback);
+        },
+        badgeCount: function(callback) {
             $http({
                 url: adminurl + 'loginuser/countnotify',
                 method: 'POST',
@@ -96,27 +103,27 @@ angular.module('starter.services', [])
                 }
             }).success(callback);
         },
-        getSlider: function (callback) {
+        getSlider: function(callback) {
             $http({
                 url: adminurl + 'slider/find',
                 method: 'POST'
             }).success(callback);
         },
-        login: function (data, callback) {
+        login: function(data, callback) {
             $http({
                 url: adminurl + 'loginuser/save',
                 method: 'POST',
                 data: data
             }).success(callback);
         },
-        saveNotification: function (data, callback) {
+        saveNotification: function(data, callback) {
             $http({
                 url: adminurl + 'notification/save',
                 method: 'POST',
                 data: data
             }).success(callback);
         },
-        getFolderImages: function (id, callback) {
+        getFolderImages: function(id, callback) {
             $http({
                 url: adminurl + 'folder/findone',
                 method: 'POST',
@@ -125,7 +132,7 @@ angular.module('starter.services', [])
                 }
             }).success(callback);
         },
-        getNotification: function (pageno, callback) {
+        getNotification: function(pageno, callback) {
             if (iswebapp) {
                 $http({
                     url: adminurl + 'notification/findlimited',
@@ -147,7 +154,7 @@ angular.module('starter.services', [])
                 }).success(callback);
             }
         },
-        findMyTeam: function (pincode, callback) {
+        findMyTeam: function(pincode, callback) {
             $http({
                 url: adminurl + 'team/findteam',
                 method: 'POST',
@@ -156,7 +163,7 @@ angular.module('starter.services', [])
                 }
             }).success(callback);
         },
-        notification: function (pincode, callback) {
+        notification: function(pincode, callback) {
             $http({
                 url: adminurl + 'loginuser/save',
                 method: 'POST',
@@ -165,7 +172,7 @@ angular.module('starter.services', [])
                 }
             }).success(callback);
         },
-        getFolder: function (pageno, callback) {
+        getFolder: function(pageno, callback) {
             $http({
                 url: adminurl + 'folder/findlimited',
                 method: 'POST',
@@ -175,13 +182,13 @@ angular.module('starter.services', [])
                 }
             }).success(callback);
         },
-        findTeam: function (callback) {
+        findTeam: function(callback) {
             $http({
                 url: adminurl + 'team/find',
                 method: 'POST'
             }).success(callback);
         },
-        getHotNotification: function (pageno, callback) {
+        getHotNotification: function(pageno, callback) {
             $http({
                 url: adminurl + 'notification/findhotnotify',
                 method: 'POST',
@@ -191,7 +198,7 @@ angular.module('starter.services', [])
                 }
             }).success(callback);
         },
-        getVideos: function (callback) {
+        getVideos: function(callback) {
             $http({
                 url: adminurl + 'videogallery/find',
                 method: 'POST'
@@ -236,16 +243,16 @@ angular.module('starter.services', [])
                 }
             }).success(callback);
         },
-        setNotify: function (data) {
+        setNotify: function(data) {
             $.jStorage.set("notify", data);
         },
-        getNotify: function () {
+        getNotify: function() {
             return $.jStorage.get("notify");
         },
-        setUser: function (data) {
+        setUser: function(data) {
             $.jStorage.set("user", data);
         },
-        getUser: function () {
+        getUser: function() {
             return $.jStorage.get("user");
         }
     };

@@ -1173,6 +1173,9 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
     //  }
     allfunction.checkisapp();
 
+    $scope.gotowell = function() {
+        $location.url("/app/newregistration");
+    }
 
     $scope.detailNotification = function(notify) {
         MyServices.setNotify(notify);
@@ -1360,4 +1363,112 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
             }, 2000);
         }
     }
+})
+
+.controller('NewRegistrationCtrl', function($scope, $ionicModal, $timeout, MyServices, $filter, $ionicPopup, $location) {
+
+    $scope.user = {};
+
+    $scope.user.wellwisher = [];
+    $scope.checked = [];
+    $scope.divs = [{
+        name: "div1",
+        vlaue: false
+    }, {
+        name: "div2",
+        value: false
+    }, {
+        name: "div3",
+        value: false
+    }, {
+        name: "div4",
+        value: false
+    }];
+    $scope.user.registrationdate = new Date();
+    $scope.user.city = "Mumbai";
+    $scope.user.area = [];
+    $scope.user.village = [];
+    $scope.user.wellwisher = [];
+    $scope.user.wellwisher[0] = "Well Wisher";
+    $scope.divmodel = {};
+    $scope.divmodel.well = true;
+
+
+    //    $scope.user.dateofbirth = moment().subtract(18, 'years');
+
+    $scope.registerUser = function() {
+        $scope.allvalidation = [{
+            field: $scope.user.firstname,
+            validation: ""
+        }, {
+            field: $scope.user.middlename,
+            validation: ""
+        }, {
+            field: $scope.user.lastname,
+            validation: ""
+        }, {
+            field: $scope.user.dateofbirth,
+            validation: ""
+        }, {
+            field: $scope.user.gender,
+            validation: ""
+        }, {
+            field: $scope.user.mobileno,
+            validation: ""
+        }, {
+            field: $scope.user.email,
+            validation: ""
+        }, {
+            field: $scope.user.address,
+            validation: ""
+        }, {
+            field: $scope.user.area,
+            validation: ""
+        }, {
+            field: $scope.user.pincode,
+            validation: ""
+        }];
+        var check = formvalidation($scope.allvalidation);
+        if (check) {
+            console.log($scope.user);
+            MyServices.registerWellWisher($scope.user, function(data, status) {
+                console.log(data);
+                if (data.value == true) {
+                    var alertPopup = $ionicPopup.show({
+                        title: 'Thank You!',
+                        template: '<span style="color:#002C5F">Registration Successful</span>'
+                    });
+                    $timeout(function() {
+                        alertPopup.close();
+                        $location.url("/app/home");
+                    }, 2500)
+                } else if (data.value == false && data.comment == "No such pincode") {
+                    var alertPopup = $ionicPopup.show({
+                        title: 'Sorry! Registration failed',
+                        template: '<span style="color:#002C5F">Your Pincode is not valid</span>'
+                    });
+                    $timeout(function() {
+                        alertPopup.close();
+                    }, 2500)
+                } else if (data.value == false && data.comment == "User already exists") {
+                    var alertPopup = $ionicPopup.show({
+                        title: 'Sorry! Registration failed',
+                        template: '<span style="color:#002C5F">Email Id already exists</span>'
+                    });
+                    $timeout(function() {
+                        alertPopup.close();
+                    }, 2500)
+                }
+            })
+        } else {
+            var alertPopup = $ionicPopup.show({
+                title: 'Error!',
+                template: '<span style="color:#002C5F">Please fill in the mandatory fields</span>'
+            });
+            $timeout(function() {
+                alertPopup.close();
+            }, 2500)
+        }
+    }
+
 });

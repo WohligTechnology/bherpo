@@ -226,7 +226,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
                     controller: 'ScheduledetailCtrl'
                 }
             }
-        })     
+        })
         .state('app.sponsordetail', {
             url: '/sponsordetail/:id/:image',
             views: {
@@ -250,6 +250,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
                 'menuContent': {
                     templateUrl: 'templates/innergallery.html',
                     controller: 'InnerGalleryCtrl'
+                }
+            }
+        }).state('app.newregistration', {
+            url: '/newregistration',
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/newregistration.html',
+                    controller: 'NewRegistrationCtrl'
                 }
             }
         });

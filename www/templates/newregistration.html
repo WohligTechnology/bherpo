@@ -1,0 +1,154 @@
+<ion-view view-title="Registration">
+    <ion-content>
+        <div class="text-center bold">
+            <h4>Register To Participant</h4>
+            <hr>
+        </div>
+        <div class="regi-form">
+            <div class="list">
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Reg. Date</span>
+                    <input type="date" placeholder="Reg. Date" ng-model='user.registrationdate' readonly>
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">First Name</span>
+                    <input type="text" placeholder="First Name" ng-model='user.firstname' ng-class="allvalidation[0].validation" required>
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Middle Name</span>
+                    <input type="text" placeholder="Middle Name" ng-model='user.middlename' ng-class="allvalidation[1].validation" required>
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Last Name</span>
+                    <input type="text" placeholder="Last Name" ng-model='user.lastname' ng-class="allvalidation[2].validation" required>
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Date of Birth</span>
+                    <input type="text" onfocus="(this.type='date')" placeholder="Date of Birth" ng-model='user.dateofbirth' ng-class="allvalidation[3].validation" required>
+                </label>
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Gender
+                    </div>
+                    <select ng-model='user.gender' ng-class="allvalidation[4].validation" required>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Mobile Number</span>
+                    <input type="text" placeholder="Mobile Number" ng-model='user.mobileno' ng-class="allvalidation[5].validation" maxlength="10" required only-digits>
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Telehpone Number</span>
+                    <div class="row">
+                        <div class="col col-20">
+                            <input type="text" placeholder="022" ng-model='user.extension' only-digits>
+                        </div>
+                        <div class="col col-80">
+                            <input type="text" placeholder="Telehpone Number" ng-model='user.telephoneno' only-digits>
+                        </div>
+                    </div>
+                </label>
+                <label class="item item-input" ng-click="openmodal();" ng-model='user.village'>
+                    <div class=" input-label ">
+                        Village<span class="citysearch">{{user.village[0].name}}</span>
+                    </div>
+                </label>
+                <!--
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Village
+                    </div>
+                    <select ng-options="vil._id as vil.name for vil in village track by vil._id" ng-model='user.village'></select>
+                    
+                    <select ng-model='user.village'>
+                        <option>Blue</option>
+                        <option selected>Green</option>
+                        <option>Red</option>
+                    </select>
+
+                </label>
+-->
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Email</span>
+                    <input type="email" placeholder="Email" ng-model='user.email' ng-class="allvalidation[6].validation" required>
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Address</span>
+                    <input type="text" placeholder="Address" ng-model='user.address' ng-class="allvalidation[7].validation" required>
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Address 2</span>
+                    <input type="text" placeholder="Address 2" ng-model='user.address2'>
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Area</span>
+                    <input type="text" placeholder="Area" ng-model='user.area' ng-class="allvalidation[8].validation" required>
+                </label>
+                <!-- <label class="item item-input" ng-click="openmodalarea();" ng-model='user.area' ng-class="allvalidation[8].validation" required>
+                    <div class=" input-label ">
+                        Area<span class="citysearch">{{user.area[0].name}}</span>
+                    </div>
+                    <input type="text" placeholder="Area" ng-model='user.area'>
+                </label> -->
+                <!--
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Area (Nearest Station)
+                    </div>
+                    <select ng-options="areas._id as areas.name for areas in area track by areas._id" ng-model='user.area'></select>
+                    
+                    <select>
+                        <option>Blue</option>
+                        <option selected>Green</option>
+                        <option>Red</option>
+                    </select>
+
+                </label>
+-->
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">City</span>
+                    <input type="text" placeholder="City" ng-model='user.city' readonly>
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Pincode</span>
+                    <input type="text" placeholder="Pincode" maxlength="6" ng-model='user.pincode' ng-class="allvalidation[9].validation" required only-digits>
+                </label>
+            </div>
+            <div class="select-in">
+                <div class="card" id="div1">
+                    <div class="item item-divider text-center vert">
+                        <label class="checkbox">
+                            <input type="checkbox" ng-disabled="true" ng-model="divmodel.well">
+                        </label>
+                        <span>Well Wisher</span>
+                    </div>
+                    <div class="item item-text-wrap">
+                        <ul class="list">
+                            <li class="item item-checkbox">
+                                <label class="checkbox">
+                                    <input type="checkbox" ng-true-value="'Well Wisher'" ng-false-value="" ng-model="user.wellwisher[0]" ng-disabled="true">
+                                </label>
+                                Well Wisher
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <h4>For Queries Related To Registration Contact:</h4>
+                <p>Chirag Shah: 98215 86816</p>
+                <p>Calling hours 11:00 am to 6:00 pm</p>
+            </div>
+            <div class="padding">
+                <button class="button button-block button-calm" ng-click="registerUser();">
+                    Submit
+                </button>
+                <button class="button button-block button-calm">
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
