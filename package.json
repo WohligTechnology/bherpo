@@ -26,13 +26,10 @@
       "locator": "https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin.git",
       "id": "cordova-plugin-x-socialsharing"
     },
-    {
-      "locator": "https://github.com/Pushwoosh/pushwoosh-phonegap-3.0-plugin.git",
-      "id": "com.pushwoosh.plugins.pushwoosh"
-    }
+    "pushwoosh-cordova-plugin"
   ],
   "cordovaPlatforms": [
-    "ios",
-    "android"
+    "android",
+    "ios"
   ]
 }
