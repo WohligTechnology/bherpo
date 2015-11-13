@@ -1,5 +1,5 @@
 var allfunction = {};
-var currentversion = 8;
+var currentversion = 10;
 angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout, $ionicPopup, $ionicLoading, $timeout, MyServices, $location) {
