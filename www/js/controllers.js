@@ -1394,6 +1394,38 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
     $scope.divmodel.well = true;
 
 
+    $ionicModal.fromTemplateUrl('templates/popupsearch.html', function($ionicModal) {
+        $scope.modal = $ionicModal;
+    }, {
+        // Use our scope for the scope of the modal to keep it simple
+        scope: $scope,
+        // The animation we want to use for the modal entrance
+        animation: 'slide-in-up'
+    });
+
+
+    $scope.openmodal = function() {
+        $scope.modal.show();
+    };
+    $scope.closemodal = function() {
+        $scope.modal.hide();
+    };
+
+    $scope.doSearchVillage = function(datasearch) {
+        if (datasearch.length >= 3) {
+            MyServices.findVillage(datasearch, function(data, status) {
+                console.log(data)
+                $scope.villages = data;
+            });
+        }
+    }
+
+    $scope.selectVillage = function(comp) {
+        console.log(comp);
+        $scope.closemodal();
+        $scope.user.village.push(comp);
+    }
+
     //    $scope.user.dateofbirth = moment().subtract(18, 'years');
 
     $scope.registerUser = function() {
