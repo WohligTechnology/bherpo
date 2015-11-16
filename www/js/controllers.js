@@ -1310,7 +1310,8 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
                     text: '<b>Update</b>',
                     type: 'button-calm',
                     onTap: function(e) {
-                        ref = window.open("https://play.google.com/store/apps/details?id=com.wohlig.bherpo&hl=en", '_system', 'location=yes');
+                        ref = window.open("https://play.google.com/store/apps/details?id=com.wohlig.bherpo&hl=en", '_blank', 'location=yes');
+                        console.log("clicked");
                     }
                 }]
             });
