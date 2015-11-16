@@ -1,5 +1,5 @@
 var allfunction = {};
-var currentversion = 10;
+var currentversion = 9;
 angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout, $ionicPopup, $ionicLoading, $timeout, MyServices, $location) {
@@ -1310,7 +1310,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
                     text: '<b>Update</b>',
                     type: 'button-calm',
                     onTap: function(e) {
-                        ref = window.open("https://play.google.com/store/apps/details?id=com.wohlig.bherpo&hl=en", '_blank', 'location=yes');
+                        ref = window.open("https://play.google.com/store/apps/details?id=com.wohlig.bherpo&hl=en", '_system', 'location=yes');
                     }
                 }]
             });
