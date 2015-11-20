@@ -27,7 +27,8 @@
       "id": "cordova-plugin-x-socialsharing"
     },
     "pushwoosh-cordova-plugin",
-    "com.pushwoosh.plugins.pushwoosh"
+    "com.pushwoosh.plugins.pushwoosh",
+    "cordova-plugin-inappbrowser"
   ],
   "cordovaPlatforms": [
     "ios",
