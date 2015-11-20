@@ -1299,6 +1299,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
 
     //update popup
+    /*
     MyServices.findOneVersion(function(data) {
         console.log(data);
         if (currentversion < parseInt(data.version)) {
@@ -1316,7 +1317,7 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
                 }]
             });
         }
-    });
+    }); */
 
 })
 
