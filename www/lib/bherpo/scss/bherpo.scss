@@ -1132,7 +1132,7 @@
 		    height: 18px;
 		    border-radius: 100%;
 		    overflow: hidden;
-		    background-image: url(../img/team-logo/Antara Aces.jpg);
+//		    background-image: url(../img/team-logo/Antara Aces.jpg);
 		    background-position: center center;
 		    background-repeat: no-repeat;
 		    background-color: #ccc;
@@ -1250,4 +1250,25 @@
     margin: 19px auto;
     padding: 4px;
     border: 1px solid grey;
+}
+.user-back {
+    height: 80px;
+    width: 80px;
+    border-radius: 4px;
+    background-size: contain;
+    margin: 0 auto;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border: 1px solid #C7C6C6;
+    position: relative;
+}
+.fnt-w{
+    font-weight: 600;
+}
+.pri-img{
+        height: 65px;
+    position: absolute;
+    z-index: 99;
+    margin-left: 26px;
+    margin-top: -13px;
 }

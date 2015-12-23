@@ -1,48 +1,83 @@
-<ion-view view-title="Team Standing">
+<ion-view view-title="Winners">
     <ion-content>
 
         <div class="tm-standing">
-<div class="list">
-
-  <div class="item item-divider">
-    <ul>
-        <li>Teams</li>
-        <li class="pull-right">Mobile Downloads</li>
-    </ul>
-  </div>
-
-
-</div>
-             </div>
-            <div class="row" ng-repeat=" item in teams">
-                <div class="col col-80">
-                    <div class="team-status">
-                        <ul>
-                            <li>
-                            <p>{{$index +1}}</p>
-                            </li>
-                            <li>
-                               <div class="img-holding">
-                                   <img ng-src="{{item.image | teamimage}}" class="team-lg">
-                               </div>
-                                
-                            </li>
-                            <li>
-                                <h5>{{item.teamname}}</h5>
-                            </li>
-                        </ul>
+            <div class="list">
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Select Sports
                     </div>
-                </div>
-                <div class="col ">
-                    <div class="points text-center">
-                        <h4 style="    margin-top: 0px;">
-                            {{item.downloads}}
-                        </h4>
+                    <select>
+                        <option selected>Triathlon</option>
+                        <option>3 legged</option>
+                        <option>4 legged</option>
+                    </select>
+                </label>
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Select Category
                     </div>
-                </div>
-              
+                    <select>
+                        <option selected>Male</option>
+                        <option>Female</option>
+                        <!--      <option>4 legged</option>-->
+                    </select>
+                </label>
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Select Age
+                    </div>
+                    <select>
+                        <option selected>8-12</option>
+                        <option>13-16</option>
+                        <!--      <option>4 legged</option>-->
+                    </select>
+                </label>
             </div>
-      
+        </div>
+
+<div class="winner text-center m20">
+    <h4 class="fnt-w">Winner</h4>
+    <div class="row">
+        <div class="col-50">
+            <div class="win-team">
+                <h5 class="fnt-w">Khelbaz</h5>
+                       <div class="win-img">
+                      <img src="img/win/1.png" class="pri-img">
+                  </div>
+                      <div class="user-back" ng-style="{'background-image':'url(img/teams/2.png)'}">
+
+                  </div>
+                
+            </div>
+        </div>
+        <div class="col-50">
+            <div class="win-team">
+                <h5 class="fnt-w">Khelbaz</h5>
+                         <div class="win-img">
+                      <img src="img/win/2.png" class="pri-img">
+                  </div>
+                      <div class="user-back" ng-style="{'background-image':'url(img/teams/3.jpg)'}">
+
+                  </div>
+                  
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="win-team">
+                <h5 class="fnt-w">Khelbaz</h5>
+                         <div class="win-img">
+                      <img src="img/win/3.png" class="pri-img">
+                  </div>
+                      <div class="user-back" ng-style="{'background-image':'url(img/teams/6.jpg)'}">
+
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>
 
     </ion-content>
 </ion-view>
