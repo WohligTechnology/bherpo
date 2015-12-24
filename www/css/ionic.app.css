@@ -898,11 +898,17 @@ p.date {
   font-weight: 600; }
 
 .pri-img {
-  height: 65px;
+  height: 55px;
   position: absolute;
   z-index: 99;
   margin-left: 26px;
-  margin-top: -13px; }
+  margin-top: -9px; }
+
+.win-team1 {
+  padding-top: 50px; }
+
+.win-team2 {
+  padding-top: 86px; }
 
 /*!
   Ionicons, v2.0.1
