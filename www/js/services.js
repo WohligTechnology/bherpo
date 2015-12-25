@@ -1,6 +1,6 @@
-// var adminurl = "http://192.168.0.121:1337/";
+// var adminurl = "http://192.168.0.125:81/";
 var adminurl = "http://wohlig.in:81/";
-//var adminurl = "http://wohlig.com:81/";
+// var adminurl = "http://wohlig.com:81/";
 // var adminurl = "http://localhost:1337/";
 var imgpath = adminurl + "uploadfile/resize?file=";
 
@@ -240,6 +240,26 @@ angular.module('starter.services', [])
                 method: 'POST',
                 data: {
                     _id: "5638421140a7afc36318db17"
+                }
+            }).success(callback);
+        },
+        getCatAge: function(event, callback) {
+            $http({
+                url: adminurl + 'agegrp/findgrp',
+                method: 'POST',
+                data: {
+                    event: event
+                }
+            }).success(callback);
+        },
+        getWinnerResults: function(data, callback) {
+            $http({
+                url: adminurl + 'winner/findWinners',
+                method: 'POST',
+                data: {
+                    event: data.event,
+                    category: data.category,
+                    age: data.age
                 }
             }).success(callback);
         },

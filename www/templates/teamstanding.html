@@ -1,89 +1,88 @@
 <ion-view view-title="Winners">
     <ion-content>
-
         <div class="tm-standing">
             <div class="list">
                 <label class="item item-input item-select">
                     <div class="input-label">
                         Select Sports
                     </div>
-                    <select>
-                        <option selected>Triathlon</option>
-                        <option>3 legged</option>
-                        <option>4 legged</option>
+                    <select ng-model='winner.event' ng-change="getCatAge();">
+                        <option value=''>Select Event</option>
+                        <option value='Triathlon'>Triathlon</option>
+                        <option value='3 legged'>3 legged</option>
+                        <option value='4 legged'>4 legged</option>
+                        <option value='Mixed Relay'>Mixed Relay</option>
+                        <option value='Tug Of War'>Tug Of War</option>
+                        <option value='Skating'>Skating</option>
+                        <option value='Kho-Kho'>Kho-Kho</option>
+                        <option value='Musical Station'>Musical Station</option>
+                        <option value='Khatron Ke Khiladi'>Khatron Ke Khiladi</option>
+                        <option value='Lagori'>Lagori</option>
+                        <option value='Throw Ball'>Throw Ball</option>
+                        <option value='Handminton'>Handminton</option>
+                        <option value='Bucket Ball'>Bucket Ball</option>
+                        <option value='Quiz'>Quiz</option>
+                        <option value='Dance'>Dance</option>
+                        <option value='Street Play'>Street Play</option>
+                        <option value='Cycling'>Cycling</option>
                     </select>
                 </label>
-                <label class="item item-input item-select">
+                <label class="item item-input item-select" ng-if="category.length>0">
                     <div class="input-label">
                         Select Category
                     </div>
-                    <select>
-                        <option selected>Male</option>
-                        <option>Female</option>
-                        <!--      <option>4 legged</option>-->
-                    </select>
+                    <select ng-model='winner.category' ng-options="cat.category as cat.category for cat in category" ng-change="getWinnerResults();"></select>
                 </label>
-                <label class="item item-input item-select">
+                <label class="item item-input item-select" ng-if="age.length>0">
                     <div class="input-label">
                         Select Age
                     </div>
-                    <select>
-                        <option selected>8-12</option>
-                        <option>13-16</option>
-                        <!--      <option>4 legged</option>-->
-                    </select>
+                    <select ng-model='winner.age' ng-options="ages.age as ages.age for ages in age" ng-change="getWinnerResults();"></select>
                 </label>
             </div>
         </div>
-
-<div class="winner text-center m20">
-    <h4 class="fnt-w">Winner</h4>
-<!--
-    <div class="row">
-        <div class="col-33">
-            <div class="win-team1">
-                <h5 class="fnt-w">Khelbaz</h5>
-                       <div class="win-img">
-                      <img src="img/win/2.png" class="pri-img">
-                  </div>
-                      <div class="user-back" ng-style="{'background-image':'url(img/teams/2.png)'}">
-
-                  </div>
-                
+        <!-- img/teams/{{team | name}}.jpg -->
+        <div class="winner text-center m20">
+            <h4 class="fnt-w" ng-if="winnersdata && winnersdata.win1">Winners</h4>
+            <div class="row" ng-hide="showSelectEvent">
+                <div class="col-33">
+                    <div class="win-team1" ng-if="winnersdata && winnersdata.win2">
+                        <h5 class="fnt-w">{{winnersdata.win2}}</h5>
+                        <div class="win-img">
+                            <img src="img/win/2.png" class="pri-img">
+                        </div>
+                        <div class="user-back" ng-style="{'background-image':'url(img/teams/{{winnersdata.win2 | name}}.jpg)'}">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-33" ng-if="winnersdata && winnersdata.win1">
+                    <div class="win-team">
+                        <h5 class="fnt-w">{{winnersdata.win1}}</h5>
+                        <div class="win-img">
+                            <img src="img/win/1.png" class="pri-img">
+                        </div>
+                        <div class="user-back" ng-style="{'background-image':'url(img/teams/{{winnersdata.win1 | name}}.jpg)'}">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-33" ng-if="winnersdata && winnersdata.win3">
+                    <div class="win-team2">
+                        <h5 class="fnt-w">{{winnersdata.win3}}</h5>
+                        <div class="win-img">
+                            <img src="img/win/3.png" class="pri-img">
+                        </div>
+                        <div class="user-back" ng-style="{'background-image':'url(img/teams/{{winnersdata.win3 | name}}.jpg)'}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--   team not delare-->
+            <div class="text-center" ng-show="showSelectEvent">
+                <h4 class="fnt-w">Select an event</h4>
+            </div>
+            <div class="text-center" ng-show="showNoResults">
+                <h4 class="fnt-w">Winner teams yet to be decided</h4>
             </div>
         </div>
-        <div class="col-33">
-            <div class="win-team">
-                <h5 class="fnt-w">Khelbaz</h5>
-                         <div class="win-img">
-                      <img src="img/win/1.png" class="pri-img">
-                  </div>
-                      <div class="user-back" ng-style="{'background-image':'url(img/teams/3.jpg)'}">
-
-                  </div>
-                  
-            </div>
-        </div>
-        <div class="col-33">
-                 <div class="win-team2">
-                <h5 class="fnt-w">Khelbaz</h5>
-                         <div class="win-img">
-                      <img src="img/win/3.png" class="pri-img">
-                  </div>
-                      <div class="user-back" ng-style="{'background-image':'url(img/teams/6.jpg)'}">
-
-                  </div>
-            </div>
-            
-        </div>
-    </div>
--->
-<!--   team not delare-->
-
-<div class="text-center">
-    <h4 class="fnt-w">Team winner Yet Not Be Declare</h4>
-</div>
-</div>
-
     </ion-content>
 </ion-view>

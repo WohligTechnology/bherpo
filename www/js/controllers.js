@@ -864,134 +864,142 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
 
 
     })
-    .controller('TeamstandingCtrl', function($scope, $ionicModal, $timeout, MyServices, $ionicLoading, $ionicPopup, $timeout) {
+
+.controller('TeamstandingCtrl', function($scope, $ionicModal, $timeout, MyServices, $ionicLoading, $ionicPopup, $timeout, $ionicLoading) {
+    $scope.winner = {};
+    $scope.winner.event = '';
+    $scope.winner.category = '';
+    $scope.winner.age = '';
+    $scope.showNoResults = false;
+    $scope.showSelectEvent = true;
+
+    $scope.getCatAge = function() {
         allfunction.loading();
-        MyServices.findTeam(function(data) {
-            $scope.teams = data;
+        MyServices.getCatAge($scope.winner.event, function(data) {
             $ionicLoading.hide();
-        });
+            if (data.value != false) {
+                $scope.category = data.category;
+                $scope.age = data.age;
+                if (data.category.length > 0) {
+                    $scope.winner.category = data.category[0].category;
+                }
+                if (data.age.length > 0) {
+                    $scope.winner.age = data.age[0].age;
+                }
+                $scope.getWinnerResults();
+            }
+        })
+    }
+
+    $scope.getWinnerResults = function() {
+        allfunction.loading();
+        $scope.winnersdata = {};
+        MyServices.getWinnerResults($scope.winner, function(data) {
+            $ionicLoading.hide();
+            if (data.value != false) {
+                $scope.showSelectEvent = false;
+                $scope.showNoResults = false;
+                $scope.winnersdata = data;
+            } else {
+                $scope.winnersdata = {};
+                $scope.showNoResults = true;
+                $scope.showSelectEvent = false;
+            }
+        })
+    }
+
+})
+
+.controller('ConatctCtrl', function($scope, $ionicModal, $timeout) {
+
+    $scope.teams = [{
+
+        name: "Antara Aces",
+        num: "1",
+        email: "gajbherpo@gmail.com",
+        href: "mailto:gajbherpo@gmail.com"
+
+    }, {
+
+        name: "Ator Khelbaajz",
+        num: "2",
+        email: "bherpokandivali@gmail.com",
+        href: "mailto:bherpokandivali@gmail.com"
+
+    }, {
+
+        name: "Blazing Blues",
+        num: "3",
+        email: "dombivalibherpo@gmail.com",
+        href: "mailto:dombivalibherpo@gmail.com"
+
+    }, {
+
+        name: "borivali stars",
+        num: "4",
+        email: "borivalidahisarbherpo@gmail.com",
+        href: "mailto:borivalidahisarbherpo@gmail.com"
+
+    }, {
+
+        name: "jyoti giants",
+        num: "5",
+        email: "smbherpo@gmail.com",
+        href: "mailto:smbherpo@gmail.com"
+
+    }, {
+
+        name: "khelaiya",
+        num: "6",
+        email: "mulundbherpo@gmail.com",
+        href: "mailto:mulundbherpo@gmail.com"
+
+    }, {
+
+        name: "Kutchi Banka",
+        num: "7",
+        email: "Miranavirbherpo@gmail.com",
+        href: "mailto:Miranavirbherpo@gmail.com"
+
+    }, {
+
+        name: "Nirmall royals",
+        num: "8",
+        email: "nirmallroyals@gmail.com",
+        href: "mailto:nirmallroyals@gmail.com"
+
+    }, {
+
+        name: "roaring lions",
+        num: "9",
+        email: "roaring_lions@gmail.com",
+        href: "mailto:roaring_lions@gmail.com"
+
+    }, {
 
 
-        //      $scope.allvalidation = [{
-        //          field: $scope.team.pincode,
-        //          validation: ""
-        //        }];
-        //      var check = formvalidation($scope.allvalidation);
-        //      if (check) {
-        //          showloading();
-        //          MyServices.findMyTeam($scope.team.pincode, function (data) {
-        //              $ionicLoading.hide();
-        //              $scope.myteam = data;
-        //              if (data.value == false) {
-        //                  $scope.myteam.value = false;
-        //                  $scope.msg = true;
-        //              } else {
-        //                  $scope.myteam.value = true;
-        //                  $scope.msg = true;
-        //              }
-        //          })
-        //      } else {
-        //          console.log("else error");
-        //          var myPopup = $ionicPopup.show({
-        //              template: '<p class="text-center">Enter proper pincode!</p>',
-        //              title: "Error !",
-        //              scope: $scope,
-        //          });
-        //          $timeout(function () {
-        //              myPopup.close(); //close the popup after 3 seconds for some reason
-        //          }, 2000);
-        //      }
-    })
-    .controller('ConatctCtrl', function($scope, $ionicModal, $timeout) {
 
-        $scope.teams = [{
+        name: "Transform Heroes",
+        num: "10",
+        email: "Bksvbherpo@gmail.com",
+        href: "mailto:Bksvbherpo@gmail.com"
 
-            name: "Antara Aces",
-            num: "1",
-            email: "gajbherpo@gmail.com",
-            href: "mailto:gajbherpo@gmail.com"
+    }, {
 
-        }, {
+        name: "vinipul Warriors",
+        num: "11",
 
-            name: "Ator Khelbaajz",
-            num: "2",
-            email: "bherpokandivali@gmail.com",
-            href: "mailto:bherpokandivali@gmail.com"
+        email: "Vinipul.bherpo@gmail.com",
+        href: "mailto:vinipul.bherpo@gmail.com"
+    }, {
 
-        }, {
+        name: "yuvamann",
+        num: "12",
+        email: "bherpomalad@gmail.com",
+        href: "mailto:bherpomalad@gmail.com"
 
-            name: "Blazing Blues",
-            num: "3",
-            email: "dombivalibherpo@gmail.com",
-            href: "mailto:dombivalibherpo@gmail.com"
-
-        }, {
-
-            name: "borivali stars",
-            num: "4",
-            email: "borivalidahisarbherpo@gmail.com",
-            href: "mailto:borivalidahisarbherpo@gmail.com"
-
-        }, {
-
-            name: "jyoti giants",
-            num: "5",
-            email: "smbherpo@gmail.com",
-            href: "mailto:smbherpo@gmail.com"
-
-        }, {
-
-            name: "khelaiya",
-            num: "6",
-            email: "mulundbherpo@gmail.com",
-            href: "mailto:mulundbherpo@gmail.com"
-
-        }, {
-
-            name: "Kutchi Banka",
-            num: "7",
-            email: "Miranavirbherpo@gmail.com",
-            href: "mailto:Miranavirbherpo@gmail.com"
-
-        }, {
-
-            name: "Nirmall royals",
-            num: "8",
-            email: "nirmallroyals@gmail.com",
-            href: "mailto:nirmallroyals@gmail.com"
-
-        }, {
-
-            name: "roaring lions",
-            num: "9",
-            email: "roaring_lions@gmail.com",
-            href: "mailto:roaring_lions@gmail.com"
-
-        }, {
-
-
-
-            name: "Transform Heroes",
-            num: "10",
-            email: "Bksvbherpo@gmail.com",
-            href: "mailto:Bksvbherpo@gmail.com"
-
-        }, {
-
-            name: "vinipul Warriors",
-            num: "11",
-
-            email: "Vinipul.bherpo@gmail.com",
-            href: "mailto:vinipul.bherpo@gmail.com"
-        }, {
-
-            name: "yuvamann",
-            num: "12",
-            email: "bherpomalad@gmail.com",
-            href: "mailto:bherpomalad@gmail.com"
-
-        }];
-    })
+    }];
+})
 
 .controller('NotificationCtrl', function($scope, $ionicModal, $ionicScrollDelegate, $timeout, MyServices, $ionicLoading, $location, $timeout) {
     //    *** Tab Change ****
