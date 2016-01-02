@@ -882,9 +882,13 @@ angular.module('starter.controllers', ['ion-gallery', 'ngCordova'])
                 $scope.age = data.age;
                 if (data.category.length > 0) {
                     $scope.winner.category = data.category[0].category;
+                } else{
+                  $scope.winner.category='';
                 }
                 if (data.age.length > 0) {
                     $scope.winner.age = data.age[0].age;
+                } else{
+                    $scope.winner.age='';
                 }
                 $scope.getWinnerResults();
             }
